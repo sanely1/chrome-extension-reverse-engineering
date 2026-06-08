@@ -1,0 +1,88 @@
+{
+  "manifest_version": 3,
+  "permissions": [
+    {
+      "permission": "offscreen",
+      "type": "required",
+      "justification": "Allows the extension to create offscreen documents for storage access and data migration.",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 51,
+        "end": 51
+      }
+    },
+    {
+      "permission": "unlimitedStorage",
+      "type": "required",
+      "justification": "Grants unlimited storage capacity for storing local databases (such as Dexie IndexedDB).",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 52,
+        "end": 52
+      }
+    },
+    {
+      "permission": "idle",
+      "type": "required",
+      "justification": "Allows the extension to monitor system idle/active state transitions to manage active focus sessions.",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 53,
+        "end": 53
+      }
+    }
+  ],
+  "optional_permissions": [
+    {
+      "permission": "bookmarks",
+      "evidence": { "file": "extension/manifest.json", "start": 56, "end": 56 }
+    },
+    {
+      "permission": "tabs",
+      "evidence": { "file": "extension/manifest.json", "start": 57, "end": 57 }
+    },
+    {
+      "permission": "sessions",
+      "evidence": { "file": "extension/manifest.json", "start": 58, "end": 58 }
+    },
+    {
+      "permission": "topSites",
+      "evidence": { "file": "extension/manifest.json", "start": 59, "end": 59 }
+    },
+    {
+      "permission": "favicon",
+      "evidence": { "file": "extension/manifest.json", "start": 60, "end": 60 }
+    },
+    {
+      "permission": "scripting",
+      "evidence": { "file": "extension/manifest.json", "start": 61, "end": 61 }
+    },
+    {
+      "permission": "alarms",
+      "evidence": { "file": "extension/manifest.json", "start": 62, "end": 62 }
+    },
+    {
+      "permission": "notifications",
+      "evidence": { "file": "extension/manifest.json", "start": 63, "end": 63 }
+    },
+    {
+      "permission": "tabGroups",
+      "evidence": { "file": "extension/manifest.json", "start": 64, "end": 64 }
+    },
+    {
+      "permission": "search",
+      "evidence": { "file": "extension/manifest.json", "start": 65, "end": 65 }
+    }
+  ],
+  "host_permissions": [],
+  "optional_host_permissions": [
+    {
+      "host": "file:///*",
+      "evidence": { "file": "extension/manifest.json", "start": 68, "end": 68 }
+    },
+    {
+      "host": "*://*/*",
+      "evidence": { "file": "extension/manifest.json", "start": 69, "end": 69 }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "original": "serviceWorker.js",
+    "beautified": "serviceWorker.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "content-scripts/momoSiteInterop.js",
+    "beautified": "content-scripts/momoSiteInterop.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "content-scripts/siteBlocker.js",
+    "beautified": "content-scripts/siteBlocker.beautified.js",
+    "status": "ok"
+  }
+]

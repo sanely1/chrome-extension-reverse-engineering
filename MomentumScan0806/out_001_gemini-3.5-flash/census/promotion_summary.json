@@ -1,0 +1,16 @@
+{
+  "out_dir": "C:\\Users\\sanel\\Documents\\New folder\\OpenCodeProject2_RISKLOW_CLEAN\\out_001_gemini-3.5-flash",
+  "endpoints": {
+    "promoted": 133,
+    "excluded": 49
+  },
+  "messages": {
+    "promoted": 239,
+    "excluded": 283
+  },
+  "storage": {
+    "promoted": 330,
+    "excluded": 209
+  },
+  "generated_at": "2026-06-08T06:05:16.015Z"
+}

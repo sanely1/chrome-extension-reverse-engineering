@@ -1,0 +1,32 @@
+Run 001 with Model gemini-3.5-flash
+====================================
+Extension ID: laookkfknpbbblfpciffpaejjkokdgca
+Extension Name: Momentum
+Version: 2.25.3
+
+Tool Executions:
+- glob tool: located workspace structure and manifest paths
+- read tool: parsed manifest.json and analyzed service worker/content script codeblocks
+- grep tool: located specific API and event listener registrations
+- census_extractor.js: extracted raw endpoint/message/storage/string counts (2272 source files processed)
+- census_promoter.js: filtered raw candidates into promoted sets
+- adjudicate_census.js: evaluated message and storage rows
+- reconcile_census.js: produced finalized endpoints.csv, messages.csv, storage_keys.csv
+
+Extracted Raw Counts:
+- Raw Endpoint candidates: 182
+- Raw Message candidates: 730
+- Raw Storage candidates: 1123
+- Raw String constants: 2050
+
+Promoted Counts:
+- Promoted Endpoints: 133
+- Promoted Messages: 239
+- Promoted Storage Keys: 330
+
+Reconciled Counts:
+- Reconciled Endpoints: 133
+- Reconciled Messages: 232
+- Reconciled Storage Keys: 330
+
+Status: Complete with no blockers. Output schema conforms with validation criteria.

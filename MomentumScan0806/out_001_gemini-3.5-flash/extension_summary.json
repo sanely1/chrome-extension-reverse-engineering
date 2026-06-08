@@ -1,0 +1,749 @@
+{
+  "$schema": "./schema.chrome_extension_behavior.json",
+  "metadata": {
+    "name": "Momentum",
+    "version": "2.25.3",
+    "manifest_version": 3,
+    "description": "Transform your browser into a beautifully designed tab that helps you feel calm, keep focus, and stay energized.",
+    "evidence": [
+      {
+        "file": "extension/manifest.json",
+        "start": 4,
+        "end": 8
+      }
+    ]
+  },
+  "permissions": {
+    "api_permissions": ["offscreen", "unlimitedStorage", "idle"],
+    "host_permissions": [],
+    "optional_permissions": ["bookmarks", "tabs", "sessions", "topSites", "favicon", "scripting", "alarms", "notifications", "tabGroups", "search"],
+    "evidence": [
+      {
+        "file": "extension/manifest.json",
+        "start": 50,
+        "end": 70
+      }
+    ]
+  },
+  "components": {
+    "background": {
+      "files": ["serviceWorker.js"],
+      "apis": [
+        "chrome.runtime.onInstalled.addListener",
+        "chrome.runtime.setUninstallURL",
+        "chrome.tabs.create",
+        "chrome.tabs.update",
+        "chrome.tabs.get",
+        "chrome.tabs.onRemoved",
+        "chrome.tabs.onUpdated",
+        "chrome.action.onClicked",
+        "chrome.runtime.onMessage.addListener",
+        "chrome.offscreen.createDocument",
+        "chrome.runtime.getContexts"
+      ],
+      "listeners": [
+        "chrome.runtime.onInstalled.addListener",
+        "chrome.runtime.onMessage.addListener",
+        "chrome.action.onClicked.addListener",
+        "chrome.tabs.onRemoved.addListener",
+        "chrome.tabs.onUpdated.addListener"
+      ],
+      "evidence": [
+        {
+          "file": "extension/serviceWorker.js",
+          "start": 1,
+          "end": 5360
+        }
+      ]
+    },
+    "content_scripts": [
+      {
+        "files": ["content-scripts/momoSiteInterop.js"],
+        "apis": [
+          "chrome.runtime.sendMessage",
+          "chrome.runtime.getURL",
+          "chrome.runtime.getManifest",
+          "chrome.extension.inIncognitoContext"
+        ],
+        "listeners": ["window.addEventListener(\"message\")"],
+        "evidence": [
+          {
+            "file": "extension/content-scripts/momoSiteInterop.js",
+            "start": 1,
+            "end": 56
+          }
+        ]
+      },
+      {
+        "files": ["content-scripts/siteBlocker.js"],
+        "apis": ["chrome.runtime.getURL"],
+        "listeners": [
+          "window.addEventListener(\"message\")",
+          "MutationObserver"
+        ],
+        "evidence": [
+          {
+            "file": "extension/content-scripts/siteBlocker.js",
+            "start": 1,
+            "end": 35
+          }
+        ]
+      }
+    ],
+    "injected_scripts": [],
+    "ui": [
+      {
+        "files": ["index.html"],
+        "apis": [],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "extension/index.html",
+            "start": 1,
+            "end": 60
+          }
+        ]
+      }
+    ],
+    "web_accessible_resources": [
+      "site-blocker.html"
+    ]
+  },
+  "network": {
+    "endpoints": [
+      {
+        "url": "https://momentumdash.com/uninstall",
+        "purpose": "Uninstall telemetry redirect route registered upon lifecycle setup",
+        "methods": ["GET"],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/serviceWorker.js",
+            "start": 4819,
+            "end": 4819
+          }
+        ]
+      },
+      {
+        "url": "index.html",
+        "purpose": "New Tab dashboard document loaded programmatically on installation or update events",
+        "methods": ["GET"],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/serviceWorker.js",
+            "start": 4820,
+            "end": 4824
+          }
+        ]
+      },
+      {
+        "url": "site-blocker.html",
+        "purpose": "Iframe block panel displaying focus interventions",
+        "methods": ["GET"],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/content-scripts/siteBlocker.js",
+            "start": 12,
+            "end": 17
+          }
+        ]
+      }
+    ]
+  },
+  "messaging": {
+    "channels": [
+      {
+        "name": "oneTimeLogin",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "extension/content-scripts/momoSiteInterop.js",
+            "start": 21,
+            "end": 33
+          }
+        ]
+      },
+      {
+        "name": "momentum:authState",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "extension/content-scripts/momoSiteInterop.js",
+            "start": 34,
+            "end": 34
+          }
+        ]
+      },
+      {
+        "name": "momentum:checkUserId",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "extension/content-scripts/momoSiteInterop.js",
+            "start": 34,
+            "end": 41
+          }
+        ]
+      },
+      {
+        "name": "momentum:getUserId",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "extension/content-scripts/momoSiteInterop.js",
+            "start": 14,
+            "end": 17
+          }
+        ]
+      },
+      {
+        "name": "momentum:openNew",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "extension/content-scripts/momoSiteInterop.js",
+            "start": 42,
+            "end": 51
+          }
+        ]
+      },
+      {
+        "name": "legacyUserMigration",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "extension/serviceWorker.js",
+            "start": 4901,
+            "end": 4914
+          }
+        ]
+      },
+      {
+        "name": "momentum-intervention:show",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "extension/content-scripts/siteBlocker.js",
+            "start": 21,
+            "end": 23
+          }
+        ]
+      },
+      {
+        "name": "momentum-intervention:dismiss",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "extension/content-scripts/siteBlocker.js",
+            "start": 21,
+            "end": 23
+          }
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "keys": [
+      {
+        "key": "installDate",
+        "type": "local",
+        "purpose": "Timestamp baseline of user installation date",
+        "evidence": [
+          {
+            "file": "extension/serviceWorker.js",
+            "start": 4819,
+            "end": 4819
+          }
+        ]
+      },
+      {
+        "key": "calculateUnregisteredDashboardExperiment",
+        "type": "local",
+        "purpose": "Controls enrollment inside dashboard design experiment variants",
+        "evidence": [
+          {
+            "file": "extension/serviceWorker.js",
+            "start": 4819,
+            "end": 4819
+          }
+        ]
+      },
+      {
+        "key": "releaseUpdateModalCheck",
+        "type": "local",
+        "purpose": "Coordinates version alerts upon successful upgrade",
+        "evidence": [
+          {
+            "file": "extension/serviceWorker.js",
+            "start": 4821,
+            "end": 4821
+          }
+        ]
+      },
+      {
+        "key": "authState",
+        "type": "local",
+        "purpose": "Caches current authentication state and active profile flags",
+        "evidence": [
+          {
+            "file": "extension/serviceWorker.js",
+            "start": 4849,
+            "end": 4851
+          }
+        ]
+      },
+      {
+        "key": "xhrQueue",
+        "type": "indexeddb",
+        "purpose": "Manages sqlite query caching for offline durability",
+        "evidence": [
+          {
+            "file": "extension/serviceWorker.js",
+            "start": 4940,
+            "end": 4942
+          }
+        ]
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "name": "Installation & Onboarding",
+      "triggers": ["chrome.runtime.onInstalled"],
+      "steps": [
+        "User installs extension",
+        "Background service worker registers custom uninstall redirection URL to gather retention stats",
+        "Launches the primary index.html dashboard tab on fresh setups"
+      ],
+      "apis": [
+        "chrome.runtime.onInstalled.addListener",
+        "chrome.runtime.setUninstallURL",
+        "chrome.tabs.create"
+      ],
+      "messages": ["oneTimeLogin"],
+      "endpoints": ["index.html"],
+      "storage_keys": [
+        "installDate",
+        "calculateUnregisteredDashboardExperiment",
+        "releaseUpdateModalCheck"
+      ],
+      "evidence": [
+        {
+          "file": "extension/serviceWorker.js",
+          "start": 4818,
+          "end": 4821
+        }
+      ]
+    },
+    {
+      "name": "Auth Interop & User Session Sync",
+      "triggers": ["Page load on momentumdash.com"],
+      "steps": [
+        "Interop content script loads on momentumdash.com website",
+        "Sends messaging requests to background checking active session and grab active account UUID",
+        "Appends custom hidden inputs inside website body seamlessly propagating identity",
+        "Hooks postMessage listener allowing website origins to relay session status or credentials token"
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "chrome.runtime.getURL",
+        "chrome.runtime.getManifest",
+        "chrome.extension.inIncognitoContext"
+      ],
+      "messages": [
+        "oneTimeLogin",
+        "momentum:authState",
+        "momentum:getUserId",
+        "momentum:checkUserId"
+      ],
+      "endpoints": [],
+      "storage_keys": ["authState"],
+      "evidence": [
+        {
+          "file": "extension/content-scripts/momoSiteInterop.js",
+          "start": 1,
+          "end": 56
+        }
+      ]
+    },
+    {
+      "name": "Focus Mode Site Blocker",
+      "triggers": ["Page load on user-blocked focus websites"],
+      "steps": [
+        "Injected blocker content script triggers on page load",
+        "Mutation observer monitors HTML nodes and prepends a custom Shadow DOM dialog container",
+        "Loads web accessible resource site-blocker.html, passing location metadata and document title via URL search parameters",
+        "Listens for window message events inside page context to trigger fullscreen overlays show/dismiss actions"
+      ],
+      "apis": ["chrome.runtime.getURL"],
+      "messages": [
+        "momentum-intervention:show",
+        "momentum-intervention:dismiss"
+      ],
+      "endpoints": ["site-blocker.html"],
+      "storage_keys": [],
+      "evidence": [
+        {
+          "file": "extension/content-scripts/siteBlocker.js",
+          "start": 1,
+          "end": 35
+        }
+      ]
+    },
+    {
+      "name": "Telemetry & Offline Queue Sync",
+      "triggers": ["Navigator connection status change to online"],
+      "steps": [
+        "Queue manager class initializes custom SQLite IndexedDB store via Dexie library",
+        "Saves telemetry metrics and request descriptors locally during network disconnects",
+        "Listens for navigator.connection state changes",
+        "Re-evaluates connection and auto-batches/uploads pending requests once online recovery is verified"
+      ],
+      "apis": [],
+      "messages": ["legacyUserMigration"],
+      "endpoints": [],
+      "storage_keys": ["xhrQueue"],
+      "evidence": [
+        {
+          "file": "extension/serviceWorker.js",
+          "start": 4932,
+          "end": 5314
+        }
+      ]
+    },
+    {
+      "name": "Vite New Tab Page UI Dashboard Launch",
+      "triggers": ["User opens a new tab or clicks the extension action icon"],
+      "steps": [
+        "Custom index.html overrides Chrome default tab settings",
+        "Preloads core module dependencies including index, main, and style scripts",
+        "Runs rich customized productivity client dashboard widget UI",
+        "Loads standalone widgets including todo lists, quotes, pomodoro clocks, and AI helper options"
+      ],
+      "apis": ["chrome.action.onClicked"],
+      "messages": [],
+      "endpoints": [
+        "/assets/js/index-DJj-is5a.js",
+        "/assets/js/main-DggM1g6v.js"
+      ],
+      "storage_keys": ["calculateUnregisteredDashboardExperiment"],
+      "evidence": [
+        {
+          "file": "extension/index.html",
+          "start": 1,
+          "end": 60
+        }
+      ]
+    },
+    {
+      "name": "Legacy Migration & Offscreen Document",
+      "triggers": ["Background service worker triggers offscreen requests"],
+      "steps": [
+        "Service worker checks existing document contexts",
+        "Spawns offscreen document for local storage accesses",
+        "Runs backup/migrations",
+        "Terminates offscreen document context"
+      ],
+      "apis": [
+        "chrome.offscreen.createDocument",
+        "chrome.runtime.getContexts"
+      ],
+      "messages": [
+        "legacyUserMigration:triggerOffscreenDocumentRequest"
+      ],
+      "endpoints": [],
+      "storage_keys": ["xhrQueue"],
+      "evidence": [
+        {
+          "file": "extension/serviceWorker.js",
+          "start": 4740,
+          "end": 4914
+        }
+      ]
+    }
+  ],
+  "observed_privacy_data": {
+    "items": [
+      {
+        "data_name": "Browsing Page Title & Host",
+        "data_description": "Page location hostname and document titles are captured on blocked websites to personalize the site blocking intervention dialog.",
+        "source": "Document DOM context",
+        "operation": "read",
+        "collection_trigger": "automatic page load",
+        "storage": {
+          "stored": false,
+          "type": "none",
+          "key": "",
+          "retention": ""
+        },
+        "transmission": {
+          "transmitted": true,
+          "recipient": "Iframe Blocker page",
+          "endpoint": "site-blocker.html",
+          "method": "GET",
+          "payload_fields": ["hostname", "sitename", "metatitle", "documenttitle"]
+        },
+        "local_processing": [
+          "Extract metadata from document",
+          "Construct URL search parameters for internal iframe"
+        ],
+        "user_control_or_consent": "implicit",
+        "purpose_observed": "focus mode site blocking",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "extension/content-scripts/siteBlocker.js",
+            "start": 12,
+            "end": 17
+          }
+        ]
+      },
+      {
+        "data_name": "User UUID",
+        "data_description": "Primary user account identifier used for seamless account mapping and interop sync.",
+        "source": "IndexedDB main database",
+        "operation": "read",
+        "collection_trigger": "automatic page load",
+        "storage": {
+          "stored": true,
+          "type": "indexeddb",
+          "key": "authState",
+          "retention": "indefinite"
+        },
+        "transmission": {
+          "transmitted": true,
+          "recipient": "momentumdash.com website DOM",
+          "endpoint": "momentumExtensionUserId",
+          "method": "DOM injection",
+          "payload_fields": ["userId"]
+        },
+        "local_processing": [
+          "Read user UUID from IndexedDB main database client",
+          "Inject value to custom input on main website body"
+        ],
+        "user_control_or_consent": "implicit",
+        "purpose_observed": "account integration",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "extension/content-scripts/momoSiteInterop.js",
+            "start": 14,
+            "end": 17
+          }
+        ]
+      },
+      {
+        "data_name": "Extension Installation Date",
+        "data_description": "Timestamp recorded when the extension is first loaded or updated in the browser.",
+        "source": "chrome.runtime.onInstalled lifecycle event",
+        "operation": "write",
+        "collection_trigger": "automatic extension setup",
+        "storage": {
+          "stored": true,
+          "type": "local",
+          "key": "installDate",
+          "retention": "indefinite"
+        },
+        "transmission": {
+          "transmitted": false,
+          "recipient": "",
+          "endpoint": "",
+          "method": "",
+          "payload_fields": []
+        },
+        "local_processing": [
+          "Capture current epoch timestamp",
+          "Save timestamp in local settings cache"
+        ],
+        "user_control_or_consent": "implicit",
+        "purpose_observed": "metrics baseline",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "extension/serviceWorker.js",
+            "start": 4818,
+            "end": 4821
+          }
+        ]
+      },
+      {
+        "data_name": "Passwordless Auth Token",
+        "data_description": "Temporary access credentials used to verify and authorize credentials sync across origin boundaries.",
+        "source": "window.postMessage listener",
+        "operation": "read",
+        "collection_trigger": "explicit user login action",
+        "storage": {
+          "stored": true,
+          "type": "local",
+          "key": "authState",
+          "retention": "indefinite"
+        },
+        "transmission": {
+          "transmitted": true,
+          "recipient": "momentumdash.com website",
+          "endpoint": "oneTimeLogin",
+          "method": "postMessage",
+          "payload_fields": [
+            "payload",
+            "legacy",
+            "updateSenderTab"
+          ]
+        },
+        "local_processing": [
+          "Relay credentials object from postMessage to extension background API handler",
+          "Construct token URL parameter for dashboard redirects"
+        ],
+        "user_control_or_consent": "explicit",
+        "purpose_observed": "seamless login integration",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "extension/content-scripts/momoSiteInterop.js",
+            "start": 21,
+            "end": 33
+          }
+        ]
+      },
+      {
+        "data_name": "Offline Event Queue Logs",
+        "data_description": "Maintains an offline request queue containing telemetry logs and request parameters to prevent loss during disconnects.",
+        "source": "IndexedDB sqlite database via Dexie",
+        "operation": "write",
+        "collection_trigger": "connectivity loss / telemetry capture",
+        "storage": {
+          "stored": true,
+          "type": "indexeddb",
+          "key": "xhrQueue",
+          "retention": "until successful upload sync"
+        },
+        "transmission": {
+          "transmitted": false,
+          "recipient": "",
+          "endpoint": "",
+          "method": "",
+          "payload_fields": []
+        },
+        "local_processing": [
+          "Serialize network request descriptors",
+          "Store records into sqlite queue database",
+          "Monitor connection states for recovery checks"
+        ],
+        "user_control_or_consent": "implicit",
+        "purpose_observed": "offline durability",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "extension/serviceWorker.js",
+            "start": 4939,
+            "end": 4943
+          }
+        ]
+      }
+    ]
+  },
+  "privacy": {
+    "data_categories": [
+      "user_credentials",
+      "user_identifiers",
+      "browsing_metadata",
+      "productivity_metrics",
+      "device_configuration"
+    ],
+    "purposes": [
+      "authentication",
+      "onboarding_and_personalization",
+      "offline_telemetry_and_metrics",
+      "focus_mode_functionality"
+    ],
+    "minimization": "The extension minimizes direct server-side data extraction by processing focus site block dialog overrides locally on the client within sandboxed Web-Accessible resource overlays, and serializing telemetry queue buffers locally.",
+    "consent": "User consent is obtained implicitly by customizing focus lists and completing onboarding tasks, and explicitly during login credentials syncing across origin boundaries.",
+    "retention": "Tenure and setup parameters are persisted indefinitely in local storage caches, while offline request queues are wiped upon successful backend transmission.",
+    "third_parties": [],
+    "policy_compliance": "The extension demonstrates alignment with Chrome Web Store and privacy regulations by utilizing local sandboxed databases and applying explicit target origin filters during window postMessage communication.",
+    "evidence": [
+      {
+        "file": "extension/serviceWorker.js",
+        "start": 1,
+        "end": 5360
+      }
+    ]
+  },
+  "risks": [
+    {
+      "type": "other",
+      "severity": "medium",
+      "justification": "Web-to-Extension postMessage Hijacking: The content script momoSiteInterop.js registers a window message event handler that programmatically listens for custom commands from momentumdash.com website context. If the main website is compromised via cross-site scripting (XSS), hostile scripts could leverage postMessages to update credentials or execute unauthorized user actions.",
+      "evidence": [
+        {
+          "file": "extension/content-scripts/momoSiteInterop.js",
+          "start": 18,
+          "end": 53
+        }
+      ]
+    },
+    {
+      "type": "tracking",
+      "severity": "low",
+      "justification": "Real-time browsing context monitoring: The site blocker content script siteBlocker.js tracks browser tabs matching user-defined focus blocker filters. It reads document title, location hostname, and OpenGraph descriptors to build blocking templates, though this metadata is processed locally and passed only to the sandboxed web-accessible iframe rather than external third-party endpoints.",
+      "evidence": [
+        {
+          "file": "extension/content-scripts/siteBlocker.js",
+          "start": 12,
+          "end": 17
+        }
+      ]
+    },
+    {
+      "type": "insecure_storage",
+      "severity": "low",
+      "justification": "Unencrypted local storage of authentication state: User session keys, profile parameters, and login states are stored persistently inside local IndexedDB/localStorage sandboxes without distinct encryption.",
+      "evidence": [
+        {
+          "file": "extension/serviceWorker.js",
+          "start": 4843,
+          "end": 4853
+        }
+      ]
+    },
+    {
+      "type": "excessive_permissions",
+      "severity": "low",
+      "justification": "Broad capability of optional permissions: The extension requests a large list of optional APIs like bookmarks, topSites, scripting, and alarms, though these are off by default and require explicit runtime approval.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 55,
+          "end": 66
+        }
+      ]
+    }
+  ],
+  "code_signals": {
+    "chrome_api_calls": [
+      "chrome.runtime.onInstalled.addListener",
+      "chrome.runtime.setUninstallURL",
+      "chrome.tabs.create",
+      "chrome.tabs.update",
+      "chrome.tabs.get",
+      "chrome.tabs.onRemoved.addListener",
+      "chrome.tabs.onUpdated.addListener",
+      "chrome.action.onClicked.addListener",
+      "chrome.runtime.onMessage.addListener",
+      "chrome.offscreen.createDocument",
+      "chrome.runtime.getContexts"
+    ],
+    "event_listeners": [
+      "chrome.runtime.onInstalled.addListener",
+      "chrome.runtime.onMessage.addListener",
+      "chrome.action.onClicked.addListener",
+      "chrome.tabs.onRemoved.addListener",
+      "chrome.tabs.onUpdated.addListener",
+      "window.addEventListener"
+    ],
+    "dynamic_code": ["atob"],
+    "wasm_modules": [],
+    "third_party_libs": ["dexie"]
+  }
+}

@@ -1,0 +1,38 @@
+@startuml
+skinparam handwritten false
+skinparam monochrome false
+skinparam shadowing true
+
+actor User
+participant "index.html\n(Momentum Dashboard UI)" as UI
+participant "momoSiteInterop.js\n(Content Script)" as Interop
+participant "siteBlocker.js\n(Content Script)" as Blocker
+participant "serviceWorker.js\n(Service Worker)" as BG
+database "Dexie IndexedDB\n(Local Storage)" as DB
+participant "site-blocker.html\n(Iframe Block Page)" as BlockerUI
+participant "momentumdash.com\n(Main Website)" as Web
+
+User -> UI : Open New Tab
+UI -> BG : Fetch cached profile settings
+BG -> DB : Read setting state / authState
+DB --> BG : Return state
+BG --> UI : Display custom widget, todo lists, backgrounds
+
+User -> Web : Load main site
+Web -> Interop : Trigger page load hooks
+Interop -> BG : sendMessage(momentum:getUserId)
+BG -> DB : Read active user UUID
+DB --> BG : Return UUID
+BG --> Interop : Return userUuid
+Interop -> Web : Inject UUID hidden input into DOM
+Web -> Interop : window.postMessage("momentum:oneTimeLogin", payload)
+Interop -> BG : sendMessage("oneTimeLogin", payload)
+BG -> UI : updateSenderTab URL with login details
+UI --> User : Display logged-in account status
+
+User -> Blocker : Visit blocked focus site
+Blocker -> Blocker : Extract og:site_name & page title
+Blocker -> BlockerUI : Instantiate iframe?hostname=...&sitename=...
+BlockerUI -> Blocker : postMessage("momentum-intervention:show")
+Blocker -> User : Show fullscreen overlay site blocking modal
+@endum
