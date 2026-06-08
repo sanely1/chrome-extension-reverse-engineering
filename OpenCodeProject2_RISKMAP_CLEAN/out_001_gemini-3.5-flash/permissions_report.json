@@ -1,0 +1,24 @@
+{
+  "declared_permissions": [
+    "scripting",
+    "sidePanel",
+    "tabs",
+    "notifications",
+    "cookies",
+    "identity",
+    "storage"
+  ],
+  "optional_permissions": [
+    "nativeMessaging",
+    "clipboardRead"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "warnings": [
+    "Read and modify all your data on the websites you visit",
+    "Communicate with cooperating native applications",
+    "Read data you copy and paste"
+  ]
+}

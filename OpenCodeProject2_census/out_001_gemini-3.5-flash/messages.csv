@@ -1,0 +1,125 @@
+channel_name,direction,payload_keys,file,line_start,line_end
+RPC disposed.,other,,src/inkwell/assets/index-uVYElzgq.js,2,2
+outbound,other,,src/inkwell/assets/index-uVYElzgq.js,2,2
+applyFrameMetadata,other,,src/inkwell/assets/index-uVYElzgq.js,2,2
+preprocessEvent,other,,src/inkwell/assets/index-uVYElzgq.js,2,2
+beforeSendEvent,other,,src/inkwell/assets/index-uVYElzgq.js,2,2
+afterSendEvent,other,,src/inkwell/assets/index-uVYElzgq.js,2,2
+beforeEnvelope,other,,src/inkwell/assets/index-uVYElzgq.js,2,2
+preprocessEvent,other,,src/inkwell/assets/index-uVYElzgq.js,2,2
+beforeAddBreadcrumb,other,,src/inkwell/assets/index-uVYElzgq.js,2,2
+beforeSendEvent,other,,src/inkwell/assets/index-uVYElzgq.js,2,2
+Failed to connect to the background.,unknown,,src/inkwell/assets/index-uVYElzgq.js,26,26
+message,unknown,,src/inkwell/assets/index-uVYElzgq.js,26,26
+after-highlight,other,,src/js/1454.vendors.chunk.js,2,2
+wrap,other,,src/js/1454.vendors.chunk.js,2,2
+openchange,other,,src/js/1454.vendors.chunk.js,2,2
+openchange,other,,src/js/1454.vendors.chunk.js,2,2
+change,other,,src/js/1454.vendors.chunk.js,2,2
+renderRequest,other,,src/js/1454.vendors.chunk.js,2,2
+onAppletStart,other,,src/js/2286.vendors.chunk.js,1,1
+Buffer overrun,other,,src/js/2286.vendors.chunk.js,1,1
+https:,unknown,,src/js/2286.vendors.chunk.js,1,1
+sandbox,other,,src/js/2286.vendors.chunk.js,1,1
+about:blank,other,,src/js/2286.vendors.chunk.js,1,1
+postMessage,other,,src/js/2286.vendors.chunk.js,1,1
+uploadTextStarted,other,,src/js/6358.vendors.chunk.js,1,1
+uploadTextFailed,other,,src/js/6358.vendors.chunk.js,1,1
+uploadTextFinished,other,,src/js/6358.vendors.chunk.js,1,1
+uploadFileFailed,other,,src/js/6358.vendors.chunk.js,1,1
+uploadFileFinished,other,,src/js/6358.vendors.chunk.js,1,1
+removeFileStarted,other,,src/js/6358.vendors.chunk.js,1,1
+removeFileFailed,other,,src/js/6358.vendors.chunk.js,1,1
+removeFileFinished,other,,src/js/6358.vendors.chunk.js,1,1
+removePersistentDataStarted,other,,src/js/6358.vendors.chunk.js,1,1
+removePersistentDataFailed,other,,src/js/6358.vendors.chunk.js,1,1
+removePersistentDataFinished,other,,src/js/6358.vendors.chunk.js,1,1
+removePersistentDataStarted,other,,src/js/8422.vendors.chunk.js,1,1
+uploadTextFinished,other,,src/js/8893.vendors.chunk.js,1,1
+draftCreated,other,,src/js/8949.vendors.chunk.js,2,2
+chatCreated,other,,src/js/8949.vendors.chunk.js,2,2
+chatDeleted,other,,src/js/8949.vendors.chunk.js,2,2
+chatMetadataUpdated,other,,src/js/8949.vendors.chunk.js,2,2
+streamingResponseStopped,other,,src/js/8949.vendors.chunk.js,2,2
+chatMessagesUpdated,other,,src/js/8949.vendors.chunk.js,2,2
+userMessageSent,other,,src/js/8949.vendors.chunk.js,2,2
+systemMessageSent,other,,src/js/8949.vendors.chunk.js,2,2
+chatMessageStreamed,other,,src/js/8949.vendors.chunk.js,2,2
+chatCreated,other,,src/js/8949.vendors.chunk.js,2,2
+chatMetadataUpdated,other,,src/js/8949.vendors.chunk.js,2,2
+chatDeleted,other,,src/js/8949.vendors.chunk.js,2,2
+contextAvailable,other,,src/js/8949.vendors.chunk.js,2,2
+contextInvalidated,other,,src/js/8949.vendors.chunk.js,2,2
+documentContextStateUpdated,other,,src/js/8949.vendors.chunk.js,2,2
+registered,other,,src/js/8949.vendors.chunk.js,2,2
+optionsChanged,other,,src/js/8949.vendors.chunk.js,2,2
+unregistered,other,,src/js/8949.vendors.chunk.js,2,2
+chatMessageStreamed,other,,src/js/8949.vendors.chunk.js,2,2
+userMessageSent,other,,src/js/8949.vendors.chunk.js,2,2
+chatMessagesUpdated,other,,src/js/8949.vendors.chunk.js,2,2
+update,other,,src/js/8949.vendors.chunk.js,2,2
+object,other,,src/js/9594.vendors.chunk.js,1,1
+Error getting security key,other,,src/js/9594.vendors.chunk.js,1,1
+postMessage(,other,,src/js/Agents-MessageBusClient.common.chunk.js,1,1
+message,other,,src/js/cheetah.common.chunk.js,1,1
+Invalid iframe target origin,other,,src/js/cheetah.common.chunk.js,1,1
+iframe,other,,src/js/cheetah.common.chunk.js,1,1
+bgSW-shutdown,other,,src/js/gmailRule.common.chunk.js,1,1
+request,other,,src/js/gOS-sandbox.js,1,1
+message port error,unknown,,src/js/gOS-sandbox.js,1,1
+invalid message port,other,,src/js/gOS-sandbox.js,1,1
+wasm not initialized. please ensure ,other,,src/js/Grammarly-bg.js,2,2
+http,other,,src/js/Grammarly-bg.js,2,2
+Method not implemented.,other,,src/js/Grammarly-bg.js,2,2
+Disposed MessageBusPort for Script,other,,src/js/Grammarly-bg.js,2,2
+assistant:closeAssistant,other,,src/js/Grammarly-bg.js,2,2
+Outbound ,unknown,,src/js/Grammarly-bg.js,2,2
+Could not get ,other,,src/js/Grammarly-bg.js,2,2
+Manage storage timeout to get ,other,,src/js/Grammarly-bg.js,2,2
+CODE_SPLITTING_INJECT,unknown,,src/js/Grammarly-bg.js,2,2
+chromeGdocsForceEnableMigration,unknown,,src/js/Grammarly-bg.js,2,2
+chromeGdocsForceEnableMigration,unknown,,src/js/Grammarly-bg.js,2,2
+data,other,,src/js/Grammarly-bg.js,2,2
+end,other,,src/js/Grammarly-bg.js,2,2
+gnar.track,other,,src/js/Grammarly-bg.js,2,2
+gnar.setUserWithParams,other,,src/js/Grammarly-bg.js,2,2
+handshake,other,,src/js/Grammarly-bg.js,2,2
+installedAgentsOrderChanged,other,,src/js/Grammarly-bg.js,2,2
+script,unknown,,src/js/Grammarly-check.js,1,1
+https://www.grammarly.com,other,,src/js/Grammarly-check.js,1,1
+content-script-message-api,other,,src/js/Grammarly-check.js,1,1
+lost connection to bg port,other,,src/js/Grammarly-check.js,1,1
+fail reply to bg page - connection lost,other,,src/js/Grammarly-check.js,1,1
+chrome.runtime.sendMessage,unknown,,src/js/Grammarly-check.js,1,1
+contentScript-disconnected,other,,src/js/Grammarly-check.js,1,1
+gpaiobkfhnonedkhhfjpmhdalgeoebfa,unknown,,src/js/Grammarly-debug.js,2,2
+aiDetector,unknown,,src/js/Grammarly-gDocs.js,2,2
+focus,other,,src/js/Grammarly-gDocs.js,2,2
+frameId.response,other,,src/js/Grammarly-gDocs.js,2,2
+hide,other,,src/js/Grammarly-gDocs.js,2,2
+hide,other,,src/js/Grammarly-gDocs.js,2,2
+NETWORK_SERVICE_RESPONSE,other,,src/js/Grammarly-gDocsEarlyInjector.js,1,1
+gDocsEarlyInjectedCs,other,,src/js/Grammarly-gDocsEarlyInjector.js,1,1
+aojbbefmgiilpnbipikljicoojkjbfle,other,,src/js/Grammarly-sidePanel.js,2,2
+nlpbgkedmfjdliflklegppnapkojinhi,other,,src/js/Grammarly-sidePanel.js,2,2
+sidePanelCloseStatus,other,,src/js/Grammarly-sidePanel.js,2,2
+stateUpdated,other,,src/js/Grammarly-sidePanel.js,2,2
+agentStateChanged,other,,src/js/Grammarly-sidePanel.js,2,2
+installedAgentsOrderChanged,other,,src/js/Grammarly-sidePanel.js,2,2
+stateUpdated,other,,src/js/Grammarly-sidePanel.js,2,2
+deeplinkRequested,other,,src/js/Grammarly-sidePanel.js,2,2
+deeplinkRequested,other,,src/js/Grammarly-sidePanel.js,2,2
+agentInstallationCompleted,other,,src/js/Grammarly-sidePanel.js,2,2
+agentActivated,other,,src/js/Grammarly-sidePanel.js,2,2
+update,other,,src/js/Grammarly-sidePanel.js,2,2
+documentContextStateUpdated,other,,src/js/Grammarly-sidePanel.js,2,2
+draftCreated,other,,src/js/Grammarly-sidePanel.js,2,2
+streamingResponseStopped,other,,src/js/Grammarly-sidePanel.js,2,2
+activeAgentChanged,other,,src/js/Grammarly-sidePanel.js,2,2
+available,other,,src/js/Grammarly-sidePanel.js,2,2
+available,other,,src/js/Grammarly-sidePanel.js,2,2
+selectionChange,other,,src/js/Grammarly-sidePanel.js,2,2
+activeTextFieldAlertCountsChanged,other,,src/js/Grammarly-sidePanel.js,2,2
+activeTextFieldIsFocusedChanged,other,,src/js/Grammarly-sidePanel.js,2,2
+activeTextFieldChanged,other,,src/js/Grammarly-sidePanel.js,2,2
+insideDOMContentLoaded,other,,src/js/Grammarly.js,2,2

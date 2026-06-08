@@ -1,0 +1,1684 @@
+{
+  "metadata": {
+    "name": "Momentum",
+    "version": "2.25.3",
+    "manifest_version": 3,
+    "description": "Transform your browser into a beautifully designed tab that helps you feel calm, keep focus, and stay energized.",
+    "evidence": [
+      {
+        "file": "manifest.json",
+        "start": 1,
+        "end": 10
+      }
+    ]
+  },
+  "permissions": {
+    "api_permissions": [
+      "offscreen",
+      "unlimitedStorage",
+      "idle"
+    ],
+    "host_permissions": [],
+    "optional_permissions": [
+      "bookmarks",
+      "tabs",
+      "sessions",
+      "topSites",
+      "favicon",
+      "scripting",
+      "alarms",
+      "notifications",
+      "tabGroups",
+      "search"
+    ],
+    "optional_host_permissions": [
+      "file:///*",
+      "*://*/*"
+    ],
+    "evidence": [
+      {
+        "file": "manifest.json",
+        "start": 54,
+        "end": 78
+      }
+    ]
+  },
+  "components": {
+    "background": {
+      "files": [
+        "serviceWorker.js"
+      ],
+      "apis": [],
+      "listeners": [],
+      "evidence": [
+        {
+          "file": "manifest.json",
+          "start": 17,
+          "end": 19
+        }
+      ]
+    },
+    "content_scripts": [
+      {
+        "files": [
+          "content-scripts/momoSiteInterop.js"
+        ],
+        "matches": [
+          "https://*.momentumdash.com/*"
+        ],
+        "run_at": "document_end",
+        "apis": [],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "manifest.json",
+            "start": 42,
+            "end": 52
+          }
+        ]
+      }
+    ],
+    "injected_scripts": [],
+    "ui": [
+      {
+        "type": "newtab_override",
+        "files": [
+          "index.html"
+        ],
+        "apis": [],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "manifest.json",
+            "start": 23,
+            "end": 25
+          }
+        ]
+      }
+    ],
+    "web_accessible_resources": [
+      "site-blocker.html"
+    ]
+  },
+  "network": {
+    "endpoints": [
+      {
+        "url": ".posthog.com",
+        "purpose": "PostHog analytics infrastructure",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Content-Type"
+        ],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 4600,
+            "end": 4620
+          }
+        ]
+      },
+      {
+        "url": "chrome-extension://<id>/site-blocker.html?hostname=...&sitename=...&metatitle=...&documenttitle=...",
+        "purpose": "Site blocker intervention UI",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "content-scripts/siteBlocker.js",
+            "start": 18,
+            "end": 36
+          }
+        ]
+      },
+      {
+        "url": "https://account.momentumdash.com/",
+        "purpose": "User account management",
+        "methods": [
+          "GET",
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5300,
+            "end": 5300
+          }
+        ]
+      },
+      {
+        "url": "https://api.momentumdash.com/",
+        "purpose": "Core extension API",
+        "methods": [
+          "GET",
+          "POST",
+          "PATCH",
+          "DELETE"
+        ],
+        "headers": [
+          "Authorization",
+          "Content-Type"
+        ],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 161,
+            "end": 166
+          }
+        ]
+      },
+      {
+        "url": "https://api.momentumdash.com/config",
+        "purpose": "Config fetch",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 1,
+            "end": 2000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 1,
+            "end": 2000
+          }
+        ]
+      },
+      {
+        "url": "https://api.momentumdash.com/user:migrateLegacy?canceled=true",
+        "purpose": "User migration",
+        "methods": [
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "url": "https://browser-http-intake.logs.datadoghq.com/v1/input/",
+        "purpose": "Datadog logging service",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Content-Type"
+        ],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 175,
+            "end": 180
+          }
+        ]
+      },
+      {
+        "url": "https://modash.blob.core.windows.net/",
+        "purpose": "Asset storage",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4950,
+            "end": 4960
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "url": "https://momentumdash.com/uninstall",
+        "purpose": "Uninstall tracking",
+        "methods": [
+          "unknown"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "url": "https://posthog.momentumdash.com/e/",
+        "purpose": "Analytics/telemetry",
+        "methods": [
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "url": "https://www.momentumdash.com/",
+        "purpose": "Web app",
+        "methods": [
+          "GET",
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5301,
+            "end": 5301
+          }
+        ]
+      },
+      {
+        "url": "posthog.momentumdash.com/e/",
+        "purpose": "PostHog analytics tracking",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Content-Type"
+        ],
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 4600,
+            "end": 4620
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      }
+    ]
+  },
+  "messaging": {
+    "channels": [
+      {
+        "name": "activateNewWorker",
+        "direction": "background->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "name": "flashMessage",
+        "direction": "background->tabs",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "name": "legacyUserMigration",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5170,
+            "end": 5190
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "name": "legacyUserMigration:triggerOffscreenDocumentRequest",
+        "direction": "background->offscreen",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "name": "momentum-intervention:dismiss",
+        "direction": "content->ui",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "content-scripts/siteBlocker.js",
+            "start": 41,
+            "end": 44
+          },
+          {
+            "file": "content-scripts/siteBlocker.js",
+            "start": 25,
+            "end": 30
+          },
+          {
+            "file": "content-scripts/siteBlocker.js",
+            "start": 1,
+            "end": 66
+          }
+        ]
+      },
+      {
+        "name": "momentum-intervention:show",
+        "direction": "content->ui",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "content-scripts/siteBlocker.js",
+            "start": 38,
+            "end": 41
+          },
+          {
+            "file": "content-scripts/siteBlocker.js",
+            "start": 25,
+            "end": 30
+          },
+          {
+            "file": "content-scripts/siteBlocker.js",
+            "start": 1,
+            "end": 66
+          }
+        ]
+      },
+      {
+        "name": "momentum:authState",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 27,
+            "end": 34
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5120,
+            "end": 5130
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 40,
+            "end": 45
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 1,
+            "end": 55
+          }
+        ]
+      },
+      {
+        "name": "momentum:callback:checkUserId",
+        "direction": "background->content",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 1,
+            "end": 55
+          }
+        ]
+      },
+      {
+        "name": "momentum:callback:oneTimeLogin",
+        "direction": "background->content",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 1,
+            "end": 55
+          }
+        ]
+      },
+      {
+        "name": "momentum:callback:openNew",
+        "direction": "background->content",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 1,
+            "end": 55
+          }
+        ]
+      },
+      {
+        "name": "momentum:checkUserId",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 34,
+            "end": 41
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5130,
+            "end": 5140
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 45,
+            "end": 50
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 1,
+            "end": 55
+          }
+        ]
+      },
+      {
+        "name": "momentum:getUserId",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 15,
+            "end": 18
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5140,
+            "end": 5150
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 48,
+            "end": 52
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 1,
+            "end": 55
+          }
+        ]
+      },
+      {
+        "name": "momentum:oneTimeLogin",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 22,
+            "end": 27
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 35,
+            "end": 40
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 1,
+            "end": 55
+          }
+        ]
+      },
+      {
+        "name": "momentum:openNew",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 41,
+            "end": 54
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5150,
+            "end": 5170
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 50,
+            "end": 55
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 1,
+            "end": 55
+          }
+        ]
+      },
+      {
+        "name": "notificationClick",
+        "direction": "background->tabs",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "name": "oneTimeLogin",
+        "direction": "ui->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 5100,
+            "end": 5120
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "name": "runtime.onMessage",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 1,
+            "end": 2000
+          }
+        ]
+      },
+      {
+        "name": "unknown",
+        "direction": "unknown",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 1,
+            "end": 2000
+          }
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "keys": [
+      {
+        "key": "analyticsQueue",
+        "type": "indexeddb",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4500,
+            "end": 4550
+          }
+        ]
+      },
+      {
+        "key": "authState",
+        "type": "local",
+        "purpose": "Authentication state",
+        "retention": "",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "key": "calculateUnregisteredDashboardExperiment",
+        "type": "local",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "key": "chrome.storage",
+        "type": "local",
+        "purpose": "Generic Chrome storage API usage",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 37,
+            "end": 42
+          }
+        ]
+      },
+      {
+        "key": "client_uuid",
+        "type": "localstorage",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5300,
+            "end": 5310
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "key": "config",
+        "type": "local",
+        "purpose": "Configuration",
+        "retention": "",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 1,
+            "end": 2000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 1,
+            "end": 2000
+          }
+        ]
+      },
+      {
+        "key": "idMap",
+        "type": "indexeddb",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4200,
+            "end": 4250
+          }
+        ]
+      },
+      {
+        "key": "indexedDB",
+        "type": "indexeddb",
+        "purpose": "Generic IndexedDB database operations",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "key": "installDate",
+        "type": "local",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "key": "keyValueDb",
+        "type": "indexeddb",
+        "purpose": "Generic key-value storage using Dexie.js",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 100,
+            "end": 150
+          }
+        ]
+      },
+      {
+        "key": "localStorage",
+        "type": "local",
+        "purpose": "Generic local storage operations",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 4800,
+            "end": 4850
+          }
+        ]
+      },
+      {
+        "key": "momentum-customization-1",
+        "type": "localstorage",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "key": "momentumExtensionUserId",
+        "type": "local",
+        "purpose": "User ID injected into page DOM",
+        "retention": "session",
+        "evidence": [
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 20,
+            "end": 25
+          }
+        ]
+      },
+      {
+        "key": "momentumPlatform",
+        "type": "local",
+        "purpose": "Platform identifier injected into page DOM",
+        "retention": "session",
+        "evidence": [
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 10,
+            "end": 15
+          }
+        ]
+      },
+      {
+        "key": "momentumVersion",
+        "type": "local",
+        "purpose": "Extension version injected into page DOM",
+        "retention": "session",
+        "evidence": [
+          {
+            "file": "content-scripts/momoSiteInterop.js",
+            "start": 15,
+            "end": 20
+          }
+        ]
+      },
+      {
+        "key": "notificationsQueue",
+        "type": "indexeddb",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4300,
+            "end": 4350
+          }
+        ]
+      },
+      {
+        "key": "releaseUpdateModalCheck",
+        "type": "local",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "key": "timestamp",
+        "type": "indexeddb",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4400,
+            "end": 4450
+          }
+        ]
+      },
+      {
+        "key": "token",
+        "type": "localstorage",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5310,
+            "end": 5320
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "key": "token_uuid",
+        "type": "localstorage",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5320,
+            "end": 5330
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "key": "unregistered",
+        "type": "localstorage",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5330,
+            "end": 5340
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "key": "xhrQueue",
+        "type": "indexeddb",
+        "purpose": "unknown",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 4000
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 4001,
+            "end": 5360
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 5000,
+            "end": 5100
+          }
+        ]
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "name": "User Authentication and Login Flow",
+      "triggers": [
+        "Extension installation",
+        "User clicks login on Momentum dashboard",
+        "oneTimeLogin message from content script"
+      ],
+      "steps": [
+        "User initiates login from new tab page or Momentum dashboard",
+        "Content script sends 'oneTimeLogin' message to service worker",
+        "Service worker validates credentials via API call to api.momentumdash.com",
+        "Authentication token stored in chrome.storage.local and localStorage via offscreen document",
+        "User ID, token_uuid, and client_uuid stored for session management",
+        "PostHog analytics event tracked for login",
+        "Service worker sends response back to content script"
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "chrome.storage.local",
+        "chrome.tabs",
+        "chrome.offscreen.createDocument"
+      ],
+      "messages": [
+        "oneTimeLogin",
+        "momentum:authState",
+        "momentum:getUserId"
+      ],
+      "endpoints": [
+        "https://api.momentumdash.com/",
+        "https://account.momentumdash.com/"
+      ],
+      "storage_keys": [
+        "token",
+        "token_uuid",
+        "client_uuid",
+        "authState"
+      ],
+      "evidence": [
+        {
+          "file": "serviceWorker.js",
+          "start": 4001,
+          "end": 5360
+        },
+        {
+          "file": "content-scripts/momoSiteInterop.js",
+          "start": 15,
+          "end": 54
+        }
+      ]
+    },
+    {
+      "name": "Site Blocking Intervention Flow",
+      "triggers": [
+        "User navigates to a blocked site",
+        "Site blocking conditions met",
+        "Blocked site detected by content script"
+      ],
+      "steps": [
+        "Content script detects navigation to blocked site",
+        "Shadow DOM created to isolate intervention UI",
+        "Content script injects intervention dialog with iframe",
+        "Iframe loads site-blocker.html from web_accessible_resources",
+        "Site metadata extracted (hostname, sitename, title) and passed as URL parameters",
+        "Content script listens for show/dismiss messages",
+        "User can dismiss intervention via momentum-intervention:dismiss message"
+      ],
+      "apis": [
+        "chrome.runtime.getURL"
+      ],
+      "messages": [
+        "momentum-intervention:show",
+        "momentum-intervention:dismiss"
+      ],
+      "endpoints": [
+        "chrome-extension://<id>/site-blocker.html?hostname=...&sitename=...&metatitle=...&documenttitle=..."
+      ],
+      "storage_keys": [],
+      "evidence": [
+        {
+          "file": "content-scripts/siteBlocker.js",
+          "start": 1,
+          "end": 66
+        }
+      ]
+    },
+    {
+      "name": "Analytics and Tracking Flow",
+      "triggers": [
+        "Extension events",
+        "User interactions",
+        "Page views",
+        "Tab updates",
+        "Notification events"
+      ],
+      "steps": [
+        "User action triggers analytics event",
+        "Service worker batches analytics events in analyticsQueue IndexedDB store",
+        "PostHog library processes events in background",
+        "Events sent to posthog.momentumdash.com endpoint",
+        "Datadog logging for error tracking and monitoring",
+        "Client UUID maintained for user identification across sessions",
+        "Service worker logs config and tab data"
+      ],
+      "apis": [
+        "chrome.alarms",
+        "chrome.notifications",
+        "chrome.runtime",
+        "chrome.storage.local",
+        "IndexedDB"
+      ],
+      "messages": [
+        "flashMessage",
+        "notificationClick"
+      ],
+      "endpoints": [
+        "https://posthog.momentumdash.com/e/",
+        "https://browser-http-intake.logs.datadoghq.com/v1/input/"
+      ],
+      "storage_keys": [
+        "analyticsQueue",
+        "notificationsQueue",
+        "client_uuid",
+        "timestamp"
+      ],
+      "evidence": [
+        {
+          "file": "serviceWorker.js",
+          "start": 1,
+          "end": 5360
+        }
+      ]
+    },
+    {
+      "name": "Data Synchronization Flow",
+      "triggers": [
+        "User settings changes",
+        "Cross-device sync",
+        "Periodic sync alarms"
+      ],
+      "steps": [
+        "User modifies settings in new tab interface",
+        "Changes queued in xhrQueue for API submission",
+        "Service worker processes queue via chrome.alarms",
+        "Data synchronized with api.momentumdash.com",
+        "ID mapping maintained in idMap IndexedDB store",
+        "Timestamps updated for cache validation"
+      ],
+      "apis": [
+        "chrome.alarms",
+        "chrome.storage.local",
+        "chrome.runtime"
+      ],
+      "messages": [
+        "momentum:openNew"
+      ],
+      "endpoints": [
+        "https://api.momentumdash.com/"
+      ],
+      "storage_keys": [
+        "xhrQueue",
+        "idMap",
+        "timestamp",
+        "keyValueDb"
+      ],
+      "evidence": [
+        {
+          "file": "serviceWorker.js",
+          "start": 4200,
+          "end": 5100
+        }
+      ]
+    },
+    {
+      "name": "Momentumdash.com Integration Flow",
+      "triggers": [
+        "User visits momentumdash.com",
+        "Content script loaded on momentumdash.com",
+        "Extension data injection needed"
+      ],
+      "steps": [
+        "Content script detects momentumdash.com domain",
+        "Platform identifier and version injected into page DOM",
+        "User ID injected for authenticated experience",
+        "Message channels established for bidirectional communication",
+        "Callback handlers registered for authentication state changes",
+        "Content script relays messages between page and service worker"
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "chrome.runtime.getURL",
+        "chrome.runtime.getManifest"
+      ],
+      "messages": [
+        "momentum:callback:oneTimeLogin",
+        "momentum:callback:checkUserId",
+        "momentum:callback:openNew",
+        "momentum:authState",
+        "momentum:checkUserId",
+        "momentum:getUserId"
+      ],
+      "endpoints": [
+        "https://www.momentumdash.com/"
+      ],
+      "storage_keys": [
+        "momentumPlatform",
+        "momentumVersion",
+        "momentumExtensionUserId"
+      ],
+      "evidence": [
+        {
+          "file": "content-scripts/momoSiteInterop.js",
+          "start": 1,
+          "end": 55
+        }
+      ]
+    },
+    {
+      "name": "Legacy User Migration Flow",
+      "triggers": [
+        "Legacy user detected",
+        "Migration conditions met",
+        "Content script migration event"
+      ],
+      "steps": [
+        "Extension detects legacy user configuration",
+        "legacyUserMigration message sent to service worker",
+        "Service worker creates offscreen document for migration",
+        "User data migrated from old storage format",
+        "API call to https://api.momentumdash.com/user:migrateLegacy",
+        "New authentication tokens generated and stored",
+        "Legacy data cleaned up after successful migration"
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "chrome.storage.local",
+        "chrome.tabs",
+        "chrome.offscreen.createDocument"
+      ],
+      "messages": [
+        "legacyUserMigration",
+        "legacyUserMigration:triggerOffscreenDocumentRequest"
+      ],
+      "endpoints": [
+        "https://api.momentumdash.com/user:migrateLegacy?canceled=true"
+      ],
+      "storage_keys": [
+        "token",
+        "client_uuid",
+        "keyValueDb"
+      ],
+      "evidence": [
+        {
+          "file": "serviceWorker.js",
+          "start": 4001,
+          "end": 5360
+        }
+      ]
+    }
+  ],
+  "privacy": {
+    "data_categories": [
+      "user_credentials",
+      "browsing_history",
+      "browsing_behavior",
+      "user_preferences",
+      "analytics",
+      "device_identifiers",
+      "usage_analytics",
+      "legacy_migration_data"
+    ],
+    "purposes": [
+      "authentication",
+      "personalization",
+      "analytics",
+      "feature_functionality",
+      "cross_device_sync",
+      "user_migration",
+      "site_blocking_intervention"
+    ],
+    "minimization": "Extension collects extensive analytics data including user behavior tracking, device fingerprinting, and persistent user identification. Collects user tokens, userId, browsing history for site blocking, and analytics data. Data collection is focused on extension functionality and analytics, but includes legacy migration and broad tab data that may exceed what is necessary for core functionality.",
+    "consent": "No explicit consent mechanism observed for analytics tracking. User is not clearly informed about PostHog analytics collection or Datadog logging when installing extension. Data collection and analytics appear automatic upon extension use.",
+    "retention": "Indefinite data retention in IndexedDB and chrome.storage.local with no observed cleanup mechanisms, TTLs, or data expiration. Stored analytics events, authentication tokens, user identifiers, and notification queues are retained indefinitely without user control.",
+    "third_parties": [
+      {
+        "name": "api.momentumdash.com",
+        "purpose": "Core extension API and user data synchronization",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 161,
+            "end": 166
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "name": "account.momentumdash.com",
+        "purpose": "User account management and authentication",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "name": "PostHog Analytics (posthog.momentumdash.com)",
+        "purpose": "User behavior tracking and analytics collection",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 4600,
+            "end": 4620
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "name": "Datadog (browser-http-intake.logs.datadoghq.com)",
+        "purpose": "Error logging and application monitoring",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 175,
+            "end": 180
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 1,
+            "end": 5360
+          }
+        ]
+      },
+      {
+        "name": "Microsoft Azure Blob Storage (modash.blob.core.windows.net)",
+        "purpose": "Asset storage and content delivery",
+        "evidence": [
+          {
+            "file": "serviceWorker.js",
+            "start": 4950,
+            "end": 4960
+          },
+          {
+            "file": "serviceWorker.js",
+            "start": 2001,
+            "end": 5360
+          }
+        ]
+      }
+    ],
+    "policy_compliance": "Potential GDPR concerns due to lack of explicit consent for analytics tracking, indefinite data retention without user control, and extensive behavioral data collection. May violate Chrome Web Store Developer Program Policies regarding user data disclosure and transparency requirements.",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 1,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4500,
+        "end": 4620
+      }
+    ]
+  },
+  "risks": [
+    {
+      "type": "tracking",
+      "severity": "medium",
+      "justification": "Extension implements comprehensive user behavior tracking via PostHog analytics without explicit user consent. Sends analytics and tab data to third-party endpoints (Datadog, PostHog) automatically upon extension use. Tracks page views, user interactions, and maintains persistent client UUID for cross-session identification. Analytics queue stores events indefinitely in IndexedDB.",
+      "evidence": [
+        {
+          "file": "serviceWorker.js",
+          "start": 1,
+          "end": 5360
+        },
+        {
+          "file": "serviceWorker.js",
+          "start": 4500,
+          "end": 4620
+        }
+      ]
+    },
+    {
+      "type": "pii_exfiltration",
+      "severity": "medium",
+      "justification": "User tokens and userId are sent to remote endpoints and stored indefinitely. Extension injects user identifiers, platform information, and extension version directly into DOM of momentumdash.com pages. While limited to first-party domain, this creates potential for user identification across browsing sessions.",
+      "evidence": [
+        {
+          "file": "serviceWorker.js",
+          "start": 2001,
+          "end": 5360
+        },
+        {
+          "file": "content-scripts/momoSiteInterop.js",
+          "start": 10,
+          "end": 25
+        }
+      ]
+    },
+    {
+      "type": "insecure_storage",
+      "severity": "low",
+      "justification": "Authentication tokens, user credentials, and user identifiers stored in localStorage and chrome.storage.local without encryption or expiration. While chrome.storage.local is relatively secure, indefinite retention increases exposure risk over time.",
+      "evidence": [
+        {
+          "file": "serviceWorker.js",
+          "start": 2001,
+          "end": 5360
+        },
+        {
+          "file": "serviceWorker.js",
+          "start": 5310,
+          "end": 5340
+        }
+      ]
+    },
+    {
+      "type": "excessive_permissions",
+      "severity": "medium",
+      "justification": "Extension requests extensive optional permissions including 'tabs', 'scripting', 'notifications', and broad host permissions for 'file:///*' and '*://*/*'. Many permissions appear unused in core functionality and could enable privacy-invasive behaviors if granted by user.",
+      "evidence": [
+        {
+          "file": "manifest.json",
+          "start": 35,
+          "end": 52
+        },
+        {
+          "file": "manifest.json",
+          "start": 54,
+          "end": 78
+        },
+        {
+          "file": "serviceWorker.js",
+          "start": 1,
+          "end": 5360
+        }
+      ]
+    },
+    {
+      "type": "policy_violation",
+      "severity": "medium",
+      "justification": "Extension implements aggressive content manipulation via shadow DOM injection and site blocking without clear user disclosure. Site blocker can overlay arbitrary content on any website matching content script patterns, potentially violating user expectations.",
+      "evidence": [
+        {
+          "file": "content-scripts/siteBlocker.js",
+          "start": 1,
+          "end": 34
+        }
+      ]
+    }
+  ],
+  "code_signals": {
+    "chrome_api_calls": [],
+    "event_listeners": [],
+    "dynamic_code": [],
+    "wasm_modules": [],
+    "third_party_libs": []
+  }
+}

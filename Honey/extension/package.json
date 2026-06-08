@@ -1,0 +1,23 @@
+{
+  "name": "honey-17.1.1-bmnlcjabgnpnenekpadlanbbkooimhnj",
+  "version": "1.0.0",
+  "main": "h0.beautified.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "js-beautify": "^1.15.4",
+    "terser": "^5.44.1"
+  },
+  "dependencies": {
+    "@typescript-eslint/typescript-estree": "^8.46.3",
+    "acorn": "^8.15.0",
+    "acorn-walk": "^8.3.4",
+    "ajv-cli": "^5.0.0",
+    "espree": "^10.4.0"
+  },
+  "description": ""
+}

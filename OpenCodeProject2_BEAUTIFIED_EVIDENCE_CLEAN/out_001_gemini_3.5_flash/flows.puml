@@ -1,0 +1,54 @@
+@startuml Grammarly Extension Flows
+skinparam Handwritten false
+skinparam Monospace false
+
+actor User
+participant "Web Page DOM" as WebPage
+participant "Content Script\n(Grammarly-check.js)" as ContentScript
+participant "Google Docs CS\n(Grammarly-gDocs.js)" as DocsScript
+participant "Background SW\n(sw.js / Grammarly-bg.js)" as Background
+participant "Side Panel UI\n(Grammarly-sidePanel.js)" as SidePanel
+database "Local Storage / IndexedDB" as Storage
+entity "Grammarly CAPI Server\n(capi.grammarly.com)" as CAPI
+entity "Telemetry Services\n(f-log-extension.grammarly.io)" as Telemetry
+entity "Auth Server\n(auth.grammarly.com)" as Auth
+entity "Config Server\n(config.extension.grammarly.com)" as Config
+
+== 1. Initialization and Configuration ==
+Background -> Storage : Check isBGInitialized
+Background -> Config : Get remote configurations / flags (gates/treatment)
+Config --> Background : Returns feature configuration flags
+Background -> Storage : Save configuration (feMetricsAlarms, feMetricsData)
+
+== 2. User Authentication ==
+User -> SidePanel : Clicks Sign In
+SidePanel -> Background : socialAuth request
+Background -> Auth : Authenticate credentials / session token
+Auth --> Background : Return GrammarlyEnrollmentToken / sessionId
+Background -> Storage : Save auth token and sessionId
+
+== 3. Text Capture and Suggestions Flow ==
+User -> WebPage : Types text / inputs content
+WebPage -> ContentScript : On keydown / textchange events
+ContentScript -> ContentScript : Parse & validate editable targets
+ContentScript -> Background : sendMessage (extract document details / text delta)
+Background -> CAPI : Establish WebSocket / HTTPS request (text context)
+CAPI --> Background : Stream grammatical and style corrections
+Background -> ContentScript : sendMessage (show corrections & suggestions)
+ContentScript -> WebPage : Inject Grammarly button & highlight spelling overlays
+
+== 4. Generative AI (Inkwell / Sidepanel) Flow ==
+User -> SidePanel : Issues writing prompt / request
+SidePanel -> Background : Message (run writing skill / generation)
+Background -> CAPI : wss://capi.grammarly.com (Stream prompt request)
+CAPI --> Background : Stream AI text response
+Background -> SidePanel : Propagate streamed AI response
+SidePanel -> User : Render suggestions / rewrite options
+
+== 5. Telemetry and Analytics Flow ==
+ContentScript -> Background : Send user behavior metrics
+SidePanel -> Background : Send performance logs
+Background -> Telemetry : navigator.sendBeacon() / fetch() (log / batch events)
+Telemetry --> Background : Acknowledge ingestion (logv2 / batch/log)
+
+@enduml

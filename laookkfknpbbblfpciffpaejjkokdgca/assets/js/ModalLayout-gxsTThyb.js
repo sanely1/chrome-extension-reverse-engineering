@@ -1,0 +1,1 @@
+import{I as r}from"./index-B9SbLlJ5.js";import{n as t}from"./_plugin-vue2_normalizer-DeUNqxFl.js";const a=t(r({name:"ModalLayout"}),(function(){var r=this,t=r._self._c;return r._self._setupProxy,t("div",{staticClass:"modal-layout dark brand-full-override"},[r._t("default")],2)}),[],!1,null,"fd00910d").exports;export{a as M};

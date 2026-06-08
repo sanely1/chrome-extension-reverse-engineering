@@ -1,0 +1,10 @@
+claim_section,claim_name,claim_type,source_review_row,evidence_file,draft_start,draft_end,precise_start,precise_end,decision,reason
+observed_privacy_data,user_text_deltas,privacy,sig_capi|sig_db_state,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Single-line entrypoint for background or content script imports and modules
+observed_privacy_data,auth_token_credentials,privacy,sig_auth|sig_cookies,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Single-line entrypoint for background or content script imports and modules
+observed_privacy_data,usage_metrics_analytics,privacy,sig_flog|sig_gnar,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Single-line entrypoint for background or content script imports and modules
+observed_privacy_data,user_settings_preferences,privacy,none,src/js/Grammarly-popup.js,2,2,2,2,narrow_evidence_confirmed,Single-line entrypoint for popup view configuration
+observed_privacy_data,browser_device_metadata,privacy,sig_navigator,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Single-line entrypoint for background or content script imports and modules
+risks,exfiltration_risk,risk,sig_capi,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Single-line entrypoint for background or content script imports and modules
+risks,tracking_risk,risk,sig_flog,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Single-line entrypoint for background or content script imports and modules
+risks,broad_permissions_risk,risk,sig_all_urls,manifest.json,315,318,315,318,narrow_evidence_confirmed,Matches lines 315-318 in manifest.json declaring host permissions
+risks,fingerprinting_risk,risk,sig_navigator,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Single-line entrypoint for background or content script imports and modules

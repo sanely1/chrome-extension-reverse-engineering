@@ -1,0 +1,26 @@
+{
+  "api_permissions": [
+    "scripting",
+    "sidePanel",
+    "tabs",
+    "notifications",
+    "cookies",
+    "identity",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "optional_permissions": [
+    "nativeMessaging",
+    "clipboardRead"
+  ],
+  "evidence": [
+    {
+      "file": "extension/manifest.json",
+      "start": 1,
+      "end": 365
+    }
+  ]
+}

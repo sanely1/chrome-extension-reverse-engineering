@@ -1,0 +1,15 @@
+Beautification status: ok, success: 422, errors: 0
+Parse fallbacks: none
+Validation status: PASSED
+Files excluded: node_modules/, vendor/, build/, dist/, coverage/
+Counts:
+  Beautified files: 422
+  Analyzed entrypoints: 10
+  Discovered endpoints: 12
+  Messaging channels: 4
+  Storage keys: 2
+  Core workflows: 6
+  Observed privacy items: 4
+  Identified risks: 3
+Privacy Workspace copy created: true (privacy_workspace/extension_summary.json)
+

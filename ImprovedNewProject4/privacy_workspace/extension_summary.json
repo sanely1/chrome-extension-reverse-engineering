@@ -1,0 +1,465 @@
+﻿{
+    "risks":  [
+                  {
+                      "evidence":  [
+                                       {
+                                           "end":  381,
+                                           "file":  "extension/background.js",
+                                           "start":  358
+                                       }
+                                   ],
+                      "justification":  "The extension assigns a unique ID to each user and sends browsing activity and other events to Mixpanel for tracking without explicit, granular consent.",
+                      "type":  "tracking",
+                      "severity":  "medium"
+                  },
+                  {
+                      "evidence":  [
+                                       {
+                                           "end":  249,
+                                           "file":  "extension/background.js",
+                                           "start":  231
+                                       }
+                                   ],
+                      "justification":  "The extension sends the URL of every page visited to the Faircado API to check if it\u0027s a supported site. While this is for functionality, it still sends browsing history to a third-party server.",
+                      "type":  "pii_exfiltration",
+                      "severity":  "low"
+                  }
+              ],
+    "privacy":  {
+                    "retention":  "Indefinite storage of user identifier and settings.",
+                    "third_parties":  [
+                                          {
+                                              "evidence":  [
+                                                               {
+                                                                   "end":  242,
+                                                                   "file":  "extension/background.js",
+                                                                   "start":  235
+                                                               }
+                                                           ],
+                                              "name":  "Faircado API",
+                                              "purpose":  "Core functionality"
+                                          },
+                                          {
+                                              "evidence":  [
+                                                               {
+                                                                   "end":  378,
+                                                                   "file":  "extension/background.js",
+                                                                   "start":  372
+                                                               }
+                                                           ],
+                                              "name":  "Mixpanel",
+                                              "purpose":  "Analytics"
+                                          }
+                                      ],
+                    "purposes":  [
+                                     "feature_functionality",
+                                     "analytics",
+                                     "ab_testing"
+                                 ],
+                    "policy_compliance":  "The level of tracking may require clearer disclosure under GDPR and Chrome Web Store policies.",
+                    "data_categories":  [
+                                            "unique_identifier",
+                                            "browsing_history",
+                                            "product_information",
+                                            "analytics_telemetry"
+                                        ],
+                    "minimization":  "The extension sends all visited URLs to its API to check for support, which may not be considered minimal.",
+                    "evidence":  [
+                                     {
+                                         "end":  903,
+                                         "file":  "extension/background.js",
+                                         "start":  1
+                                     }
+                                 ],
+                    "consent":  "A consent screen is shown to Firefox users, but it is unclear if Chrome users receive the same."
+                },
+    "metadata":  {
+                     "manifest_version":  3,
+                     "description":  "We help you make the sustainable choice your go-to!",
+                     "name":  "Faircado - Second hand shopping",
+                     "version":  "3.8.12",
+                     "evidence":  [
+                                      {
+                                          "end":  41,
+                                          "file":  "extension/manifest.json",
+                                          "start":  1
+                                      }
+                                  ]
+                 },
+    "permissions":  {
+                        "evidence":  [
+                                         {
+                                             "end":  33,
+                                             "file":  "extension/manifest.json",
+                                             "start":  33
+                                         },
+                                         {
+                                             "end":  13,
+                                             "file":  "extension/manifest.json",
+                                             "start":  7
+                                         }
+                                     ],
+                        "host_permissions":  [
+                                                 "https://*/*"
+                                             ],
+                        "api_permissions":  [
+                                                "contextMenus",
+                                                "activeTab",
+                                                "storage",
+                                                "tabs"
+                                            ],
+                        "optional_permissions":  [
+
+                                                 ]
+                    },
+    "storage":  {
+                    "keys":  [
+                                 {
+                                     "evidence":  [
+                                                      {
+                                                          "end":  213,
+                                                          "file":  "extension/background.js",
+                                                          "start":  213
+                                                      }
+                                                  ],
+                                     "key":  "machineKey",
+                                     "purpose":  "Unique user identifier",
+                                     "type":  "local",
+                                     "retention":  "indefinite"
+                                 },
+                                 {
+                                     "evidence":  [
+                                                      {
+                                                          "end":  300,
+                                                          "file":  "extension/data-control.js",
+                                                          "start":  300
+                                                      }
+                                                  ],
+                                     "key":  "activated",
+                                     "purpose":  "User consent flag",
+                                     "type":  "local",
+                                     "retention":  "indefinite"
+                                 },
+                                 {
+                                     "evidence":  [
+                                                      {
+                                                          "end":  493,
+                                                          "file":  "extension/background.js",
+                                                          "start":  493
+                                                      }
+                                                  ],
+                                     "key":  "abTestVariantRecords",
+                                     "purpose":  "A/B test variant assignments",
+                                     "type":  "local",
+                                     "retention":  "indefinite"
+                                 }
+                             ]
+                },
+    "messaging":  {
+                      "channels":  [
+                                       {
+                                           "direction":  "background-\u003econtent",
+                                           "evidence":  [
+                                                            {
+                                                                "end":  601,
+                                                                "file":  "extension/background.js",
+                                                                "start":  597
+                                                            }
+                                                        ],
+                                           "name":  "showExtension"
+                                       },
+                                       {
+                                           "direction":  "content-\u003ebackground",
+                                           "evidence":  [
+                                                            {
+                                                                "end":  661,
+                                                                "file":  "extension/background.js",
+                                                                "start":  661
+                                                            }
+                                                        ],
+                                           "name":  "isSupportedWebsite"
+                                       },
+                                       {
+                                           "direction":  "content-\u003ebackground",
+                                           "evidence":  [
+                                                            {
+                                                                "end":  635,
+                                                                "file":  "extension/background.js",
+                                                                "start":  635
+                                                            }
+                                                        ],
+                                           "name":  "mixpanel"
+                                       }
+                                   ]
+                  },
+    "code_signals":  {
+                         "chrome_api_calls":  [
+                                                  "chrome.tabs.onActivated.addListener",
+                                                  "chrome.runtime.onMessage.addListener",
+                                                  "chrome.storage.local.get",
+                                                  "chrome.management.uninstallSelf"
+                                              ],
+                         "wasm_modules":  [
+
+                                          ],
+                         "third_party_libs":  [
+                                                  "htmlmetaparser",
+                                                  "lodash",
+                                                  "html-parser2"
+                                              ],
+                         "event_listeners":  [
+                                                 "window.addEventListener",
+                                                 "element.addEventListener"
+                                             ],
+                         "dynamic_code":  [
+                                              "new Function"
+                                          ]
+                     },
+    "components":  {
+                       "content_scripts":  [
+                                               {
+                                                   "evidence":  [
+                                                                    {
+                                                                        "end":  10985,
+                                                                        "file":  "extension/content.js",
+                                                                        "start":  1
+                                                                    }
+                                                                ],
+                                                   "files":  [
+                                                                 "extension/content.js"
+                                                             ],
+                                                   "listeners":  [
+                                                                     "runtime.onMessage",
+                                                                     "window.addEventListener"
+                                                                 ],
+                                                   "apis":  [
+                                                                "chrome.runtime"
+                                                            ]
+                                               }
+                                           ],
+                       "background":  {
+                                          "evidence":  [
+                                                           {
+                                                               "end":  903,
+                                                               "file":  "extension/background.js",
+                                                               "start":  1
+                                                           }
+                                                       ],
+                                          "files":  [
+                                                        "extension/background.js"
+                                                    ],
+                                          "listeners":  [
+                                                            "runtime.onMessage",
+                                                            "runtime.onInstalled",
+                                                            "tabs.onActivated"
+                                                        ],
+                                          "apis":  [
+                                                       "chrome.storage.local",
+                                                       "chrome.storage.sync",
+                                                       "chrome.tabs",
+                                                       "chrome.runtime",
+                                                       "chrome.contextMenus",
+                                                       "chrome.action"
+                                                   ]
+                                      },
+                       "ui":  [
+                                  {
+                                      "evidence":  [
+                                                       {
+                                                           "end":  37,
+                                                           "file":  "extension/popup.js",
+                                                           "start":  1
+                                                       }
+                                                   ],
+                                      "files":  [
+                                                    "extension/popup.js",
+                                                    "extension/data-control.js",
+                                                    "extension/save.js"
+                                                ],
+                                      "listeners":  [
+                                                        "element.addEventListener",
+                                                        "window.addEventListener"
+                                                    ],
+                                      "apis":  [
+                                                   "chrome.management"
+                                               ]
+                                  }
+                              ],
+                       "injected_scripts":  [
+                                                {
+                                                    "evidence":  [
+                                                                     {
+                                                                         "end":  23,
+                                                                         "file":  "extension/navigation-events.js",
+                                                                         "start":  1
+                                                                     }
+                                                                 ],
+                                                    "files":  [
+                                                                  "extension/navigation-events.js"
+                                                              ],
+                                                    "listeners":  [
+                                                                      "window.addEventListener"
+                                                                  ],
+                                                    "apis":  [
+
+                                                             ]
+                                                }
+                                            ]
+                   },
+    "network":  {
+                    "endpoints":  [
+                                      {
+                                          "evidence":  [
+                                                           {
+                                                               "end":  242,
+                                                               "file":  "extension/background.js",
+                                                               "start":  235
+                                                           }
+                                                       ],
+                                          "url":  "https://catalog-service-api.faircado.com/api/v1/supported-website",
+                                          "purpose":  "Check if a website is supported",
+                                          "methods":  [
+                                                          "POST"
+                                                      ]
+                                      },
+                                      {
+                                          "evidence":  [
+                                                           {
+                                                               "end":  277,
+                                                               "file":  "extension/background.js",
+                                                               "start":  277
+                                                           }
+                                                       ],
+                                          "url":  "https://cms-api.faircado.com/api/supported-websites/list",
+                                          "purpose":  "Fetch list of supported websites",
+                                          "methods":  [
+                                                          "GET"
+                                                      ]
+                                      },
+                                      {
+                                          "evidence":  [
+                                                           {
+                                                               "end":  191,
+                                                               "file":  "extension/background.js",
+                                                               "start":  191
+                                                           }
+                                                       ],
+                                          "url":  "https://cms-api.faircado.com/api/is-product-page-heuristic",
+                                          "purpose":  "Fetch heuristic rules for product page detection",
+                                          "methods":  [
+                                                          "GET"
+                                                      ]
+                                      },
+                                      {
+                                          "evidence":  [
+                                                           {
+                                                               "end":  435,
+                                                               "file":  "extension/background.js",
+                                                               "start":  435
+                                                           }
+                                                       ],
+                                          "url":  "https://cms-api.faircado.com/api/extension-ab-tests/list",
+                                          "purpose":  "Fetch A/B test configuration",
+                                          "methods":  [
+                                                          "GET"
+                                                      ]
+                                      },
+                                      {
+                                          "evidence":  [
+                                                           {
+                                                               "end":  378,
+                                                               "file":  "extension/background.js",
+                                                               "start":  372
+                                                           }
+                                                       ],
+                                          "url":  "https://api.mixpanel.com/track",
+                                          "purpose":  "Analytics tracking",
+                                          "methods":  [
+                                                          "POST"
+                                                      ]
+                                      },
+                                      {
+                                          "evidence":  [
+                                                           {
+                                                               "end":  844,
+                                                               "file":  "extension/background.js",
+                                                               "start":  838
+                                                           }
+                                                       ],
+                                          "url":  "https://api.mixpanel.com/engage#profile-batch-update",
+                                          "purpose":  "Update user profile for analytics",
+                                          "methods":  [
+                                                          "POST"
+                                                      ]
+                                      }
+                                  ]
+                },
+    "workflows":  [
+                      {
+                          "name":  "Extension Installation and Onboarding",
+                          "messages":  [
+
+                                       ],
+                          "triggers":  [
+                                           "Extension installation"
+                                       ],
+                          "steps":  [
+                                        "Service worker listens for onInstalled event.",
+                                        "A unique machineKey is generated for the user.",
+                                        "An uninstall URL is set.",
+                                        "A context menu item for image search is created.",
+                                        "Based on A/B testing, the user is redirected to an onboarding URL.",
+                                        "An \u0027extension_installed_background\u0027 event is sent to Mixpanel."
+                                    ],
+                          "evidence":  [
+                                           {
+                                               "end":  766,
+                                               "file":  "extension/background.js",
+                                               "start":  746
+                                           }
+                                       ],
+                          "storage_keys":  [
+                                               "machineKey"
+                                           ],
+                          "apis":  [
+                                       "chrome.runtime.onInstalled",
+                                       "chrome.tabs.create"
+                                   ],
+                          "endpoints":  [
+                                            "https://api.mixpanel.com/track"
+                                        ]
+                      },
+                      {
+                          "name":  "Product Page Identification and Data Extraction",
+                          "messages":  [
+                                           "isSupportedWebsite",
+                                           "GetHeuristicData"
+                                       ],
+                          "triggers":  [
+                                           "Page load or navigation"
+                                       ],
+                          "steps":  [
+                                        "Content script requests supported websites and heuristic rules from the background script.",
+                                        "Content script analyzes the page\u0027s DOM and metadata.",
+                                        "Product information is extracted.",
+                                        "Images are fetched via an iframe to bypass CORS."
+                                    ],
+                          "evidence":  [
+                                           {
+                                               "end":  9985,
+                                               "file":  "extension/content.js",
+                                               "start":  9959
+                                           }
+                                       ],
+                          "storage_keys":  [
+
+                                           ],
+                          "apis":  [
+                                       "chrome.runtime.sendMessage"
+                                   ],
+                          "endpoints":  [
+                                            "https://cms-api.faircado.com/api/supported-websites/list"
+                                        ]
+                      }
+                  ]
+}

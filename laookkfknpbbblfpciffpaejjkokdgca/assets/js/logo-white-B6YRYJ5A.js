@@ -1,0 +1,1 @@
+const o="/img/logo-white.svg";export{o as _};

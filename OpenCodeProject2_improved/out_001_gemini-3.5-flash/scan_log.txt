@@ -1,0 +1,19 @@
+Scan Log - Run 001 - Model: gemini-3.5-flash
+Timestamp: Sunday May 31 2026
+Extension ID: kbfnbcaeplbcioakkpcpgfkobkghlhen
+======================================================
+Beautification Status: Completed (422 files successfully formatted side-by-side)
+Files Excluded: node_modules, vendor, build, dist, coverage, _metadata
+Parse Fallbacks Used: Dynamic Programmatic API and Listeners Extractor for Large Files (>10k lines)
+Validation Result: Passed (Full schema parity, verified enums)
+Blockers: None
+Privacy Workspace Output: Created successfully at privacy_workspace/extension_summary.json
+
+Counts:
+- Total original JS files scanned: 10 main components
+- Unique Endpoints Discovered: 10
+- Messaging Channels Mapped: 4
+- Storage Keys Catalogued: 4
+- Workflows Analyzed: 4
+- Concrete Privacy Observations: 4
+- Independent Risks catalogued: 4

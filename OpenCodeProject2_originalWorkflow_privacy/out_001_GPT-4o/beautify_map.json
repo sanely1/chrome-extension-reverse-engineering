@@ -1,0 +1,12 @@
+[
+  {"original": "extension/sw.js", "beautified": "extension/sw.beautified.js", "status": "ok"},
+  {"original": "extension/src/js/Grammarly-bg.js", "beautified": "extension/src/js/Grammarly-bg.beautified.js", "status": "ok"},
+  {"original": "extension/src/js/Grammarly-check.js", "beautified": "extension/src/js/Grammarly-check.beautified.js", "status": "ok"},
+  {"original": "extension/src/js/Grammarly.js", "beautified": "extension/src/js/Grammarly.beautified.js", "status": "ok"},
+  {"original": "extension/src/js/Grammarly-gDocs.js", "beautified": "extension/src/js/Grammarly-gDocs.beautified.js", "status": "ok"},
+  {"original": "extension/src/js/Grammarly-gDocsEarlyInjector.js", "beautified": "extension/src/js/Grammarly-gDocsEarlyInjector.beautified.js", "status": "ok"},
+  {"original": "extension/src/js/Grammarly-gDocsIframeCs.js", "beautified": "extension/src/js/Grammarly-gDocsIframeCs.beautified.js", "status": "ok"},
+  {"original": "extension/src/js/Grammarly-overleafStartContentScript.js", "beautified": "extension/src/js/Grammarly-overleafStartContentScript.beautified.js", "status": "ok"},
+  {"original": "extension/src/js/Grammarly-popup.js", "beautified": "extension/src/js/Grammarly-popup.beautified.js", "status": "ok"},
+  {"original": "extension/src/js/Grammarly-sidePanel.js", "beautified": "extension/src/js/Grammarly-sidePanel.beautified.js", "status": "ok"}
+]

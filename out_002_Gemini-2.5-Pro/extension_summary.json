@@ -1,0 +1,2745 @@
+{
+  "metadata": {
+    "name": "Grammarly: AI Writing Assistant and Grammar Checker App",
+    "version": "14.1259.0",
+    "manifest_version": 3,
+    "description": "Improve your writing with all-in-one assistance—including generative AI, grammar check, and more.",
+    "evidence": [
+      {
+        "file": "manifest.json",
+        "start": 1,
+        "end": 50
+      }
+    ]
+  },
+  "permissions": {
+    "api_permissions": [
+      "scripting",
+      "sidePanel",
+      "tabs",
+      "notifications",
+      "cookies",
+      "identity",
+      "storage"
+    ],
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "optional_permissions": [
+      "nativeMessaging",
+      "clipboardRead"
+    ],
+    "evidence": [
+      {
+        "file": "manifest.json",
+        "start": 423,
+        "end": 442
+      }
+    ]
+  },
+  "components": {
+    "background": {
+      "files": [
+        "sw.js"
+      ],
+      "apis": [
+        "chrome.storage",
+        "chrome.runtime",
+        "chrome.tabs",
+        "chrome.scripting",
+        "chrome.alarms",
+        "chrome.declarativeNetRequest",
+        "chrome.webRequest",
+        "chrome.cookies"
+      ],
+      "listeners": [
+        "runtime.onMessage",
+        "runtime.onInstalled",
+        "alarms.onAlarm",
+        "webRequest.onBeforeSendHeaders"
+      ],
+      "evidence": [
+        {
+          "file": "manifest.json",
+          "start": 8,
+          "end": 10
+        },
+        {
+          "file": "src/js/Grammarly-bg.js"
+        }
+      ]
+    },
+    "content_scripts": [
+      {
+        "files": [
+          "src/js/Grammarly-check.js"
+        ],
+        "matches": [
+          "<all_urls>"
+        ],
+        "evidence": [
+          {
+            "file": "manifest.json",
+            "start": 12,
+            "end": 120
+          }
+        ]
+      },
+      {
+        "files": [
+          "src/js/Grammarly.js"
+        ],
+        "matches": [
+          "*://*.atlassian.net/*",
+          "*://mail.google.com/*"
+        ],
+        "evidence": [
+          {
+            "file": "manifest.json",
+            "start": 121,
+            "end": 240
+          }
+        ]
+      },
+      {
+        "files": [
+          "src/js/Grammarly-gDocs.js"
+        ],
+        "matches": [
+          "*://docs.google.com/document/*"
+        ],
+        "evidence": [
+          {
+            "file": "manifest.json",
+            "start": 275,
+            "end": 288
+          }
+        ]
+      }
+    ],
+    "injected_scripts": [],
+    "ui": [
+      {
+        "files": [
+          "src/popup.html"
+        ],
+        "purpose": "Main extension popup",
+        "evidence": [
+          {
+            "file": "manifest.json",
+            "start": 4,
+            "end": 7
+          }
+        ]
+      },
+      {
+        "files": [
+          "src/sidePanel.html"
+        ],
+        "purpose": "Side panel UI",
+        "evidence": [
+          {
+            "file": "manifest.json",
+            "start": 408,
+            "end": 410
+          }
+        ]
+      }
+    ],
+    "web_accessible_resources": [
+      "src/fonts/*.woff",
+      "src/images/*.png",
+      "src/js/*.js",
+      "src/css/*.css",
+      "src/gOS-sandbox.html"
+    ]
+  },
+  "network": {
+    "endpoints": [
+      {
+        "url": "https://properties.qagr.io",
+        "methods": ["GET", "POST"],
+        "purpose": "Experimentation properties",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 4001,
+            "end": 6000
+          }
+        ]
+      },
+      {
+        "url": "https://treatment.qagr.io",
+        "methods": ["POST"],
+        "purpose": "A/B testing treatment retrieval",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 4001,
+            "end": 6000
+          }
+        ]
+      },
+      {
+        "url": "https://gates.qagr.io",
+        "methods": ["POST"],
+        "purpose": "Feature gate retrieval",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 4001,
+            "end": 6000
+          }
+        ]
+      },
+      {
+        "url": "https://assets.extension.grammarly.com/",
+        "methods": ["GET"],
+        "purpose": "Serves static assets for the extension.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://data.grammarly.com",
+        "methods": ["POST"],
+        "purpose": "Data collection and telemetry.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v3",
+        "methods": ["POST"],
+        "purpose": "Authentication endpoint (v3).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4",
+        "methods": ["POST"],
+        "purpose": "Authentication endpoint (v4).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v5",
+        "methods": ["POST"],
+        "purpose": "Authentication endpoint (v5).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://capi.grammarly.com",
+        "methods": ["POST"],
+        "purpose": "Core Grammarly API.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://gateway.grammarly.com",
+        "methods": ["POST"],
+        "purpose": "API Gateway for various services.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://coda.grammarly.com",
+        "methods": ["POST"],
+        "purpose": "Related to Coda integration or features.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "wss://capi.grammarly.com/freews",
+        "methods": ["WSS"],
+        "purpose": "WebSocket for real-time communication with Core API.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://f-log-extension.grammarly.io",
+        "methods": ["POST"],
+        "purpose": "Logging endpoint for extension events.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://extension.femetrics.grammarly.io/batch/import",
+        "methods": ["POST"],
+        "purpose": "Frontend metrics batch import.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://api.iterable.com",
+        "methods": ["POST"],
+        "purpose": "Third-party marketing and in-app messaging service.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://www.grammarly.com/",
+        "methods": ["GET"],
+        "purpose": "Main Grammarly website.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "url": "https://dox.grammarly.com/",
+        "methods": ["GET"],
+        "purpose": "Grammarly document editor.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "url": "https://data.grammarly.com/",
+        "methods": ["POST"],
+        "purpose": "Data collection endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "url": "https://api.grammarly.com/",
+        "methods": ["POST"],
+        "purpose": "Grammarly API.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "url": "https://capi.grammarly.com/",
+        "methods": ["POST"],
+        "purpose": "Core Grammarly API.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "url": "https://settings.grammarly.com/",
+        "methods": ["GET"],
+        "purpose": "User settings page.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "url": "https://extension.grammarly.com/",
+        "methods": ["GET"],
+        "purpose": "Extension-specific resources.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "url": "https://assets.grammarly.com/",
+        "methods": ["GET"],
+        "purpose": "Static asset hosting.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "url": "https://ws.grammarly.com/",
+        "methods": ["WSS"],
+        "purpose": "WebSocket service.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "url": "https://f-log-extension.grammarly.io/",
+        "methods": ["POST"],
+        "purpose": "Logging service for the extension.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 2001,
+            "end": 4000
+          }
+        ]
+      },
+      {
+        "url": "https://gateway/privacy/v1/api/data-sharing/",
+        "methods": ["GET", "PUT"],
+        "purpose": "Manage user data sharing settings.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.beautified.js",
+            "start": 81818,
+            "end": 81821
+          }
+        ]
+      },
+      {
+        "url": "https://config.grammarly.com/browserplugin/v3/page_config.json",
+        "methods": ["GET"],
+        "purpose": "Retrieves page-specific configuration for the extension.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 82004,
+            "end": 82141
+          }
+        ]
+      },
+      {
+        "url": "https://goldengate.grammarly.com/passport/api/v1/passport",
+        "methods": ["GET"],
+        "purpose": "Retrieves user session information (passport).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 82143,
+            "end": 82369
+          }
+        ]
+      },
+      {
+        "url": "/logv2",
+        "methods": ["POST"],
+        "purpose": "Version 2 logging endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 84048,
+            "end": 84145
+          }
+        ]
+      },
+      {
+        "url": "/crashv2",
+        "methods": ["POST"],
+        "purpose": "Version 2 crash reporting endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 84048,
+            "end": 84145
+          }
+        ]
+      },
+      {
+        "url": "https://properties.grammarly.com",
+        "methods": ["GET", "POST"],
+        "purpose": "Experimentation properties service.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 7638,
+            "end": 7647
+          }
+        ]
+      },
+      {
+        "url": "https://treatment.grammarly.com",
+        "methods": ["POST"],
+        "purpose": "A/B testing treatment service.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 7638,
+            "end": 7647
+          }
+        ]
+      },
+      {
+        "url": "https://gates.grammarly.com/gates/get",
+        "methods": ["POST"],
+        "purpose": "Feature gate retrieval service.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 7818,
+            "end": 7818
+          }
+        ]
+      },
+      {
+        "url": "https://assets.extension.grammarly.com/",
+        "methods": ["GET"],
+        "purpose": "Serves static assets for the extension.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://gnar.grammarly.com",
+        "methods": ["POST"],
+        "purpose": "Analytics and tracking service.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://in.grammarly.com/v1/events",
+        "methods": ["POST"],
+        "purpose": "Event ingestion service.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://extension.femetrics.grammarly.io/batch/import",
+        "methods": ["POST"],
+        "purpose": "Frontend metrics batch import.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://coda.io",
+        "methods": ["GET", "POST"],
+        "purpose": "Integration with Coda.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://api.iterable.com",
+        "methods": ["POST"],
+        "purpose": "Third-party marketing and in-app messaging service.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v3",
+        "methods": ["POST"],
+        "purpose": "Authentication endpoint (v3).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4",
+        "methods": ["POST"],
+        "purpose": "Authentication endpoint (v4).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v5",
+        "methods": ["POST"],
+        "purpose": "Authentication endpoint (v5).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "wss://capi.grammarly.com/freews",
+        "methods": ["WSS"],
+        "purpose": "WebSocket for real-time communication with Core API.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://capi.grammarly.com/api/defs",
+        "methods": ["GET"],
+        "purpose": "API definitions for the Core API.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://gateway.grammarly.com/passport/api/v1/passport",
+        "methods": ["GET"],
+        "purpose": "Retrieves user session information (passport).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://config.extension.grammarly.com/dynamicConfig.json",
+        "methods": ["GET"],
+        "purpose": "Dynamic configuration for the extension.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://config.extension.grammarly.com/browserplugin/config.json",
+        "methods": ["GET"],
+        "purpose": "Browser plugin specific configuration.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 55488,
+            "end": 55751
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/oauth2/authorize",
+        "methods": ["POST"],
+        "purpose": "OAuth2 authorization endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 90001,
+            "end": 92000
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/oauth2/exchange",
+        "methods": ["POST"],
+        "purpose": "OAuth2 code exchange endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 90001,
+            "end": 92000
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/oauth2/token",
+        "methods": ["POST"],
+        "purpose": "OAuth2 token endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 90001,
+            "end": 92000
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/oauth2/revoke-by-refresh-token",
+        "methods": ["POST"],
+        "purpose": "OAuth2 token revocation endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 90001,
+            "end": 92000
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/userinfo",
+        "methods": ["POST"],
+        "purpose": "User information endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 90001,
+            "end": 92000
+          }
+        ]
+      },
+      {
+        "url": "<DYNAMIC>/oauth2/token",
+        "methods": ["POST"],
+        "purpose": "Dynamic OAuth2 token endpoint.",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.js",
+            "start": 92178,
+            "end": 93238
+          }
+        ]
+      },
+      {
+        "url": "<DYNAMIC>/oauth2/exchange",
+        "methods": ["POST"],
+        "purpose": "Dynamic OAuth2 code exchange endpoint.",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.js",
+            "start": 93241,
+            "end": 93341
+          }
+        ]
+      },
+      {
+        "url": "<DYNAMIC>/oauth2/revoke",
+        "methods": ["POST"],
+        "purpose": "Dynamic OAuth2 token revocation endpoint.",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.js",
+            "start": 93480,
+            "end": 93698
+          }
+        ]
+      },
+      {
+        "url": "<DYNAMIC>/user-info",
+        "methods": ["POST"],
+        "purpose": "Dynamic user information endpoint.",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.js",
+            "start": 93725,
+            "end": 94238
+          }
+        ]
+      },
+      {
+        "url": "https://assets.grammarly.com/emoji/v1/",
+        "methods": ["GET"],
+        "purpose": "Serves emoji assets.",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js",
+            "start": 233,
+            "end": 236
+          }
+        ]
+      },
+      {
+        "url": "https://assets.grammarly.com/animations/v1/",
+        "methods": ["GET"],
+        "purpose": "Serves animation assets.",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js",
+            "start": 233,
+            "end": 236
+          }
+        ]
+      },
+      {
+        "url": "https://gnar.*",
+        "methods": ["POST"],
+        "purpose": "Analytics and tracking service (wildcard).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 62001,
+            "end": 64000
+          }
+        ]
+      },
+      {
+        "url": "https://in.*",
+        "methods": ["POST"],
+        "purpose": "Event ingestion service (wildcard).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 62001,
+            "end": 64000
+          }
+        ]
+      },
+      {
+        "url": "https://f-log-extension.grammarly.io",
+        "methods": ["POST"],
+        "purpose": "Logging endpoint for extension events.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 62001,
+            "end": 64000
+          }
+        ]
+      },
+      {
+        "url": "https://capi.*",
+        "methods": ["POST"],
+        "purpose": "Core Grammarly API (wildcard).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 62001,
+            "end": 64000
+          }
+        ]
+      },
+      {
+        "url": "wss://capi.*",
+        "methods": ["WSS"],
+        "purpose": "WebSocket for real-time communication with Core API (wildcard).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 62001,
+            "end": 64000
+          }
+        ]
+      },
+      {
+        "url": "https://auth.*",
+        "methods": ["POST"],
+        "purpose": "Authentication service (wildcard).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 62001,
+            "end": 64000
+          }
+        ]
+      },
+      {
+        "url": "https://gateway.*",
+        "methods": ["POST"],
+        "purpose": "API Gateway for various services (wildcard).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 62001,
+            "end": 64000
+          }
+        ]
+      },
+      {
+        "url": "https://assets.extension.grammarly.com/",
+        "methods": ["GET"],
+        "purpose": "Serves static assets for the extension.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 62001,
+            "end": 64000
+          }
+        ]
+      },
+      {
+        "url": "https://data.*",
+        "methods": ["POST"],
+        "purpose": "Data collection service (wildcard).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 62001,
+            "end": 64000
+          }
+        ]
+      },
+      {
+        "url": "https://api.iterable.com",
+        "methods": ["POST"],
+        "purpose": "Third-party marketing and in-app messaging service.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 62001,
+            "end": 64000
+          }
+        ]
+      },
+      {
+        "url": "https://support.*",
+        "methods": ["GET"],
+        "purpose": "Support website (wildcard).",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 64001,
+            "end": 66000
+          }
+        ]
+      },
+      {
+        "url": "https://in-product.report.grammarly.io/v1/report",
+        "methods": ["POST"],
+        "purpose": "In-product reporting service.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 64001,
+            "end": 66000
+          }
+        ]
+      },
+      {
+        "url": "https://accounts.google.com",
+        "methods": ["GET"],
+        "purpose": "Google authentication.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 64001,
+            "end": 66000
+          }
+        ]
+      },
+      {
+        "url": "https://www.facebook.com/login",
+        "methods": ["GET"],
+        "purpose": "Facebook authentication.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 64001,
+            "end": 66000
+          }
+        ]
+      },
+      {
+        "url": "https://appleid.apple.com/auth",
+        "methods": ["GET"],
+        "purpose": "Apple authentication.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 64001,
+            "end": 66000
+          }
+        ]
+      },
+      {
+        "url": "/signin",
+        "methods": ["GET"],
+        "purpose": "Sign-in page.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 66001,
+            "end": 68000
+          }
+        ]
+      },
+      {
+        "url": "/signup",
+        "methods": ["GET"],
+        "purpose": "Sign-up page.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 66001,
+            "end": 68000
+          }
+        ]
+      },
+      {
+        "url": "/account/subscription",
+        "methods": ["GET"],
+        "purpose": "Subscription management page.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 66001,
+            "end": 68000
+          }
+        ]
+      },
+      {
+        "url": "(felog)",
+        "methods": ["POST"],
+        "purpose": "Primary telemetry and event logging endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 70368,
+            "end": 72000
+          }
+        ]
+      },
+      {
+        "url": "(femetrics)",
+        "methods": ["POST"],
+        "purpose": "Metrics-specific telemetry endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 70368,
+            "end": 72000
+          }
+        ]
+      },
+      {
+        "url": "/oauth2/token",
+        "methods": ["POST"],
+        "purpose": "OAuth2 token endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 101235,
+            "end": 101335
+          }
+        ]
+      },
+      {
+        "url": "/oauth2/exchange",
+        "methods": ["POST"],
+        "purpose": "OAuth2 code exchange endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 101336,
+            "end": 101403
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/oauth2/authorize",
+        "methods": ["POST"],
+        "purpose": "OAuth2 authorization endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 102030,
+            "end": 102030
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/oauth2/exchange",
+        "methods": ["POST"],
+        "purpose": "OAuth2 code exchange endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 102031,
+            "end": 102031
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/oauth2/token",
+        "methods": ["POST"],
+        "purpose": "OAuth2 token endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 102032,
+            "end": 102032
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/oauth2/revoke-by-refresh-token",
+        "methods": ["POST"],
+        "purpose": "OAuth2 token revocation endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 102033,
+            "end": 102033
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/userinfo",
+        "methods": ["POST"],
+        "purpose": "User information endpoint.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 102034,
+            "end": 102034
+          }
+        ]
+      },
+      {
+        "url": "/gates/get",
+        "methods": ["POST"],
+        "purpose": "GatesService for feature flagging",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.js",
+            "start": 4060,
+            "end": 4080
+          }
+        ]
+      },
+      {
+        "url": "/properties",
+        "methods": ["GET", "POST"],
+        "purpose": "PropertiesClient for user settings",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.js",
+            "start": 4288,
+            "end": 4308
+          }
+        ]
+      },
+      {
+        "url": "/treatment/get",
+        "methods": ["POST"],
+        "purpose": "TreatmentService for A/B testing",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.js",
+            "start": 4488,
+            "end": 4650
+          }
+        ]
+      },
+      {
+        "url": "/treatment/log",
+        "methods": ["POST"],
+        "purpose": "TreatmentService for A/B testing",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.js",
+            "start": 5701,
+            "end": 6000
+          }
+        ]
+      },
+      {
+        "url": "https://gateway.grammarly.com/api/jira/tickets/create",
+        "methods": ["POST"],
+        "purpose": "Create Jira tickets via API.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.beautified.js",
+            "start": 15304,
+            "end": 15304
+          }
+        ]
+      },
+      {
+        "url": "https://f-log-extension.grammarly.io",
+        "methods": ["POST"],
+        "purpose": "Logging",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16318,
+            "end": 16318
+          }
+        ]
+      },
+      {
+        "url": "https://extension.femetrics.grammarly.io/batch/import",
+        "methods": ["POST"],
+        "purpose": "Metrics",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16319,
+            "end": 16319
+          }
+        ]
+      },
+      {
+        "url": "https://gnar.grammarly.com",
+        "methods": ["POST"],
+        "purpose": "Analytics",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16550,
+            "end": 16550
+          }
+        ]
+      },
+      {
+        "url": "https://in.grammarly.com/v1/events",
+        "methods": ["POST"],
+        "purpose": "Analytics Ingestion",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16551,
+            "end": 16551
+          }
+        ]
+      },
+      {
+        "url": "https://capi.grammarly.com",
+        "methods": ["POST"],
+        "purpose": "Core API",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16324,
+            "end": 16324
+          }
+        ]
+      },
+      {
+        "url": "wss://capi.grammarly.com/freews",
+        "methods": ["WSS"],
+        "purpose": "WebSocket for CAPI",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16768,
+            "end": 16768
+          }
+        ]
+      },
+      {
+        "url": "https://api.iterable.com",
+        "methods": ["POST"],
+        "purpose": "In-app messaging and marketing",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16325,
+            "end": 16325
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com",
+        "methods": ["POST"],
+        "purpose": "Authentication",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16758,
+            "end": 16761
+          }
+        ]
+      },
+      {
+        "url": "https://gateway.grammarly.com/*",
+        "methods": ["POST"],
+        "purpose": "Various APIs",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16753,
+            "end": 16753
+          }
+        ]
+      },
+      {
+        "url": "https://config.extension.grammarly.com/dynamicConfig.json",
+        "methods": ["GET"],
+        "purpose": "Remote configuration",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16800,
+            "end": 16800
+          }
+        ]
+      },
+      {
+        "url": "https://in-product.report.grammarly.io/v1/report",
+        "methods": ["POST"],
+        "purpose": "Internal bug reporting",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 16840,
+            "end": 16840
+          }
+        ]
+      },
+      {
+        "url": "felog",
+        "methods": ["POST"],
+        "purpose": "Event/error logging",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.js",
+            "start": 20001,
+            "end": 22000
+          }
+        ]
+      },
+      {
+        "url": "femetrics",
+        "methods": ["POST"],
+        "purpose": "Frontend metrics",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.js",
+            "start": 20001,
+            "end": 22000
+          }
+        ]
+      },
+      {
+        "url": "gnar",
+        "methods": ["POST"],
+        "purpose": "Analytics/tracking",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.js",
+            "start": 20001,
+            "end": 22000
+          }
+        ]
+      },
+      {
+        "url": "iterable",
+        "methods": ["POST"],
+        "purpose": "Marketing/IPM",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.js",
+            "start": 20001,
+            "end": 22000
+          }
+        ]
+      },
+      {
+        "url": "mise",
+        "methods": ["POST"],
+        "purpose": "Marketing/User engagement",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.js",
+            "start": 20001,
+            "end": 22000
+          }
+        ]
+      },
+      {
+        "url": "https://capi[...]/api/configuration/cheetah/v1/settings",
+        "methods": ["GET"],
+        "purpose": "Cheetah settings retrieval.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.beautified.js",
+            "start": 46001,
+            "end": 48001
+          }
+        ]
+      },
+      {
+        "url": "https://goldengate[...]/configuration/cheetah/v1/institution/settings",
+        "methods": ["GET"],
+        "purpose": "Cheetah institutional settings retrieval.",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.beautified.js",
+            "start": 46001,
+            "end": 48001
+          }
+        ]
+      }
+    ]
+  },
+  "messaging": {
+    "channels": [
+      {
+        "name": "Internal RPC/messaging framework",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 1,
+            "end": 2000
+          }
+        ]
+      },
+      {
+        "name": "tracking/RPC",
+        "direction": "content->background",
+        "payload_schema": {
+          "function_name": "unknown",
+          "...args": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-check.js",
+            "start": 6070,
+            "end": 6085
+          }
+        ]
+      },
+      {
+        "name": "message:to-priv",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-check.beautified.js",
+            "start": 12185,
+            "end": 12285
+          }
+        ]
+      },
+      {
+        "name": "side-panel-close-status",
+        "direction": "background->content",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-check.beautified.js",
+            "start": 12185,
+            "end": 12285
+          }
+        ]
+      },
+      {
+        "name": "message-bus-port",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-check.beautified.js",
+            "start": 13208,
+            "end": 13288
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-rpc-1587687052565",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js",
+            "start": 58100,
+            "end": 58250
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-rpc-1557421403805",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js",
+            "start": 58300,
+            "end": 58500
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-static-capi-rpc-1668544923207",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js",
+            "start": 59750,
+            "end": 59850
+          }
+        ]
+      },
+      {
+        "name": "tracking/RPC",
+        "direction": "content->background",
+        "payload_schema": {
+          "[...any]": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.beautified.js",
+            "start": 64700,
+            "end": 64713
+          }
+        ]
+      },
+      {
+        "name": "CODE_SPLITTING_INJECT",
+        "direction": "unknown",
+        "payload_schema": {
+          "type": "unknown",
+          "file": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.js",
+            "start": 94088,
+            "end": 94143
+          }
+        ]
+      },
+      {
+        "name": "CODE_SPLITTING_INJECT",
+        "direction": "other",
+        "payload_schema": {
+          "file": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 21216,
+            "end": 21220
+          }
+        ]
+      },
+      {
+        "name": "iframe-integration-rpc",
+        "direction": "other",
+        "payload_schema": {
+          "showCard": "unknown",
+          "openAssistant": "unknown",
+          "closeAssistant": "unknown",
+          "pushTextChanges": "unknown",
+          "selectHighlight": "unknown",
+          "syncHighlights": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 23438,
+            "end": 23488
+          }
+        ]
+      },
+      {
+        "name": "bgSW-shutdown",
+        "direction": "background->content",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js",
+            "start": 24001,
+            "end": 26000
+          }
+        ]
+      },
+      {
+        "name": "pushChanges",
+        "direction": "content->background",
+        "payload_schema": {
+          "token": "unknown",
+          "rev": "unknown",
+          "args": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js",
+            "start": 24001,
+            "end": 26000
+          }
+        ]
+      },
+      {
+        "name": "setSessionOption",
+        "direction": "content->background",
+        "payload_schema": {
+          "token": "unknown",
+          "args": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js",
+            "start": 24001,
+            "end": 26000
+          }
+        ]
+      },
+      {
+        "name": "side-panel-to-cs-text-field-rpc",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js",
+            "start": 26001,
+            "end": 28000
+          }
+        ]
+      },
+      {
+        "name": "cs-text-field-to-side-panel-rpc",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js",
+            "start": 26001,
+            "end": 28000
+          }
+        ]
+      },
+      {
+        "name": "sendCsLogsToPopup",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js",
+            "start": 28001,
+            "end": 30000
+          }
+        ]
+      },
+      {
+        "name": "downloadDebugReportsFromCS",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js",
+            "start": 28001,
+            "end": 30000
+          }
+        ]
+      },
+      {
+        "name": "sendFeedback",
+        "direction": "content->background",
+        "payload_schema": {
+          "id": "unknown",
+          "kind": "unknown",
+          "reason": "unknown",
+          "replacementText": "unknown",
+          "alternativeIndex": "unknown",
+          "subtype": "unknown",
+          "snippetUuid": "unknown",
+          "domainCategory": "unknown",
+          "popupType": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 38120,
+            "end": 38265
+          }
+        ]
+      },
+      {
+        "name": "requestGrantPermission",
+        "direction": "content->background",
+        "payload_schema": {
+          "nativeMessaging": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 40050,
+            "end": 40075
+          }
+        ]
+      },
+      {
+        "name": "sendToFocusTab",
+        "direction": "content->background",
+        "payload_schema": {
+          "showOnboardingDialog": "unknown",
+          "disableOnTab": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 41900,
+            "end": 41950
+          }
+        ]
+      },
+      {
+        "name": "message-bus-port",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.js",
+            "start": 48055,
+            "end": 48291
+          }
+        ]
+      },
+      {
+        "name": "CustomEvent",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 50001,
+            "end": 52000
+          }
+        ]
+      },
+      {
+        "name": "postMessage (custom __grammarly protocol)",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 58001,
+            "end": 60000
+          }
+        ]
+      },
+      {
+        "name": "bgSW-shutdown",
+        "direction": "background->content",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 64001,
+            "end": 66000
+          }
+        ]
+      },
+      {
+        "name": "contentScript-disconnected",
+        "direction": "background->content",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 64001,
+            "end": 66000
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-rpc-1587687052565",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 66001,
+            "end": 68000
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-observable-rpc-1587687052565",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 66001,
+            "end": 68000
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-rpc-1557421403805",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 66001,
+            "end": 68000
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-static-capi-rpc-1668544923207",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 66001,
+            "end": 68000
+          }
+        ]
+      },
+      {
+        "name": "cardAction/:docId",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 96182,
+            "end": 96651
+          }
+        ]
+      },
+      {
+        "name": "panelAction/:docId",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 96670,
+            "end": 97011
+          }
+        ]
+      },
+      {
+        "name": "CODE_SPLITTING_INJECT",
+        "direction": "unknown",
+        "payload_schema": {
+          "type": "unknown",
+          "file": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.beautified.js",
+            "start": 104860,
+            "end": 104863
+          }
+        ]
+      },
+      {
+        "name": "message:to-priv",
+        "direction": "content->background",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocsEarlyInjector.beautified.js",
+            "start": 71,
+            "end": 71
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-rpc-1557421403805",
+        "direction": "content->background",
+        "payload_schema": {
+          "callid": "unknown",
+          "content": "unknown"
+        },
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocsEarlyInjector.beautified.js",
+            "start": 153,
+            "end": 164
+          }
+        ]
+      },
+      {
+        "name": "tab-connected",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.beautified.js",
+            "start": 14100,
+            "end": 14100
+          }
+        ]
+      },
+      {
+        "name": "update-window-size",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.beautified.js",
+            "start": 15600,
+            "end": 15600
+          }
+        ]
+      },
+      {
+        "name": "message:to-priv",
+        "direction": "content->background",
+        "purpose": "Generic message passing from content script to background",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 17315,
+            "end": 17315
+          }
+        ]
+      },
+      {
+        "name": "cs-bg-runtime-*",
+        "direction": "background->content",
+        "purpose": "Runtime messages from background to content script",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 17408,
+            "end": 17408
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-rpc-1557421403805",
+        "direction": "content->background",
+        "purpose": "RPC channel for general API calls",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 18103,
+            "end": 18103
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-rpc-1587687052565",
+        "direction": "content->background",
+        "purpose": "RPC channel for legacy API calls",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 18089,
+            "end": 18089
+          }
+        ]
+      },
+      {
+        "name": "cs-to-bg-static-capi-rpc-1668544923207",
+        "direction": "content->background",
+        "purpose": "RPC channel for static CAPI calls",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 18113,
+            "end": 18113
+          }
+        ]
+      },
+      {
+        "name": "CODE_SPLITTING_INJECT",
+        "direction": "other",
+        "evidence": [
+          {
+            "file": "/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js",
+            "start": 50001,
+            "end": 50282
+          }
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "keys": [
+      {
+        "key": "GR-Auth",
+        "type": "local",
+        "purpose": "Authentication token",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 292,
+            "end": 292
+          }
+        ]
+      },
+      {
+        "key": "GR-Auth-Expiry",
+        "type": "local",
+        "purpose": "Authentication token expiration",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 293,
+            "end": 293
+          }
+        ]
+      },
+      {
+        "key": "GR-Auth-Pending",
+        "type": "local",
+        "purpose": "Pending authentication state",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 294,
+            "end": 294
+          }
+        ]
+      },
+      {
+        "key": "GR-SID",
+        "type": "local",
+        "purpose": "Session ID",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 295,
+            "end": 295
+          }
+        ]
+      },
+      {
+        "key": "GR-SID-Expiry",
+        "type": "local",
+        "purpose": "Session ID expiration",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 296,
+            "end": 296
+          }
+        ]
+      },
+      {
+        "key": "GR-SID-Pending",
+        "type": "local",
+        "purpose": "Pending session ID state",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 297,
+            "end": 297
+          }
+        ]
+      },
+      {
+        "key": "grammarly.auth.anonymousId",
+        "type": "local",
+        "purpose": "Anonymous user ID for authentication",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 302,
+            "end": 302
+          }
+        ]
+      },
+      {
+        "key": "grammarly.auth.utid",
+        "type": "local",
+        "purpose": "User tracking ID for authentication",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 303,
+            "end": 303
+          }
+        ]
+      },
+      {
+        "key": "grammarly.auth.accessToken",
+        "type": "local",
+        "purpose": "Access token for authentication",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 304,
+            "end": 304
+          }
+        ]
+      },
+      {
+        "key": "grammarly.auth.refreshToken",
+        "type": "local",
+        "purpose": "Refresh token for authentication",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 305,
+            "end": 305
+          }
+        ]
+      },
+      {
+        "key": "grammarly.auth.user",
+        "type": "local",
+        "purpose": "User information",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 306,
+            "end": 306
+          }
+        ]
+      },
+      {
+        "key": "grammarly.auth.stytch",
+        "type": "local",
+        "purpose": "Stytch authentication data",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 307,
+            "end": 307
+          }
+        ]
+      },
+      {
+        "key": "user",
+        "type": "local",
+        "purpose": "read",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 400,
+            "end": 400
+          }
+        ]
+      },
+      {
+        "key": "settings",
+        "type": "local",
+        "purpose": "read",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 401,
+            "end": 401
+          }
+        ]
+      },
+      {
+        "key": "user",
+        "type": "local",
+        "purpose": "write",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 407,
+            "end": 407
+          }
+        ]
+      },
+      {
+        "key": "settings",
+        "type": "local",
+        "purpose": "write",
+        "evidence": [
+          {
+            "file": "sw.js",
+            "start": 408,
+            "end": 408
+          }
+        ]
+      }
+    ]
+  },
+  "workflows": [
+      {
+        "name": "Core Text Checking & Suggestion Workflow",
+        "triggers": [
+          "User types in a monitored text field",
+          "Text changes in a monitored field"
+        ],
+        "steps": [
+          "Text Capture: The TypingTracker in the content script captures text changes.",
+          "Local Processing & Sanitization: The delta is sent to the Service Worker for initial checks and DLP scrubbing.",
+          "Remote Analysis: The sanitized delta is sent to the CAPI backend via WebSocket.",
+          "Receive Suggestions: The CAPI backend streams analysis results (alerts) back.",
+          "Forward to Content Script: The Service Worker forwards alerts to the content script.",
+          "Render Highlights: The content script renders the alert as an underline.",
+          "User Interaction: User hovers over or clicks the highlight.",
+          "Render Suggestion Card: The UI renders a suggestion card with actions.",
+          "Apply Suggestion: The user accepts the suggestion, and the change is applied to the DOM.",
+          "Feedback Loop: An analytics event is sent to telemetry endpoints."
+        ],
+        "apis": [
+          "chrome.storage",
+          "chrome.runtime.sendMessage",
+          "document.execCommand"
+        ],
+        "messages": [
+          "cs-to-bg-rpc"
+        ],
+        "endpoints": [
+          "wss://capi.grammarly.com/freews",
+          "/logv2",
+          "/femetrics"
+        ],
+        "storage_keys": [],
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/core_workflows.md",
+            "start": 5,
+            "end": 40
+          }
+        ]
+      },
+      {
+        "name": "User Authentication Workflow (OAuth 2.0)",
+        "triggers": [
+          "User clicks a 'Login' button",
+          "Extension starts and detects an expired token"
+        ],
+        "steps": [
+          "Initiate Flow: A UI action triggers the launchAuthFlow function.",
+          "Open Auth Tab: The Service Worker uses chrome.identity.launchWebAuthFlow or chrome.tabs.create to open the login page.",
+          "User Login: The user enters credentials on the Grammarly website.",
+          "Redirect with Code: The page redirects back to the extension with an authorization code.",
+          "Token Exchange: The Service Worker exchanges the code for an access token and refresh token.",
+          "Store Tokens: Tokens are stored in chrome.storage.local.",
+          "Authenticated State: The extension is now authenticated.",
+          "Token Refresh: The Service Worker periodically refreshes the token."
+        ],
+        "apis": [
+          "chrome.identity.launchWebAuthFlow",
+          "chrome.tabs.create",
+          "chrome.storage.local"
+        ],
+        "messages": [],
+        "endpoints": [
+          "https://auth.grammarly.com/v4/api/oauth2/authorize",
+          "/oauth2/token"
+        ],
+        "storage_keys": [
+          "gr-oauth-key"
+        ],
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/core_workflows.md",
+            "start": 42,
+            "end": 71
+          }
+        ]
+      },
+      {
+        "name": "Configuration & Feature Gating Workflow",
+        "triggers": [
+          "Extension installation (runtime.onInstalled)",
+          "Browser startup (runtime.onStartup)",
+          "Periodically via a chrome.alarms timer"
+        ],
+        "steps": [
+          "Fetch Dynamic Config: The Service Worker fetches dynamicConfig.json.",
+          "Fetch Page Config: It fetches page_config.json for domain-specific rules.",
+          "Fetch Feature Gates: The GatesService fetches enabled feature flags.",
+          "Fetch A/B Treatments: The TreatmentService fetches experiment variations.",
+          "Fetch User Entitlements (Passport): The PassportService fetches the user's subscription level.",
+          "Cache Configuration: All fetched configurations are cached in chrome.storage.local or IndexedDB.",
+          "Apply Configuration: The application's logic checks cached configurations to alter behavior."
+        ],
+        "apis": [
+          "chrome.alarms",
+          "chrome.storage.local"
+        ],
+        "messages": [],
+        "endpoints": [
+          "https://config.extension.grammarly.com",
+          "https://gates.grammarly.com/gates/get",
+          "https://treatment.grammarly.com",
+          "https://goldengate.grammarly.com/passport"
+        ],
+        "storage_keys": [
+          "experiment_cache",
+          "dynamic_config"
+        ],
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/core_workflows.md",
+            "start": 73,
+            "end": 105
+          }
+        ]
+      },
+      {
+        "name": "Telemetry & Tracking Workflow",
+        "triggers": [
+          "User interactions (clicks, hovers, typing)",
+          "Application lifecycle events",
+          "Performance milestones",
+          "Errors and exceptions"
+        ],
+        "steps": [
+          "Event Trigger: An action calls a method on the Gnar or Telemetry client.",
+          "Data Collection: The client gathers contextual information and browser fingerprint data.",
+          "Batching: Events are collected in an in-memory queue.",
+          "Sending Batch: Batched events are sent via POST to telemetry endpoints.",
+          "Resilient Storage: The Gnar client uses chrome.cookies and localStorage for stable user identification."
+        ],
+        "apis": [
+          "chrome.cookies"
+        ],
+        "messages": [],
+        "endpoints": [
+          "/logv2",
+          "/femetrics",
+          "*.sentry.io"
+        ],
+        "storage_keys": [
+          "gnar_containerId"
+        ],
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/core_workflows.md",
+            "start": 107,
+            "end": 136
+          }
+        ]
+      },
+      {
+        "name": "Generative AI ('Agent Platform') Workflow",
+        "triggers": [
+          "User clicks a GenAI button",
+          "User interacts with a GenAI-specific UI element"
+        ],
+        "steps": [
+          "UI Interaction: User interacts with a GenAI feature.",
+          "RPC to Service Worker: The content script sends an RPC message to the Service Worker.",
+          "Dynamic Module Load: The Agent Platform dynamically loads the required agent module.",
+          "CAPI Request: The Service Worker sends the request to the CAPI backend via WebSocket.",
+          "Streamed Response: The CAPI backend streams the generative response back.",
+          "Forward to UI: The Service Worker streams the response back to the content script.",
+          "Render Output: The content script's UI renders the streamed output."
+        ],
+        "apis": [],
+        "messages": [
+          "agent-rpc"
+        ],
+        "endpoints": [
+          "wss://capi.grammarly.com/freews"
+        ],
+        "storage_keys": [],
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/core_workflows.md",
+            "start": 138,
+            "end": 164
+          }
+        ]
+      }
+    ],
+  "privacy": {
+      "data_categories": [
+        "user_generated_content",
+        "keystroke_data",
+        "document_context",
+        "generative_ai_interactions",
+        "pii",
+        "credentials",
+        "browsing_history",
+        "interaction_history",
+        "technical_device_information",
+        "browser_fingerprint"
+      ],
+      "purposes": [
+        "core_functionality",
+        "analytics",
+        "product_improvement",
+        "ab_testing",
+        "marketing",
+        "user_engagement",
+        "security",
+        "compliance"
+      ],
+      "minimization": "The principle of data minimization is not strongly followed. The extension appears to collect as much data as is technically feasible for product improvement and analytics, rather than the minimum necessary for functionality.",
+      "consent": "No explicit, granular consent mechanisms were observed in the code for specific data collection practices. Consent is likely bundled into the general Terms of Service and Privacy Policy at installation time.",
+      "retention": "Local storage seems to be indefinite unless cleared by the user or the extension. Explicit TTLs were not prominent.",
+      "third_parties": [
+        {
+          "name": "Iterable",
+          "purpose": "Marketing automation and in-app messaging",
+          "evidence": [
+            {
+              "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+              "start": 88,
+              "end": 90
+            }
+          ]
+        },
+        {
+          "name": "Sentry",
+          "purpose": "Error reporting and debugging",
+          "evidence": [
+            {
+              "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+              "start": 91,
+              "end": 92
+            }
+          ]
+        },
+        {
+          "name": "Google Analytics / Databricks",
+          "purpose": "Performance metrics and telemetry data warehousing",
+          "evidence": [
+            {
+              "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+              "start": 93,
+              "end": 94
+            }
+          ]
+        }
+      ]
+    },
+  "risks": [
+      {
+        "type": "pii_exfiltration",
+        "severity": "high",
+        "justification": "The TypingTracker captures all user keystrokes in monitored fields. While a DLP service exists to sanitize data before sending it to the CAPI backend, this constitutes a major privacy risk. A bug in the DLP service or a change in configuration could lead to sensitive PII being sent to Grammarly servers.",
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+            "start": 111,
+            "end": 111
+          }
+        ]
+      },
+      {
+        "type": "tracking",
+        "severity": "high",
+        "justification": "The Gnar analytics client and the massive gnarSpecClass define hundreds of highly specific events, tracking nearly every user interaction with the extension. This creates a detailed behavioral profile of the user.",
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+            "start": 112,
+            "end": 112
+          }
+        ]
+      },
+      {
+        "type": "fingerprinting",
+        "severity": "medium",
+        "justification": "The bundled UAParser.js library is used to collect detailed browser, OS, and device information. This data, when combined with other telemetry, can create a unique and stable fingerprint of the user.",
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+            "start": 113,
+            "end": 113
+          }
+        ]
+      },
+      {
+        "type": "other",
+        "severity": "medium",
+        "justification": "The extension integrates with Iterable, a marketing automation platform, sending user activity data to enable targeted in-app messaging and campaigns. This blurs the line between a utility and a marketing tool.",
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+            "start": 114,
+            "end": 114
+          }
+        ]
+      },
+      {
+        "type": "remote_code",
+        "severity": "low",
+        "justification": "The extension's behavior is heavily controlled by remote configuration, feature flags, and A/B tests fetched from Grammarly servers. While this allows for agility, it also means that functionality can change without an extension update, potentially introducing new risks.",
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+            "start": 115,
+            "end": 115
+          }
+        ]
+      },
+      {
+        "type": "other",
+        "severity": "low",
+        "justification": "The cs-to-bg-rpc interface exposes a very large number of background script functions to content scripts. If a content script were to be compromised by a vulnerability on a webpage, this RPC interface could potentially be abused.",
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+            "start": 116,
+            "end": 116
+          }
+        ]
+      },
+      {
+        "type": "other",
+        "severity": "low",
+        "justification": "The extension can communicate with a native desktop application (com.grammarly.desktop) via chrome.runtime.connectNative. This expands the attack surface to include potential vulnerabilities in the native host application.",
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+            "start": 117,
+            "end": 117
+          }
+        ]
+      },
+      {
+        "type": "insecure_storage",
+        "severity": "low",
+        "justification": "A from-scratch implementation of SHA-1 was found. While its specific use case wasn't for a critical security function like password hashing, the presence of a known weak algorithm is a minor security risk.",
+        "evidence": [
+          {
+            "file": "out_006_Gemini-2.5-Pro/privacy_security_analysis.md",
+            "start": 118,
+            "end": 118
+          }
+        ]
+      }
+    ],
+  "code_signals": {
+    "chrome_api_calls": [
+      "chrome.cookies.get",
+      "chrome.cookies.set",
+      "chrome.cookies.remove",
+      "chrome.cookies.getAll",
+      "chrome.runtime.lastError",
+      "chrome.runtime.connectNative",
+      "chrome.permissions",
+      "chrome.tabs.create",
+      "chrome.tabs.onUpdated",
+      "chrome.tabs.onRemoved",
+      "chrome.tabs.remove",
+      "chrome.tabs.getActiveTabZoom",
+      "chrome.management.uninstallSelf",
+      "chrome.identity.getRedirectURL",
+      "chrome.permissions.contains",
+      "chrome.permissions.request",
+      "chrome.permissions.watchAdded",
+      "chrome.permissions.watchRemoved",
+      "chrome.tabs.executeScript",
+      "chrome.tabs.getActiveTab",
+      "chrome.tabs.getAllTabs",
+      "chrome.tabs.reload",
+      "chrome.notifications.create",
+      "identity.launchWebAuthFlow",
+      "tabs.onActiveTabChange",
+      "tabs.onWindowOrActiveTabChange",
+      "alarms.onAlarm",
+      "managedStorage.get",
+      "chrome.storage.local.get",
+      "chrome.storage.local.set",
+      "chrome.runtime.onInstalled.addListener",
+      "chrome.runtime.onStartup.addListener",
+      "chrome.runtime.onConnectExternal.addListener",
+      "chrome.alarms.create",
+      "chrome.alarms.onAlarm.addListener",
+      "chrome.storage.managed.get",
+      "chrome.storage.session.get",
+      "chrome.storage.session.set",
+      "chrome.storage.session.clear",
+      "chrome.storage.session.remove",
+      "chrome.storage.session.onChanged",
+      "chrome.scripting.executeScript",
+      "chrome.scripting.insertCSS",
+      "chrome.tabs.update",
+      "chrome.tabs.query",
+      "chrome.tabs.getZoom",
+      "chrome.tabs.onActivated",
+      "chrome.windows.onFocusChanged",
+      "chrome.action.setBadgeText",
+      "chrome.action.setIcon",
+      "chrome.action.setTitle",
+      "chrome.action.setBadgeBackgroundColor",
+      "chrome.notifications.clear",
+      "chrome.cookies.onChanged",
+      "chrome.permissions.onAdded",
+      "chrome.permissions.onRemoved",
+      "chrome.permissions.getAll",
+      "chrome.i18n.detectLanguage",
+      "chrome.i18n.getUILanguage",
+      "chrome.i18n.getAcceptLanguages",
+      "chrome.identity.*",
+      "chrome.runtime.setUninstallURL",
+      "chrome.sidePanel.open",
+      "runtime.getManifest",
+      "runtime.onUpdateAvailable",
+      "runtime.reload",
+      "runtime.requestUpdateCheck",
+      "crypto.subtle.encrypt",
+      "crypto.subtle.decrypt",
+      "crypto.subtle.generateKey",
+      "crypto.subtle.importKey",
+      "crypto.subtle.exportKey",
+      "crypto.getRandomValues",
+      "indexedDB.open",
+      "chrome.storage",
+      "runtime.onMessage",
+      "chrome.runtime.getBackgroundPage",
+      "chrome.runtime.sendMessage",
+      "chrome.runtime.getURL",
+      "chrome.runtime.connect",
+      "chrome.runtime.id",
+      "chrome.sessionStorage.get",
+      "chrome.sessionStorage.set",
+      "chrome.sessionStorage.onChange",
+      "chrome.bgRpc.api.openSidePanel",
+      "chrome.bgRpc.api.isPermissionGranted",
+      "chrome.nativeMessaging",
+      "chrome.notifications.onClicked",
+      "chrome.notifications.onButtonClicked",
+      "chrome.notifications.onClosed",
+      "chrome.action.openPopup"
+    ],
+    "event_listeners": [
+      "onPortConnection",
+      "onMessage",
+      "onDisconnect",
+      "browserApi.preferences.changes.subscribe",
+      "browserApi.message.listenToRuntimeMessage",
+      "browserApi.message.onPortConnection",
+      "installedAgentsOrderChanged",
+      "visibilitychange",
+      "runtime.onInstalled",
+      "runtime.onStartup",
+      "runtime.onConnectExternal",
+      "alarms.onAlarm",
+      "chrome.runtime.onConnect",
+      "chrome.runtime.onMessage",
+      "chrome.storage.onChanged",
+      "chrome.tabs.onActivated",
+      "chrome.tabs.onUpdated",
+      "chrome.windows.onFocusChanged",
+      "chrome.windows.onRemoved",
+      "chrome.cookies.onChanged",
+      "chrome.permissions.onAdded",
+      "chrome.permissions.onRemoved",
+      "message.on('sendCsLogsToPopup')",
+      "message.on('downloadDebugReportsFromCS')",
+      "document.addEventListener('keydown')",
+      "document.addEventListener('keypress')",
+      "bgSW-shutdown",
+      "mousemove",
+      "touchstart",
+      "resize",
+      "keydown",
+      "mousedown",
+      "keyup",
+      "mousewheel",
+      "touchmove",
+      "paste",
+      "click",
+      "focus",
+      "compositionstart",
+      "compositionend",
+      "input",
+      "change",
+      "mouseup",
+      "pointerdown",
+      "dblclick",
+      "load",
+      "unload",
+      "blur",
+      "port.onMessage",
+      "port.onDisconnect"
+    ],
+    "dynamic_code": [
+      "io-ts library functions",
+      "monocle-ts library functions",
+      "Levenshtein distance function",
+      "ONNX model parsing library",
+      "WasmBinding for WebAssembly",
+      "GLSL shader utilities",
+      "WebAssembly.instantiate",
+      "WebAssembly.instantiateStreaming",
+      "dynamic_import",
+      "import()",
+      "__webpack_require__.e",
+      "chrome.scripting.executeScript",
+      "chrome.scripting.insertCSS",
+      "n.e(2308)",
+      "n.e(1090)",
+      "lazy_loading",
+      "Promise.all([n.e(5020), n.e(6890), ...]).then(...)",
+      "webpack_runtime"
+    ],
+    "wasm_modules": [
+      "WasmBinding",
+      "onnx-wasm.wasm",
+      "_batch_normalization_f32",
+      "_add_f32",
+      "_sub_f32",
+      "_mul_f32",
+      "_div_f32",
+      "_prelu_f32",
+      "_xor_u8",
+      "_or_u8",
+      "_and_u8",
+      "_clip_f32",
+      "_conv_f32",
+      "_gemm_f32",
+      "_free",
+      "_malloc",
+      "_instance_normalization_f32",
+      "_matmul_f32",
+      "_average_pool_f32",
+      "_max_pool_f32",
+      "_softmax_f32",
+      "_sum_f32"
+    ],
+    "third_party_libs": [
+      "UAParser.js",
+      "uuid.js",
+      "Popper.js",
+      "react-dom"
+    ]
+  }
+}

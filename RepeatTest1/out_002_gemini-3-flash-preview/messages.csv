@@ -1,0 +1,2 @@
+init,content->background,,extension/background.js,606,613
+showExtension,background->content,,extension/background.js,597,601

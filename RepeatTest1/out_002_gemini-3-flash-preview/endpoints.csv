@@ -1,0 +1,3 @@
+https://catalog-service-api.faircado.com/api/v1/supported-website,POST,extension/background.js,3,3
+https://cms-api.faircado.com/api/supported-websites/list,GET,extension/background.js,9,9
+https://api.mixpanel.com/track,POST,extension/background.js,362,381

@@ -1,0 +1,1 @@
+import{I as s,a as e}from"./index-B9SbLlJ5.js";import{e as a}from"./DataSyncService-BIQVYvDv.js";const h=s({setup:()=>({flashMessageId:null}),methods:{showFlashMessage(s){this.flashMessageId&&a.$emit("flashMessage:dismiss",this.flashMessageId),this.flashMessageId=e.uuidv4(),s.id=this.flashMessageId,a.$emit("flashMessage",s)}}});export{h as f};

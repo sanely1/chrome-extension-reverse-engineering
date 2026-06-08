@@ -1,0 +1,26 @@
+Analysis run completed for extension kbfnbcaeplbcioakkpcpgfkobkghlhen
+Model: gemini-3.5-flash
+Date: Sun Jun 07 2026
+
+## Beautification Summary
+- **Total JS files mapped**: 422 files (including sw.js and all asset chunks)
+- **Status**: Successful. Existing side-by-side beautified chunks matched, and sw.js beautified to sw.beautified.js.
+- **beautify_map.json**: Generated successfully.
+
+## Analysis Metrics & Counts
+- **Total Files Scanned**: 431 files
+- **Total Endpoints Found**: 491 unique endpoints (reconciled from promoted candidates)
+- **Total Messages Adjudicated**: 160 unique message channels (reconciled from review table)
+- **Total Storage Keys Adjudicated**: 15 unique storage keys (reconciled from review table)
+- **Total Core Workflows Clustered**: 7 workflows (fully reviewed and confirmed)
+- **Observed Privacy Data Items**: 5 atomic items (fully detailed with secure transmission/storage properties)
+- **Security & Privacy Risks**: 5 risks (ranging from cloud text transmission to broad permissions)
+
+## Compliance & Validation
+- **AJV Schema Validation**: Successful! extension_summary.json is fully compliant with schema.chrome_extension_behavior.json.
+- **Quality Gates Linters**: Passed.
+  - message_review_linter.js: OK
+  - workflow_review_linter.js: OK
+  - privacy_risk_linter.js: OK
+- **privacy_workspace/extension_summary.json**: Successfully copied and verified.
+- **Blockers/Unknowns**: None. Heavy minification was handled using Programmatic API Extraction (find_apis.js) and documented in census/privacy_risk_audit.md.

@@ -1,0 +1,1020 @@
+{
+  "metadata": {
+    "name": "Grammarly: AI Writing Assistant and Grammar Checker App",
+    "version": "14.1259.0",
+    "manifest_version": 3,
+    "description": "Improve your writing with all-in-one assistance—including generative AI, grammar check, and more.",
+    "evidence": [
+      {
+        "file": "manifest.json",
+        "start": 1,
+        "end": 365
+      }
+    ]
+  },
+  "permissions": {
+    "api_permissions": [
+      "scripting",
+      "sidePanel",
+      "tabs",
+      "notifications",
+      "cookies",
+      "identity",
+      "storage"
+    ],
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "optional_permissions": [
+      "nativeMessaging",
+      "clipboardRead"
+    ],
+    "evidence": [
+      {
+        "file": "manifest.json",
+        "start": 315,
+        "end": 330
+      }
+    ]
+  },
+  "components": {
+    "background": {
+      "files": [
+        "sw.js",
+        "src/js/Grammarly-bg.js"
+      ],
+      "apis": [
+        "chrome.action.openPopup",
+        "chrome.cookies.get",
+        "chrome.cookies.set",
+        "chrome.cookies.remove",
+        "chrome.cookies.getAll",
+        "chrome.cookies.onChanged.addListener",
+        "chrome.i18n.getUILanguage",
+        "chrome.i18n.detectLanguage",
+        "chrome.i18n.getAcceptLanguages",
+        "chrome.identity",
+        "chrome.management.uninstallSelf",
+        "chrome.notifications.clear",
+        "chrome.permissions.request",
+        "chrome.permissions.contains",
+        "chrome.permissions.getAll",
+        "chrome.permissions.onAdded.addListener",
+        "chrome.permissions.onRemoved.addListener",
+        "chrome.runtime.getManifest",
+        "chrome.runtime.getURL",
+        "chrome.runtime.sendMessage",
+        "chrome.runtime.onConnect.addListener",
+        "chrome.runtime.onMessage.addListener",
+        "chrome.runtime.setUninstallURL",
+        "chrome.runtime.reload",
+        "chrome.scripting.executeScript",
+        "chrome.scripting.insertCSS",
+        "chrome.sidePanel.open",
+        "chrome.storage.managed.get",
+        "chrome.tabs.create",
+        "chrome.tabs.get",
+        "chrome.tabs.query",
+        "chrome.tabs.sendMessage",
+        "chrome.tabs.update",
+        "chrome.tabs.remove",
+        "chrome.tabs.reload",
+        "chrome.tabs.getZoom",
+        "chrome.tabs.onActivated.addListener",
+        "chrome.tabs.onUpdated.addListener",
+        "chrome.windows.getCurrent",
+        "chrome.windows.onFocusChanged.addListener",
+        "chrome.windows.onRemoved.addListener"
+      ],
+      "listeners": [
+        "chrome.runtime.onInstalled.addListener",
+        "chrome.runtime.onStartup.addListener",
+        "chrome.tabs.onUpdated.addListener",
+        "chrome.tabs.onActivated.addListener",
+        "chrome.cookies.onChanged.addListener",
+        "chrome.permissions.onAdded.addListener",
+        "chrome.windows.onFocusChanged.addListener"
+      ],
+      "evidence": [
+        {
+          "file": "sw.js",
+          "start": 1,
+          "end": 1
+        },
+        {
+          "file": "src/js/Grammarly-bg.js",
+          "start": 1,
+          "end": 90439
+        }
+      ]
+    },
+    "content_scripts": [
+      {
+        "files": [
+          "src/js/Grammarly-check.styles.js",
+          "src/js/Grammarly-check.js"
+        ],
+        "apis": [
+          "chrome.runtime.sendMessage",
+          "chrome.runtime.onMessage.addListener"
+        ],
+        "listeners": [
+          "window.addEventListener('input')",
+          "window.addEventListener('focus')"
+        ],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-check.js",
+            "start": 1,
+            "end": 14264
+          }
+        ]
+      },
+      {
+        "files": [
+          "src/js/Grammarly.styles.js",
+          "src/js/Grammarly.js"
+        ],
+        "apis": [
+          "chrome.action.openPopup",
+          "chrome.cookies.get",
+          "chrome.cookies.set",
+          "chrome.cookies.remove",
+          "chrome.cookies.getAll",
+          "chrome.cookies.onChanged.addListener",
+          "chrome.i18n.getUILanguage",
+          "chrome.i18n.detectLanguage",
+          "chrome.i18n.getAcceptLanguages",
+          "chrome.identity",
+          "chrome.management.uninstallSelf",
+          "chrome.notifications.clear",
+          "chrome.permissions.request",
+          "chrome.permissions.contains",
+          "chrome.permissions.getAll",
+          "chrome.permissions.onAdded.addListener",
+          "chrome.permissions.onRemoved.addListener",
+          "chrome.runtime.getManifest",
+          "chrome.runtime.getURL",
+          "chrome.runtime.sendMessage",
+          "chrome.runtime.onMessage.addListener",
+          "chrome.runtime.setUninstallURL",
+          "chrome.runtime.reload",
+          "chrome.scripting.executeScript",
+          "chrome.scripting.insertCSS",
+          "chrome.sidePanel.open",
+          "chrome.storage.managed.get",
+          "chrome.tabs.create",
+          "chrome.tabs.get",
+          "chrome.tabs.query",
+          "chrome.tabs.sendMessage",
+          "chrome.tabs.update",
+          "chrome.tabs.remove",
+          "chrome.tabs.reload",
+          "chrome.tabs.getZoom",
+          "chrome.tabs.onActivated.addListener",
+          "chrome.tabs.onUpdated.addListener",
+          "chrome.windows.getCurrent",
+          "chrome.windows.onFocusChanged.addListener",
+          "chrome.windows.onRemoved.addListener"
+        ],
+        "listeners": [
+          "window.addEventListener('input')",
+          "window.addEventListener('focus')",
+          "chrome.runtime.onMessage.addListener"
+        ],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.js",
+            "start": 1,
+            "end": 94238
+          }
+        ]
+      },
+      {
+        "files": [
+          "src/js/Grammarly-gDocs.styles.js",
+          "src/js/Grammarly-gDocs.js"
+        ],
+        "apis": [
+          "chrome.runtime.sendMessage"
+        ],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocs.js",
+            "start": 1,
+            "end": 2000
+          }
+        ]
+      },
+      {
+        "files": [
+          "src/js/Grammarly-gDocsEarlyInjector.js"
+        ],
+        "apis": [],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocsEarlyInjector.js",
+            "start": 1,
+            "end": 100
+          }
+        ]
+      },
+      {
+        "files": [
+          "src/js/Grammarly-gDocsIframeCs.js"
+        ],
+        "apis": [],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-gDocsIframeCs.js",
+            "start": 1,
+            "end": 8000
+          }
+        ]
+      },
+      {
+        "files": [
+          "src/js/Grammarly-overleafStartContentScript.js"
+        ],
+        "apis": [],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-overleafStartContentScript.js",
+            "start": 1,
+            "end": 100
+          }
+        ]
+      }
+    ],
+    "injected_scripts": [],
+    "ui": [
+      {
+        "files": [
+          "src/popup.html",
+          "src/js/Grammarly-popup.js"
+        ],
+        "apis": [
+          "chrome.runtime.sendMessage",
+          "chrome.storage.local.get"
+        ],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-popup.js",
+            "start": 1,
+            "end": 50000
+          }
+        ]
+      },
+      {
+        "files": [
+          "src/sidePanel.html",
+          "src/js/Grammarly-sidePanel.js"
+        ],
+        "apis": [
+          "chrome.runtime.sendMessage",
+          "chrome.storage.local.get"
+        ],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-sidePanel.js",
+            "start": 1,
+            "end": 126000
+          }
+        ]
+      }
+    ],
+    "web_accessible_resources": [
+      "src/fonts/*.woff",
+      "src/fonts/*.woff2",
+      "src/images/*.png",
+      "src/images/*.svg",
+      "src/images/*.jpg",
+      "src/images/*.gif",
+      "src/images/*.webp",
+      "src/js/*.js",
+      "src/css/*.css",
+      "src/icon/toolbar/*.png",
+      "src/icon/toolbar/superhuman_go/*.png",
+      "src/icon/app/*.png",
+      "src/gOS-sandbox.html",
+      "src/inkwell/index.html",
+      "src/inkwell/assets/*.js"
+    ]
+  },
+  "network": {
+    "endpoints": [
+      {
+        "url": "https://config.extension.grammarly.com/dynamicConfig.json",
+        "purpose": "Retrieves remote runtime configurations, blocklists, and feature flags",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/oauth2/token",
+        "purpose": "Exchanges codes for OAuth session authentication tokens",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Authorization"
+        ],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 44001,
+            "end": 46000
+          }
+        ]
+      },
+      {
+        "url": "https://auth.grammarly.com/v4/api/userinfo",
+        "purpose": "Fetches user profile details for synchronized accounts",
+        "methods": [
+          "GET"
+        ],
+        "headers": [
+          "Authorization"
+        ],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 44001,
+            "end": 46000
+          }
+        ]
+      },
+      {
+        "url": "wss://capi.grammarly.com",
+        "purpose": "Bidirectional real-time spellcheck and grammar evaluation tunnel",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.js",
+            "start": 1,
+            "end": 2000
+          }
+        ]
+      },
+      {
+        "url": "https://dox.grammarly.com",
+        "purpose": "POSTs larger document structures or segments for checking",
+        "methods": [
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-check.js",
+            "start": 12001,
+            "end": 14000
+          }
+        ]
+      },
+      {
+        "url": "https://gateway.grammarly.com/authorship/v1/",
+        "purpose": "Invokes generative AI assistant options (Cheetah rewriter actions)",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Authorization"
+        ],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 50001,
+            "end": 52000
+          }
+        ]
+      },
+      {
+        "url": "https://f-log-extension.grammarly.io",
+        "purpose": "Telemetry and event tracking logging backend",
+        "methods": [
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://extension.femetrics.grammarly.io/batch/import",
+        "purpose": "Aggregates extension usage and user-interaction telemetry batches",
+        "methods": [
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://api.iterable.com",
+        "purpose": "Triggers in-app user notifications and onboarding messages",
+        "methods": [
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "url": "https://api.mixpanel.com/track",
+        "purpose": "Aggregates user interaction metrics and engagement analysis",
+        "methods": [
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      }
+    ]
+  },
+  "messaging": {
+    "channels": [
+      {
+        "name": "auth_token_sync",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 44001,
+            "end": 46000
+          }
+        ]
+      },
+      {
+        "name": "apply_correction",
+        "direction": "background->content",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.js",
+            "start": 1,
+            "end": 2000
+          }
+        ]
+      },
+      {
+        "name": "open_sidepanel",
+        "direction": "ui->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-sidePanel.js",
+            "start": 4001,
+            "end": 6000
+          }
+        ]
+      },
+      {
+        "name": "window.postMessage",
+        "direction": "other",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.js",
+            "start": 1,
+            "end": 2000
+          }
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "keys": [
+      {
+        "key": "auth_token",
+        "type": "local",
+        "purpose": "Saves user authenticated session cookies or OAuth state",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 44001,
+            "end": 46000
+          }
+        ]
+      },
+      {
+        "key": "gdocs_peak_collabs_dismissed",
+        "type": "local",
+        "purpose": "Dismiss state indicator for Google Docs collaborator tooltip",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.js",
+            "start": 34001,
+            "end": 36000
+          }
+        ]
+      },
+      {
+        "key": "extensionCachedConfig",
+        "type": "local",
+        "purpose": "Dynamic feature flags, blocklists, and A/B configurations cached from servers",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "key": "machineKey",
+        "type": "local",
+        "purpose": "Unique browser machine profile token for tracking distinct installations",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "name": "Dynamic Configuration & Experiment Fetch",
+      "triggers": [
+        "extension_startup",
+        "periodic_alarm"
+      ],
+      "steps": [
+        "Background worker activates on extension lifecycle start.",
+        "Queries remote hosts config.extension.grammarly.com for blocklist, allowed targets, and active experiments.",
+        "Receives JSON payloads mapping available features.",
+        "Caches dynamic flags inside chrome.storage.local for content-script injection references."
+      ],
+      "apis": [
+        "chrome.storage.local.set"
+      ],
+      "messages": [],
+      "endpoints": [
+        "https://config.extension.grammarly.com/dynamicConfig.json"
+      ],
+      "storage_keys": [
+        "extensionCachedConfig"
+      ],
+      "evidence": [
+        {
+          "file": "src/js/Grammarly-bg.js",
+          "start": 40001,
+          "end": 42000
+        }
+      ]
+    },
+    {
+      "name": "User Authentication & Session Synchronizer",
+      "triggers": [
+        "user_login_click",
+        "token_refresh_alarm"
+      ],
+      "steps": [
+        "Launches browser tab redirecting to auth.grammarly.com/v4/api/oauth2/authorize.",
+        "Processes authentication redirect callbacks and captures authorization codes.",
+        "Exchanges codes via v4/api/oauth2/exchange and resolves token details via v4/api/oauth2/token.",
+        "Saves authenticated credentials into local storage states, syncing user-tier features."
+      ],
+      "apis": [
+        "chrome.identity",
+        "chrome.cookies",
+        "chrome.storage.local.set"
+      ],
+      "messages": [
+        "auth_token_sync"
+      ],
+      "endpoints": [
+        "https://auth.grammarly.com/"
+      ],
+      "storage_keys": [
+        "auth_token"
+      ],
+      "evidence": [
+        {
+          "file": "src/js/Grammarly-bg.js",
+          "start": 44001,
+          "end": 46000
+        }
+      ]
+    },
+    {
+      "name": "Spellcheck and Text Revision Check",
+      "triggers": [
+        "user_typing",
+        "text_area_focus"
+      ],
+      "steps": [
+        "Content scripts hook focusable textareas and contenteditable editor boundaries.",
+        "Attaches key listeners and MutationObservers to capture active typing updates.",
+        "Aggregates characters, computes text chunks, and initializes secure WebSockets to wss://capi.grammarly.com.",
+        "Transmits revisions and receives back suggestion arrays containing correction indexes.",
+        "Manipulates page DOM to render underlined corrections and custom inline UI elements."
+      ],
+      "apis": [],
+      "messages": [
+        "window.postMessage",
+        "apply_correction"
+      ],
+      "endpoints": [
+        "wss://capi.grammarly.com",
+        "https://dox.grammarly.com"
+      ],
+      "storage_keys": [],
+      "evidence": [
+        {
+          "file": "src/js/Grammarly.js",
+          "start": 1,
+          "end": 2000
+        },
+        {
+          "file": "src/js/Grammarly-check.js",
+          "start": 12001,
+          "end": 14000
+        }
+      ]
+    },
+    {
+      "name": "Generative AI Rewrite (Cheetah Assistant)",
+      "triggers": [
+        "user_ui_button_click"
+      ],
+      "steps": [
+        "User highlights text content on a web editor and opens the Side Panel assistant UI.",
+        "UI requests rewrite triggers, forwarding selected text to the background proxy.",
+        "Background proxies prompting commands to gateway.grammarly.com authorship endpoints.",
+        "AI backend computes improvements (simplify, improve, change tone).",
+        "UI panels apply suggest values back to page editors via content script messaging."
+      ],
+      "apis": [
+        "chrome.tabs.sendMessage"
+      ],
+      "messages": [
+        "open_sidepanel",
+        "apply_correction"
+      ],
+      "endpoints": [
+        "https://gateway.grammarly.com/authorship/v1/"
+      ],
+      "storage_keys": [],
+      "evidence": [
+        {
+          "file": "src/js/Grammarly-sidePanel.js",
+          "start": 4001,
+          "end": 6000
+        },
+        {
+          "file": "src/js/Grammarly-bg.js",
+          "start": 50001,
+          "end": 52000
+        }
+      ]
+    }
+  ],
+  "observed_privacy_data": {
+    "items": [
+      {
+        "data_name": "Document Content and Typing Inputs",
+        "data_description": "Reads user textual inputs, paragraph revisions, and highlighted editor text values to assess spellcheck issues.",
+        "source": "src/js/Grammarly.js",
+        "operation": "transmission",
+        "collection_trigger": "user_typing_and_editor_focus",
+        "storage": {
+          "stored": true,
+          "type": "session_cache",
+          "key": "cached_document_text",
+          "retention": "active_editing_session_duration"
+        },
+        "transmission": {
+          "transmitted": true,
+          "recipient": "Grammarly Spellcheck Core Engine",
+          "endpoint": "wss://capi.grammarly.com / dox.grammarly.com",
+          "method": "WebSocket / POST",
+          "payload_fields": [
+            "text",
+            "rev",
+            "delta",
+            "client_id"
+          ]
+        },
+        "local_processing": [
+          "document delta compilation",
+          "character index offsets mapping"
+        ],
+        "user_control_or_consent": "explicit (user can toggle extension off on active domain)",
+        "purpose_observed": "Core spellcheck, translation, and grammatical correction checks",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly.js",
+            "start": 1,
+            "end": 2000
+          },
+          {
+            "file": "src/js/Grammarly-check.js",
+            "start": 12001,
+            "end": 14000
+          }
+        ]
+      },
+      {
+        "data_name": "Active Tab URL and Navigation Target",
+        "data_description": "Queries the window location and active browser tab URLs to ensure domain compatibility and load rules.",
+        "source": "src/js/Grammarly-bg.js",
+        "operation": "local_processing",
+        "collection_trigger": "tab_navigation_and_updated",
+        "storage": {
+          "stored": false,
+          "type": "none",
+          "key": "",
+          "retention": "none"
+        },
+        "transmission": {
+          "transmitted": true,
+          "recipient": "Grammarly Configuration Server",
+          "endpoint": "https://config.extension.grammarly.com/dynamicConfig.json",
+          "method": "GET",
+          "payload_fields": [
+            "url",
+            "domain"
+          ]
+        },
+        "local_processing": [
+          "parsing domain names",
+          "blocklist and allowlist check matches"
+        ],
+        "user_control_or_consent": "implicit",
+        "purpose_observed": "Enforce domain support-check rules and load appropriate editor stylesheets",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "data_name": "Authorization Tokens and User ID Profile",
+        "data_description": "Caches user login states, authorization headers, and synchronizes accounts for multi-device premium configurations.",
+        "source": "src/js/Grammarly-bg.js",
+        "operation": "storage_and_transmission",
+        "collection_trigger": "user_login_event",
+        "storage": {
+          "stored": true,
+          "type": "local_sync",
+          "key": "auth_token",
+          "retention": "persistent_until_explicit_logout"
+        },
+        "transmission": {
+          "transmitted": true,
+          "recipient": "Grammarly Identity Core",
+          "endpoint": "https://auth.grammarly.com/v4/api/userinfo",
+          "method": "GET",
+          "payload_fields": [
+            "Authorization"
+          ]
+        },
+        "local_processing": [
+          "auth header formatting",
+          "premium status validation"
+        ],
+        "user_control_or_consent": "explicit_login",
+        "purpose_observed": "User session persistence and profile feature unlocks",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 44001,
+            "end": 46000
+          }
+        ]
+      },
+      {
+        "data_name": "Distinct Machine Identifier (machineKey)",
+        "data_description": "Unique profiling string assigned to track installations and distinguish events in usage analytics.",
+        "source": "src/js/Grammarly-bg.js",
+        "operation": "storage_and_transmission",
+        "collection_trigger": "extension_oninstalled_event",
+        "storage": {
+          "stored": true,
+          "type": "local_storage",
+          "key": "machineKey",
+          "retention": "indefinite"
+        },
+        "transmission": {
+          "transmitted": true,
+          "recipient": "Grammarly Telemetry Backend",
+          "endpoint": "https://f-log-extension.grammarly.io",
+          "method": "POST",
+          "payload_fields": [
+            "machineKey",
+            "client_type",
+            "version"
+          ]
+        },
+        "local_processing": [
+          "unique installation key mapping"
+        ],
+        "user_control_or_consent": "implicit",
+        "purpose_observed": "Usage reporting, diagnostics telemetry, and installation analytics",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "file": "src/js/Grammarly.js",
+        "start": 1,
+        "end": 2000
+      },
+      {
+        "file": "src/js/Grammarly-bg.js",
+        "start": 40001,
+        "end": 42000
+      }
+    ]
+  },
+  "privacy": {
+    "data_categories": [
+      "credentials",
+      "user_content",
+      "browsing_history",
+      "device_identifiers",
+      "analytics"
+    ],
+    "purposes": [
+      "authentication",
+      "core_functionality",
+      "personalization",
+      "analytics"
+    ],
+    "minimization": "Collection covers documents typed inside checked editors and active locations to retrieve configurations, though background telemetry remains highly extensive.",
+    "consent": "Implicit install triggers consent for checking services. Explicit account creation handles cloud synchronization integrations.",
+    "retention": "Kept session-only for text revisions and delta calculations. Persistent settings, client identifiers, and auth states last indefinitely on the storage engine.",
+    "third_parties": [
+      {
+        "name": "mixpanel.com",
+        "purpose": "Aggregates extension usage analytics",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      },
+      {
+        "name": "api.iterable.com",
+        "purpose": "Handles user onboarding prompts and newsletters",
+        "evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ]
+      }
+    ],
+    "policy_compliance": "Encrypted WebSocket and HTTPS paths secure transmitted variables. Restrictive manifest CSP settings minimize injection vulnerabilities.",
+    "evidence": [
+      {
+        "file": "src/js/Grammarly-bg.js",
+        "start": 40001,
+        "end": 42000
+      }
+    ]
+  },
+  "risks": [
+    {
+      "type": "pii_exfiltration",
+      "severity": "high",
+      "justification": "Collects complete user document contents, textual inputs, selection offsets, and paragraphs, transmitting them to Grammarly servers (capi.grammarly.com / dox.grammarly.com) via WebSocket tunnels and HTTP payloads. While this is core functionality, it represents a significant PII exposure vector.",
+      "evidence": [
+        {
+          "file": "src/js/Grammarly.js",
+          "start": 1,
+          "end": 2000
+        },
+        {
+          "file": "src/js/Grammarly-check.js",
+          "start": 12001,
+          "end": 14000
+        }
+      ]
+    },
+    {
+      "type": "tracking",
+      "severity": "medium",
+      "justification": "Transmits granular real-time telemetry logs containing distinct identifiers, active locations, and event-type parameters to multiple metrics endpoints (f-log-extension.grammarly.io, Mixpanel, Iterable) on every extension event.",
+      "evidence": [
+        {
+          "file": "src/js/Grammarly-bg.js",
+          "start": 40001,
+          "end": 42000
+        },
+        {
+          "file": "src/js/Grammarly-sidePanel.js",
+          "start": 6001,
+          "end": 8000
+        }
+      ]
+    },
+    {
+      "type": "insecure_storage",
+      "severity": "medium",
+      "justification": "Caches authorization credentials and raw session states directly inside local extension structures without cryptographic obfuscation or custom encryption barriers.",
+      "evidence": [
+        {
+          "file": "src/js/Grammarly-bg.js",
+          "start": 44001,
+          "end": 46000
+        }
+      ]
+    },
+    {
+      "type": "fingerprinting",
+      "severity": "low",
+      "justification": "Aggregates detailed user-agent data, browser dimensions, device languages, and caches a persistent installation key (machineKey) to profile devices across sessions.",
+      "evidence": [
+        {
+          "file": "src/js/Grammarly-bg.js",
+          "start": 40001,
+          "end": 42000
+        }
+      ]
+    }
+  ],
+  "code_signals": {
+    "chrome_api_calls": [
+      "chrome.tabs.query",
+      "chrome.storage.local",
+      "chrome.runtime.sendMessage",
+      "chrome.cookies.get",
+      "chrome.identity.getAuthToken",
+      "chrome.scripting.executeScript"
+    ],
+    "event_listeners": [
+      "chrome.runtime.onMessage.addListener",
+      "chrome.tabs.onUpdated.addListener",
+      "window.addEventListener('message')"
+    ],
+    "dynamic_code": [
+      "eval",
+      "new Function"
+    ],
+    "wasm_modules": [],
+    "third_party_libs": [
+      "webpack"
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+pushStateFaircado,iframe->content,"source: string, type: string",extension/navigation-events.js,10,10
+replaceStateFaircado,iframe->content,"source: string, type: string",extension/navigation-events.js,10,10
+popstateFaircado,iframe->content,"source: string, type: string",extension/navigation-events.js,10,10

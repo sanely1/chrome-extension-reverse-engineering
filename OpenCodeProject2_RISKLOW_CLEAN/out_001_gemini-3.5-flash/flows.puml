@@ -1,0 +1,37 @@
+@startuml flows
+skinparam Handwritten false
+skinparam Shadowing false
+
+actor User
+participant "Web Page / DOM" as Page
+participant "Content Script (Grammarly-check.js)" as Content
+participant "Background SW (Grammarly-bg.js)" as BG
+participant "UI Panel (popup/sidePanel)" as UI
+participant "AI Iframe App (Inkwell)" as Inkwell
+database "IndexedDB / chrome.storage" as DB
+boundary "Grammarly Remote CAPI" as CAPI
+
+User -> Page : Types text / Selects text
+Page -> Content : Listens to input / selection events
+Content -> Content : Extracts DOM text & metadata
+Content -> BG : Sends text context (Port/Message)
+BG -> DB : Stores document state / telemetry
+BG -> CAPI : Connects freews / gdocs WebSockets
+BG -> CAPI : Sends text stream to check
+CAPI --> BG : Returns grammar corrections
+BG --> Content : Relays alert markers & suggestions
+Content -> Page : Injects underline markers & correction cards
+
+User -> UI : Opens Popup / SidePanel
+UI -> BG : Requests preferences / state
+BG -> DB : Reads from storage (isSidePanelOpen)
+BG --> UI : Returns UI state
+
+User -> Inkwell : Uses Rewrite Assistant / Prompt
+Inkwell -> CAPI : Connects wss://capi.grammarly.com/fpws
+Inkwell -> CAPI : Sends selection context & rewrite prompt
+CAPI --> Inkwell : Returns streamed generative AI response
+Inkwell --> Page : Injects rewritten text into editor
+
+BG -> CAPI : GNAR tracking / Telemetry uploads
+@enduml

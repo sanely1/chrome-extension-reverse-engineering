@@ -1,0 +1,253 @@
+{
+  "extension_id": "gngckpdhcngilcedefiiiapkhocojghm",
+  "extension_name": "Faircado - Second hand shopping",
+  "chrome_webstore_privacy_url": "https://chromewebstore.google.com/detail/gngckpdhcngilcedefiiiapkhocojghm/privacy",
+  "external_privacy_policy_url": "https://faircado.com/privacy-policy/",
+  "comparison_summary": {
+    "chrome_webstore_declared_category_count": 4,
+    "external_policy_category_count": 7,
+    "prompt3_underdeclared_count": 2,
+    "underdeclared_explained_by_external_count": 2,
+    "underdeclared_not_declared_in_either_count": 0,
+    "underdeclared_unclear_external_coverage_count": 0,
+    "shared_category_count": 4,
+    "chrome_webstore_only_category_count": 0,
+    "external_only_category_count": 4
+  },
+  "chrome_webstore_declared_categories": [
+    "personally_identifiable_information",
+    "location",
+    "user_activity",
+    "website_content"
+  ],
+  "external_policy_declared_categories": [
+    "personally_identifiable_information",
+    "financial_and_payment_information",
+    "authentication_information",
+    "personal_communications",
+    "location",
+    "user_activity",
+    "website_content"
+  ],
+  "prompt3_underdeclared_review": [
+    {
+      "observed_item": "Authentication Credentials (authKey, authValue)",
+      "mapped_category": "authentication_information",
+      "prompt3_status": "underdeclared_in_chrome_webstore",
+      "external_policy_coverage": "chrome_webstore_underdeclared_but_external_explains",
+      "reason": "Prompt 3 found authentication information underdeclared in the Chrome Web Store. However, the external privacy policy explicitly declares 'authentication_information' including \"authentication data such as your email address, name, phone number, or Firebase ID\" and \"login\". This clarifies the collection.",
+      "severity": "medium",
+      "confidence": "high",
+      "evidence": {
+        "prompt3_underdeclared_evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 614,
+            "end": 618
+          },
+          {
+            "file": "extension/background.js",
+            "start": 768,
+            "end": 777
+          },
+          {
+            "file": "extension/background.js",
+            "start": 791,
+            "end": 820
+          }
+        ],
+        "external_policy_evidence": {
+          "file": "privacy_workspace/declared_privacy.json",
+          "path": "external_privacy_policy.privacy_text",
+          "reason": "External policy text explicitly mentions \"authentication data such as your email address, name, phone number, or Firebase ID\" and \"login\"."
+        }
+      }
+    },
+    {
+      "observed_item": "Current URL of active tab",
+      "mapped_category": "web_history",
+      "prompt3_status": "underdeclared_in_chrome_webstore",
+      "external_policy_coverage": "chrome_webstore_underdeclared_but_external_explains",
+      "reason": "Prompt 3 found web history (current URL) underdeclared in the Chrome Web Store. The external privacy policy's `privacy_text` mentions \"page views\" and analysis of \"searches, clicks, page views, and session data\", which semantically covers the observed web history collection.",
+      "severity": "low",
+      "confidence": "high",
+      "evidence": {
+        "prompt3_underdeclared_evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 235,
+            "end": 241
+          },
+          {
+            "file": "extension/background.js",
+            "start": 583,
+            "end": 588
+          },
+          {
+            "file": "extension/background.js",
+            "start": 627,
+            "end": 632
+          },
+          {
+            "file": "extension/background.js",
+            "start": 661,
+            "end": 684
+          },
+          {
+            "file": "extension/background.js",
+            "start": 863,
+            "end": 871
+          }
+        ],
+        "external_policy_evidence": {
+          "file": "privacy_workspace/declared_privacy.json",
+          "path": "external_privacy_policy.privacy_text",
+          "reason": "External policy text mentions \"page views\" and analysis of \"searches, clicks, page views, and session data\"."
+        }
+      }
+    }
+  ],
+  "policy_category_alignment": {
+    "shared_categories": [
+      {
+        "category": "personally_identifiable_information",
+        "reason": "Declared in both Chrome Web Store and external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "chrome_webstore.declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "location",
+        "reason": "Declared in both Chrome Web Store and external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "chrome_webstore.declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "user_activity",
+        "reason": "Declared in both Chrome Web Store and external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "chrome_webstore.declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "website_content",
+        "reason": "Declared in both Chrome Web Store and external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "chrome_webstore.declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      }
+    ],
+    "chrome_webstore_only_categories": [],
+    "external_only_categories": [
+      {
+        "category": "financial_and_payment_information",
+        "status": "external_only_disclosure",
+        "reason": "The external privacy policy explicitly declares the collection of 'financial_and_payment_information' but this category is not listed in the Chrome Web Store privacy declaration.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "chrome_webstore.declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "authentication_information",
+        "status": "external_only_disclosure",
+        "reason": "The external privacy policy explicitly declares the collection of 'authentication_information' but this category is not listed in the Chrome Web Store privacy declaration.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "chrome_webstore.declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "personal_communications",
+        "status": "external_only_disclosure",
+        "reason": "The external privacy policy explicitly declares the collection of 'personal_communications' but this category is not listed in the Chrome Web Store privacy declaration.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "chrome_webstore.declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "web_history",
+        "status": "external_only_disclosure",
+        "reason": "The external privacy policy text explicitly mentions \"page views\", which falls under web history, but 'web_history' is not explicitly listed as a declared category in the Chrome Web Store privacy section.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "chrome_webstore.declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.privacy_text"
+          }
+        }
+      }
+    ]
+  },
+  "overall_assessment": {
+    "chrome_webstore_underdeclaration_resolved_by_external_policy": true,
+    "has_categories_declared_only_externally": true,
+    "risk_level": "medium",
+    "confidence": "high",
+    "summary": "The external privacy policy provides a significantly more comprehensive disclosure of data collection practices compared to the Chrome Web Store privacy declaration. Both categories found underdeclared in the Chrome Web Store ('authentication_information' and 'web_history') are adequately explained in the external privacy policy's text or detected categories. Furthermore, the external policy explicitly declares several categories ('financial_and_payment_information', 'authentication_information', 'personal_communications', and implicitly 'web_history' via 'page views') that are entirely absent from the Chrome Web Store disclosure. This indicates a notable discrepancy in transparency between the two privacy documents, where the external policy offers a more complete picture of data handling, reducing the overall privacy risk from the code's observed behavior but highlighting an incompleteness in the Chrome Web Store listing."
+  },
+  "limitations": [
+    "This comparison relies entirely on the completeness and accuracy of `privacy_workspace/declared_privacy.json` (specifically the Chrome Web Store and external privacy policy sections) and `privacy_workspace/privacy_comparison.json` (underdeclared findings from observed behavior).",
+    "The automated detection of categories from the external privacy policy text (`detected_data_categories`) might not capture all nuances present in the full privacy text, though manual inspection was performed for key underdeclared items.",
+    "The presence of categories like `financial_and_payment_information` and `personal_communications` in the external privacy policy, without corresponding observed behavior in the extension, could indicate these categories are covered by other Faircado products (e.g., their website or mobile app) that the policy also governs, and not necessarily collected by this specific browser extension."
+  ]
+}

@@ -1,0 +1,49 @@
+
+Chrome Extension Reverse Engineering - Scan Log
+================================================
+
+Run ID: 001
+Model: GPT-4o
+Timestamp: 2026-05-16T21:43:00Z
+Output Directory: ./out_001_GPT-4o
+
+Tools/Packages Used:
+- js-beautify@1.14.0
+- espree@9.6.1
+- acorn@8.10.0
+- @typescript-eslint/typescript-estree@6.7.0
+- ajv-cli
+
+File Counts:
+- Original JS files: 6
+- Beautified files: 6 (100% success rate)
+- Total chunks analyzed: 6 (whole-file)
+- Service worker: 1 file (background.js)
+- Content scripts: 1 file (content.js)
+- UI files: 2 files (popup.js, data-control.js)
+- Other: 2 files (navigation-events.js, save.js)
+
+Analysis Results:
+- Chrome API calls found: 16 unique calls
+- Event listeners: 14
+- Message channels: 13
+- Storage keys: 10
+- Network endpoints: 13 unique domains/paths
+- Workflows identified: 6
+- Privacy risks: 5 (low to medium severity)
+
+Beautification:
+- Success: 6 files
+- Errors: 0 files
+
+Validation:
+- extension_summary.json: PASSED schema validation
+- outline.jsonl: 6 entries (all files covered)
+- analysis_notes.md: Complete, all chunks documented
+- CSV files: endpoints.csv (13 rows), messages.csv (13 rows), storage_keys.csv (10 rows)
+
+Known Gaps/Unknowns:
+- Some endpoints use dynamic URL construction (template strings with runtime values).
+- Purpose of some storage keys unclear from code context.
+
+Completion Status: SUCCESS

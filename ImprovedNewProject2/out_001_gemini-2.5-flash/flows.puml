@@ -1,0 +1,53 @@
+@startuml
+actor User
+participant "Faircado UI (popup.html)" as UI
+participant "Faircado Data Control (data-control.html)" as DC
+participant "Content Script (content.js)" as CS
+participant "Injected Script (navigation-events.js)" as IS
+participant "Web Accessible Resource (save.js)" as WAR
+participant "Service Worker (background.js)" as SW
+box "Faircado Backend"
+  participant "Faircado Web App" as WA
+  participant "Faircado Catalogue" as FC
+  participant "CMS API" as CMS
+  participant "Catalog Service API" as CSA
+  participant "Mixpanel" as MP
+end box
+
+cloud "Third-Party oEmbed Providers" as OE {
+}
+
+rectangle "External Websites (e.g., Amazon, Google, Ecosia)" as EW
+
+User -> UI: Opens popup
+UI -> SW: sendMessage(init)
+SW --> UI: Auth Data
+
+User -> DC: Clicks uninstall/activate
+DC -> SW: browser.management.uninstallSelf() / localStorage.setItem(ACTIVATED)
+DC -> FC: Redirect (after-extension-install-versioned, extension-to-website-onboarding)
+
+EW -> IS: Inject navigation-events.js (by CS)
+IS -> CS: window.postMessage(url_change_event)
+CS -> SW: chrome.runtime.sendMessage (GetHeuristicData, isSupportedWebsite, error, mixpanel)
+SW -> CMS: fetch(IS_PRODUCT_PAGE_HEURISTIC_API, EXTENSION_AB_TESTS_API, EXTENSION_CONFIG_API, SUPPORTED_WEBSITES_API)
+SW -> CSA: fetch(IS_SUPPORTED_WEBSITE_API)
+SW -> MP: POST /track, /engage (events, user profile)
+
+CS -> WA: window.postMessage(messageTypes.setAuth, messageTypes.openOnFullMode, messageTypes.setFilter)
+WA -> CS: window.postMessage(messageTypes.webAppReady, messageTypes.hasResult, messageTypes.closeExtension, messageTypes.setToExtensionStorage)
+CS -> SW: chrome.runtime.sendMessage(messages from WA)
+
+EW -> CS: DOM Mutation / Resize events
+CS -> CS: extractPageContent (selectors, metadata)
+CS -> FC: Redirection (handleRedirectToCatalogue with pageData)
+CS -> SW: chrome.runtime.sendMessage(mixpanel - EXPERIMENT, pageData)
+
+CS -> WAR: iframe.src = addQueryToUrl(WEB_APP_ADDRESS, {...})
+WAR -> CS: window.parent.postMessage({imgUrl, imgData})
+
+CS -> SW: chrome.runtime.sendMessage(InternalMessageTypes.GetMachineKey, InternalMessageTypes.GetAbTestsConfig, InternalMessageTypes.GetExtensionConfig, InternalMessageTypes.IsActivated, SetItemToSessionStorage, GetItemFromSessionStorage, RemoveItemFromSessionStorage, ClearDataFromSessionStorage)
+
+CS -> OE: (Potential interaction via htmlmetaparser for oEmbed discovery if implemented)
+
+@enduml

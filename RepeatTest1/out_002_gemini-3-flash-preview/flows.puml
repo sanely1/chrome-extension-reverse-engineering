@@ -1,0 +1,35 @@
+@startuml
+actor User
+participant Page
+participant "Content Script" as CS
+participant "Service Worker" as SW
+participant "Popup/UI" as UI
+participant "Web App (Iframe)" as WebApp
+database "chrome.storage" as Storage
+participant "Remote APIs" as Remote
+
+User -> Page: Visits product page
+CS -> SW: sendMessage("isSupportedWebsite")
+SW -> Remote: GET /supported-websites/list
+Remote --> SW: [sites]
+SW --> CS: isSupported: true
+
+CS -> Page: Extracts Metadata (jsonld, microdata)
+CS -> SW: sendMessage("GetHeuristicData")
+SW --> CS: [heuristics]
+CS -> CS: isProductPage? (true)
+
+CS -> CS: Injects Iframe (WebApp)
+WebApp -> CS: postMessage("ready")
+CS -> WebApp: postMessage("setFilter", {query, brand, ...})
+
+WebApp -> Remote: Fetches secondhand alternatives
+Remote --> WebApp: [results]
+WebApp -> User: Displays results in Iframe
+
+User -> WebApp: Clicks result
+WebApp -> CS: postMessage("iconClicked")
+CS -> SW: sendMessage("mixpanel", {event: "extension_expanded"})
+SW -> Remote: POST /track (Mixpanel)
+
+@enduml

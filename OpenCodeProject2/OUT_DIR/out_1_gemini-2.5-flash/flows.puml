@@ -1,0 +1,112 @@
+@startuml
+
+participant User
+participant Browser
+participant "Extension Icon" as UI_Icon
+participant "Popup UI (popup.html + popup.js)" as PopupUI
+participant "Data Control Page (data-control.html + data-control.js)" as DataControlPage
+participant "Content Script (content.js + content.css)" as ContentScript
+participant "Injected Script (navigation-events.js)" as InjectedScript
+participant "Image Processing Iframe (save.html + save.js)" as ImageIframe
+participant "Background Service Worker (background.js)" as Background
+participant "Faircado Catalog Service API" as CatalogAPI
+participant "Faircado CMS API" as CmsAPI
+participant "Mixpanel Analytics API" as MixpanelAPI
+participant "Faircado Web Application" as WebApp
+participant "Google API (OAuth2)" as GoogleAPI
+
+UI_Icon -[#blue]> Background : chrome.action.onClicked
+activate Background
+Background -> DataControlPage : chrome.tabs.create(data-control.html) [Firefox install / data control]
+DataControlPage -> Background : InternalMessageTypes.GetMachineKey
+DataControlPage -> Background : InternalMessageTypes.GetAbTestsConfig
+DataControlPage -> Background : InternalMessageTypes.IsActivated
+Background --> DataControlPage : machineKey, abTestsConfig, isActivated
+DataControlPage -> WebApp : window.location.href (after-install URL with machineKey)
+deactivate Background
+
+PopupUI -> Background : messageTypes.init (get auth data)
+activate Background
+Background --> PopupUI : authData (authKey, authValue, machineKey)
+deactivate Background
+
+User -> UI_Icon : Clicks extension icon
+UI_Icon -> Background : chrome.action.onClicked
+activate Background
+Background -> DataControlPage : openDataControlPage() [if not activated on Firefox]
+alt Data Control Accepted
+  Background -> ContentScript : chrome.tabs.sendMessage(showExtension, machineKey)
+  activate ContentScript
+  ContentScript -> ImageIframe : window.postMessage(image URL) [if image search]
+  activate ImageIframe
+  ImageIframe -> ImageIframe : Process image (resize, Base64 encode)
+  ImageIframe -> ContentScript : window.parent.postMessage(imgUrl, imgData)
+  deactivate ImageIframe
+  ContentScript -> Background : messageTypes.mixpanel (extension_opened_icon)
+  activate Background
+  Background -> MixpanelAPI : fetch(/track) (extension_opened_icon event)
+  deactivate Background
+  ContentScript -> Background : messageTypes.isSupportedWebsite(url)
+  activate Background
+  Background -> CatalogAPI : fetch(POST /supported-website, X-Machine-Key, URL)
+  Background -> CmsAPI : fetch(GET /supported-websites/list)
+  Background --> ContentScript : isSupported, parameters, isEnabled, isMetadataAllowed
+  deactivate Background
+else Data Control Not Accepted
+  Background -> DataControlPage : chrome.tabs.create(data-control.html)
+end
+deactivate Background
+
+User -> WebPage : Navigates / interacts
+WebPage -> InjectedScript : history.pushState, history.replaceState, window.popstate
+activate InjectedScript
+InjectedScript -> WebPage : window.postMessage(navigation event details)
+deactivate InjectedScript
+
+Background -> CatalogAPI : fetch(POST /supported-website) [on supported website check]
+activate Background
+Background -> CmsAPI : fetch(GET /supported-websites/list) [on startup, periodic refresh]
+Background -> CmsAPI : fetch(GET /is-product-page-heuristic) [on GetHeuristicData message]
+Background -> CmsAPI : fetch(GET /extension-ab-tests/list) [on GetAbTestsConfig message]
+Background -> CmsAPI : fetch(GET /extension-config) [on GetExtensionConfig message]
+deactivate Background
+
+ContentScript -> Background : messageTypes.login(authKey, authValue)
+activate Background
+Background -> Background : storeAuthData(authKey, authValue)
+Background -> ContentScript : chrome.tabs.sendMessage(setAuth, authKey, authValue) [distribute to all tabs]
+deactivate Background
+
+ContentScript -> Background : messageTypes.logout
+activate Background
+Background -> Background : clearAuthData()
+Background -> ContentScript : chrome.tabs.sendMessage(clearAuth) [distribute to all tabs]
+deactivate Background
+
+ContentScript -> Background : messageTypes.error(detail, message, url)
+activate Background
+Background -> MixpanelAPI : fetch(/track) (error event)
+deactivate Background
+
+ContentScript -> Background : messageTypes.mixpanel(eventName, payload)
+activate Background
+Background -> MixpanelAPI : fetch(/track) (custom mixpanel event)
+deactivate Background
+
+Background -> MixpanelAPI : fetch(/engage#profile-batch-update) [on extension update]
+
+Background -> Browser : chrome.runtime.setUninstallURL(uninstall URL with machineKey) [on install]
+User -> Browser : Uninstalls extension
+Browser -> WebApp : Redirect to uninstall URL (with machineKey, extensionVersion)
+
+Background -> Background : getMachineKey()
+Background -> Background : setupAbTestVariants(EXTENSION_TO_WEBSITE)
+Background -> Background : openTabAfterExtensionInstall(machineKey)
+
+Background -> Background : storeAuthData(authKey, authValue) [to localStorage/syncStorage]
+Background -> Background : getAuthData() [from localStorage/syncStorage]
+Background -> Background : clearAuthData() [from localStorage/syncStorage]
+
+Background -> ImageIframe : image context menu click (SearchImage) -> send messageTypes.showExtension (imageUrl)
+
+@enduml

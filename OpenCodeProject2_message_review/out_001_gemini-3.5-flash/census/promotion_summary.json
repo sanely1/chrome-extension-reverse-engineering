@@ -1,0 +1,16 @@
+{
+  "out_dir": "C:\\Users\\sanel\\Documents\\OpenCodeProject2_message_review\\out_001_gemini-3.5-flash",
+  "endpoints": {
+    "promoted": 491,
+    "excluded": 272
+  },
+  "messages": {
+    "promoted": 267,
+    "excluded": 486
+  },
+  "storage": {
+    "promoted": 24,
+    "excluded": 63
+  },
+  "generated_at": "2026-06-07T15:13:01.308Z"
+}

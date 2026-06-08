@@ -1,0 +1,41 @@
+Reverse Engineering Run completed for Grammarly Extension kbfnbcaeplbcioakkpcpgfkobkghlhen.
+Run Number: 001
+Model: gemini-3.5-flash
+Status: Complete & Validated
+
+Summary of discovered signals:
+- Files Processed: 432
+- Literal Endpoints Extracted: 491
+- Message Channels Adjudicated: 158
+- Storage Keys Adjudicated: 12
+- Evidence-based Workflows Clustered: 6
+- Concrete Privacy Data Flows: 5
+- Technical Risks Identified: 7
+
+Deliverables checklist verification:
+- [x] extension_summary.json
+- [x] outline.jsonl
+- [x] analysis_notes.md
+- [x] permissions_report.json
+- [x] endpoints.csv
+- [x] messages.csv
+- [x] storage_keys.csv
+- [x] flows.puml
+- [x] beautify_map.json
+- [x] run_info.json
+- [x] scan_log.txt
+- [x] schema.chrome_extension_behavior.json
+- [x] census candidates files
+- [x] message and storage review tables
+- [x] semantic_architecture_review.csv
+- [x] workflow candidate tables and promotion audit
+- [x] privacy signal matrix, candidates, and risk reviews
+- [x] privacy_risk_evidence_review.csv
+
+Privacy Suite Results:
+- [x] privacy_workspace/declared_privacy.json (Successfully scraped with CWS consent handling)
+- [x] privacy_workspace/privacy_comparison.json (CWS vs Actual: identified underdeclaration in web_history and authentication_information)
+- [x] privacy_workspace/external_privacy_comparison.json (External Policy vs Actual: consistent, zero underdeclarations)
+- [x] privacy_workspace/internal_external_privacy_comparison.json (Internal vs External: underdeclared CWS items are fully explained in external policy)
+
+All quality gates, linter rules, and output schemas passed successfully.

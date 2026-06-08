@@ -1,0 +1,20 @@
+{
+  "run_id": "out_001_gemini-2.5-flash",
+  "timestamp": "2026-05-17T13:43:00Z",
+  "model_name": "gemini-2.5-flash",
+  "status": "completed",
+  "total_files_analyzed": {
+    "javascript": 6,
+    "html": 3,
+    "css": 3
+  },
+  "blockers_encountered": [],
+  "assumptions_made": [
+    "OUT_DIR for outputs is C:\\Users\\sanel\\Documents\\ImprovedNewProject1\\out_001_gemini-2.5-flash.",
+    "No beautification tooling is provided or needed for analysis; original files are used.",
+    "AST parsing capabilities are limited to text-based grep and read; semantic analysis relies on robust regex patterns and contextual reading.",
+    "Dynamic analysis is not in scope.",
+    "The `direction` values in messages.csv that are not strict schema enums (e.g., `content->web_app`, `embedded_app->content`) are considered more detailed subtypes or covered by `other` for schema compliance.",
+    "The `type` value `local/sync` for storage keys in storage_keys.csv is mapped to either `local` or `sync` as appropriate for schema compliance."
+  ]
+}

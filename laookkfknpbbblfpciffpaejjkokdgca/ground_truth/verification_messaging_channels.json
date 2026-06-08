@@ -1,0 +1,571 @@
+[
+  {
+    "name": "activateNewWorker",
+    "direction": "background->background",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "flashMessage",
+    "direction": "background->tabs",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "legacyUserMigration",
+    "direction": "content->background",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5170,
+        "end": 5190
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 5170-5190); Evidence 4: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "legacyUserMigration:triggerOffscreenDocumentRequest",
+    "direction": "background->offscreen",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "momentum-intervention:dismiss",
+    "direction": "content->ui",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "content-scripts/siteBlocker.js",
+        "start": 41,
+        "end": 44
+      },
+      {
+        "file": "content-scripts/siteBlocker.js",
+        "start": 25,
+        "end": 30
+      },
+      {
+        "file": "content-scripts/siteBlocker.js",
+        "start": 1,
+        "end": 66
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in content-scripts/siteBlocker.js (lines 41-44); Evidence 2: ✗ NOT found in content-scripts/siteBlocker.js (lines 25-30); Evidence 3: ✓ Found exact match in content-scripts/siteBlocker.js (lines 1-66)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "momentum-intervention:show",
+    "direction": "content->ui",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "content-scripts/siteBlocker.js",
+        "start": 38,
+        "end": 41
+      },
+      {
+        "file": "content-scripts/siteBlocker.js",
+        "start": 25,
+        "end": 30
+      },
+      {
+        "file": "content-scripts/siteBlocker.js",
+        "start": 1,
+        "end": 66
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in content-scripts/siteBlocker.js (lines 38-41); Evidence 2: ✗ NOT found in content-scripts/siteBlocker.js (lines 25-30); Evidence 3: ✓ Found exact match in content-scripts/siteBlocker.js (lines 1-66)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "momentum:authState",
+    "direction": "content->background",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 27,
+        "end": 34
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5120,
+        "end": 5130
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 40,
+        "end": 45
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 1,
+        "end": 55
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 27-34); Evidence 4: ✗ NOT found in serviceWorker.js (lines 5120-5130); Evidence 5: ✗ NOT found in content-scripts/momoSiteInterop.js (lines 40-45); Evidence 6: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 7: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 1-55)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "momentum:callback:checkUserId",
+    "direction": "background->content",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 1,
+        "end": 55
+      }
+    ],
+    "found_by_models": [
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 1-55)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "momentum:callback:oneTimeLogin",
+    "direction": "background->content",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 1,
+        "end": 55
+      }
+    ],
+    "found_by_models": [
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 1-55)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "momentum:callback:openNew",
+    "direction": "background->content",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 1,
+        "end": 55
+      }
+    ],
+    "found_by_models": [
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 1-55)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "momentum:checkUserId",
+    "direction": "content->background",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 34,
+        "end": 41
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5130,
+        "end": 5140
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 45,
+        "end": 50
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 1,
+        "end": 55
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 34-41); Evidence 4: ✗ NOT found in serviceWorker.js (lines 5130-5140); Evidence 5: ✗ NOT found in content-scripts/momoSiteInterop.js (lines 45-50); Evidence 6: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 7: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 1-55)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "momentum:getUserId",
+    "direction": "content->background",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 15,
+        "end": 18
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5140,
+        "end": 5150
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 48,
+        "end": 52
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 1,
+        "end": 55
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 15-18); Evidence 4: ✗ NOT found in serviceWorker.js (lines 5140-5150); Evidence 5: ✗ NOT found in content-scripts/momoSiteInterop.js (lines 48-52); Evidence 6: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 7: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 1-55)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "momentum:oneTimeLogin",
+    "direction": "content->background",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 22,
+        "end": 27
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 35,
+        "end": 40
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 1,
+        "end": 55
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in content-scripts/momoSiteInterop.js (lines 22-27); Evidence 2: ✗ NOT found in content-scripts/momoSiteInterop.js (lines 35-40); Evidence 3: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 1-55)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "momentum:openNew",
+    "direction": "content->background",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 41,
+        "end": 54
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5150,
+        "end": 5170
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 50,
+        "end": 55
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 1,
+        "end": 55
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 41-54); Evidence 4: ✗ NOT found in serviceWorker.js (lines 5150-5170); Evidence 5: ✗ NOT found in content-scripts/momoSiteInterop.js (lines 50-55); Evidence 6: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 7: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 1-55)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "notificationClick",
+    "direction": "background->tabs",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "oneTimeLogin",
+    "direction": "ui->background",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 5100,
+        "end": 5120
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 5100-5120); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "runtime.onMessage",
+    "direction": "content->background",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 1,
+        "end": 2000
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 1-2000)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  },
+  {
+    "name": "unknown",
+    "direction": "unknown",
+    "payload_schema": {},
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 1,
+        "end": 2000
+      }
+    ],
+    "found_by_models": [
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found (case-insensitive) in serviceWorker.js (lines 1-2000)",
+    "correct_name": "",
+    "correct_direction": "",
+    "correct_payload_schema": {}
+  }
+]

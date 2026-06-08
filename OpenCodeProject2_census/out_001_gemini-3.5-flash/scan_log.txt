@@ -1,0 +1,24 @@
+--- Chrome Extension Scan Log ---
+Extension ID: kbfnbcaeplbcioakkpcpgfkobkghlhen
+Output Directory: out_001_gemini-3.5-flash
+Model: gemini-3.5-flash
+Start Time: Mon Jun 01 2026
+
+[STEP 0] Beautification: OK. Pre-existing beautified scripts detected.
+[STEP 1] Manifest Parsing: OK. Extracted metadata, permissions, and service worker entrypoints.
+[STEP 2] AST / Code Scanning: OK. Chunk-by-chunk scanning completed on original and beautified files.
+[STEP 2.5] Mechanical Census: OK. Processed 431 files, promoted 491 endpoints, 124 messages, 8 storage keys.
+[STEP 3] CSV Reconciliation: OK. Successfully reconciled endpoints.csv, messages.csv, and storage_keys.csv.
+[STEP 4] Components & Flows: OK. Component catalog completed and flows.puml written.
+[STEP 5] Workflows: OK. Clustered onboarding, checking, and telemetry workflows.
+[STEP 6] Risk & Privacy: OK. 3 privacy data categories and 3 risks cataloged.
+[STEP 7] Summary & Validate: OK. extension_summary.json generated and validated successfully. Passed AJV validation.
+
+Counts summary:
+- files: 431
+- endpoints: 491
+- message channels: 124
+- storage keys: 8
+- risks: 3
+- workflows: 3
+- validation: passed

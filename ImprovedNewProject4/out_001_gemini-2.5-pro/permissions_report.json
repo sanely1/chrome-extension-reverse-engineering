@@ -1,0 +1,24 @@
+{
+  "api_permissions": [
+    "contextMenus",
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "optional_permissions": [],
+  "evidence": [
+    {
+      "file": "extension/manifest.json",
+      "start": 33,
+      "end": 33
+    },
+    {
+      "file": "extension/manifest.json",
+      "start": 7,
+      "end": 13
+    }
+  ]
+}

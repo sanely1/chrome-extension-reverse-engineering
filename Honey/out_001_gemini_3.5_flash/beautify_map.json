@@ -1,0 +1,127 @@
+[
+  {
+    "original": "extension/checkoutPaypal/honeySPBContent.js",
+    "beautified": "extension/checkoutPaypal/honeySPBContent.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/checkoutPaypal/honeySPBResponders.js",
+    "beautified": "extension/checkoutPaypal/honeySPBResponders.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/checkoutPaypal/merchantSPBContent.js",
+    "beautified": "extension/checkoutPaypal/merchantSPBContent.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/checkoutPaypal/merchantSPBResponders.js",
+    "beautified": "extension/checkoutPaypal/merchantSPBResponders.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/extensionMixinScripts/blockWindowAlert.js",
+    "beautified": "extension/extensionMixinScripts/blockWindowAlert.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/extensionMixinScripts/blockWindowAlertFalse.js",
+    "beautified": "extension/extensionMixinScripts/blockWindowAlertFalse.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/extensionMixinScripts/blockWindowAlertTrue.js",
+    "beautified": "extension/extensionMixinScripts/blockWindowAlertTrue.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/extensionMixinScripts/blockWindowConfirm.js",
+    "beautified": "extension/extensionMixinScripts/blockWindowConfirm.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/extensionMixinScripts/blockWindowConfirmFalse.js",
+    "beautified": "extension/extensionMixinScripts/blockWindowConfirmFalse.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/extensionMixinScripts/blockWindowConfirmTrue.js",
+    "beautified": "extension/extensionMixinScripts/blockWindowConfirmTrue.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/extensionMixinScripts/blockWindowPrompt.js",
+    "beautified": "extension/extensionMixinScripts/blockWindowPrompt.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/extensionMixinScripts/blockWindowPromptFalse.js",
+    "beautified": "extension/extensionMixinScripts/blockWindowPromptFalse.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/extensionMixinScripts/blockWindowPromptTrue.js",
+    "beautified": "extension/extensionMixinScripts/blockWindowPromptTrue.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/extensionMixinScripts/clickElementThruPage.js",
+    "beautified": "extension/extensionMixinScripts/clickElementThruPage.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/h0.js",
+    "beautified": "extension/h0.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/h1-check.js",
+    "beautified": "extension/h1-check.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/h1-honeyscience-main-popover.js",
+    "beautified": "extension/h1-honeyscience-main-popover.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/h1-main.js",
+    "beautified": "extension/h1-main.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/h1-offscreen.js",
+    "beautified": "extension/h1-offscreen.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/h1-popover.js",
+    "beautified": "extension/h1-popover.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/h1-searchEngine.js",
+    "beautified": "extension/h1-searchEngine.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/h1-vendors-main-popover.js",
+    "beautified": "extension/h1-vendors-main-popover.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/h2.js",
+    "beautified": "extension/h2.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/paypal/meta.js",
+    "beautified": "extension/paypal/meta.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/proxies/requestProxies.js",
+    "beautified": "extension/proxies/requestProxies.beautified.js",
+    "status": "ok"
+  }
+]

@@ -1,0 +1,2 @@
+authKey,local/sync,Authentication key,extension/background.js,43,43
+machineKey,sync/localStorage,Machine ID for tracking,extension/background.js,45,45

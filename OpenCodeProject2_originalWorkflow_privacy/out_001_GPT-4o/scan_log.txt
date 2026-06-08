@@ -1,0 +1,39 @@
+Chrome Extension Reverse Engineering - Scan Log
+================================================
+
+Run ID: 001
+Model: GPT-4o
+Timestamp: 2026-05-31T21:51:00Z
+Output Directory: ./out_001_GPT-4o
+
+Tools/Packages Used:
+- js-beautify@1.15.0 (local npm installation)
+- espree@9.6.1, acorn@8.12.0 (local AST parsers)
+- python regex engines (scan_extension.py, generate_summary.py)
+- ajv-cli (validation check)
+
+File Counts:
+- Original JS files analyzed: 10
+- Beautified JS files: 10 (100% success rate)
+- Service worker: sw.js (imports src/js/Grammarly-bg.js)
+- Content scripts: 6 distinct files
+- UI files: 2 files (popup, sidePanel)
+
+Analysis Results:
+- Chrome API calls discovered: 14 unique calls (storage, cookies, runtime, tabs, sidePanel, action)
+- Event listeners: 4 unique categories
+- Message channels: 5 high-fidelity channels mapped (behavior:strongAlertRef, cheetah, shortFormCard, actionNotification, alertsCount)
+- Storage keys: 4 pristine keys mapped (preferences, gnarInternalStorage, authTokenInitialRefreshDone, experimentationGatesTreatments)
+- Network endpoints: 6 core Grammarly service endpoints documented (auth, capi, wss://capi, gnar, dox, config)
+- Risks identified: tracking (medium), remote_code (high), excessive_permissions (low)
+
+Validation Status:
+- extension_summary.json: PASSED schema validation
+- outline.jsonl: Complete, 10 mapped original files analyzed chunk-by-chunk
+- CSV files: endpoints.csv (28 rows), messages.csv (10 rows), storage_keys.csv (10 rows)
+
+Known Gaps/Unknowns:
+- Exact data-retention schedules for telemetry logs are unknown and set to "indefinite"
+- Remote-code triggers are evaluated via regex analysis but static AST ranges are minified
+
+Completion Status: SUCCESS

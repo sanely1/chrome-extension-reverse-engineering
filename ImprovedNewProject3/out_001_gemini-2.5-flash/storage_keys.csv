@@ -1,0 +1,11 @@
+key,type,purpose,file,line_start,line_end
+
+FAIRCADO_EXT_SETTINGS,session,Stores extension popup settings like position and fold status,extension/content.js,11575,11575
+redirectionKey,session,Temporary key for catalogue redirection data,extension/content.js,11874,11876
+userSettings,local,User preferences and settings,extension/content.js,1145,1146
+authKey,local,Authentication token (read only in content script),extension/content.js,4921,4921
+authValue,local,Authentication value (read only in content script),extension/content.js,4922,4922
+machineKey,local,Unique machine identifier (read only in content script),extension/content.js,4923,4923
+
+activated,local,Flag to indicate user has activated the extension,extension/data-control.js,314,314
+machineKey,local,Reads machine key for constructing redirect URL,extension/data-control.js,135,135

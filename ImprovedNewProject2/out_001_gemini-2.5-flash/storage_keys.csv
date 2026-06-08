@@ -1,0 +1,40 @@
+key,type,purpose,file,line_start,line_end
+authKey,local,Authentication token,extension/background.js,832,832
+authValue,local,Authentication token,extension/background.js,833,833
+machineKey,local,Unique machine identifier,extension/background.js,224,224
+activated,local,User activation status,extension/background.js,409,409
+supportedSitesData,local,Cached supported websites data,extension/background.js,339,339
+abTestVariantRecords,local,Assigned AB test variant records,extension/background.js,514,514
+isProductPageHeuristicsData,local,Cached product page heuristics data,extension/background.js,198,198
+extensionCachedConfig,local,Cached extension configuration,extension/background.js,461,461
+abTestsCachedConfig,local,Cached AB tests configuration,extension/background.js,453,453
+machineKey,sync,Unique machine identifier,extension/background.js,231,231
+authKey,sync,Authentication token,extension/background.js,836,836
+authValue,sync,Authentication token,extension/background.js,837,837
+key (dynamic),session,Dynamic session storage key,extension/background.js,141,141
+items (dynamic),session,Dynamic session storage items,extension/background.js,148,148
+storageKey (dynamic),local,Dynamic storage key,extension/content.js,4944,4944
+AB_TEST_VARIANT_RECORDS,local,Assigned AB test variant records,extension/content.js,5037,5037
+items (dynamic),local,Dynamic storage items,extension/content.js,4705,4705
+key (dynamic),local,Dynamic storage key,extension/content.js,4712,4712
+AB_TEST_VARIANT_RECORDS,local,Assigned AB test variant records,extension/content.js,5019,5020
+userSettings,local,Store user settings,extension/content.js,7339,7339
+FAIRCADO_EXT_SETTINGS,session,Store extension settings,extension/content.js,11575,11575
+redirectionKey (dynamic),session,Data for catalogue redirection,extension/content.js,11874,11874
+key (dynamic),local,Dynamic storage key from external message,extension/content.js,12388,12388
+AUTH_KEY,local,Authentication token,extension/data-control.js,4,4
+AUTH_VALUE,local,Authentication token,extension/data-control.js,5,5
+MACHINE_KEY,local,Unique machine identifier,extension/data-control.js,6,6
+SUPPORTED_WEBSITES_DATA,local,Cached supported websites data,extension/data-control.js,7,7
+IS_PRODUCT_PAGE_HEURISTICS_DATA,local,Cached product page heuristics data,extension/data-control.js,8,8
+AB_TESTS_CACHED_CONFIG,local,Cached AB tests configuration,extension/data-control.js,10,10
+EXTENSION_CACHED_CONFIG,local,Cached extension configuration,extension/data-control.js,12,12
+AB_TEST_VARIANT_RECORDS,local,Assigned AB test variant records,extension/data-control.js,14,14
+ACTIVATED,local,User activation status,extension/data-control.js,16,16
+USER_SETTINGS,local,User settings,extension/data-control.js,17,17
+MACHINE_KEY,local,Unique machine identifier,extension/data-control.js,138,138
+ACTIVATED,local,User activation status,extension/data-control.js,314,314
+storageKey (dynamic),local,Dynamic storage key,extension/data-control.js,203,203
+items (dynamic),local,Dynamic storage items,extension/data-control.js,60,60
+key (dynamic),local,Dynamic storage key,extension/data-control.js,84,84
+MACHINE_KEY,sync,Unique machine identifier,extension/data-control.js,145,145

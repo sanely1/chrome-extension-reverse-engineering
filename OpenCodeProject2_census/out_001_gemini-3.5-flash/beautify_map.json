@@ -1,0 +1,7 @@
+[
+  {
+    "original": "extension/sw.js",
+    "beautified": "extension/sw.beautified.js",
+    "status": "ok"
+  }
+]

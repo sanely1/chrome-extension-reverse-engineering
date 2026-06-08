@@ -1,0 +1,114 @@
+{
+  "metadata": {
+    "name": "Faircado - Second hand shopping",
+    "version": "3.8.12",
+    "manifest_version": 3,
+    "description": "We help you make the sustainable choice your go-to!",
+    "evidence": [{"file": "extension/manifest.json", "start": 1, "end": 41}]
+  },
+  "permissions": {
+    "api_permissions": ["contextMenus", "activeTab", "storage", "tabs"],
+    "host_permissions": [],
+    "optional_permissions": [],
+    "evidence": [{"file": "extension/manifest.json", "start": 33, "end": 33}]
+  },
+  "components": {
+    "background": {
+      "files": ["extension/background.js"],
+      "apis": ["chrome.tabs", "chrome.action", "chrome.runtime", "chrome.contextMenus", "chrome.storage"],
+      "listeners": ["chrome.tabs.onActivated", "chrome.tabs.onUpdated", "chrome.action.onClicked", "chrome.runtime.onMessage", "chrome.contextMenus.onClicked", "chrome.runtime.onInstalled", "chrome.runtime.onStartup"],
+      "evidence": [{"file": "extension/background.js", "start": 1, "end": 801}]
+    },
+    "content_scripts": [
+      {"files": ["extension/content.js"], "apis": ["chrome.runtime", "chrome.storage"], "listeners": ["message", "click"], "evidence": [{"file": "extension/content.js", "start": 1, "end": 10985}]}
+    ],
+    "injected_scripts": [
+      {"files": ["extension/navigation-events.js"], "apis": [], "listeners": ["popstate"], "evidence": [{"file": "extension/navigation-events.js", "start": 1, "end": 22}]}
+    ],
+    "ui": [
+      {"files": ["extension/popup.js", "extension/data-control.js", "extension/save.js"], "apis": ["chrome.runtime", "chrome.storage"], "listeners": ["click"], "evidence": [{"file": "extension/popup.js", "start": 1, "end": 36}]}
+    ],
+    "web_accessible_resources": ["/save.html", "/public/icons/*", "/navigation-events.js"]
+  },
+  "network": {
+    "endpoints": [
+      {
+        "url": "https://catalog-service-api.faircado.com/api/v1/supported-website",
+        "purpose": "Check if website is supported",
+        "methods": ["POST"],
+        "evidence": [{"file": "extension/background.js", "start": 247, "end": 247}]
+      },
+      {
+        "url": "https://api.mixpanel.com/track",
+        "purpose": "Analytics tracking",
+        "methods": ["POST"],
+        "evidence": [{"file": "extension/background.js", "start": 379, "end": 379}]
+      }
+    ]
+  },
+  "messaging": {
+    "channels": [
+      {
+        "name": "showExtension",
+        "direction": "background->content",
+        "evidence": [{"file": "extension/background.js", "start": 622, "end": 627}]
+      }
+    ]
+  },
+  "storage": {
+    "keys": [
+      {
+        "key": "authKey",
+        "type": "local",
+        "purpose": "Store auth key",
+        "evidence": [{"file": "extension/background.js", "start": 43, "end": 43}]
+      },
+      {
+        "key": "machineKey",
+        "type": "sync",
+        "purpose": "Store machine identifier",
+        "evidence": [{"file": "extension/background.js", "start": 45, "end": 45}]
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "name": "User Installation",
+      "triggers": ["extension installed"],
+      "steps": ["Track installation", "Open onboarding tab"],
+      "apis": ["chrome.runtime.onInstalled", "chrome.tabs.create"],
+      "evidence": [{"file": "extension/background.js", "start": 776, "end": 790}]
+    }
+  ],
+  "privacy": {
+    "data_categories": ["machine_identifier", "usage_metrics"],
+    "purposes": ["analytics", "service_functionality"],
+    "minimization": "Collects machine key and usage metrics",
+    "consent": "No explicit consent mechanism for tracking observed",
+    "retention": "Indefinite storage in local/sync storage",
+    "third_parties": [
+      {
+        "name": "Mixpanel",
+        "purpose": "Analytics tracking",
+        "evidence": [{"file": "extension/background.js", "start": 379, "end": 379}]
+      }
+    ],
+    "policy_compliance": "Potential policy concern regarding tracking without clear consent",
+    "evidence": [{"file": "extension/background.js", "start": 375, "end": 398}]
+  },
+  "risks": [
+    {
+      "type": "tracking",
+      "severity": "medium",
+      "justification": "Extension tracks usage events to Mixpanel using machine key",
+      "evidence": [{"file": "extension/background.js", "start": 375, "end": 398}]
+    }
+  ],
+  "code_signals": {
+    "chrome_api_calls": ["chrome.tabs.create", "chrome.runtime.sendMessage", "chrome.storage.local.set"],
+    "event_listeners": ["chrome.tabs.onActivated.addListener", "chrome.runtime.onMessage.addListener"],
+    "dynamic_code": [],
+    "wasm_modules": [],
+    "third_party_libs": []
+  }
+}

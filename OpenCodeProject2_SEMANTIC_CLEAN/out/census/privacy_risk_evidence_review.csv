@@ -1,0 +1,10 @@
+claim_section,claim_name,evidence_file,draft_start,draft_end,precise_start,precise_end,decision,justification
+privacy,Keystrokes & Editor Text,src/js/Grammarly.js,2,2,2,2,narrow_evidence_confirmed,Verified input monitoring loop in Grammarly.js content script.
+privacy,Document Metadata & Page URLs,src/js/Grammarly.js,2,2,2,2,narrow_evidence_confirmed,Verified location retrieval during connection setup in content script.
+privacy,Auth Tokens & Identity,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Verified token verification and exchange in Grammarly-bg.js.
+privacy,Telemetry / Device Details,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Verified FEMetricsLoggerImpl metric buffering calls in background script.
+privacy,AI Assistant Prompts & Context,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Verified generative AI rewrite parameters package in background script.
+risk,PII Exfiltration over WebSocket,src/js/Grammarly.js,2,2,2,2,narrow_evidence_confirmed,Keystroke text capture and WebSocket stream loop in Grammarly.js.
+risk,Remote-Controlled Functional Changes,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Remote treatment and dynamic feature gating config fetch in background script.
+risk,Extensive Telemetry and Profiling,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Granular telemetry and Gnar click tracking logs in background script.
+risk,Excessive Host and Sensitive API Permissions,extension/manifest.json,315,330,315,330,narrow_evidence_confirmed,Verified broad host patterns and sensitive APIs listed in manifest.json.

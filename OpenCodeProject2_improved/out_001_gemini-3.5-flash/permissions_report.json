@@ -1,0 +1,39 @@
+{
+  "api_permissions": [
+    "scripting",
+    "sidePanel",
+    "tabs",
+    "notifications",
+    "cookies",
+    "identity",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "optional_permissions": [
+    "nativeMessaging",
+    "clipboardRead"
+  ],
+  "evidence": [
+    {
+      "file": "manifest.json",
+      "start": 315,
+      "end": 318,
+      "description": "Declared host permissions for full http and https tab communication access"
+    },
+    {
+      "file": "manifest.json",
+      "start": 322,
+      "end": 330,
+      "description": "Declared core extension API permissions"
+    },
+    {
+      "file": "manifest.json",
+      "start": 357,
+      "end": 360,
+      "description": "Declared optional features permissions"
+    }
+  ]
+}

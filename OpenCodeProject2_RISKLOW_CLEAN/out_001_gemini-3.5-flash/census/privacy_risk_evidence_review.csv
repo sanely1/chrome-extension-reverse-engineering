@@ -1,0 +1,13 @@
+claim_section,claim_name,claim_type,source_review_row,evidence_file,draft_start,draft_end,precise_start,precise_end,decision,reason
+observed_privacy_data,active_tab_url,url,active_tab_url,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Direct WebSocket endpoint declaration and construction.
+observed_privacy_data,editor_written_text,text,editor_written_text,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,CAPI connection and text sync handlers.
+observed_privacy_data,ai_selected_text,text,ai_selected_text,src/inkwell/assets/index-DcswASZ2.js,1,1,1,1,narrow_evidence_confirmed,Generative AI rewriting panel connection.
+observed_privacy_data,auth_credentials_and_tokens,credentials,auth_credentials_and_tokens,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Saves profileToken in background storage.
+observed_privacy_data,telemetry_interaction_events,telemetry,telemetry_interaction_events,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,GNAR spec client is used for telemetry uploads.
+risks,user_activity_behavioral_tracking,tracking,user_activity_behavioral_tracking,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,GNAR speculative tracing of custom events.
+risks,pii_transmission_to_cloud,pii_exfiltration,pii_transmission_to_cloud,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Cloud socket transmission of editor data.
+risks,local_unencrypted_document_caching,insecure_storage,local_unencrypted_document_caching,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Caches document_state_enc in local DB.
+risks,broad_host_permissions,excessive_permissions,broad_host_permissions,extension/manifest.json,315,318,315,318,narrow_evidence_confirmed,Declared http and https wildcards in manifest.
+risks,session_token_exfiltration,insecure_storage,session_token_exfiltration,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Stored credentials in sandboxed local structures.
+risks,remote_behavior_modification,remote_code,remote_behavior_modification,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Gates JSON features list updates.
+risks,malicious_privilege_escalation,other,malicious_privilege_escalation,src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Port origin runtime verification checks.

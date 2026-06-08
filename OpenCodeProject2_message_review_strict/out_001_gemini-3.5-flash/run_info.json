@@ -1,0 +1,33 @@
+{
+  "run_number": 1,
+  "model_name": "gemini-3.5-flash",
+  "timestamp": "2026-06-07T18:26:00.000Z",
+  "source_extension_path": "extension",
+  "output_directory": "out_001_gemini-3.5-flash",
+  "tools_used": [
+    "create_beautify_map.js",
+    "find_apis.js",
+    "census_extractor.js",
+    "census_promoter.js",
+    "adjudicate_census.js",
+    "reconcile_census.js",
+    "generate_summary.js",
+    "validate_summary.js",
+    "message_review_linter.js",
+    "fetch_privacy.py",
+    "compare_privacy.js",
+    "compare_external_policy.js",
+    "compare_internal_external.js"
+  ],
+  "validation_status": "success",
+  "counts": {
+    "files": 431,
+    "chunks": 422,
+    "endpoints": 491,
+    "messages": 172,
+    "storage_keys": 15,
+    "workflows": 3,
+    "observed_privacy_items": 3,
+    "risks": 3
+  }
+}

@@ -1,0 +1,10 @@
+channel_name,direction,payload_keys,file,line_start,line_end
+init,content->background,,background.js,631,640
+login,content->background,authKey|authValue,background.js,641,646
+logout,content->background,,background.js,647,650
+error,content->background,detail|message|url,background.js,651,661
+mixpanel,content->background,eventName|payload,background.js,662,671
+isSupportedWebsite,content->background,url,background.js,688,714
+showExtension,background->content,manualExtensionOpen|machineKey|imageUrl,background.js,621,627
+setAuth,background->content,authKey|authValue,background.js,803,814
+clearAuth,background->content,,background.js,816,825

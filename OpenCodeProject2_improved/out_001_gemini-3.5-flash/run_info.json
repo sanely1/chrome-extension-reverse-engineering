@@ -1,0 +1,24 @@
+{
+  "run_number": 1,
+  "model_name": "gemini-3.5-flash",
+  "timestamp": "2026-05-31T23:45:00Z",
+  "source_extension_path": "extension",
+  "output_directory": "out_001_gemini-3.5-flash",
+  "tools_used": [
+    "Glob",
+    "Read",
+    "Write",
+    "Bash",
+    "Edit"
+  ],
+  "validation_status": "passed_direct_audit",
+  "counts": {
+    "files": 422,
+    "endpoints": 10,
+    "messages": 4,
+    "storage_keys": 4,
+    "workflows": 4,
+    "observed_privacy_items": 4,
+    "risks": 4
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "extension_id": "bmnlcjabgnpnenekpadlanbbkooimhnj",
+  "extension_name": "Honey: Automatic Coupons & Rewards",
+  "chrome_webstore_privacy_url": "https://chromewebstore.google.com/detail/bmnlcjabgnpnenekpadlanbbkooimhnj/privacy",
+  "external_privacy_policy_url": "https://www.joinhoney.com/privacy",
+  "comparison_summary": {
+    "chrome_webstore_declared_category_count": 6,
+    "external_policy_category_count": 7,
+    "prompt3_underdeclared_count": 0,
+    "underdeclared_explained_by_external_count": 0,
+    "underdeclared_not_declared_in_either_count": 0,
+    "underdeclared_unclear_external_coverage_count": 0,
+    "shared_category_count": 5,
+    "chrome_webstore_only_category_count": 1,
+    "external_only_category_count": 2
+  },
+  "chrome_webstore_declared_categories": [
+    "personally_identifiable_information",
+    "financial_and_payment_information",
+    "location",
+    "web_history",
+    "user_activity",
+    "website_content"
+  ],
+  "external_policy_declared_categories": [
+    "personally_identifiable_information",
+    "financial_and_payment_information",
+    "authentication_information",
+    "personal_communications",
+    "location",
+    "user_activity",
+    "website_content"
+  ],
+  "prompt3_underdeclared_review": [],
+  "policy_category_alignment": {
+    "shared_categories": [
+      {
+        "category": "personally_identifiable_information",
+        "reason": "Category is explicitly declared both on the Chrome Web Store page and in the external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "financial_and_payment_information",
+        "reason": "Category is explicitly declared both on the Chrome Web Store page and in the external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "location",
+        "reason": "Category is explicitly declared both on the Chrome Web Store page and in the external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "user_activity",
+        "reason": "Category is explicitly declared both on the Chrome Web Store page and in the external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "website_content",
+        "reason": "Category is explicitly declared both on the Chrome Web Store page and in the external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      }
+    ],
+    "chrome_webstore_only_categories": [
+      {
+        "category": "web_history",
+        "reason": "Declared on Chrome Web Store but not explicitly parsed as its own category in the external policy, likely because the external policy aggregates it under a broader category.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      }
+    ],
+    "external_only_categories": [
+      {
+        "category": "authentication_information",
+        "status": "external_only_disclosure",
+        "reason": "Disclosed in the developer's external privacy policy but omitted from the Chrome Web Store declared categories page.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "personal_communications",
+        "status": "external_only_disclosure",
+        "reason": "Disclosed in the developer's external privacy policy but omitted from the Chrome Web Store declared categories page.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      }
+    ]
+  },
+  "overall_assessment": {
+    "chrome_webstore_underdeclaration_resolved_by_external_policy": true,
+    "has_categories_declared_only_externally": true,
+    "risk_level": "low",
+    "confidence": "high",
+    "summary": "The extension displays exceptionally good consistency. There are no observed data extraction behaviors underdeclared in the Chrome Web Store. The external privacy policy provides minor additional disclosures (such as credentials authentication and support communications) which is appropriate as the external statement covers the whole Honey/PayPal service suite."
+  },
+  "limitations": [
+    "Terms mapping is automated and based on semantic keywords. Terminologies of document disclosures vary slightly between the standardized Chrome Web Store categories and custom legal privacy statement documents."
+  ]
+}

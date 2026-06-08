@@ -1,0 +1,59 @@
+@startuml
+skinparam handwritten false
+skinparam monochrome false
+skinparam packageStyle rect
+skinparam shadowing true
+
+actor User
+package "Web Page Context" {
+  [DOM / Text Area] as DOM
+  [Content Script (Grammarly.js)] as CS
+  [gDocs early injector] as earlyInjector
+}
+
+package "Extension UI" {
+  [Popup Panel (Grammarly-popup.js)] as Popup
+  [Side Panel (Grammarly-sidePanel.js)] as SidePanel
+}
+
+package "Extension Background" {
+  [Service Worker (sw.js / Grammarly-bg.js)] as BG
+}
+
+database "Extension Storage" {
+  [chrome.storage.local] as LocalStorage
+  [Cookies] as BrowserCookies
+}
+
+package "Remote Grammarly Services" {
+  [Auth API (auth.grammarly.com)] as AuthServer
+  [Config API (config.extension.grammarly.com)] as ConfigServer
+  [Text Processing Engine (capi/dox.grammarly.com)] as CheckEngine
+  [Telemetry Service (gnar/femetrics.grammarly.io)] as Telemetry
+}
+
+' User interactions
+User --> DOM : Types/Edits text
+User --> Popup : Clicks toolbar icon
+User --> SidePanel : Clicks assistant prompts
+
+' Content Script flows
+DOM <--> CS : Observes mutations / injects highlights
+CS --> BG : Sends content checking requests\n(Port: "message:to-priv")
+earlyInjector --> CS : postMessage RPCs
+
+' UI flows
+Popup --> BG : Queries auth state / toggles
+SidePanel --> BG : Sends rephrase/generate requests\n(Port: "side-panel-close-status")
+
+' Background script storage & config flows
+BG --> LocalStorage : Reads/writes user config & tokens
+BG --> BrowserCookies : Accesses session cookies
+
+' External communications
+BG --> ConfigServer : Fetches dynamicConfig.json
+BG --> CheckEngine : Transmits text deltas (CAPI/Dox)
+BG --> AuthServer : Handles OAuth2 tokens / userInfo
+BG --> Telemetry : Reports user behavior & metrics (GNAR)
+
+@enduml

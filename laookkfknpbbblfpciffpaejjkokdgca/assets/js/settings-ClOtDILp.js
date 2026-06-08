@@ -1,0 +1,1 @@
+import{computedObjectSettings as t,persistentObjectSettings as s}from"./reactiveCustomization-l1DAJU8W.js";const e=()=>{const s=t.focusModeSettings,e=JSON.parse(m.models.customization.persistentSettings.defaultIfNotSet.focusModeSettingsStr);return s.apps={...e.apps,...s.apps},{...e,...s}},o=()=>s;export{o as a,e as g};

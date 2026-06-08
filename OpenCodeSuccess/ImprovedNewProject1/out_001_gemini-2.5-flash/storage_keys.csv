@@ -1,0 +1,12 @@
+key,type,purpose,retention,evidence_file,evidence_start,evidence_end
+authKey,local/sync,User authentication key,unknown,extension/background.js,43,43
+authValue,local/sync,User authentication value,unknown,extension/background.js,44,44
+machineKey,local/sync,Unique machine identifier for analytics,unknown,extension/background.js,45,45
+supportedSitesData,local,Cached data for supported websites,unknown,extension/background.js,46,46
+isProductPageHeuristicsData,local,Cached data for product page heuristics,unknown,extension/background.js,47,47
+abTestsCachedConfig,local,Cached A/B tests configuration,unknown,extension/background.js,49,49
+extensionCachedConfig,local,Cached extension configuration,unknown,extension/background.js,51,51
+abTestVariantRecords,local,Assigned A/B test variant records,unknown,extension/background.js,53,53
+activated,local,Extension activation status,unknown,extension/background.js,55,55
+userSettings,local,User settings,unknown,extension/background.js,56,56
+FAIRCADO_EXT_SETTINGS,session,Stores popup position and fold state,unknown,extension/content.js,10221,10221

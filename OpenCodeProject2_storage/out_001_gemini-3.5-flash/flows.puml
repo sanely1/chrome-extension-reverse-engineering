@@ -1,0 +1,58 @@
+@startuml
+skinparam handwritten false
+skinparam monochrome false
+skinparam packageStyle rect
+
+package "Browser Context" {
+    actor "User" as user
+    node "Webpage (DOM)" as dom
+    database "LocalStorage" as localstorage
+}
+
+package "Chrome Extension Context" {
+    package "Content Scripts" {
+        component "Grammarly-check.js\n(Injected on all URLs)" as cs_check
+        component "Grammarly-gDocs.js\n(Injected on Google Docs)" as cs_docs
+    }
+    
+    package "Background Process" {
+        component "sw.js\n(Background Service Worker)" as bg
+        component "Grammarly-bg.js\n(Core background logic)" as bg_core
+    }
+    
+    package "UI Pages" {
+        component "popup.html\n(Action Popup)" as popup
+        component "sidePanel.html\n(Assistant Sidepanel)" as sidepanel
+    }
+    
+    database "IndexedDB\n(human_writing_report)" as hwr_db
+    database "sessionStorage" as session_storage
+}
+
+package "Remote Services" {
+    node "CAPI API Servers" as capi
+    node "Telemetry / Gnar Nodes" as telemetry
+    node "Sentry Ingest" as sentry
+}
+
+' Interactions
+user --> dom : "Types text / Interacts"
+cs_check --> dom : "Reads content / Listens to character input"
+cs_check --> localstorage : "Checks gdocs_peak_collabs_dismissed"
+
+cs_check --> bg : "Sends keystrokes (chrome.runtime.sendMessage)"
+cs_docs --> bg : "Sends Doc updates (chrome.runtime.sendMessage)"
+
+popup --> bg : "Queries status (chrome.runtime.sendMessage)"
+sidepanel --> bg : "Retrieves recommendations"
+
+bg --> bg_core : "Loads and delegates operations"
+bg_core --> session_storage : "Stores isBGInitialized / feMetricsData"
+bg_core --> hwr_db : "Saves writing diagnostics / reports"
+
+' Remote communication
+bg_core --> capi : "Streams writing payload (wss://capi.grammarly.com/fpws)"
+bg_core --> telemetry : "Delivers metrics (https://assistant.femetrics.grammarly.io)"
+bg_core --> sentry : "Dispatches error logs (https://ingest.us.sentry.io)"
+
+@enduml

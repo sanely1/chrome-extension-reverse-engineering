@@ -1,0 +1,258 @@
+{
+  "extension_id": "kbfnbcaeplbcioakkpcpgfkobkghlhen",
+  "extension_name": "Grammarly: AI Writing Assistant and Grammar Checker App",
+  "external_privacy_policy_url": "https://www.grammarly.com/privacy-policy",
+  "comparison_summary": {
+    "external_declared_category_count": 8,
+    "observed_category_count": 5,
+    "match_count": 5,
+    "underdeclared_external_count": 0,
+    "overdeclared_external_count": 3,
+    "unclear_count": 0
+  },
+  "external_declared_categories": [
+    "personally_identifiable_information",
+    "financial_and_payment_information",
+    "authentication_information",
+    "personal_communications",
+    "location",
+    "web_history",
+    "user_activity",
+    "website_content"
+  ],
+  "observed_categories": [
+    {
+      "observed_item": "User Keystrokes & Document Text",
+      "mapped_category": "website_content",
+      "source_field": "observed_privacy_data.items",
+      "reason": "The content scripts intercept user keystrokes and document content from edit containers (DOM and Google Docs canvases) to check spelling/grammar, which constitutes website_content.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-check.js",
+          "start": 1,
+          "end": 2
+        },
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 1,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "observed_item": "User Keystrokes & Document Text",
+      "mapped_category": "personal_communications",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Since text areas and input editors can contain emails, texts, and chat messages on various sites, editing text involves processing personal_communications.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-check.js",
+          "start": 1,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "observed_item": "User Keystrokes & Document Text",
+      "mapped_category": "user_activity",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Keystroke monitoring and typing activity represent user_activity.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 1,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "observed_item": "Authentication Tokens & Session Identifiers",
+      "mapped_category": "authentication_information",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Stores gr-oauth-service-state, access_token, and session parameters in local storage to sustain authorized Premium API sessions, mapping directly to authentication_information.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-popup.js",
+          "start": 50001,
+          "end": 50282
+        },
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 84745,
+          "end": 84800
+        }
+      ]
+    },
+    {
+      "observed_item": "User Behavior Telemetry Interactions",
+      "mapped_category": "user_activity",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Tracks clicks on suggestion card buttons, dismiss actions, and user onboarding steps, sending telemetry logs to gnar.grammarly.com.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 84983,
+          "end": 84995
+        },
+        {
+          "file": "extension/src/js/Grammarly-sidePanel.js",
+          "start": 60001,
+          "end": 62000
+        }
+      ]
+    },
+    {
+      "observed_item": "Active Page URL & Domain Context",
+      "mapped_category": "web_history",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Examines active tab URLs and page referers to determine blacklisted domains or custom editor integrations, mapping directly to web_history.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 12,
+          "end": 296
+        },
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 47810,
+          "end": 47920
+        }
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "external_policy_category": "website_content",
+      "observed_items": [
+        "User Keystrokes & Document Text"
+      ],
+      "reason": "Observed 'User Keystrokes & Document Text' maps to external policy declared category 'website_content'.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-check.js",
+          "start": 1,
+          "end": 2
+        },
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 1,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "external_policy_category": "personal_communications",
+      "observed_items": [
+        "User Keystrokes & Document Text"
+      ],
+      "reason": "Observed 'User Keystrokes & Document Text' maps to external policy declared category 'personal_communications'.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-check.js",
+          "start": 1,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "external_policy_category": "user_activity",
+      "observed_items": [
+        "User Keystrokes & Document Text",
+        "User Behavior Telemetry Interactions"
+      ],
+      "reason": "Observed 'User Keystrokes & Document Text' maps to external policy declared category 'user_activity'.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 1,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "external_policy_category": "authentication_information",
+      "observed_items": [
+        "Authentication Tokens & Session Identifiers"
+      ],
+      "reason": "Observed 'Authentication Tokens & Session Identifiers' maps to external policy declared category 'authentication_information'.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-popup.js",
+          "start": 50001,
+          "end": 50282
+        },
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 84745,
+          "end": 84800
+        }
+      ]
+    },
+    {
+      "external_policy_category": "web_history",
+      "observed_items": [
+        "Active Page URL & Domain Context"
+      ],
+      "reason": "Observed 'Active Page URL & Domain Context' maps to external policy declared category 'web_history'.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 12,
+          "end": 296
+        },
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 47810,
+          "end": 47920
+        }
+      ]
+    }
+  ],
+  "underdeclared_external": [],
+  "overdeclared_external": [
+    {
+      "external_policy_category": "personally_identifiable_information",
+      "reason": "Declared category 'personally_identifiable_information' in the external policy was not directly mapped in active observed client extension items, but may occur on web platforms.",
+      "confidence": "medium"
+    },
+    {
+      "external_policy_category": "financial_and_payment_information",
+      "reason": "Declared category 'financial_and_payment_information' in the external policy was not directly mapped in active observed client extension items, but may occur on web platforms.",
+      "confidence": "medium"
+    },
+    {
+      "external_policy_category": "location",
+      "reason": "Declared category 'location' in the external policy was not directly mapped in active observed client extension items, but may occur on web platforms.",
+      "confidence": "medium"
+    }
+  ],
+  "unclear": [],
+  "developer_statement_checks": [
+    {
+      "statement": "not_sold_to_third_parties",
+      "status": "not_contradicted",
+      "reason": "No evidence indicating commercial sale of raw text data or tracking leaks beyond standard telemetry/marketing pings (api.iterable.com) was found in code.",
+      "evidence": []
+    }
+  ],
+  "overall_assessment": {
+    "is_consistent_with_external_policy": true,
+    "risk_level": "low",
+    "confidence": "high",
+    "summary": "The developer's external privacy policy is 100% consistent with the observed technical behavior of the extension. Every single observed category\u2014including sensitive items like 'authentication_information' (OAuth tokens) and 'web_history' (exclusion checks on tab URLs)\u2014is explicitly disclosed and covered in the external policy text."
+  },
+  "limitations": [
+    "This comparison depends on the behavioral code analysis and CSP declarations collected in extension_summary.json."
+  ]
+}

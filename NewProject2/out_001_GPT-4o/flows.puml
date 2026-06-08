@@ -1,0 +1,46 @@
+
+@startuml
+
+actor User
+participant "Web Page" as Page
+participant "Content Script (content.js)" as CS
+participant "Injected Script (navigation-events.js)" as IS
+participant "Background Service Worker (background.js)" as BSW
+participant "Popup UI (popup.js)" as PU
+participant "Data Control UI (data-control.js)" as DCU
+participant "Image Save Page (save.js)" as ISP
+cloud "External APIs & Analytics" as Remote
+
+User -> Page: Visits webpage
+Page -> CS: Injects (content.js)
+CS <-> BSW: Chrome Runtime Messaging (init, mixpanel, isSupportedWebsite, errors, etc.)
+
+Page -> IS: Injects (navigation-events.js via web_accessible_resources)
+IS -> Page: window.postMessage (navigation events: pushState, replaceState, popstate)
+
+User -> PU: Clicks extension icon (opens popup.html)
+PU <-> BSW: Chrome Runtime Messaging (implicit interaction to set popup)
+
+User -> DCU: Accesses Data Control Page (data-control.html)
+DCU -> BSW: Chrome Runtime Messaging (GetMachineKey, GetAbTestsConfig for activation)
+DCU -> BSW: browser.management.uninstallSelf (uninstall)
+DCU -> Page: Redirects on activation
+
+User -> ISP: Interacts with image save functionality (save.html)
+ISP -> Page: window.parent.postMessage (imgUrl, imgData for processed image)
+
+BSW -> Remote: Fetch (IS_SUPPORTED_WEBSITE_API, SUPPORTED_WEBSITES_API, MIXPANEL_URL, EXTENSION_AB_TESTS_API, EXTENSION_CONFIG_API)
+BSW <-> Remote: Mixpanel tracking (extension_installed_background, mixpanelUserProfile)
+
+Page <-> Remote: Direct fetch/API calls (via Content Security Policy connect-src)
+
+database "Extension Local Storage" as LocalStorage
+database "Extension Sync Storage" as SyncStorage
+
+BSW <-> LocalStorage: chrome.storage.local (get, set, remove, clear for cached data, AB test records, user settings, auth)
+BSW <-> SyncStorage: chrome.storage.sync (get, set, remove for authKey, authValue, machineKey if localStorage is undefined)
+
+DCU <-> LocalStorage: localStorage (setItem for ACTIVATED)
+BSW <-> LocalStorage: localStorage (getItem for ACTIVATED, MACHINE_KEY)
+
+@enduml

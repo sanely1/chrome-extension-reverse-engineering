@@ -1,0 +1,32 @@
+========================================
+GRAMMARLY REVERSE ENGINEERING SCAN LOG
+========================================
+Extension ID: kbfnbcaeplbcioakkpcpgfkobkghlhen
+Manifest Version: 3
+Scanned JS Files: 431
+Total Lines Analyzed: over 350,000 lines of minified/beautified code.
+Dynamic API Forensic Extraction: COMPLETE
+Intermediate Census CSV Reconciliations: COMPLETE
+Semantic Architecture Review: COMPLETE
+Workflow Candidate Adjudications: COMPLETE
+Privacy Signals Adjudications: COMPLETE
+Risk Signals Adjudications: COMPLETE
+Quality Gate Linters Validation: COMPLETE
+
+Files Created:
+- out/extension_summary.json (target summary report)
+- out/outline.jsonl (streamed chunk-by-chunk records)
+- out/analysis_notes.md (detailed forensic analysis notes)
+- out/permissions_report.json (api/host permissions mapping)
+- out/run_info.json (execution metadata)
+- out/flows.puml (plantUML behavior diagram)
+- out/endpoints.csv (reconciled network endpoints)
+- out/messages.csv (reconciled messaging channels)
+- out/storage_keys.csv (reconciled storage keys)
+- out/census/semantic_architecture_review.csv
+- out/census/workflow_candidates.csv
+- out/census/workflow_candidate_review.csv
+- out/census/privacy_signal_matrix.csv
+- out/census/privacy_candidate_review.csv
+- out/census/risk_candidate_review.csv
+- out/census/privacy_risk_evidence_review.csv

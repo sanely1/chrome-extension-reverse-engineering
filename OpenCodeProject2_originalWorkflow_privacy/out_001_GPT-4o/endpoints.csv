@@ -1,0 +1,29 @@
+url,method,file,line_start,line_end,purpose
+https://auth.grammarly.com,POST,extension/manifest.json,298,298,User authentication and session management
+https://assets.grammarly.com,GET,extension/manifest.json,298,298,"Retrieves static assets, icons, and suggestion cards"
+https://data.grammarly.com,POST,extension/manifest.json,298,298,Telemetry and usage data collection
+https://capi.grammarly.com,POST,extension/manifest.json,298,298,Core Grammarly checking service API (HTTP)
+wss://capi.grammarly.com,WS,extension/manifest.json,298,298,Real-time editor check WebSocket connection
+https://dox.grammarly.com,POST,extension/manifest.json,298,298,Document synchronization and revision history storage
+https://institution.grammarly.com,GET,extension/manifest.json,298,298,Institution-level licensing and team permissions checker
+https://gnar.grammarly.com,POST,extension/manifest.json,298,298,Grammarly Gnar tracking and behavior tracking system
+https://in.grammarly.com,POST,extension/manifest.json,298,298,Inbound telemetry and user engagement reporting
+https://f-log-extension.grammarly.io,POST,extension/manifest.json,298,298,Error tracking and diagnostic log streaming for the extension
+https://f-log-editor.grammarly.io,POST,extension/manifest.json,298,298,Diagnostic logs for the inline Grammarly editor UI component
+https://f-log-inkwell.grammarly.io,POST,extension/manifest.json,298,298,Diagnostic logs for the Grammarly Inkwell canvas interface
+https://config.extension.grammarly.com,GET,extension/manifest.json,298,298,Remote remote configuration and dynamic settings sync
+https://chipmunk.grammarly.com,GET,extension/manifest.json,298,298,"User subscription tier, plan status, and payment checks"
+https://treatment.grammarly.com,POST,extension/manifest.json,298,298,Experimentation and A/B test treatment assignments
+https://gates.grammarly.com,GET,extension/manifest.json,298,298,Remote feature flags and access control gates
+https://goldengate.grammarly.com,POST,extension/manifest.json,298,298,Grammarly API gateway router
+https://femetrics.grammarly.io,POST,extension/manifest.json,298,298,Front-end interface telemetry metrics
+https://extension.femetrics.grammarly.io,POST,extension/manifest.json,298,298,Extension-specific telemetry metrics
+https://inkwell.femetrics.grammarly.io,POST,extension/manifest.json,298,298,Inkwell interface telemetry metrics
+https://rwsgfy.grammarly.com,POST,extension/manifest.json,298,298,Real-time sync gateway for user text and document updates
+https://api.iterable.com,POST,extension/manifest.json,298,298,"Third-party customer messaging, user lifecycle automation, and tracking"
+https://skills.grammarly.com,GET,extension/manifest.json,298,298,Writing suggestions skills database and suggestions descriptions
+https://skills-proxy.grammarly.com,GET,extension/manifest.json,298,298,Suggestions skills database proxy service
+https://gateway.grammarly.com,POST,extension/manifest.json,298,298,Central Grammarly API gateway
+https://subscription.grammarly.com,GET,extension/manifest.json,298,298,"Billing, invoice, and subscription status service"
+https://coda.io,GET,extension/manifest.json,298,298,Coda document editing overlay integration
+https://codahosted.io,GET,extension/manifest.json,298,298,Assets and resources hosted for Coda document integrations

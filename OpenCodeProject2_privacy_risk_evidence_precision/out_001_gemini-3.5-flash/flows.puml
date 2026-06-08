@@ -1,0 +1,40 @@
+@startuml
+actor User
+
+package "Chrome Extension Boundaries" {
+  component "Background Service Worker\n[sw.js / Grammarly-bg.js]" as BG
+  component "Popup UI\n[src/popup.html / Grammarly-popup.js]" as Popup
+  component "Side Panel\n[src/sidePanel.html / Grammarly-sidePanel.js]" as SidePanel
+}
+
+package "Target Web Page Context" {
+  component "General Content Script\n[Grammarly-check.js]" as CheckCS
+  component "Specific Surface Content Script\n[Grammarly.js]" as SurfaceCS
+  component "Google Docs Early Injector\n[Grammarly-gDocsEarlyInjector.js]" as DocsEarlyCS
+  component "Google Docs Canvas CS\n[Grammarly-gDocs.js]" as DocsCanvasCS
+  component "Inkwell Custom Iframe\n[src/inkwell/index.html]" as Inkwell
+}
+
+package "Grammarly Remote Services (CAPI & Cloud)" {
+  database "Authentication Server\n[auth.grammarly.com]" as AuthServer
+  node "Core Analysis Engine\n[capi.grammarly.com]" as CAPI
+  node "Telemetry & Analytics\n[f-log-extension.grammarly.io]" as Telemetry
+  node "Config & Experiments\n[config.extension.grammarly.com]" as ConfigServer
+}
+
+User --> Popup : Clicks Extension Icon
+User --> SidePanel : Uses AI Assistant (SidePanel)
+User --> SurfaceCS : Types text in Editor textareas/inputs
+
+CheckCS <--> BG : Runtime Messaging (Status, settings)
+SurfaceCS <--> BG : Runtime Messaging (Document text, corrections)
+DocsEarlyCS --> DocsCanvasCS : Prepares page intercept
+DocsCanvasCS <--> BG : Syncs canvas document state
+Inkwell <--> BG : Custom Iframe port communication
+
+BG <--> AuthServer : HTTPS (User Account & SSO)
+BG <--> CAPI : WebSocket (wss://capi...) (Real-time text analysis)
+BG --> Telemetry : HTTPS (Event telemetry & metrics)
+BG --> ConfigServer : HTTPS (Fetch experiments & feature flags)
+
+@enduml

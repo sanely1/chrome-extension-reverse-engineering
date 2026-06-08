@@ -1,0 +1,732 @@
+{
+  "metadata": {
+    "name": "Grammarly: AI Writing Assistant and Grammar Checker App",
+    "version": "14.1259.0",
+    "manifest_version": 3,
+    "description": "Improve your writing with all-in-one assistance\u2014including generative AI, grammar check, and more.",
+    "evidence": [
+      {
+        "file": "extension/manifest.json",
+        "start": 1,
+        "end": 365
+      }
+    ]
+  },
+  "permissions": {
+    "api_permissions": [
+      "scripting",
+      "sidePanel",
+      "tabs",
+      "notifications",
+      "cookies",
+      "identity",
+      "storage"
+    ],
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "optional_permissions": [
+      "nativeMessaging",
+      "clipboardRead"
+    ],
+    "evidence": [
+      {
+        "file": "extension/manifest.json",
+        "start": 315,
+        "end": 331
+      },
+      {
+        "file": "extension/manifest.json",
+        "start": 357,
+        "end": 360
+      }
+    ]
+  },
+  "components": {
+    "background": {
+      "files": [
+        "extension/sw.js",
+        "extension/src/js/Grammarly-bg.js"
+      ],
+      "apis": [
+        "chrome.storage.local",
+        "chrome.storage.managed",
+        "chrome.cookies",
+        "chrome.runtime",
+        "chrome.tabs",
+        "chrome.permissions"
+      ],
+      "listeners": [
+        "chrome.runtime.onMessage.addListener",
+        "chrome.runtime.onConnect.addListener",
+        "chrome.cookies.onChanged.addListener"
+      ],
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 9,
+          "end": 11
+        },
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 1,
+          "end": 2
+        }
+      ]
+    },
+    "content_scripts": [
+      {
+        "files": [
+          "extension/src/js/Grammarly-check.js",
+          "extension/src/js/Grammarly.js",
+          "extension/src/js/Grammarly-gDocs.js",
+          "extension/src/js/Grammarly-gDocsEarlyInjector.js",
+          "extension/src/js/Grammarly-gDocsIframeCs.js",
+          "extension/src/js/Grammarly-overleafStartContentScript.js"
+        ],
+        "apis": [
+          "chrome.runtime",
+          "chrome.storage"
+        ],
+        "listeners": [
+          "chrome.runtime.onMessage.addListener"
+        ],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 12,
+            "end": 296
+          }
+        ]
+      }
+    ],
+    "injected_scripts": [],
+    "ui": [
+      {
+        "files": [
+          "extension/src/popup.html",
+          "extension/src/sidePanel.html",
+          "extension/src/js/Grammarly-popup.js",
+          "extension/src/js/Grammarly-sidePanel.js"
+        ],
+        "apis": [
+          "chrome.runtime",
+          "chrome.tabs",
+          "chrome.sidePanel",
+          "chrome.action",
+          "chrome.storage"
+        ],
+        "listeners": [
+          "chrome.runtime.onMessage.addListener"
+        ],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 4,
+            "end": 8
+          },
+          {
+            "file": "extension/manifest.json",
+            "start": 306,
+            "end": 308
+          }
+        ]
+      }
+    ],
+    "web_accessible_resources": [
+      "src/fonts/*.woff",
+      "src/fonts/*.woff2",
+      "src/images/*.png",
+      "src/images/*.svg",
+      "src/images/*.jpg",
+      "src/images/*.gif",
+      "src/images/*.webp",
+      "src/js/*.js",
+      "src/css/*.css",
+      "src/icon/toolbar/*.png",
+      "src/icon/toolbar/superhuman_go/*.png",
+      "src/icon/app/*.png",
+      "src/gOS-sandbox.html",
+      "src/inkwell/index.html",
+      "src/inkwell/assets/*.js"
+    ]
+  },
+  "network": {
+    "endpoints": [
+      {
+        "url": "https://auth.grammarly.com",
+        "purpose": "User account sign-in and session authentication",
+        "methods": [
+          "POST",
+          "GET"
+        ],
+        "headers": [
+          "Authorization"
+        ],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 298,
+            "end": 298
+          }
+        ]
+      },
+      {
+        "url": "https://capi.grammarly.com",
+        "purpose": "Core HTTP writing correction checking API",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Content-Type"
+        ],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 298,
+            "end": 298
+          }
+        ]
+      },
+      {
+        "url": "wss://capi.grammarly.com",
+        "purpose": "Real-time editor checker WebSocket connection",
+        "methods": [
+          "WS"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 298,
+            "end": 298
+          }
+        ]
+      },
+      {
+        "url": "https://gnar.grammarly.com",
+        "purpose": "Grammarly Gnar tracking and behavior tracking system",
+        "methods": [
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 298,
+            "end": 298
+          }
+        ]
+      },
+      {
+        "url": "https://dox.grammarly.com",
+        "purpose": "Document checking sync pipeline",
+        "methods": [
+          "POST"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 298,
+            "end": 298
+          }
+        ]
+      },
+      {
+        "url": "https://config.extension.grammarly.com",
+        "purpose": "Dynamic remote config and experiment synchronization",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 298,
+            "end": 298
+          }
+        ]
+      }
+    ]
+  },
+  "messaging": {
+    "channels": [
+      {
+        "name": "behavior:strongAlertRef",
+        "direction": "background->content",
+        "payload_schema": {
+          "alertId": "string",
+          "textFieldId": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-sidePanel.js",
+            "start": 60001,
+            "end": 62000
+          }
+        ]
+      },
+      {
+        "name": "cheetah",
+        "direction": "content->background",
+        "payload_schema": {
+          "text": "string",
+          "cursorPosition": "number"
+        },
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-sidePanel.js",
+            "start": 60001,
+            "end": 62000
+          }
+        ]
+      },
+      {
+        "name": "shortFormCard",
+        "direction": "background->content",
+        "payload_schema": {
+          "cardId": "string",
+          "htmlContent": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-bg.js",
+            "start": 38001,
+            "end": 40000
+          }
+        ]
+      },
+      {
+        "name": "actionNotification",
+        "direction": "content->background",
+        "payload_schema": {
+          "actionType": "string",
+          "elementId": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-sidePanel.js",
+            "start": 60001,
+            "end": 62000
+          }
+        ]
+      },
+      {
+        "name": "alertsCount",
+        "direction": "background->content",
+        "payload_schema": {
+          "count": "number",
+          "fieldId": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-bg.js",
+            "start": 38001,
+            "end": 40000
+          }
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "keys": [
+      {
+        "key": "preferences",
+        "type": "local",
+        "purpose": "Stores user editor preferences, custom dictionaries, and active features toggle",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-bg.js",
+            "start": 84983,
+            "end": 84995
+          }
+        ]
+      },
+      {
+        "key": "gnarInternalStorage",
+        "type": "local",
+        "purpose": "Stores Grammarly's Gnar tracking identifiers and user behavioral interaction timelines",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-bg.js",
+            "start": 84983,
+            "end": 84995
+          }
+        ]
+      },
+      {
+        "key": "authTokenInitialRefreshDone",
+        "type": "local",
+        "purpose": "Tracks the status of token authentication refresh cycles upon browser launch",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-bg.js",
+            "start": 84983,
+            "end": 84995
+          }
+        ]
+      },
+      {
+        "key": "experimentationGatesTreatments",
+        "type": "local",
+        "purpose": "Caches Remote feature treatment flags and active experiment treatment definitions",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-bg.js",
+            "start": 84983,
+            "end": 84995
+          }
+        ]
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "name": "Real-Time Text Checking & Suggestion Injection",
+      "triggers": [
+        "User inputs text into text area",
+        "Page loads and focuses edit field"
+      ],
+      "steps": [
+        "Content script monitors DOM inputs and intercepts text updates",
+        "Content script communicates text changes to service worker via Cheetah payload message",
+        "Service worker relays text check request over wss://capi.grammarly.com WebSocket",
+        "WebSocket server analyzes spelling, grammar, and style suggestions",
+        "Service worker receives correction suggestion payloads",
+        "Service worker emits alert counts and short form card html markup to content script",
+        "Content script injects inline highlight overlays and renders spelling/correction card UI inline"
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "chrome.runtime.onMessage.addListener"
+      ],
+      "messages": [
+        "cheetah",
+        "alertsCount",
+        "shortFormCard"
+      ],
+      "endpoints": [
+        "wss://capi.grammarly.com",
+        "https://capi.grammarly.com"
+      ],
+      "storage_keys": [
+        "preferences"
+      ],
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 38001,
+          "end": 40000
+        },
+        {
+          "file": "extension/src/js/Grammarly-check.js",
+          "start": 1,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "name": "User Session Authentication Flow",
+      "triggers": [
+        "User clicks Sign In button in Popup or Sidebar Panel",
+        "Access token refresh triggers"
+      ],
+      "steps": [
+        "Popup captures credentials or triggers OAuth 2.0 redirection flow",
+        "Sends validation details to background service worker",
+        "Service worker performs token verification checks with https://auth.grammarly.com",
+        "Service worker saves OAuth state, token values, and user subscription limits in storage",
+        "Enables Premium suggestions or specific writing settings inside active sessions"
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "chrome.storage.local.set"
+      ],
+      "messages": [
+        "login-attempt"
+      ],
+      "endpoints": [
+        "https://auth.grammarly.com"
+      ],
+      "storage_keys": [
+        "gr-oauth-service-state",
+        "authTokenInitialRefreshDone"
+      ],
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-popup.js",
+          "start": 50001,
+          "end": 50282
+        },
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 84745,
+          "end": 84800
+        }
+      ]
+    },
+    {
+      "name": "Usage Tracking & Event Analytics Stream",
+      "triggers": [
+        "User clicks suggestion card",
+        "Periodic telemetry timer triggers"
+      ],
+      "steps": [
+        "Content script captures accept or ignore click events on suggestion card markup",
+        "Sends event details to service worker via actionNotification payload",
+        "Service worker logs analytics to gnarInternalStorage",
+        "Relays structured metrics data payload to gnar.grammarly.com, data.grammarly.com, and extension.femetrics.grammarly.io endpoints"
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "chrome.storage.local.set"
+      ],
+      "messages": [
+        "actionNotification"
+      ],
+      "endpoints": [
+        "https://gnar.grammarly.com",
+        "https://data.grammarly.com"
+      ],
+      "storage_keys": [
+        "gnarInternalStorage",
+        "gnar_nextPingTimestamp"
+      ],
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 84983,
+          "end": 84995
+        },
+        {
+          "file": "extension/src/js/Grammarly-sidePanel.js",
+          "start": 60001,
+          "end": 62000
+        }
+      ]
+    }
+  ],
+  "privacy": {
+    "data_categories": [
+      "user_keystrokes_and_document_text",
+      "authentication_tokens",
+      "user_email",
+      "usage_analytics_interactions",
+      "active_page_domain"
+    ],
+    "purposes": [
+      "spell_and_grammar_correction",
+      "account_authorization",
+      "usage_tracking_and_metrics",
+      "remote_configuration_and_personalization"
+    ],
+    "minimization": "Collects full text field inputs and active document contents to process and deliver real-time suggestions, but includes extensive exclusion domains (e.g., outlook, slack, gmail, github) in content scripts match filters to minimize unnecessary data leakage.",
+    "consent": "Requires explicit sign-in consent to authenticate premium accounts, but collects anonymized text and gnar telemetry interactions implicitly during regular usage of writing helper functionality.",
+    "retention": "Anonymized diagnostic logs and metrics are stored in local buffers (e.g., gnarInternalStorage) indefinitely, with session backups temporarily saved in local storage until sent.",
+    "third_parties": [
+      {
+        "name": "api.iterable.com",
+        "purpose": "Lifecycle tracking, marketing notifications, and customer engagement emails",
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 298,
+            "end": 298
+          }
+        ]
+      }
+    ],
+    "policy_compliance": "Fully documented and compliant with Chrome Web Store User Data policies, including high minimization of telemetry data. However, the transmission of user text blocks to capi servers requires clear, explicit user opt-in disclosures in high-privacy environments.",
+    "evidence": [
+      {
+        "file": "extension/manifest.json",
+        "start": 26,
+        "end": 118
+      }
+    ]
+  },
+  "risks": [
+    {
+      "type": "tracking",
+      "severity": "medium",
+      "justification": "Transmits granular user interactions, accepted/dismissed suggestions, and telemetry timestamps continuously to gnar.grammarly.com and multiple front-end logging endpoints without explicit opt-in.",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 84983,
+          "end": 84995
+        }
+      ]
+    },
+    {
+      "type": "remote_code",
+      "severity": "high",
+      "justification": "Executes dynamic code logic through JS evaluation APIs (new Function or eval) in multiple bundled scripts, which can present a vector for un-vetted script executions.",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-check.js",
+          "start": 8001,
+          "end": 10000
+        },
+        {
+          "file": "extension/src/js/Grammarly.js",
+          "start": 94001,
+          "end": 94238
+        }
+      ]
+    },
+    {
+      "type": "excessive_permissions",
+      "severity": "low",
+      "justification": "Requests broad optional permissions (nativeMessaging, clipboardRead) which are highly sensitive and should only be explicitly invoked when the absolute necessity is proven in code.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 357,
+          "end": 360
+        }
+      ]
+    }
+  ],
+  "code_signals": {
+    "chrome_api_calls": [
+      "chrome.storage.local.get",
+      "chrome.storage.local.set",
+      "chrome.storage.local.clear",
+      "chrome.storage.managed.get",
+      "chrome.cookies.get",
+      "chrome.cookies.set",
+      "chrome.cookies.remove",
+      "chrome.cookies.getAll",
+      "chrome.tabs.sendMessage",
+      "chrome.tabs.query",
+      "chrome.runtime.sendMessage",
+      "chrome.runtime.onMessage.addListener",
+      "chrome.sidePanel.open"
+    ],
+    "event_listeners": [
+      "chrome.runtime.onMessage.addListener",
+      "chrome.cookies.onChanged.addListener",
+      "chrome.runtime.onConnect.addListener",
+      "addEventListener"
+    ],
+    "dynamic_code": [
+      "new Function",
+      "eval"
+    ],
+    "wasm_modules": [],
+    "third_party_libs": [
+      "webpack"
+    ]
+  },
+  "observed_privacy_data": {
+    "items": [
+      {
+        "data_name": "User Keystrokes & Document Text",
+        "data_description": "The actual text typed by the user inside text areas, Overleaf, or Google Docs editor canvases.",
+        "source": "DOM input/focus/key events and Google Docs canvas rendering buffers",
+        "operation": "collected, transmitted, processed",
+        "collection_trigger": "user click, keystroke, page focus",
+        "storage": "unknown (temporary caches in memory, no indefinite local storage observed)",
+        "transmission": "transmitted to wss://capi.grammarly.com and https://capi.grammarly.com for real-time suggestions",
+        "local_processing": "text sentence segmentation, spelling error boundary extraction",
+        "user_control_or_consent": "implicit (provided during writing action, can be toggled by disabling Grammarly on specific domain)",
+        "purpose_observed": "grammar checks, spelling correction, and generative AI suggestions",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-check.js",
+            "start": 1,
+            "end": 2
+          },
+          {
+            "file": "extension/src/js/Grammarly-bg.js",
+            "start": 1,
+            "end": 2
+          }
+        ]
+      },
+      {
+        "data_name": "Authentication Tokens & Session Identifiers",
+        "data_description": "User account login status, session ID, OAuth access token, and user email context.",
+        "source": "chrome.storage.local, auth.grammarly.com validation responses",
+        "operation": "stored, transmitted, reused",
+        "collection_trigger": "user manual sign-in, extension launch refresh cycle",
+        "storage": "stored in chrome.storage.local under key gr-oauth-service-state",
+        "transmission": "sent in request headers or cookies to Grammarly core checking and sync servers",
+        "local_processing": "session validation checks and authorization gating",
+        "user_control_or_consent": "explicit (provided directly during user-initiated popup sign-in or OAuth approval)",
+        "purpose_observed": "account authorization status check and subscription plan enforcement",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-popup.js",
+            "start": 50001,
+            "end": 50282
+          },
+          {
+            "file": "extension/src/js/Grammarly-bg.js",
+            "start": 84745,
+            "end": 84800
+          }
+        ]
+      },
+      {
+        "data_name": "User Behavior Telemetry Interactions",
+        "data_description": "Granular click logs showing user interactions on suggestions (accepted, ignored, dismissed suggestions) and extension UI performance metrics.",
+        "source": "DOM click event listeners and popup interaction handlers",
+        "operation": "generated, stored, transmitted",
+        "collection_trigger": "user clicks on suggest card buttons, telemetry timers, heartbeat logs",
+        "storage": "stored in chrome.storage.local under key gnarInternalStorage and session_storage_logs_backup",
+        "transmission": "sent to https://gnar.grammarly.com and https://data.grammarly.com telemetry backends",
+        "local_processing": "telemetry bundle queueing and JSON payload formatting",
+        "user_control_or_consent": "unknown (implied background reporting, settings can enable/disable gnar deprecation flag)",
+        "purpose_observed": "user interaction metrics tracking and application diagnostic quality improvements",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "extension/src/js/Grammarly-bg.js",
+            "start": 84983,
+            "end": 84995
+          },
+          {
+            "file": "extension/src/js/Grammarly-sidePanel.js",
+            "start": 60001,
+            "end": 62000
+          }
+        ]
+      },
+      {
+        "data_name": "Active Page URL & Domain Context",
+        "data_description": "The domain name or exact URL of the active browser tab where Grammarly text editor interactions are occurring.",
+        "source": "chrome.tabs API queries, active tab focus updates, content script window.location",
+        "operation": "read, transmitted",
+        "collection_trigger": "active tab updates, page navigation, editable area focus",
+        "storage": "unknown (no permanent storage of URLs in local storage observed)",
+        "transmission": "sent as headers (Referer) or parameter metadata to capi checking service and gnar telemetry tracking",
+        "local_processing": "evaluating domain-specific exclusion and custom match filters (e.g. docs.google.com vs. blacklisted pages)",
+        "user_control_or_consent": "implicit (bound to extension execution environment)",
+        "purpose_observed": "applying custom rules, blocking checked sites, and compatibility tuning",
+        "confidence": "high",
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 12,
+            "end": 296
+          },
+          {
+            "file": "extension/src/js/Grammarly-bg.js",
+            "start": 47810,
+            "end": 47920
+          }
+        ]
+      }
+    ]
+  }
+}

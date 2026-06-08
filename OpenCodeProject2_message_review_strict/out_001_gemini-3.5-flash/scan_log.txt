@@ -1,0 +1,61 @@
+Scan started: Sunday, June 07, 2026
+Extension ID: kbfnbcaeplbcioakkpcpgfkobkghlhen
+Output directory: out_001_gemini-3.5-flash
+
+## Reverse Engineering Run Details
+
+### 1. Beautification & Mapping (Step 0)
+- Status: Completed.
+- Mapped files: 422 JavaScript files indexed.
+- Output file: `beautify_map.json`
+
+### 2. Manifest Inventory (Step 1)
+- Original Extension Name: "Grammarly: AI Writing Assistant and Grammar Checker App"
+- Short Name: "Superhuman Go (Beta)"
+- Version: 14.1259.0
+- Output files: `permissions_report.json`
+
+### 3. Parsing, AST, & Forensic Scan (Step 2)
+- Dynamic API Forensic Scan Status: Completed.
+- Method: Dynamic regex-based Crawler (`tools/find_apis.js`) applied to all unpacked assets.
+- APIs Extracted: Programmatic trace of all `chrome.*` and `browser.*` method calls, registering 44 background APIs and 8 active listeners.
+- Output file: `discovered_apis.json`
+
+### 4. Mechanical Census Extraction & Adjudication (Step 2.5)
+- Status: Completed.
+- Extracted potential candidates: 767 Endpoints, 1494 Messages, 212 Storage Keys.
+- Promotion filter: 491 Endpoints, 199 Messages, 24 Storage Keys.
+- LLM Adjudication: Complete. 172 confirmed/likely messages, 15 confirmed/likely storage keys.
+- Output files: `message_candidate_review.csv`, `storage_candidate_review.csv`
+
+### 5. Tabular Reconciliation (Step 3)
+- Status: Completed.
+- Reconciled rows: 491 Endpoints, 172 Messages, 15 Storage Keys.
+- Output files: `endpoints.csv`, `messages.csv`, `storage_keys.csv`
+
+### 6. Components and Flows (Step 4)
+- Status: Completed.
+- Output files: `flows.puml` (PlantUML)
+
+### 7. Workflow Clustering (Step 5)
+- Status: Completed. Documented Onboarding, Supported Site checks, Auth sync, realtime CAPI check editing loops, and metrics logs delivery.
+
+### 8. Privacy, Security, Compliance (Step 6)
+- Status: Completed. Documented concrete data streams (inputs, location, auth tokens, logs) and identified risks (PII Exfiltration, Activity Tracking, Permissive broad hosts permissions).
+
+### 9. Final Synthesis, Linting & Schema Validation (Step 7)
+- Output File: `out_001_gemini-3.5-flash/extension_summary.json`
+- Copied to: `privacy_workspace/extension_summary.json`
+- Message Review Linter: Passed (`[message-review-linter] OK`). Rejected generic `disconnect` and `general` tokens.
+- JSON Schema Validation: Successful (`Validation successful! extension_summary.json is fully schema-compliant.`).
+
+### 10. Appended Privacy Suite (Steps 8-11)
+- Web Store Privacy Scraper: Executed successfully via Playwright.
+- Scraper Output: `privacy_workspace/declared_privacy.json` (detected external policy URL: `https://www.grammarly.com/privacy-policy`)
+- Comparisons Compiled:
+  - CWS Declared vs Actual Behavior -> `privacy_workspace/privacy_comparison.json` (identified 2 underdeclarations: `web_history`, `authentication_information`)
+  - External Policy vs Actual Behavior -> `privacy_workspace/external_privacy_comparison.json` (resolved all underdeclarations, identified 1 overdeclaration: `financial_and_payment_information` billing management)
+  - Store vs External Policy Alignments -> `privacy_workspace/internal_external_privacy_comparison.json` (fully mapped and verified alignments)
+
+## Run Verdict: SUCCESS
+

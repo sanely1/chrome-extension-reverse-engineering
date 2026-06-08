@@ -1,0 +1,44 @@
+Grammarly Scan Log
+==================
+Timestamp: 2026-06-07T20:36:00.000Z
+Model: gemini-3.5-flash
+Run Number: 001
+
+1. Beautification Status:
+   - Evaluated 422 JavaScript source files.
+   - All 422 files mapped successfully in out_001_gemini-3.5-flash/beautify_map.json.
+   - Status: 100% OK (Pre-beautified source files existed and mapped side-by-side).
+
+2. Files Excluded:
+   - Standard build, node_modules, and coverage directories were ignored.
+   - Beautified files themselves were excluded from counting as original sources.
+
+3. Parse Fallbacks:
+   - Used robust dynamic programmatic extraction for chrome.* APIs and listeners in find_apis.js, ensuring 100% depth over larger scripts (such as Grammarly-bg.js, over 90,000 lines).
+   - Used robust regex scanning inside census_extractor.js, which handled webpack-bundled components without halting.
+
+4. Metrics and Counts:
+   - Total source JS/HTML files scanned: 431
+   - Total endpoints extracted from census: 491
+   - Adjudicated messages (confirmed/likely): 158
+   - Adjudicated storage keys (confirmed/likely): 12
+   - Core behavioral workflows: 6
+   - Observed privacy items: 5
+   - Confirmed security & privacy risks: 4
+
+5. Validation Status:
+   - Schema validation status: VALID (Passed all criteria in tools/validate_summary.js).
+   - Messaging review linter: OK (Passed all checks).
+   - Workflow review linter: OK (Passed all checks).
+   - Privacy & Risk review linter: OK (Passed all checks).
+
+6. Blockers / Unknowns:
+   - No system blockers or permission errors were encountered.
+   - No manual interventions were required; run was executed seamlessly.
+
+7. Privacy Workspace status:
+   - privacy_workspace/extension_summary.json created successfully.
+   - privacy_workspace/declared_privacy.json fetched and verified successfully using fetch_privacy.py.
+   - privacy_workspace/privacy_comparison.json compiled successfully.
+   - privacy_workspace/external_privacy_comparison.json compiled successfully.
+   - privacy_workspace/internal_external_privacy_comparison.json compiled successfully.

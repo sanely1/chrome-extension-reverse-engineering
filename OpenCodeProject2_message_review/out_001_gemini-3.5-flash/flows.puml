@@ -1,0 +1,42 @@
+@startuml
+skinparam handwritten false
+skinparam monochrome false
+skinparam packageStyle rect
+skinparam shadowing true
+
+actor User
+participant "Webpage DOM\n(Slack, Quora, etc.)" as Page
+participant "Content Script\n(Grammarly.js)" as CS
+participant "Google Docs Script\n(Grammarly-gDocs.js)" as GDocs
+participant "Inkwell Editor Iframe\n(src/inkwell/index.html)" as Inkwell
+database "Web Storage\n(localStorage/IndexedDB)" as Storage
+participant "Background Worker\n(sw.js / Grammarly-bg.js)" as BG
+participant "Side Panel UI\n(src/sidePanel.html)" as SidePanel
+entity "Grammarly CAPI Server\n(wss://capi.grammarly.com)" as CAPIServer
+entity "Grammarly Telemetry\n(femetrics.grammarly.io)" as TelemetryServer
+
+User -> Page : Types text / inputs draft
+CS -> Page : Observes DOM changes via MutationObserver
+CS -> Inkwell : window.postMessage("textChange", data)
+
+note over Inkwell: Processes text and creates\nOperational Transformation (OT) deltas
+
+Inkwell -> CAPIServer : WebSocket: send("submit_ot", deltas)
+CAPIServer -> Inkwell : WebSocket: receive("capiAlertReceived", alerts)
+
+Inkwell -> CS : window.postMessage("renderAlerts", suggestions)
+CS -> Page : Injects Grammarly widget and highlights errors
+
+note over GDocs: Special workflow for Google Docs\nMonitors collaboration count and canvas contexts
+GDocs -> Storage : localStorage.setItem("gdocs_peak_collabs_dismissed")
+
+SidePanel -> Storage : indexedDB: open("GrammarlyAssistantChatStorage")
+SidePanel -> Storage : sessionStorage: get("alwaysOnAssistantOnOpenData")
+
+BG -> Storage : indexedDB: open("human_writing_report")
+BG -> Storage : sessionStorage: get("isBGInitialized")
+
+BG -> BG : setUninstallURL("https://grammarly.com/uninstall")
+
+BG -> TelemetryServer : POST / feMetricsData (flushes client metrics)
+@enduml

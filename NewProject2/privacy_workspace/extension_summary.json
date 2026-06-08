@@ -1,0 +1,571 @@
+{
+  "metadata": {
+    "name": "Faircado - Second hand shopping",
+    "version": "3.8.12",
+    "manifest_version": 3,
+    "description": "We help you make the sustainable choice your go-to!",
+    "evidence": [
+      {
+        "file": "./extension/manifest.json",
+        "start": 1,
+        "end": 41
+      }
+    ]
+  },
+  "permissions": {
+    "api_permissions": [
+      "contextMenus",
+      "activeTab",
+      "storage",
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://*/*"
+    ],
+    "optional_permissions": [],
+    "evidence": [
+      {
+        "file": "extension/manifest.json",
+        "start": 33,
+        "end": 33
+      }
+    ]
+  },
+  "components": {
+    "background": {
+      "files": [
+        "extension/background.js"
+      ],
+      "apis": [
+        "chrome.contextMenus.chrome",
+        "chrome.tabs.chrome",
+        "chrome.browserAction.chrome",
+        "chrome.action.chrome",
+        "chrome.runtime.chrome",
+        "chrome.storage.chrome"
+      ],
+      "listeners": [
+        "chrome.contextMenus.onClicked.addListener",
+        "chrome.runtime.onMessage.addListener",
+        "chrome.runtime.onInstalled.addListener",
+        "chrome.tabs.onActivated.addListener",
+        "undefined.onClicked.addListener",
+        "chrome.tabs.onUpdated.addListener",
+        "chrome.runtime.onStartup.addListener"
+      ],
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 1,
+          "end": 904
+        }
+      ]
+    },
+    "content_scripts": [
+      {
+        "files": [
+          "extension/content.js"
+        ],
+        "apis": [
+          "chrome.runtime.getURL",
+          "chrome.storage",
+          "chrome.tabs.chrome",
+          "chrome.tabs",
+          "chrome.runtime.sendMessage",
+          "chrome.runtime.chrome",
+          "chrome.runtime.onMessage.addListener",
+          "chrome.storage.chrome"
+        ],
+        "listeners": [
+          "addListener (line 10901)",
+          "chrome.runtime.onMessage.addListener"
+        ],
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 1,
+            "end": 10986
+          }
+        ]
+      }
+    ],
+    "injected_scripts": [
+      {
+        "files": [
+          "extension/navigation-events.js"
+        ],
+        "apis": [],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "extension/navigation-events.js",
+            "start": 1,
+            "end": 24
+          }
+        ]
+      }
+    ],
+    "ui": [
+      {
+        "files": [
+          "extension/popup.js"
+        ],
+        "apis": [],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "extension/popup.js",
+            "start": 1,
+            "end": 38
+          }
+        ]
+      },
+      {
+        "files": [
+          "extension/data-control.js"
+        ],
+        "apis": [
+          "chrome.runtime.chrome",
+          "chrome.storage.chrome",
+          "chrome.tabs.chrome"
+        ],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "extension/data-control.js",
+            "start": 1,
+            "end": 304
+          }
+        ]
+      }
+    ],
+    "web_accessible_resources": [
+      "/save.html",
+      "/public/icons/*",
+      "/navigation-events.js"
+    ]
+  },
+  "network": {
+    "endpoints": [
+      {
+        "url": "https://catalog-service-api.faircado.com/api/v1/supported-website",
+        "method": "unknown",
+        "headers": [],
+        "purpose": "API definition"
+      },
+      {
+        "url": "https://faircado.com/after-extension-install-versioned?v=3-8",
+        "method": "unknown",
+        "headers": [],
+        "purpose": "API definition"
+      },
+      {
+        "url": "https://faircado.com/extension-to-website-onboarding",
+        "method": "unknown",
+        "headers": [],
+        "purpose": "API definition"
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/supported-websites/list",
+        "method": "unknown",
+        "headers": [],
+        "purpose": "API definition"
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/is-product-page-heuristic?populate=regexpsUrl&populate=keyphrasesOnPage&populate=keyphrasesOnPage.keyphrases&populate=elementsOnPage&populate=elementsOnPage.regexps&populate=regexpsIsOnPage&populate=stopKeyphrasesOnPage&populate=stopKeyphrasesOnPage.keyphrases",
+        "method": "unknown",
+        "headers": [],
+        "purpose": "API definition"
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/extension-ab-tests/list",
+        "method": "unknown",
+        "headers": [],
+        "purpose": "API definition"
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/extension-config",
+        "method": "unknown",
+        "headers": [],
+        "purpose": "API definition"
+      },
+      {
+        "url": "https://api.mixpanel.com",
+        "method": "unknown",
+        "headers": [],
+        "purpose": "API definition"
+      },
+      {
+        "url": "unknown",
+        "method": "GET",
+        "headers": [],
+        "purpose": "unknown"
+      },
+      {
+        "url": "https://catalog-service-api.faircado.com/api/v1/supported-website",
+        "method": "POST",
+        "headers": [
+          "Content-Type",
+          "X-Machine-Key"
+        ],
+        "purpose": "unknown"
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/supported-websites/list",
+        "method": "GET",
+        "headers": [],
+        "purpose": "unknown"
+      },
+      {
+        "url": "unknown",
+        "method": "POST",
+        "headers": [
+          "Content-Type"
+        ],
+        "purpose": "unknown"
+      }
+    ]
+  },
+  "messaging": {
+    "channels": [
+      {
+        "name": "ClearDataFromSessionStorage",
+        "direction": "content->background",
+        "payload_keys": []
+      },
+      {
+        "name": "GetItemFromSessionStorage",
+        "direction": "content->background",
+        "payload_keys": [
+          "key"
+        ]
+      },
+      {
+        "name": "RemoveItemFromSessionStorage",
+        "direction": "content->background",
+        "payload_keys": [
+          "key"
+        ]
+      },
+      {
+        "name": "SetItemToSessionStorage",
+        "direction": "content->background",
+        "payload_keys": [
+          "items"
+        ]
+      },
+      {
+        "name": "GetMachineKey",
+        "direction": "content->background",
+        "payload_keys": []
+      },
+      {
+        "name": "GetAbTestsConfig",
+        "direction": "content->background",
+        "payload_keys": []
+      },
+      {
+        "name": "unknown",
+        "direction": "background->content",
+        "payload_keys": []
+      },
+      {
+        "name": "init",
+        "direction": "content->background",
+        "payload_keys": []
+      },
+      {
+        "name": "IsActivated",
+        "direction": "content->background",
+        "payload_keys": []
+      },
+      {
+        "name": "GetExtensionConfig",
+        "direction": "content->background",
+        "payload_keys": []
+      },
+      {
+        "name": "GetHeuristicData",
+        "direction": "content->background",
+        "payload_keys": []
+      },
+      {
+        "name": "mixpanel",
+        "direction": "content->background",
+        "payload_keys": [
+          "site",
+          "experimentName",
+          "action",
+          "triggeringUrl"
+        ]
+      },
+      {
+        "name": "isSupportedWebsite",
+        "direction": "content->background",
+        "payload_keys": []
+      },
+      {
+        "name": "error",
+        "direction": "content->background",
+        "payload_keys": []
+      }
+    ]
+  },
+  "storage": {
+    "keys": [
+      {
+        "key": "unknown",
+        "type": "local",
+        "op": "getItem",
+        "purpose": "unknown"
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "name": "Extension Installation & Onboarding Flow",
+      "triggers": [
+        "Extension installed"
+      ],
+      "steps": [
+        "Extension is installed.",
+        "Machine key generated.",
+        "Uninstall URL set.",
+        "Context menu created.",
+        "AB test variants set.",
+        "Mixpanel event tracked.",
+        "Onboarding tab opened."
+      ],
+      "apis": [
+        "chrome.runtime.onInstalled"
+      ],
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 746,
+          "end": 766
+        }
+      ]
+    },
+    {
+      "name": "User Activation Flow",
+      "triggers": [
+        "User clicks 'Activate' button"
+      ],
+      "steps": [
+        "User clicks activate.",
+        "Machine key retrieved.",
+        "Activation flag set.",
+        "Redirect to onboarding."
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "localStorage.setItem"
+      ],
+      "evidence": [
+        {
+          "file": "extension/data-control.js",
+          "start": 297,
+          "end": 302
+        }
+      ]
+    },
+    {
+      "name": "Extension Icon Click Flow",
+      "triggers": [
+        "User clicks icon"
+      ],
+      "steps": [
+        "Data control check.",
+        "Popup action set.",
+        "Auth data retrieved.",
+        "Message 'showExtension' sent."
+      ],
+      "apis": [
+        "chrome.action.onClicked",
+        "chrome.tabs.sendMessage"
+      ],
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 589,
+          "end": 603
+        }
+      ]
+    },
+    {
+      "name": "Message Handling Flow",
+      "triggers": [
+        "Message received"
+      ],
+      "steps": [
+        "Background script processes various messages (init, login, logout, etc.)."
+      ],
+      "apis": [
+        "chrome.runtime.onMessage.addListener"
+      ],
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 604,
+          "end": 728
+        }
+      ]
+    },
+    {
+      "name": "Image Search Context Menu Flow",
+      "triggers": [
+        "Context menu clicked"
+      ],
+      "steps": [
+        "Menu click registered.",
+        "Auth data retrieved.",
+        "Message 'showExtension' sent to active tab."
+      ],
+      "apis": [
+        "chrome.contextMenus.onClicked"
+      ],
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 729,
+          "end": 745
+        }
+      ]
+    },
+    {
+      "name": "Image Processing and Data Transfer Flow",
+      "triggers": [
+        "Message received"
+      ],
+      "steps": [
+        "Image URL received.",
+        "Image loaded/processed.",
+        "Image data (base64) sent via window.parent.postMessage."
+      ],
+      "apis": [
+        "window.addEventListener",
+        "canvas.toDataURL"
+      ],
+      "evidence": [
+        {
+          "file": "extension/save.js",
+          "start": 18,
+          "end": 59
+        }
+      ]
+    }
+  ],
+  "privacy": {
+    "data_categories": [
+      "user_credentials",
+      "unique_identifiers",
+      "browsing_history",
+      "user_preferences",
+      "analytics_telemetry",
+      "ip_address"
+    ],
+    "purposes": [
+      "authentication",
+      "personalization",
+      "analytics_tracking",
+      "feature_functionality",
+      "onboarding"
+    ],
+    "minimization": "The extension collects various data including browsing activity (URLs), unique identifiers (machineKey), and authentication tokens. The broad tracking of browsing URLs and events suggests it might collect more data than strictly necessary for basic functionality.",
+    "consent": "A consent mechanism is suggested for Firefox users via the `ACTIVATED` flag, but explicit, granular user consent for broad data collection isn't clearly evident.",
+    "retention": "Cached data has TTLs, but core user data appears to be stored indefinitely.",
+    "third_parties": [
+      {
+        "name": "api.mixpanel.com",
+        "purpose": "Usage tracking",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 358,
+            "end": 380
+          }
+        ]
+      },
+      {
+        "name": "catalog-service-api.faircado.com",
+        "purpose": "Supported website checks",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 3,
+            "end": 3
+          }
+        ]
+      },
+      {
+        "name": "cms-api.faircado.com",
+        "purpose": "Extension configuration, AB tests, heuristics, supported websites list",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 9,
+            "end": 12
+          }
+        ]
+      },
+      {
+        "name": "faircado.com",
+        "purpose": "Onboarding and uninstall redirection",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 7,
+            "end": 8
+          }
+        ]
+      }
+    ],
+    "policy_compliance": "Potential concerns regarding explicit, granular user consent for data collection may violate Chrome Web Store Developer Program Policies.",
+    "evidence": [
+      {
+        "file": "./extension/manifest.json",
+        "start": 1,
+        "end": 41
+      }
+    ]
+  },
+  "risks": [
+    {
+      "type": "other",
+      "severity": "low",
+      "justification": "AST parsing failed: Cannot read properties of undefined (reading 'type'). Falling back to regex.",
+      "evidence": []
+    }
+  ],
+  "code_signals": {
+    "chrome_api_calls": [
+      "chrome.runtime.getURL",
+      "chrome.contextMenus.chrome",
+      "chrome.storage",
+      "chrome.tabs.chrome",
+      "chrome.browserAction.chrome",
+      "chrome.tabs",
+      "chrome.action.chrome",
+      "chrome.runtime.sendMessage",
+      "chrome.runtime.chrome",
+      "chrome.runtime.onMessage.addListener",
+      "chrome.storage.chrome"
+    ],
+    "event_listeners": [
+      "chrome.contextMenus.onClicked.addListener",
+      "addListener (line 10901)",
+      "chrome.runtime.onMessage.addListener",
+      "chrome.runtime.onInstalled.addListener",
+      "chrome.tabs.onActivated.addListener",
+      "undefined.onClicked.addListener",
+      "chrome.tabs.onUpdated.addListener",
+      "chrome.runtime.onStartup.addListener"
+    ],
+    "dynamic_code": [
+      "Function"
+    ],
+    "wasm_modules": [],
+    "third_party_libs": []
+  }
+}

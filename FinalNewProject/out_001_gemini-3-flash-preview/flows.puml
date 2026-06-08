@@ -1,0 +1,25 @@
+@startuml
+actor User
+participant Page
+participant "Content Script" as CS
+participant "Service Worker" as SW
+database "chrome.storage" as Storage
+participant "Remote API" as Remote
+
+User -> Page: Visits product page
+Page -> CS: Inject content script
+CS -> SW: sendMessage("isSupportedWebsite", {url})
+SW -> Remote: GET /supported-websites/list
+Remote --> SW: supported sites
+SW -> CS: response {isSupported: true, parameters}
+CS -> CS: extractPageData(parameters)
+CS -> CS: getImageBaseDataByIframe(imageUrl)
+CS -> SW: sendMessage("mixpanel", {event: "extension_expanded"})
+SW -> Remote: POST api.mixpanel.com/track
+CS -> CS: injectCatalogueRedirector() / popupExtension()
+CS -> Page: Show "Find secondhand" box
+User -> Page: Clicks box
+Page -> CS: handleRedirectClick()
+CS -> SW: setItemToSessionStorage({redirectionId: data})
+CS -> Page: window.open(faircado.com/redirect-handler?redirectionId)
+@enduml

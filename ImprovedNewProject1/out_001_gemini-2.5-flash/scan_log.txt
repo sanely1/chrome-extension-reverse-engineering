@@ -1,0 +1,42 @@
+
+
+--- Run Summary ---
+
+Run ID: out_001_gemini-2.5-flash
+Model Name: gemini-2.5-flash
+Status: Completed
+Timestamp: 2026-05-17T13:43:00Z
+
+Total Files Analyzed:
+  - JavaScript: 6
+  - HTML: 3
+  - CSS: 3
+
+Analysis Completion:
+All identified JavaScript, HTML, and CSS files within the extension directory have been statically analyzed. Manifest parsing, locale resolution, component classification, workflow extraction, privacy/risk assessment, and aggregation into extension_summary.json are complete.
+
+Key Findings:
+- The extension utilizes a background service worker, content scripts, and various UI pages (popup, data control, image processing iframe).
+- Extensive inter-component communication via Chrome runtime messages and window.postMessage is observed.
+- External communication with Faircado's CMS/Catalog APIs and Mixpanel for analytics is prominent.
+- Data collection includes browsing history, technical/device information, user interaction, authentication data, language preferences, and A/B test data.
+- Identified workflows include installation/update, user authentication, website support checks, embedded UI injection, analytics/telemetry, catalogue redirection, image search, and session storage proxying.
+
+Blockers/Unknowns:
+- No critical blockers halted the analysis. Remaining 'unknown' fields in privacy section (minimization, retention, policy_compliance) are due to lack of explicit definition within the code itself, as per output contract rules.
+
+Assumptions Made:
+- Output directory structure and naming conventions were followed as per project instructions.
+- No beautification tools were used; analysis was performed on original source files.
+- Assumed text-based parsing for code analysis due to tool limitations; documented impacts on confidence where relevant.
+- Dynamic analysis was out of scope for this run.
+
+Quality Gates Audit:
+- Manifest Fidelity: Passed. Metadata, permissions, and entry points derived directly from manifest.json.
+- Messaging Completeness: Passed. Senders and handlers mapped for all discoverable channels, and directions assigned.
+- Workflow Coverage: Passed. Installation, auth, analytics, A/B config, image processing, and data control flows are separately considered and documented.
+- Evidence Discipline: Passed. All claims are grounded in original source file paths and narrow line ranges.
+- Background and Content Coverage: Passed. All major background and content script capabilities are represented.
+- Endpoint Hygiene: Passed. Literal endpoints separated, no unnecessary duplication, and purposes identified.
+
+This concludes the Chrome extension reverse engineering run.

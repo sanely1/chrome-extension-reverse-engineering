@@ -1,0 +1,70 @@
+channel_name,direction,payload_keys,file,line_start,line_end
+InternalMessageTypes.ClearDataFromSessionStorage,ui->background,,extension/background.js,137,137
+InternalMessageTypes.GetItemFromSessionStorage,ui->background,"key",extension/background.js,140,141
+InternalMessageTypes.RemoveItemFromSessionStorage,ui->background,"key",extension/background.js,144,145
+InternalMessageTypes.SetItemToSessionStorage,ui->background,"items",extension/background.js,148,149
+InternalMessageTypes.GetMachineKey,ui->background,,extension/background.js,217,217
+InternalMessageTypes.GetAbTestsConfig,ui->background,,extension/background.js,481,481
+messageTypes.showExtension,background->content,"manualExtensionOpen|machineKey",extension/background.js,623,625
+messageTypes.showExtension,background->content,"machineKey|imageUrl|manualImageSearch|info",extension/background.js,766,770
+messageTypes.setAuth,background->content,"authKey|authValue",extension/background.js,808,810
+messageTypes.clearAuth,background->content,"",extension/background.js,821,821
+messageTypes.init,background->ui,,extension/background.js,631,631
+messageTypes.login,background->ui,"authKey|authValue",extension/background.js,642,644
+messageTypes.logout,background->ui,,extension/background.js,648,648
+messageTypes.error,background->ui,"detail|message|url",extension/background.js,654,658
+messageTypes.mixpanel,background->ui,"eventName|payload",extension/background.js,665,667
+messageTypes.hasResult,background->ui,"isSnoozed",extension/background.js,673,673
+messageTypes.noResult,background->ui,,extension/background.js,684,684
+messageTypes.isSupportedWebsite,background->ui,"url",extension/background.js,689,689
+InternalMessageTypes.GetHeuristicData,background->ui,,extension/background.js,717,717
+InternalMessageTypes.IsActivated,background->ui,,extension/background.js,723,723
+InternalMessageTypes.GetAbTestsConfig,background->ui,,extension/background.js,726,726
+InternalMessageTypes.GetExtensionConfig,background->ui,,extension/background.js,731,731
+InternalMessageTypes.SetItemToSessionStorage,background->ui,"items",extension/background.js,737,737
+InternalMessageTypes.GetItemFromSessionStorage,background->ui,"key",extension/background.js,742,742
+InternalMessageTypes.RemoveItemFromSessionStorage,background->ui,"key",extension/background.js,747,747
+InternalMessageTypes.ClearDataFromSessionStorage,background->ui,,extension/background.js,751,751
+InternalMessageTypes.GetMachineKey,background->ui,,extension/background.js,754,754
+postMessage (pushStateFaircado),content->page,"source|type",extension/navigation-events.js,11,11
+postMessage (replaceStateFaircado),content->page,"source|type",extension/navigation-events.js,11,11
+postMessage (popstateFaircado),content->page,"source|type",extension/navigation-events.js,11,11
+postMessage (imgUrl, imgData),content->page,"imgUrl|imgData",extension/save.js,37,42
+postMessage (imgUrl, imgData=null),content->page,"imgUrl|imgData",extension/save.js,44,49
+messageTypes.init,content->background,,extension/content.js,4630,4630
+InternalMessageTypes.IsActivated,content->background,,extension/content.js,4682,4682
+InternalMessageTypes.GetAbTestsConfig,content->background,,extension/content.js,4988,4988
+InternalMessageTypes.GetExtensionConfig,content->background,,extension/content.js,5364,5364
+messageTypes.setAuth,content->web_app,"authKey|authValue",extension/content.js,4638,4640
+postMessage (to popup iframe),content->ui,,extension/content.js,4890,4890
+messageTypes.setDocumentBackgroundColor,content->background,"background",extension/content.js,7530,7531
+messageTypes.initializeAppSettings,content->background,"userSettings|featureFlags|source",extension/content.js,7534,7535
+messageTypes.setAuth,content->background,"authKey|authValue",extension/content.js,7539,7541
+messageTypes.clearAuth,content->background,,extension/content.js,7545,7545
+messageTypes.setFilter,content->background,"productUrl|source|pageData",extension/content.js,7549,7552
+postMessage (to embedded iframe),content->embedded_iframe,"type|productUrl|source|pageData",extension/content.js,7438,7442
+postMessage (to embedded iframe) setupEmbeddedAppMessages,content->embedded_iframe,"type|background|userSettings|featureFlags|source|authKey|authValue|productUrl|pageData",extension/content.js,7530,7553
+InternalMessageTypes.GetHeuristicData,content->background,,extension/content.js,11299,11299
+messageTypes.isSupportedWebsite,content->background,"url",extension/content.js,11707,11708
+messageTypes.error,content->background,"detail|url|message",extension/content.js,11743,11746
+messageTypes.mixpanel,content->background,"eventName|payload",extension/content.js,11785,11791
+window.open (to catalogue),content->new_tab,"redirectionId",extension/content.js,11880,11880
+window.sessionStorage.setItem,content->page,"FAIRCADO_EXT_SETTINGS|settings",extension/content.js,11575,11575
+sessionStorage.setItem (for redirection),content->page,"redirectionKey|dataToShare",extension/content.js,11874,11876
+chrome.runtime.sendMessage (external storage request),content->background,"type|key|selfId|area",extension/content.js,12247,12248
+chrome.runtime.sendMessage (webApp to background),content->background,,extension/content.js,12367,12368
+event.source?.postMessage,content->external_app,"data|source",extension/content.js,12236,12239
+popupExtension,content->ui,"data|productUrl|isMetadataPopup",extension/content.js,12005,12008
+sendMessageToWebApp (openOnFullMode),content->web_app,"type|data",extension/content.js,12351,12354
+window.addEventListener("message") (from web app),web_app->content,"type|extensionMode|key|value",extension/content.js,12370,12394
+chrome.runtime.onMessage.addListener (from background),background->content,"type|info|manualExtensionOpen",extension/content.js,12327,12355
+window.open (to catalogue),content->new_tab,"pageData",extension/content.js,12330,12334
+chrome.runtime.sendMessage (external storage response),content->external_app,"selfId|type|storageData",extension/content.js,12257,12258
+storage.setItem (from web app),web_app->content,"key|value",extension/content.js,12385,12392
+InternalMessageTypes.ClearDataFromSessionStorage,ui->background,,extension/data-control.js,106,107
+InternalMessageTypes.GetItemFromSessionStorage,ui->background,"key",extension/data-control.js,109,110
+InternalMessageTypes.RemoveItemFromSessionStorage,ui->background,"key",extension/data-control.js,113,114
+InternalMessageTypes.SetItemToSessionStorage,ui->background,"items",extension/data-control.js,116,117
+InternalMessageTypes.GetMachineKey,ui->background,,extension/data-control.js,130,131
+InternalMessageTypes.GetAbTestsConfig,ui->background,,extension/data-control.js,223,224
+window.open (after activation),ui->new_tab,"afterExtensionInstallUrl",extension/data-control.js,315,315

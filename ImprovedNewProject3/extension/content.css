@@ -1,0 +1,328 @@
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/HankenGrotesk-VariableFont_wght.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-Regular.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: normal;
+  font-weight: 300;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-Light.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-Medium.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-SemiBold.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-Bold.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: normal;
+  font-weight: 800;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-ExtraBold.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: normal;
+  font-weight: 900;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-Black.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: italic;
+  font-weight: 400;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-Italic.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: italic;
+  font-weight: 300;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-LightItalic.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: italic;
+  font-weight: 500;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-MediumItalic.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: italic;
+  font-weight: 600;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-SemiBoldItalic.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: italic;
+  font-weight: 700;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-BoldItalic.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: italic;
+  font-weight: 800;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-ExtraBoldItalic.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-style: italic;
+  font-weight: 900;
+  src: url('https://assets.faircado.com/fonts/Hanken_Grotesk/static/HankenGrotesk-BlackItalic.ttf')
+    format('truetype');
+}
+
+#faircado-iframe-wrapper {
+  display: block !important;
+  margin: unset;
+  padding: unset;
+  background: unset;
+  z-index: 2147483699;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  height: min(95vh, 640px);
+  width: 360px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-family: 'PPRightGrotesk';
+  overflow: hidden;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  /* there is a dependency in web app on width and height transition timing */
+  transition:
+    width 0.2s ease-in-out,
+    height 0.2s ease-in-out,
+    border 0.01s ease-in-out,
+    box-shadow 0.01s ease-in-out,
+    opacity 0.2s ease-in-out;
+
+  &::after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 55px;
+    width: 200px;
+    cursor: move;
+    background: transparent;
+  }
+
+  /*
+    use opacity instead of display property to avoid flickering
+    because when applying display: block browser renders state before display: none
+    eg. alert box shows and disappears
+    */
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.iconMode {
+    height: 50px;
+    width: 65px;
+    border: none;
+    box-shadow: unset;
+
+    &::before {
+      height: 0;
+      width: 0;
+    }
+
+    &::after {
+      width: 65px;
+    }
+  }
+}
+
+#faircado-iframe {
+  height: 100%;
+  width: 100%;
+  border-width: 0;
+  display: block !important;
+}
+
+#faircado-embedded-iframe-wrapper {
+  display: block !important;
+  height: 24rem;
+  width: 100%;
+  border: none;
+  position: relative;
+  z-index: 998;
+
+  .skeleton-box {
+    padding: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    display: flex;
+    gap: 10px;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+    width: 24%;
+    height: 10.5rem;
+    margin: 0.5rem;
+  }
+
+  .skeleton {
+    height: 7rem;
+    background-color: #e2e8f0;
+    margin-top: 1rem;
+  }
+
+  .skeleton-line {
+    height: 2rem;
+    background-color: #e2e8f0;
+    margin-bottom: 1rem;
+  }
+
+  .skeleton-container {
+    display: flex;
+    height: 24rem;
+    margin-left: 1rem;
+    max-width: 68rem;
+  }
+}
+
+#faircado-iframe-blocked-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #a9f185;
+  font-family: sans-serif;
+  color: #000;
+
+  .faircado-iframe-blocked-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+    button {
+      position: absolute;
+      top: 0;
+      right: 0.5rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      transform: rotate(45deg);
+    }
+
+    img {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.faircado-redirector {
+  font-family: 'HankenGrotesk';
+  background-color: #a9f185;
+  filter: drop-shadow(2px 3px 30px rgba(0, 0, 0, 0.1));
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  position: fixed;
+  right: 0;
+  top: 150px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483647;
+  padding-inline: 16px;
+  padding-block: 12px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(calc(100% - 47px));
+
+  &:hover {
+    transform: translateX(0);
+  }
+
+  &.faircado-redirector-expanded {
+    transform: translateX(0);
+  }
+
+  .faircado-redirector-logo {
+    width: 17px;
+    height: 20px;
+  }
+
+  .faircado-redirector-divider {
+    width: 0.5px;
+    height: 20px;
+    background: #000;
+    margin-inline: 14px;
+  }
+
+  /* Text and query */
+  p {
+    color: #000000;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+    display: inline-flex;
+    gap: 6px;
+
+    span {
+      color: #2c690c;
+      font-weight: 500;
+      font-style: italic;
+    }
+  }
+
+  .faircado-redirector-arrow-top-right {
+    width: 22px;
+    height: 22px;
+    margin-left: 8px;
+  }
+}

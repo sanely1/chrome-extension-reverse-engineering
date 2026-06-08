@@ -1,0 +1,5 @@
+{
+  "api_permissions": ["contextMenus", "activeTab", "storage", "tabs"],
+  "host_permissions": ["https://*/*"],
+  "optional_permissions": []
+}

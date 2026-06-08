@@ -1,0 +1,32 @@
+[
+    {
+        "original":  "extension/background.js",
+        "status":  "ok",
+        "beautified":  "extension/background.beautified.js"
+    },
+    {
+        "original":  "extension/navigation-events.js",
+        "status":  "ok",
+        "beautified":  "extension/navigation-events.beautified.js"
+    },
+    {
+        "original":  "extension/save.js",
+        "status":  "ok",
+        "beautified":  "extension/save.beautified.js"
+    },
+    {
+        "original":  "extension/content.js",
+        "status":  "ok",
+        "beautified":  "extension/content.beautified.js"
+    },
+    {
+        "original":  "extension/data-control.js",
+        "status":  "ok",
+        "beautified":  "extension/data-control.beautified.js"
+    },
+    {
+        "original":  "extension/popup.js",
+        "status":  "ok",
+        "beautified":  "extension/popup.beautified.js"
+    }
+]

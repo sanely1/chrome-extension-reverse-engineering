@@ -1,0 +1,47 @@
+@startuml Grammarly Communication Flows
+
+skinparam ParticipantPadding 10
+skinparam BoxPadding 10
+
+box "Browser / Web Page" #LightBlue
+  participant "Web Page / Editor" as Page
+  participant "Content Script (Grammarly-check/gDocs)" as CS
+  participant "Extension UI (Popup / SidePanel)" as UI
+end box
+
+box "Extension Background" #LightGreen
+  participant "Service Worker (sw.js / Grammarly-bg.js)" as BG
+end box
+
+box "Grammarly Cloud Services" #LightPink
+  participant "Grammarly Client API (CAPI)" as CAPI
+  participant "Auth & Accounts" as Auth
+  participant "Telemetry & Metrics" as Metrics
+end box
+
+== 1. Initialization and Context Gathering ==
+Page -> CS: Interacts / Text Input / DOM Events
+CS -> CS: Detect editable elements (Canvas, Iframe, inputs)
+CS -> BG: chrome.runtime.sendMessage / connect (channel initialization)
+BG -> BG: Cache state (isBGInitialized, feMetricsData)
+
+== 2. Document Checking & Spellcheck (CAPI Loop) ==
+CS -> BG: Send document state deltas (submit_ot)
+BG -> CAPI: WebSocket (wss://capi.grammarly.com) / API request
+CAPI --> BG: Return real-time corrections & suggestions (capiWebSocketMessage)
+BG -> CS: Relay corrections/AI suggestions
+CS -> Page: Inject UI suggestions / Underlines
+
+== 3. Extension UI Interactions ==
+UI -> BG: chrome.runtime.sendMessage (get state / isSidePanelOpen)
+BG --> UI: Return account & document state
+UI -> BG: Apply suggestions / generative AI trigger
+BG -> CAPI: Send generative AI request
+CAPI --> BG: Return generated text
+BG --> UI: Return generated suggestions
+
+== 4. Telemetry and Analytics ==
+BG -> Metrics: Send usage events (https://f-log-extension.grammarly.io, https://gnar.grammarly.com)
+CS -> Metrics: Send frontend events (https://femetrics.grammarly.io)
+
+@enduml

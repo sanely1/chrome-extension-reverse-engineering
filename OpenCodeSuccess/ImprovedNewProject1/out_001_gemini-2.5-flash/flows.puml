@@ -1,0 +1,65 @@
+@startuml
+
+actor User
+
+rectangle "Extension Components" {
+  component "Background Script" as Background
+  component "Content Script" as Content
+  component "Popup UI" as Popup
+  component "Data Control UI" as DataControl
+  component "Image Processing Iframe" as ImageIframe
+}
+
+cloud "Remote Services" {
+  database "Faircado CMS API" as CmsApi
+  database "Faircado Catalog Service API" as CatalogApi
+  database "Mixpanel API" as MixpanelApi
+  rectangle "External Web App (Faircado)" as FaircadoWebApp
+}
+
+rectangle "Browser Storage" {
+  database "Chrome Storage (Local/Sync)" as ChromeStorage
+  database "Session Storage" as SessionStorage
+}
+ectangle "External Websites" as ExternalSites
+
+User --> Popup : Clicks icon
+User --> DataControl : Interacts with UI
+User --> ExternalSites : Clicks external links
+
+' Manifest declared connections
+Background <--> ChromeStorage : Manages extension state
+
+' Content script injection and communication
+Background --> Content : Injects script
+Content <--> Background : Chrome Runtime Messages
+Content <--> ImageIframe : window.postMessage (image data)
+Content <--> Content : window.postMessage (navigation-events.js)
+
+' Data Control UI interactions
+DataControl <--> Background : Chrome Runtime Messages (activate/uninstall)
+
+' Popup UI interactions
+Popup <--> Background : Chrome Runtime Messages (localization, recommendations)
+
+' Network calls from Background Script
+Background --> CmsApi : Fetch configs/heuristics/ab-tests
+Background --> CatalogApi : Check supported websites
+Background --> MixpanelApi : Track events/user profiles
+Background --> FaircadoWebApp : Set uninstall URL
+
+' Network calls from Content Script (indirectly via Background)
+Content --> CmsApi : Requests (via Background)
+Content --> CatalogApi : Requests (via Background)
+
+' Storage interactions
+Background <--> ChromeStorage : Read/Write (Auth, Machine Key, Cached Data, AB Tests)
+Background <--> SessionStorage : Read/Write (Internal, AB Test Redirect Data)
+Content <--> SessionStorage : Read/Write (FAIRCADO_EXT_SETTINGS)
+FaircadoWebApp <--> SessionStorage : Read/Write (FAIRCADO_EXT_SETTINGS, Redirection Data)
+
+' External links in UI
+Popup --> ExternalSites : Amazon, Goodreads
+DataControl --> FaircadoWebApp : Download, About
+
+@enduml

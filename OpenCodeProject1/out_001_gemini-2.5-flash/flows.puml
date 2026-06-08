@@ -1,0 +1,63 @@
+@startuml
+
+!theme plain
+
+' Define Components
+component "Background Service Worker" as Background
+component "Content Script" as Content
+component "Popup Script" as Popup
+component "Save Script (iframe)" as SaveIframe
+component "Navigation Events Script (injected)" as NavEvents
+cloud "Faircado Web App (popup/embedded)" as WebApp
+cloud "Faircado Catalogue" as Catalogue
+database "Browser Local/Sync Storage" as Storage
+queue "Chrome Runtime Messaging" as ChromeMessageBus
+queue "Window PostMessage (Content <-> Injected/iFrame)" as WindowMessageBus
+queue "Window PostMessage (Content <-> WebApp)" as WebAppWindowMessageBus
+cloud "Mixpanel Analytics" as Mixpanel
+cloud "Faircado Catalog Service API" as CatalogAPI
+cloud "Faircado CMS API" as CMSAPI
+
+' High-Level Interactions
+[User] --> Background : Clicks Browser Action
+[User] --> Background : Clicks Context Menu (Image Search)
+
+Background -[#blue,thickness=2]-> ChromeMessageBus : chrome.runtime.sendMessage
+ChromeMessageBus -[#blue,thickness=2]-> Content : messageTypes.showExtension (on user action)
+
+Content -[#green,thickness=2]-> ChromeMessageBus : chrome.runtime.sendMessage (various types)
+ChromeMessageBus -[#green,thickness=2]-> Background : Requests (Auth, Heuristics, Config, Storage, MachineKey)
+
+Background -[#purple,thickness=2]-> Storage : Reads/Writes (Auth, MachineKey, Settings, A/B Tests, Supported Sites)
+Storage <--[#purple,thickness=2]--> Content : Reads/Writes (User Settings, A/B Test Variants, Session Data - via background proxy)
+
+Background -[#orange,thickness=2]-> CatalogAPI : fetchIsSupportedWebsite (POST url, X-Machine-Key)
+Background -[#orange,thickness=2]-> CMSAPI : fetchSupportedWebsitesData (GET)
+Background -[#orange,thickness=2]-> CMSAPI : fetchIsProductPageHeuristicsData (GET)
+Background -[#orange,thickness=2]-> CMSAPI : fetchAbTestsConfig (GET)
+Background -[#orange,thickness=2]-> CMSAPI : fetchExtensionConfig (GET)
+Background -[#red,thickness=2]-> Mixpanel : trackEvent, mixpanelUserProfile (POST user data)
+
+Content -[#navy,thickness=2]-> WindowMessageBus : Inject navigation-events.js (script.src = chrome.runtime.getURL("navigation-events.js"))
+NavEvents -[#navy,thickness=2]-> WindowMessageBus : window.postMessage (pushStateFaircado, replaceStateFaircado, popstateFaircado)
+WindowMessageBus -[#navy,thickness=2]-> Content : Listens for navigation events
+
+Content -[#teal,thickness=2]-> WebAppWindowMessageBus : Inject save.js (iframe.src = chrome.runtime.getURL("/save.html"))
+SaveIframe -[#teal,thickness=2]-> WebAppWindowMessageBus : window.postMessage (imgUrl, imgData - base64 image)
+WebAppWindowMessageBus -[#teal,thickness=2]-> Content : Listens for image data response
+
+Content -[#gray,thickness=2]-> WebAppWindowMessageBus : window.postMessage (setAuth, clearAuth, setFilter, initializeAppSettings, colorScheme, openOnFullMode, iconClicked)
+WebAppWindowMessageBus -[#gray,thickness=2]-> WebApp : Interacts with UI/Functionality
+WebApp -[#gray,thickness=2]-> WebAppWindowMessageBus : window.postMessage (webAppReady, hasResult, closeExtension, setToExtensionStorage, toggleEmbeddedAccordion, removeExtensionFromDOM, colorScheme)
+
+Content -[#olive,thickness=2]-> Catalogue : handleRedirectToCatalogue (window.open with redirectionId, via session storage)
+
+Background -[#maroon,thickness=2]-> [User] : Opens new tab (After Install URL, Data Control Page)
+
+Content -[#black,thickness=2]-> WindowMessageBus : listenForMessagesFromExternalApps (getFromExtensionStorage)
+WindowMessageBus -[#black,thickness=2]-> Content : getFromExtensionStorageResponse
+
+Popup .up. Background : Manifest defined as action.default_popup
+Popup -[#green]-> [User] : Displays UI based on language
+
+@enduml

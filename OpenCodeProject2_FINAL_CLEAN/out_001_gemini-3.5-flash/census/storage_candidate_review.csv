@@ -1,0 +1,25 @@
+key,type,operation,decision,reason,purpose,file,line_start,line_end
+sessionId,custom_storage_or_cache_wrapper,set,rejected_candidate,"Candidate is a logging/error string parameter, not a stable storage key",,src/inkwell/assets/index-DcswASZ2.js,1,1
+isSidePanelOpen,custom_storage_or_cache_wrapper,get,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Track if the assistant side panel is open,src/js/AAA-initAssistant.common.chunk.js,1,1
+host.userAccount.,indexedDB,open,rejected_candidate,"Namespace prefix for custom RPC messaging, not a storage key",,src/js/Grammarly-bg.js,2,2
+human_writing_report,indexedDB,open,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Store writing diagnostics and report metrics,src/js/Grammarly-bg.js,2,2
+schema,indexedDB.objectStore,transaction,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,ObjectStore name in IndexedDB schema,src/js/Grammarly-bg.js,2,2
+host.userAccount.,indexedDB.objectStore,createObjectStore,rejected_candidate,"Namespace prefix for custom RPC messaging, not a storage key",,src/js/Grammarly-bg.js,2,2
+document_state_enc,indexedDB.objectStore,createObjectStore,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,IndexedDB object store for text document states,src/js/Grammarly-bg.js,2,2
+host.userAccount.,chrome.cookies,onChanged.addListener,rejected_candidate,"Namespace prefix for custom RPC messaging, not a storage key",,src/js/Grammarly-bg.js,2,2
+host.userAccount.,custom_storage_or_cache_wrapper,set,rejected_candidate,"Namespace prefix for custom RPC messaging, not a storage key",,src/js/Grammarly-bg.js,2,2
+isBGInitialized,custom_storage_or_cache_wrapper,get,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Track service worker initialization status,src/js/Grammarly-bg.js,2,2
+GrammarlyEnrollmentToken,custom_storage_or_cache_wrapper,get,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Managed storage policy token for Grammarly enrollment,src/js/Grammarly-bg.js,2,2
+feMetricsAlarms,custom_storage_or_cache_wrapper,get,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Manage telemetry and logging upload alarms,src/js/Grammarly-bg.js,2,2
+feMetricsData,custom_storage_or_cache_wrapper,get,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Cache client performance metrics and event counts,src/js/Grammarly-bg.js,2,2
+bgInitFail,custom_storage_or_cache_wrapper,set,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Track background service worker startup failure count,src/js/Grammarly-bg.js,2,2
+schema,storage_key_constant,constant,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,ObjectStore name in IndexedDB schema,src/js/Grammarly-bg.js,2,2
+human_writing_report,storage_key_constant,constant,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Store writing diagnostics and report metrics,src/js/Grammarly-bg.js,2,2
+ChromeMV3SessionStorageApiImpl,storage_key_constant,constant,rejected_candidate,"Implementation class name, not a concrete storage key",,src/js/Grammarly-debug.js,2,2
+selectAdjacentFailed,chrome.storage.managed,get,rejected_candidate,"Callback string or method name within custom query flow, not a storage key",,src/js/Grammarly-gDocs.js,2,2
+gdocs_peak_collabs_dismissed,localStorage,getItem,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Track dismissal of high-collaboration notification in Google Docs,src/js/Grammarly-gDocs.js,2,2
+selectAdjacentFailed,custom_storage_or_cache_wrapper,get,rejected_candidate,"Callback string or method name within custom query flow, not a storage key",,src/js/Grammarly-gDocs.js,2,2
+gdocs_peak_collabs_dismissed,custom_storage_or_cache_wrapper,getItem,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Track dismissal of high-collaboration notification in Google Docs,src/js/Grammarly-gDocs.js,2,2
+ltr,indexedDB.objectStore,objectStore,rejected_candidate,"UI/CSS text direction layout constant, not a storage key",,src/js/Grammarly-sidePanel.js,2,2
+alwaysOnAssistantOnOpenData,custom_storage_or_cache_wrapper,get,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,Cache open-context data for the side panel assistant,src/js/Grammarly-sidePanel.js,2,2
+document_state,indexedDB.objectStore,transaction,confirmed_storage_key,Direct source context shows a real storage key or operational state variable,IndexedDB object store for text document states,src/js/humanWritingReport.common.chunk.js,1,1

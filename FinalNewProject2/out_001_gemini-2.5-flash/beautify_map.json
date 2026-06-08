@@ -1,0 +1,8 @@
+[
+  {"original": "extension/save.js", "beautified": "extension/save.beautified.js", "status": "ok"},
+  {"original": "extension/popup.js", "beautified": "extension/popup.beautified.js", "status": "ok"},
+  {"original": "extension/navigation-events.js", "beautified": "extension/navigation-events.beautified.js", "status": "ok"},
+  {"original": "extension/data-control.js", "beautified": "extension/data-control.beautified.js", "status": "ok"},
+  {"original": "extension/content.js", "beautified": "extension/content.beautified.js", "status": "ok"},
+  {"original": "extension/background.js", "beautified": "extension/background.beautified.js", "status": "ok"}
+]

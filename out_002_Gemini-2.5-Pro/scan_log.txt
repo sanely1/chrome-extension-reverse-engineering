@@ -1,0 +1,49 @@
+Chrome Extension Reverse Engineering - Scan Log
+================================================
+
+Run ID: 006
+Model: Gemini-2.5-Pro
+Timestamp: 2024-07-30T19:47:13Z
+Output Directory: ./out_006_Gemini-2.5-Pro
+
+Tools/Packages Used:
+- js-beautify
+- espree
+- acorn
+- ajv-cli
+
+File Counts:
+- Original JS files: 8
+- Beautified files: 8 (100% success rate)
+- Total chunks analyzed: 103
+- Service worker: 1 file (sw.js)
+- Content scripts: 3 files
+- UI files: 2 files
+
+Analysis Results:
+- Chrome API calls found: 100 unique calls
+- Event listeners: 23
+- Message channels: 53
+- Storage keys: 70
+- Network endpoints: 107 unique domains
+- Workflows identified: 15
+- Privacy risks: 10
+
+Beautification:
+- Success: 8 files
+- Errors: 0 files
+
+Validation:
+- honey_summary.json: PASSED schema validation
+- outline.jsonl: 103 entries (all chunks covered)
+- analysis_notes.md: Complete, all chunks documented
+- CSV files: endpoints.csv (107 rows), messages.csv (53 rows), storage_keys.csv (70 rows)
+
+Known Gaps/Unknowns:
+- Several dynamic URLs were identified, the full scope of which is unknown.
+- The purpose of some storage keys is inferred and not explicitly stated.
+- Some message payload schemas are incomplete due to dynamic construction.
+- The full logic of the wasm module is not analyzed.
+- The exact conditions for triggering some of the identified risks are not fully known.
+
+Completion Status: SUCCESS

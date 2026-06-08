@@ -1,0 +1,18 @@
+@startuml Grammarly_Extension_Behavior_Flows
+actor User
+participant "Content Script (Grammarly.js)" as CS
+participant "Google Docs CS (Grammarly-gDocs.js)" as GDocs
+participant "Service Worker (Grammarly-bg.js)" as SW
+database "Local / IndexedDB" as DB
+boundary "Grammarly API (capi.grammarly.com)" as CAPI
+boundary "Telemetry (femetrics.grammarly.io)" as Telemetry
+
+User -> CS : Typing input in text fields
+CS -> SW : Forward text deltas & editor session (tab-connected)
+GDocs -> SW : Sync document structure & collaboration state
+SW -> DB : Store session cache / human_writing_report
+SW -> CAPI : Stream changes over WebSocket (wss://capi.grammarly.com)
+CAPI --> SW : Return text correction/diagnostics
+SW --> CS : Propagate highlights and correction cards
+SW -> Telemetry : Flush buffered performance & event logs
+@enduml

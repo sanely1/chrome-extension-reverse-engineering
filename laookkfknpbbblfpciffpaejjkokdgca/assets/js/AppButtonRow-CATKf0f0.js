@@ -1,0 +1,1 @@
+import{I as t}from"./index-B9SbLlJ5.js";import{n as o}from"./_plugin-vue2_normalizer-DeUNqxFl.js";const s=o(t({name:"AppButtonRow"}),(function(){var t=this,o=t._self._c;return t._self._setupProxy,o("div",{staticClass:"app-button-row"},[t._t("default")],2)}),[],!1,null,"9acb1d98").exports;export{s as A};

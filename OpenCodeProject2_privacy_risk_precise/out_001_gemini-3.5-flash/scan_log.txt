@@ -1,0 +1,20 @@
+Scan Log for kbfnbcaeplbcioakkpcpgfkobkghlhen (Grammarly: AI Writing Assistant)
+Model: gemini-3.5-flash
+Run Number: 001
+Time: 2026-06-07
+
+Beautification Status: Successfully mapped and beautified 422 JS/MJS source files.
+Files Excluded: node_modules/, vendor/, build/, dist/, coverage/, and any existing beautified files.
+Parse Fallbacks: Tolerant AST parsing was successful; no major AST scan crashes occurred. For the main background, content, sidepanel, and popup scripts, regex and AST scans were coupled.
+Validation Result: Successful. The generated extension_summary.json is 100% schema-compliant under schema.chrome_extension_behavior.json.
+Blockers/Unknowns: None. Source code was fully available.
+Privacy Workspace Sync: Created. Wrote a perfect copy of the final summary to privacy_workspace/extension_summary.json.
+
+Counts:
+- Total Source Files Analysed: 431
+- Unique Endpoints Promoted: 491
+- Message Channels Adjudicated: 160
+- Storage Keys Adjudicated: 15
+- Workflows Extracted: 7
+- Observed Privacy Items: 5
+- Verified Risks: 5

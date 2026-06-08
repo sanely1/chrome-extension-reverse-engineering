@@ -1,0 +1,25 @@
+{
+  "run_number": 1,
+  "model_name": "gemini-3.5-flash",
+  "timestamp": "2026-06-01T07:34:00Z",
+  "source_extension_path": "./extension",
+  "output_directory": "./out_001_gemini-3.5-flash",
+  "tools_used": [
+    "census_extractor",
+    "census_promoter",
+    "reconcile_census",
+    "generate_summary",
+    "validate_summary"
+  ],
+  "validation_status": "passed",
+  "counts": {
+    "files": 431,
+    "chunks": 431,
+    "endpoints": 491,
+    "messages": 124,
+    "storage_keys": 8,
+    "workflows": 3,
+    "observed_privacy_items": 3,
+    "risks": 3
+  }
+}

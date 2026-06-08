@@ -1,0 +1,21 @@
+Scan Log - Run 002
+Model: gemini-3.5-flash
+Target: kbfnbcaeplbcioakkpcpgfkobkghlhen
+Start Time: Mon Jun 08 2026
+
+- Output directory out_002_gemini-3.5-flash created.
+- Initial files written.
+- Step 0: Beautification mapped 422 original JS files. Written beautify_map.json.
+- Step 1: Parsed manifest.json for metadata, permissions, entry points, and CSP. Written permissions_report.json.
+- Step 2.5: Census extractor and promoter run successfully.
+  - Endpoints: 767 candidates, 491 promoted.
+  - Message channels: 1494 candidates, 199 promoted.
+  - Storage keys: 212 candidates, 24 promoted.
+- Step 2.5.1 & 2.5.2: Adjudicated 199 message channels and 24 storage keys. Written message_candidate_review.csv and storage_candidate_review.csv.
+- Step 3: Reconciled and promoted 491 endpoints, 172 adjudicated messages, and 15 adjudicated storage keys. Written endpoints.csv, messages.csv, storage_keys.csv.
+- Step 3.5: Semantic Architecture Review completed for all required families. Written semantic_architecture_review.csv.
+- Step 4: Component mapping and flows.puml PlantUML generation completed.
+- Step 5: Clustered and adjudicated 7 workflows. Written workflow_candidates.csv and workflow_candidate_review.csv.
+- Step 6: Formulated privacy matrix (5 items) and risk matrix (4 risks). Written privacy_signal_matrix.csv, privacy_candidate_review.csv, risk_candidate_review.csv, and privacy_risk_evidence_review.csv.
+- Step 7: Final JSON schema compiled, linters verified (message-review-linter, workflow-review-linter, semantic-coverage-linter, privacy-risk-linter all passed), and AJV validation successful.
+- Generated final JSON copied to privacy_workspace/extension_summary.json.

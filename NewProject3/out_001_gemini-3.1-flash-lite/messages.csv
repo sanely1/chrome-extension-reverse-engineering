@@ -1,0 +1,2 @@
+channel_name,direction,payload_keys,file,line_start,line_end
+showExtension,background->content,machineKey,extension/background.js,622,627

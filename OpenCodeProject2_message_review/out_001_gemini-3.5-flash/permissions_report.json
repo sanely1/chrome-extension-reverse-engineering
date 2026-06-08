@@ -1,0 +1,114 @@
+{
+  "declared_permissions": [
+    {
+      "name": "scripting",
+      "type": "api",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 323,
+        "end": 323
+      },
+      "justification": "Allows the extension to inject scripts and styles into matching pages dynamically."
+    },
+    {
+      "name": "sidePanel",
+      "type": "api",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 324,
+        "end": 324
+      },
+      "justification": "Enables the right-side always-on assistant panel for chat and agent services."
+    },
+    {
+      "name": "tabs",
+      "type": "api",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 325,
+        "end": 325
+      },
+      "justification": "Allows querying tab states and controlling active pages."
+    },
+    {
+      "name": "notifications",
+      "type": "api",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 326,
+        "end": 326
+      },
+      "justification": "Allows showing custom notifications, announcements, and dunning alerts."
+    },
+    {
+      "name": "cookies",
+      "type": "api",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 327,
+        "end": 327
+      },
+      "justification": "Used to monitor user auth session cookies on grammarly.com and sync credentials."
+    },
+    {
+      "name": "identity",
+      "type": "api",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 328,
+        "end": 328
+      },
+      "justification": "Integrates with OAuth/Google/SSO login flows to authenticate users."
+    },
+    {
+      "name": "storage",
+      "type": "api",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 329,
+        "end": 329
+      },
+      "justification": "Enables local, session, and managed storage APIs to save states and sync settings."
+    }
+  ],
+  "host_permissions": [
+    {
+      "pattern": "http://*/*",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 316,
+        "end": 316
+      },
+      "justification": "Enables Grammarly text checking across arbitrary non-secure websites."
+    },
+    {
+      "pattern": "https://*/*",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 317,
+        "end": 317
+      },
+      "justification": "Enables Grammarly text checking across arbitrary secure websites."
+    }
+  ],
+  "optional_permissions": [
+    {
+      "name": "nativeMessaging",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 358,
+        "end": 358
+      },
+      "justification": "Optionally allows connection to a local Grammarly desktop app client."
+    },
+    {
+      "name": "clipboardRead",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 359,
+        "end": 359
+      },
+      "justification": "Optionally allows the extension to read from the system clipboard for text insertion or checks."
+    }
+  ]
+}

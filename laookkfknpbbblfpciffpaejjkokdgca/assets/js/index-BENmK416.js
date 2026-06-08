@@ -1,0 +1,1 @@
+import{b as r}from"./DataSyncService-BIQVYvDv.js";const{Axios:o,AxiosError:e,CanceledError:a,isCancel:s,CancelToken:t,VERSION:i,all:n,Cancel:c,isAxiosError:l,spread:A,toFormData:C,AxiosHeaders:d,HttpStatusCode:m,formToJSON:p,getAdapter:x,mergeConfig:S}=r;export{e as A,l as i};

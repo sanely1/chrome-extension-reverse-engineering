@@ -1,0 +1,54 @@
+{
+  "permissions": [
+    "scripting",
+    "sidePanel",
+    "tabs",
+    "notifications",
+    "cookies",
+    "identity",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "optional_permissions": [
+    "nativeMessaging",
+    "clipboardRead"
+  ],
+  "externally_connectable": {
+    "matches": [
+      "https://*.grammarly.com/*"
+    ]
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; font-src 'self' data:; img-src * data: blob:; media-src https://assets.extension.grammarly.com; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-src 'self' https://applet-bundles.grammarly.net https://d3ttvzt45fz9bg.cloudfront.net; connect-src https://auth.grammarly.com https://assets.grammarly.com/ https://data.grammarly.com https://capi.grammarly.com https://dox.grammarly.com https://institution.grammarly.com wss://capi.grammarly.com https://gnar.grammarly.com https://in.grammarly.com https://f-log-extension.grammarly.io https://f-log-editor.grammarly.io https://f-log-inkwell.grammarly.io https://config.extension.grammarly.com https://chipmunk.grammarly.com https://treatment.grammarly.com https://gates.grammarly.com https://goldengate.grammarly.com https://femetrics.grammarly.io https://extension.femetrics.grammarly.io https://inkwell.femetrics.grammarly.io https://rwsgfy.grammarly.com https://assets.extension.grammarly.com https://api.iterable.com https://skills.grammarly.com https://skills-proxy.grammarly.com https://gateway.grammarly.com https://coda.io https://codahosted.io https://subscription.grammarly.com ;  report-uri https://f-log-extension.grammarly.io/logv2; "
+  },
+  "evidence": {
+    "permissions": {
+      "file": "extension/manifest.json",
+      "start": 322,
+      "end": 330
+    },
+    "host_permissions": {
+      "file": "extension/manifest.json",
+      "start": 315,
+      "end": 318
+    },
+    "optional_permissions": {
+      "file": "extension/manifest.json",
+      "start": 357,
+      "end": 360
+    },
+    "externally_connectable": {
+      "file": "extension/manifest.json",
+      "start": 301,
+      "end": 305
+    },
+    "content_security_policy": {
+      "file": "extension/manifest.json",
+      "start": 297,
+      "end": 299
+    }
+  }
+}

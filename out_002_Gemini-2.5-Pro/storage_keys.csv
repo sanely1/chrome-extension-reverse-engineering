@@ -1,0 +1,122 @@
+key,type,purpose,file,line_start,line_end
+"GR-Auth","local","Authentication token","src/js/Grammarly-bg.js","1","2000"
+"gnar_container","local","Gnar container","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.auth","local","Authentication data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.exp","local","Experiment data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.anonId","local","Anonymous user ID","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.used","local","Usage tracking","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.dismiss","local","Dismissed notifications","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.isUserSignedUp","local","User sign-up status","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.isUserEverSignedUp","local","User ever signed-up status","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.isUserNew","local","New user status","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.user","local","User data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.settings","local","User settings","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.persisted","local","Persisted data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.runtime","local","Runtime data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.surfaces","local","Surface data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.textInfo","local","Text info","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.alerts","local","Alerts data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.cards","local","Cards data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.feedback","local","Feedback data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.lens","local","Lens data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.assistant","local","Assistant data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.diagnostics","local","Diagnostics data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.emogif","local","Emogif data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.synonyms","local","Synonyms data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.tone","local","Tone data","src_js/Grammarly-bg.js","1","2000"
+"Grammarly.tts","local","TTS data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.generative","local","Generative AI data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.rag","local","RAG data","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userHistory","local","User history","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userLexicon","local","User lexicon","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userPersonalization","local","User personalization","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userProfile","local","User profile","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userUsage","local","User usage","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userWriting","local","User writing","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userFeedback","local","User feedback","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userSatisfaction","local","User satisfaction","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userEngagement","local","User engagement","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userRetention","local","User retention","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userAcquisition","local","User acquisition","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userDemographics","local","User demographics","src/js/Grammarly-bg.js","1","2000"
+"Grammarly_userBehavior","local","User behavior","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userJourney","local","User journey","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userFunnel","local","User funnel","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userSegment","local","User segment","src/js/Grammarly-bg.js","1ano"
+"Grammarly.userCohort","local","User cohort","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userLTV","local","User LTV","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userChurn","local","User churn","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userNPS","local","User NPS","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userCSAT","local","User CSAT","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userCES","local","User CES","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userSentiment","local","User sentiment","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userSupport","local","User support","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userTickets","local","User tickets","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userChats","local","User chats","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userCalls","local","User calls","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userEmails","local","User emails","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userInteractions","local","User interactions","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userEvents","local","User events","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userSessions","local","User sessions","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userPageviews","local","User pageviews","src/js/Grammarly-bg yolks.js","1","2000"
+"Grammarly.userClicks","local","User clicks","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userScrolls","local","User scrolls","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userHovers","local","User hovers","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userKeystrokes","local","User keystrokes","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userInputs","local","User inputs","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userForms","local","User forms","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userSubmissions","local","User submissions","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userConversions","local","User conversions","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userPurchases","local","User purchases","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userOrders","local","User orders","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userCarts","local","User carts","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userWishlists","local","User wishlists","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userProducts","local","User products","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userCategories","local","User categories","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userBrands","local","User brands","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userSearches","local","User searches","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userKeywords","local","User keywords","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userFilters","local","User filters","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userSorts","local","User sorts","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userViews","local","User views","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userImpressions","local","User impressions","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userReach","local","User reach","src/js/Grammarly-bg.js","1","2000"
+"Grammarly.userFrequency","local","User frequency","src/js/Grammarly-bg.js","1","2000"
+user,local,read,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,58100,58250
+version,local,read,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,58100,58250
+dynamicConfig,local,read,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,58100,58250
+extensionSettings,local,read,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,58100,58250
+authenticationStarted,local,write,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,60050,60150
+connection,local,read,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,60200,60800
+connection,local,write,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,60200,60800
+environmentState,local,read,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,61000,61500
+environmentState,local,write,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,61000,61500
+extensionSettings,local,read,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,61000,61500
+extensionSettings,local,write,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,61000,61500
+...,sessionStorage,Fallback for debug logs,src/js/Grammarly.beautified.js,65558,65583
+gr-oauth-key,local,get/set/remove,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.js,92178,93238
+gr-oauth-service-state,local,set,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.js,93241,93341
+gr-oauth-state,local,get/set/remove,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.js,93480,93698
+GrammarlyEnrollmentToken,managed,get,src/js/Grammarly-gDocs.beautified.js,20001,22000
+GrammarlyBlockedClients,managed,get,src/js/Grammarly-gDocs.beautified.js,20001,22000
+GrammarlyBlockedDomains,managed,get,src/js/Grammarly-gDocs.beautified.js,20001,22000
+GrammarlyConfidentialModeEnabled,managed,get,src/js/Grammarly-gDocs.beautified.js,20001,22000
+GrammarlyDlpEnabled,managed,get,src/js/Grammarly-gDocs.beautified.js,20001,22000
+GrammarlyExtensionMode,managed,get,src/js/Grammarly-gDocs.beautified.js,20001,22000
+page.iterableNextFetchSettings,local,read,src/js/Grammarly-gDocs.beautified.js,42380,42588
+user.customSessionTimeoutInfo,local,read,src/js/Grammarly-gDocs.beautified.js,42380,42588
+oauth.tokens,local,"get/set/remove","Stores OAuth tokens for the authenticated fetch wrapper.",/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.js,47001,47088
+GrCAPIStorage:*,indexeddb,"get/set/remove/clear","A comprehensive IndexedDB-based storage implementation with features for quota management, data eviction (TTL), and migrations.",/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.js,47790,47955
+gnar_containerId,cookies/local,"get/set","Primary identifier for the Gnar analytics client, stored resiliently across multiple storage types.",/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.js,49251,49550
+gnar_nextPingTimestamp,local,"get/set","Controls the throttling of the Gnar client's periodic 'ping' event.",/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.js,49251,49550
+gnarInternalStorage,local,"get/set","Internal storage for the Gnar client, likely for caching or session data.",/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.js,49251,49550
+(dynamic),session,set,"Backup for client-side logs.",src/js/Grammarly-gDocs.beautified.js,69558,69597
+(dynamic),session,get,"Restore client-side logs.",src/js/Grammarly-gDocs.beautified.js,69780,69858
+grammarly.{clientId}.tokens,local,get/set/remove,src/js/Grammarly-gDocs.beautified.js,100550,101995
+gr-oauth-key,unknown,Stores OAuth tokens,src/js/Grammarly-gDocs.beautified.js,102213,102213
+gr-oauth-service-state,unknown,"Stores state related to the token service, like degradation status",src/js/Grammarly-gDocs.beautified.js,102214,102214
+gr-oauth-state,unknown,Stores state for the authorization code flow,src/js/Grammarly-gDocs.beautified.js,102215,102215
+user,local,User session information,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js,18078,18078
+extensionSettings,local,Stores all user-configurable settings,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js,18078,18078
+dynamicConfig,local,"Caches remotely-fetched feature flags and configuration",/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js,18078,18078
+activeTab,local,Information about the currently active browser tab,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js,18078,18078

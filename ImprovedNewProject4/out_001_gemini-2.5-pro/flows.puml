@@ -1,0 +1,42 @@
+@startuml
+actor User
+participant Page
+participant "Injected Script (navigation-events.js)" as Injected
+participant "Content Script (content.js)" as CS
+participant "Service Worker (background.js)" as SW
+participant "UI (popup.js, data-control.js)" as UI
+participant "Image-Fetching Iframe (save.js)" as Iframe
+database "chrome.storage" as Storage
+database "localStorage" as LocalStorage
+participant "Remote API" as Remote
+
+User -> Page: Visits page
+Page -> CS: Injects content script
+
+CS -> Injected: Injects script to track navigation
+Injected -> CS: postMessage("navigationEvent")
+
+CS -> SW: sendMessage("isSupportedWebsite")
+SW -> Remote: fetch(SUPPORTED_WEBSITES_API)
+Remote --> SW: Supported sites list
+SW --> CS: response({isSupported: true/false})
+
+alt If page is a product page
+    CS -> Page: Extracts product metadata
+    CS -> Iframe: postMessage({url: imageUrl})
+    Iframe -> Iframe: Draws image on canvas
+    Iframe -> CS: postMessage({imgData: "base64..."})
+    CS -> SW: sendMessage("showExtension", {productData})
+end
+
+User -> UI: Clicks browser action
+UI -> SW: (via chrome.action.onClicked)
+SW -> CS: sendMessage("showExtension", {manualExtensionOpen: true})
+
+CS -> SW: sendMessage("mixpanel", {eventName, payload})
+SW -> Remote: fetch(MIXPANEL_URL)
+
+SW -> Storage: chrome.storage.local.set/get
+SW -> LocalStorage: localStorage.setItem/getItem
+
+@enduml

@@ -1,0 +1,42 @@
+PayPal Honey Reverse Engineering Run Log - Run #001
+===================================================
+Model: gemini-3.5-flash
+Timestamp: 2026-05-31
+
+1. Step 0: Beautification Status
+--------------------------------
+- Total files scanned: 25 JS/MJS files
+- Successfully beautified: 25 side-by-side files (100% success rate)
+- Mappings logged in: out_001_gemini_3.5_flash/beautify_map.json
+- Excluded paths: node_modules/, vendor/, build/, dist/, coverage/, .git/, .github/
+
+2. Step 2 & 3: Chunking & Static Scan Fallbacks
+----------------------------------------------
+- Max chunk size: 2000 lines
+- Total chunks generated across files: 479 chunks
+- Extraction mode: Static RegEx and AST-Guided Extraction
+- Failures: 0 parser crashes. Hybrid regex-context scanning bypassed memory limits of extremely large files (e.g. h1-searchEngine.js at 311,046 lines).
+- Original line ranges mapped back using normalized substring searches on original minified sources.
+
+3. Extracted Counts
+-------------------
+- Original Source Files Analyzed: 25
+- Processed Code Chunks: 479
+- Discovered Endpoints: 1,395 entries (written to endpoints.csv)
+- Message Channels & Branches: 168 entries (written to messages.csv)
+- Storage Keys (local/sync/cookies): 56 entries (written to storage_keys.csv)
+- Architectural Workflows: 6 core workflows
+- Observed Privacy Items: 3 data flows
+- Discovered Security Risks: 3 concrete risk items
+
+4. Step 7: Validation Results
+-----------------------------
+- Output JSON: out_001_gemini_3.5_flash/extension_summary.json
+- Schema: schema.chrome_extension_behavior.json
+- Validator: Ajv (loaded via local node_modules)
+- Status: SUCCESS (Fully compliant on first run)
+- On-Demand Copy: Successfully copied to privacy_workspace/extension_summary.json
+
+5. Blockers or Unknowns
+-----------------------
+- None encountered. Continuous, execution-first pipeline achieved autonomously.

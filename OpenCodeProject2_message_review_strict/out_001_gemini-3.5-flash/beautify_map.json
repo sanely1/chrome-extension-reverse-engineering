@@ -1,0 +1,2112 @@
+[
+  {
+    "original": "extension/sw.js",
+    "beautified": "extension/sw.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/сlickableCard.common.chunk.js",
+    "beautified": "extension/src/js/сlickableCard.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/zohoRule.common.chunk.js",
+    "beautified": "extension/src/js/zohoRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/zendeskRule.common.chunk.js",
+    "beautified": "extension/src/js/zendeskRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/youtubeRule.common.chunk.js",
+    "beautified": "extension/src/js/youtubeRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/yelpRule.common.chunk.js",
+    "beautified": "extension/src/js/yelpRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/yahooMailRule.common.chunk.js",
+    "beautified": "extension/src/js/yahooMailRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/wsibRule.common.chunk.js",
+    "beautified": "extension/src/js/wsibRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/workplaceAppBusinessUphookPopup.common.chunk.js",
+    "beautified": "extension/src/js/workplaceAppBusinessUphookPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/wordPressRule.common.chunk.js",
+    "beautified": "extension/src/js/wordPressRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/wordCounterRule.common.chunk.js",
+    "beautified": "extension/src/js/wordCounterRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/wixRule.common.chunk.js",
+    "beautified": "extension/src/js/wixRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/whatsAppRule.common.chunk.js",
+    "beautified": "extension/src/js/whatsAppRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/wattpadRule.common.chunk.js",
+    "beautified": "extension/src/js/wattpadRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/useindioRule.common.chunk.js",
+    "beautified": "extension/src/js/useindioRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/upworkRule.common.chunk.js",
+    "beautified": "extension/src/js/upworkRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/unifiedFunnelLoginReminderPopup.common.chunk.js",
+    "beautified": "extension/src/js/unifiedFunnelLoginReminderPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/udacityRule.common.chunk.js",
+    "beautified": "extension/src/js/udacityRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/twitterRule.common.chunk.js",
+    "beautified": "extension/src/js/twitterRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/trelloRule.common.chunk.js",
+    "beautified": "extension/src/js/trelloRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/translatePageIntegration.common.chunk.js",
+    "beautified": "extension/src/js/translatePageIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/translateOnboardingRule.common.chunk.js",
+    "beautified": "extension/src/js/translateOnboardingRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/translateIntegration.common.chunk.js",
+    "beautified": "extension/src/js/translateIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/touchTypistRevertInlineCard.common.chunk.js",
+    "beautified": "extension/src/js/touchTypistRevertInlineCard.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/touchTypistPreviewInlineCard.common.chunk.js",
+    "beautified": "extension/src/js/touchTypistPreviewInlineCard.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/touchTypist.common.chunk.js",
+    "beautified": "extension/src/js/touchTypist.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/tooltipProvider.common.chunk.js",
+    "beautified": "extension/src/js/tooltipProvider.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/toneAI.common.chunk.js",
+    "beautified": "extension/src/js/toneAI.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/tailoredBusinessUphookPopup.common.chunk.js",
+    "beautified": "extension/src/js/tailoredBusinessUphookPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/superhumanRule.common.chunk.js",
+    "beautified": "extension/src/js/superhumanRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/stravaRule.common.chunk.js",
+    "beautified": "extension/src/js/stravaRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/standWithUkraineGrammarlySuspendedPopup.common.chunk.js",
+    "beautified": "extension/src/js/standWithUkraineGrammarlySuspendedPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/standWithUkraineBannerPopup.common.chunk.js",
+    "beautified": "extension/src/js/standWithUkraineBannerPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/squareSpaceRule.common.chunk.js",
+    "beautified": "extension/src/js/squareSpaceRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/sproutSocialRule.common.chunk.js",
+    "beautified": "extension/src/js/sproutSocialRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/snippets_templating.common.chunk.js",
+    "beautified": "extension/src/js/snippets_templating.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/snippets.common.chunk.js",
+    "beautified": "extension/src/js/snippets.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/slackRule.common.chunk.js",
+    "beautified": "extension/src/js/slackRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/skills.common.chunk.js",
+    "beautified": "extension/src/js/skills.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/simpleMessagePopup.common.chunk.js",
+    "beautified": "extension/src/js/simpleMessagePopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/sessionTimeoutPopup.common.chunk.js",
+    "beautified": "extension/src/js/sessionTimeoutPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/serviceNowRule.common.chunk.js",
+    "beautified": "extension/src/js/serviceNowRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/sduiNotification.common.chunk.js",
+    "beautified": "extension/src/js/sduiNotification.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/SduiInlineEngineIntegration.common.chunk.js",
+    "beautified": "extension/src/js/SduiInlineEngineIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/sduiInlineCardRenderer.common.chunk.js",
+    "beautified": "extension/src/js/sduiInlineCardRenderer.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/SduiBasicEngineIntegration.common.chunk.js",
+    "beautified": "extension/src/js/SduiBasicEngineIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/salesforceRule.common.chunk.js",
+    "beautified": "extension/src/js/salesforceRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/redditRule.common.chunk.js",
+    "beautified": "extension/src/js/redditRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/redditChatRule.common.chunk.js",
+    "beautified": "extension/src/js/redditChatRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/recapPopup.common.chunk.js",
+    "beautified": "extension/src/js/recapPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/quoraRule.common.chunk.js",
+    "beautified": "extension/src/js/quoraRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/quipRule.common.chunk.js",
+    "beautified": "extension/src/js/quipRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/quickSignupOnLaunchPopup.common.chunk.js",
+    "beautified": "extension/src/js/quickSignupOnLaunchPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/quickSignupFsiCardRenderer.common.chunk.js",
+    "beautified": "extension/src/js/quickSignupFsiCardRenderer.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/proofit.common.chunk.js",
+    "beautified": "extension/src/js/proofit.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/poshmarkRule.common.chunk.js",
+    "beautified": "extension/src/js/poshmarkRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/personalizedInsightsConsentService.common.chunk.js",
+    "beautified": "extension/src/js/personalizedInsightsConsentService.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/personalizedInsightsConsentPopup.common.chunk.js",
+    "beautified": "extension/src/js/personalizedInsightsConsentPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/performanceCardPopup.common.chunk.js",
+    "beautified": "extension/src/js/performanceCardPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/perceptionMetricsSurvey.common.chunk.js",
+    "beautified": "extension/src/js/perceptionMetricsSurvey.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/overleafRule.common.chunk.js",
+    "beautified": "extension/src/js/overleafRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/outlookRule.common.chunk.js",
+    "beautified": "extension/src/js/outlookRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/oriChatRule.common.chunk.js",
+    "beautified": "extension/src/js/oriChatRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/openCities.common.chunk.js",
+    "beautified": "extension/src/js/openCities.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/openAIRules.common.chunk.js",
+    "beautified": "extension/src/js/openAIRules.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/onboardingWithReminderPopup.common.chunk.js",
+    "beautified": "extension/src/js/onboardingWithReminderPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/onboardingDialog.common.chunk.js",
+    "beautified": "extension/src/js/onboardingDialog.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/notionRule.common.chunk.js",
+    "beautified": "extension/src/js/notionRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/notification.common.chunk.js",
+    "beautified": "extension/src/js/notification.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/newToneDetectedPopup.common.chunk.js",
+    "beautified": "extension/src/js/newToneDetectedPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/newsNowRule.common.chunk.js",
+    "beautified": "extension/src/js/newsNowRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/netsfereRule.common.chunk.js",
+    "beautified": "extension/src/js/netsfereRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/mondayRule.common.chunk.js",
+    "beautified": "extension/src/js/mondayRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/microsoftTeamsRule.common.chunk.js",
+    "beautified": "extension/src/js/microsoftTeamsRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/messengerRule.common.chunk.js",
+    "beautified": "extension/src/js/messengerRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/mediumRule.common.chunk.js",
+    "beautified": "extension/src/js/mediumRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/loginSSOPopup.common.chunk.js",
+    "beautified": "extension/src/js/loginSSOPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/loginReminderPopup.common.chunk.js",
+    "beautified": "extension/src/js/loginReminderPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/livepersonRule.common.chunk.js",
+    "beautified": "extension/src/js/livepersonRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/liveOfficeRule.common.chunk.js",
+    "beautified": "extension/src/js/liveOfficeRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/linkedInRule.common.chunk.js",
+    "beautified": "extension/src/js/linkedInRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/latticeRule.common.chunk.js",
+    "beautified": "extension/src/js/latticeRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/largeDocumentPopup.common.chunk.js",
+    "beautified": "extension/src/js/largeDocumentPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/knowledgeHubIntegration.common.chunk.js",
+    "beautified": "extension/src/js/knowledgeHubIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/knowledgeHubCard.common.chunk.js",
+    "beautified": "extension/src/js/knowledgeHubCard.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/khakRule.common.chunk.js",
+    "beautified": "extension/src/js/khakRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/jiraRule.common.chunk.js",
+    "beautified": "extension/src/js/jiraRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/inviteNudge.common.chunk.js",
+    "beautified": "extension/src/js/inviteNudge.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/instructureRule.common.chunk.js",
+    "beautified": "extension/src/js/instructureRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/instagramRule.common.chunk.js",
+    "beautified": "extension/src/js/instagramRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/InkwellPageIntegration.common.chunk.js",
+    "beautified": "extension/src/js/InkwellPageIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/inkwellDocumentIntegration.common.chunk.js",
+    "beautified": "extension/src/js/inkwellDocumentIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/iframeHost.common.chunk.js",
+    "beautified": "extension/src/js/iframeHost.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/hygraphRule.common.chunk.js",
+    "beautified": "extension/src/js/hygraphRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/hwrRule.common.chunk.js",
+    "beautified": "extension/src/js/hwrRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/humanWritingReport.common.chunk.js",
+    "beautified": "extension/src/js/humanWritingReport.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/hubspotRule.common.chunk.js",
+    "beautified": "extension/src/js/hubspotRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/grammarlyBusinessSigninPopup.common.chunk.js",
+    "beautified": "extension/src/js/grammarlyBusinessSigninPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly.styles.js",
+    "beautified": "extension/src/js/Grammarly.styles.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly.js",
+    "beautified": "extension/src/js/Grammarly.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-sidePanel.js",
+    "beautified": "extension/src/js/Grammarly-sidePanel.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-popup.js",
+    "beautified": "extension/src/js/Grammarly-popup.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-overleafStartContentScript.js",
+    "beautified": "extension/src/js/Grammarly-overleafStartContentScript.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-overleafInjectedScript.js",
+    "beautified": "extension/src/js/Grammarly-overleafInjectedScript.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-gMailInjectedCs.js",
+    "beautified": "extension/src/js/Grammarly-gMailInjectedCs.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-gDocsIframeCs.js",
+    "beautified": "extension/src/js/Grammarly-gDocsIframeCs.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-gDocsEarlyInjector.js",
+    "beautified": "extension/src/js/Grammarly-gDocsEarlyInjector.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-gDocsEarlyInjectedCs.js",
+    "beautified": "extension/src/js/Grammarly-gDocsEarlyInjectedCs.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-gDocsCanvasInjectedCs.js",
+    "beautified": "extension/src/js/Grammarly-gDocsCanvasInjectedCs.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-gDocsCanvasFallbackInjected.js",
+    "beautified": "extension/src/js/Grammarly-gDocsCanvasFallbackInjected.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-gDocs.styles.js",
+    "beautified": "extension/src/js/Grammarly-gDocs.styles.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-gDocs.js",
+    "beautified": "extension/src/js/Grammarly-gDocs.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-externalEventsInjectedCs.js",
+    "beautified": "extension/src/js/Grammarly-externalEventsInjectedCs.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-debug.js",
+    "beautified": "extension/src/js/Grammarly-debug.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-check.styles.js",
+    "beautified": "extension/src/js/Grammarly-check.styles.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-check.js",
+    "beautified": "extension/src/js/Grammarly-check.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Grammarly-bg.js",
+    "beautified": "extension/src/js/Grammarly-bg.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/gOS-sandbox.js",
+    "beautified": "extension/src/js/gOS-sandbox.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/googleTranslateRule.common.chunk.js",
+    "beautified": "extension/src/js/googleTranslateRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/googleSitesRule.common.chunk.js",
+    "beautified": "extension/src/js/googleSitesRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/googleSearchRule.common.chunk.js",
+    "beautified": "extension/src/js/googleSearchRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/googleKeepRule.common.chunk.js",
+    "beautified": "extension/src/js/googleKeepRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/googleGroupsRule.common.chunk.js",
+    "beautified": "extension/src/js/googleGroupsRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/googleChatRule.common.chunk.js",
+    "beautified": "extension/src/js/googleChatRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/googleCalendarRule.common.chunk.js",
+    "beautified": "extension/src/js/googleCalendarRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/gmailRule.common.chunk.js",
+    "beautified": "extension/src/js/gmailRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/ghostFieldIntegration.common.chunk.js",
+    "beautified": "extension/src/js/ghostFieldIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/getCommentsContextEventObservable.common.chunk.js",
+    "beautified": "extension/src/js/getCommentsContextEventObservable.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/gdocsFirstTimePopupRenderer.common.chunk.js",
+    "beautified": "extension/src/js/gdocsFirstTimePopupRenderer.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/gdocsFeedbackUI.common.chunk.js",
+    "beautified": "extension/src/js/gdocsFeedbackUI.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/gButtonPopover.common.chunk.js",
+    "beautified": "extension/src/js/gButtonPopover.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/g2.common.chunk.js",
+    "beautified": "extension/src/js/g2.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/g2-pushed-content-service.common.chunk.js",
+    "beautified": "extension/src/js/g2-pushed-content-service.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/freshdeskRule.common.chunk.js",
+    "beautified": "extension/src/js/freshdeskRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/freePremiumUphookPopup.common.chunk.js",
+    "beautified": "extension/src/js/freePremiumUphookPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/forbesRule.common.chunk.js",
+    "beautified": "extension/src/js/forbesRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/facebookRule.common.chunk.js",
+    "beautified": "extension/src/js/facebookRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/facebookMessagesRule.common.chunk.js",
+    "beautified": "extension/src/js/facebookMessagesRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/facebookBusinessRule.common.chunk.js",
+    "beautified": "extension/src/js/facebookBusinessRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/extensionConflictPopup.common.chunk.js",
+    "beautified": "extension/src/js/extensionConflictPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/ebayRule.common.chunk.js",
+    "beautified": "extension/src/js/ebayRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/dunningMessagePopup.common.chunk.js",
+    "beautified": "extension/src/js/dunningMessagePopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/discordRule.common.chunk.js",
+    "beautified": "extension/src/js/discordRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/disablePopup.common.chunk.js",
+    "beautified": "extension/src/js/disablePopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/dataControlPopup.common.chunk.js",
+    "beautified": "extension/src/js/dataControlPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/createGDocsSideBarController.common.chunk.js",
+    "beautified": "extension/src/js/createGDocsSideBarController.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/connectorPermissionPopup.common.chunk.js",
+    "beautified": "extension/src/js/connectorPermissionPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/connectorForegroundServer.common.chunk.js",
+    "beautified": "extension/src/js/connectorForegroundServer.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/connectorFieldIntegration.common.chunk.js",
+    "beautified": "extension/src/js/connectorFieldIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/confluenceRule.common.chunk.js",
+    "beautified": "extension/src/js/confluenceRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/codaRule.common.chunk.js",
+    "beautified": "extension/src/js/codaRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/clickUpRule.common.chunk.js",
+    "beautified": "extension/src/js/clickUpRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/claimedUserPopup.common.chunk.js",
+    "beautified": "extension/src/js/claimedUserPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/citizenRule.common.chunk.js",
+    "beautified": "extension/src/js/citizenRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/citationBuilderRule.common.chunk.js",
+    "beautified": "extension/src/js/citationBuilderRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/citationBuilderIntegration.common.chunk.js",
+    "beautified": "extension/src/js/citationBuilderIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/chromeStoreToolbarPopup.common.chunk.js",
+    "beautified": "extension/src/js/chromeStoreToolbarPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/cheetah.common.chunk.js",
+    "beautified": "extension/src/js/cheetah.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/cheetah-settings.common.chunk.js",
+    "beautified": "extension/src/js/cheetah-settings.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/canvaRule.common.chunk.js",
+    "beautified": "extension/src/js/canvaRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/bufferRule.common.chunk.js",
+    "beautified": "extension/src/js/bufferRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/brandTonesActivationUphook.common.chunk.js",
+    "beautified": "extension/src/js/brandTonesActivationUphook.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/blurredSduiInlineCardRenderer.common.chunk.js",
+    "beautified": "extension/src/js/blurredSduiInlineCardRenderer.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/bloggerRule.common.chunk.js",
+    "beautified": "extension/src/js/bloggerRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/blackboardRule.common.chunk.js",
+    "beautified": "extension/src/js/blackboardRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/awsConsoleRule.common.chunk.js",
+    "beautified": "extension/src/js/awsConsoleRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/automaticallyAppliedAlertView.common.chunk.js",
+    "beautified": "extension/src/js/automaticallyAppliedAlertView.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/automaticallyAppliedAlertInlineCardView.common.chunk.js",
+    "beautified": "extension/src/js/automaticallyAppliedAlertInlineCardView.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/assistant.common.chunk.js",
+    "beautified": "extension/src/js/assistant.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/amazonConnectRule.common.chunk.js",
+    "beautified": "extension/src/js/amazonConnectRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/airtableRule.common.chunk.js",
+    "beautified": "extension/src/js/airtableRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Agents-SidePanelIntegration.common.chunk.js",
+    "beautified": "extension/src/js/Agents-SidePanelIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Agents-MessageBusClient.common.chunk.js",
+    "beautified": "extension/src/js/Agents-MessageBusClient.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Agents-getDocumentIntegrationsObservable.common.chunk.js",
+    "beautified": "extension/src/js/Agents-getDocumentIntegrationsObservable.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Agents-DocumentGroupIntegration.common.chunk.js",
+    "beautified": "extension/src/js/Agents-DocumentGroupIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/Agents-ContentScriptIntegration.common.chunk.js",
+    "beautified": "extension/src/js/Agents-ContentScriptIntegration.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/adobeRule.common.chunk.js",
+    "beautified": "extension/src/js/adobeRule.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/accountMigrationNotificationPopup.common.chunk.js",
+    "beautified": "extension/src/js/accountMigrationNotificationPopup.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/accountChooserFsiCardRenderer.common.chunk.js",
+    "beautified": "extension/src/js/accountChooserFsiCardRenderer.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/AAA-initAssistant.common.chunk.js",
+    "beautified": "extension/src/js/AAA-initAssistant.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/9886.vendors.chunk.js",
+    "beautified": "extension/src/js/9886.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/9819.vendors.chunk.js",
+    "beautified": "extension/src/js/9819.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/9817.vendors.chunk.js",
+    "beautified": "extension/src/js/9817.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/9690.vendors.chunk.js",
+    "beautified": "extension/src/js/9690.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/9629.common.chunk.js",
+    "beautified": "extension/src/js/9629.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/9594.vendors.chunk.js",
+    "beautified": "extension/src/js/9594.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/9566.vendors.chunk.js",
+    "beautified": "extension/src/js/9566.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/9453.vendors.chunk.js",
+    "beautified": "extension/src/js/9453.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/932.vendors.chunk.js",
+    "beautified": "extension/src/js/932.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/9278.vendors.chunk.js",
+    "beautified": "extension/src/js/9278.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/9105.vendors.chunk.js",
+    "beautified": "extension/src/js/9105.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/901.vendors.chunk.js",
+    "beautified": "extension/src/js/901.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/8964.vendors.chunk.js",
+    "beautified": "extension/src/js/8964.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/8949.vendors.chunk.js",
+    "beautified": "extension/src/js/8949.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/8893.vendors.chunk.js",
+    "beautified": "extension/src/js/8893.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/8807.vendors.chunk.js",
+    "beautified": "extension/src/js/8807.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/8745.vendors.chunk.js",
+    "beautified": "extension/src/js/8745.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/8623.vendors.chunk.js",
+    "beautified": "extension/src/js/8623.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/8422.vendors.chunk.js",
+    "beautified": "extension/src/js/8422.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/841.vendors.chunk.js",
+    "beautified": "extension/src/js/841.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/8148.vendors.chunk.js",
+    "beautified": "extension/src/js/8148.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/8039.vendors.chunk.js",
+    "beautified": "extension/src/js/8039.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/7921.common.chunk.js",
+    "beautified": "extension/src/js/7921.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/7853.vendors.chunk.js",
+    "beautified": "extension/src/js/7853.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/7778.common.chunk.js",
+    "beautified": "extension/src/js/7778.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/7602.common.chunk.js",
+    "beautified": "extension/src/js/7602.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/7297.vendors.chunk.js",
+    "beautified": "extension/src/js/7297.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/7279.vendors.chunk.js",
+    "beautified": "extension/src/js/7279.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/7176.vendors.chunk.js",
+    "beautified": "extension/src/js/7176.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6904.vendors.chunk.js",
+    "beautified": "extension/src/js/6904.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6890.vendors.chunk.js",
+    "beautified": "extension/src/js/6890.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6880.common.chunk.js",
+    "beautified": "extension/src/js/6880.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6806.vendors.chunk.js",
+    "beautified": "extension/src/js/6806.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6790.vendors.chunk.js",
+    "beautified": "extension/src/js/6790.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/669.vendors.chunk.js",
+    "beautified": "extension/src/js/669.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6488.common.chunk.js",
+    "beautified": "extension/src/js/6488.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6438.vendors.chunk.js",
+    "beautified": "extension/src/js/6438.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6425.common.chunk.js",
+    "beautified": "extension/src/js/6425.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6358.vendors.chunk.js",
+    "beautified": "extension/src/js/6358.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/63.vendors.chunk.js",
+    "beautified": "extension/src/js/63.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6144.common.chunk.js",
+    "beautified": "extension/src/js/6144.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6111.common.chunk.js",
+    "beautified": "extension/src/js/6111.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/6038.vendors.chunk.js",
+    "beautified": "extension/src/js/6038.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/5879.vendors.chunk.js",
+    "beautified": "extension/src/js/5879.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/5870.vendors.chunk.js",
+    "beautified": "extension/src/js/5870.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/574.common.chunk.js",
+    "beautified": "extension/src/js/574.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/5396.vendors.chunk.js",
+    "beautified": "extension/src/js/5396.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/5120.vendors.chunk.js",
+    "beautified": "extension/src/js/5120.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/5020.vendors.chunk.js",
+    "beautified": "extension/src/js/5020.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/4944.vendors.chunk.js",
+    "beautified": "extension/src/js/4944.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/4932.vendors.chunk.js",
+    "beautified": "extension/src/js/4932.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/4926.common.chunk.js",
+    "beautified": "extension/src/js/4926.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/4779.vendors.chunk.js",
+    "beautified": "extension/src/js/4779.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/4608.vendors.chunk.js",
+    "beautified": "extension/src/js/4608.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/4357.vendors.chunk.js",
+    "beautified": "extension/src/js/4357.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/4091.vendors.chunk.js",
+    "beautified": "extension/src/js/4091.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/3986.vendors.chunk.js",
+    "beautified": "extension/src/js/3986.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/3885.vendors.chunk.js",
+    "beautified": "extension/src/js/3885.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/3774.vendors.chunk.js",
+    "beautified": "extension/src/js/3774.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/3558.common.chunk.js",
+    "beautified": "extension/src/js/3558.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/322.vendors.chunk.js",
+    "beautified": "extension/src/js/322.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/3107.vendors.chunk.js",
+    "beautified": "extension/src/js/3107.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/2935.vendors.chunk.js",
+    "beautified": "extension/src/js/2935.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/2785.vendors.chunk.js",
+    "beautified": "extension/src/js/2785.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/2712.vendors.chunk.js",
+    "beautified": "extension/src/js/2712.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/2445.vendors.chunk.js",
+    "beautified": "extension/src/js/2445.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/2348.vendors.chunk.js",
+    "beautified": "extension/src/js/2348.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/2286.vendors.chunk.js",
+    "beautified": "extension/src/js/2286.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/213.vendors.chunk.js",
+    "beautified": "extension/src/js/213.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/208.vendors.chunk.js",
+    "beautified": "extension/src/js/208.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/2059.vendors.chunk.js",
+    "beautified": "extension/src/js/2059.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/2018.vendors.chunk.js",
+    "beautified": "extension/src/js/2018.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/18.vendors.chunk.js",
+    "beautified": "extension/src/js/18.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/1798.vendors.chunk.js",
+    "beautified": "extension/src/js/1798.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/156.vendors.chunk.js",
+    "beautified": "extension/src/js/156.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/1491.vendors.chunk.js",
+    "beautified": "extension/src/js/1491.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/1478.vendors.chunk.js",
+    "beautified": "extension/src/js/1478.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/1467.common.chunk.js",
+    "beautified": "extension/src/js/1467.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/1454.vendors.chunk.js",
+    "beautified": "extension/src/js/1454.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/1395.vendors.chunk.js",
+    "beautified": "extension/src/js/1395.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/1389.vendors.chunk.js",
+    "beautified": "extension/src/js/1389.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/1379.vendors.chunk.js",
+    "beautified": "extension/src/js/1379.vendors.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/js/1127.common.chunk.js",
+    "beautified": "extension/src/js/1127.common.chunk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/timer-B6bjwuU9.js",
+    "beautified": "extension/src/inkwell/assets/timer-B6bjwuU9.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/timer--E-2U5R1.js",
+    "beautified": "extension/src/inkwell/assets/timer--E-2U5R1.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/timeoutWith-B7tsbJ8--DgEQKW6j.js",
+    "beautified": "extension/src/inkwell/assets/timeoutWith-B7tsbJ8--DgEQKW6j.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/timeoutWith-B7tsbJ8--C6j71B9E.js",
+    "beautified": "extension/src/inkwell/assets/timeoutWith-B7tsbJ8--C6j71B9E.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/timeout-B7YJiIXx.js",
+    "beautified": "extension/src/inkwell/assets/timeout-B7YJiIXx.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/timeout-72B4Da-8.js",
+    "beautified": "extension/src/inkwell/assets/timeout-72B4Da-8.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/throttleTime-CwYuaEy_.js",
+    "beautified": "extension/src/inkwell/assets/throttleTime-CwYuaEy_.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/throttleTime-CTmwR84S.js",
+    "beautified": "extension/src/inkwell/assets/throttleTime-CTmwR84S.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/TextRevisionSynchronizedQueue-DQV4bu5q-DZsfBpcW.js",
+    "beautified": "extension/src/inkwell/assets/TextRevisionSynchronizedQueue-DQV4bu5q-DZsfBpcW.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/TextRevisionSynchronizedQueue-DQV4bu5q-DwE51F-N.js",
+    "beautified": "extension/src/inkwell/assets/TextRevisionSynchronizedQueue-DQV4bu5q-DwE51F-N.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/TextRevisionFns-DGbJAFcL-DX1ABpMm.js",
+    "beautified": "extension/src/inkwell/assets/TextRevisionFns-DGbJAFcL-DX1ABpMm.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/TextRangeUpdateSemantics-D8MqPOrG-S_bbHJO0.js",
+    "beautified": "extension/src/inkwell/assets/TextRangeUpdateSemantics-D8MqPOrG-S_bbHJO0.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/TextRangeManager-DvK9Ko49-CTCZEC3i.js",
+    "beautified": "extension/src/inkwell/assets/TextRangeManager-DvK9Ko49-CTCZEC3i.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/TextRangeManager-DvK9Ko49-Cf455Kbz.js",
+    "beautified": "extension/src/inkwell/assets/TextRangeManager-DvK9Ko49-Cf455Kbz.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/TextDocumentEntities-iE9yXSvn.js",
+    "beautified": "extension/src/inkwell/assets/TextDocumentEntities-iE9yXSvn.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/tap-BNGPOE-c.js",
+    "beautified": "extension/src/inkwell/assets/tap-BNGPOE-c.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/tap-BL_zgIju.js",
+    "beautified": "extension/src/inkwell/assets/tap-BL_zgIju.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/take-gJdc_Sb0.js",
+    "beautified": "extension/src/inkwell/assets/take-gJdc_Sb0.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/take-A312jYgg.js",
+    "beautified": "extension/src/inkwell/assets/take-A312jYgg.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/switchMap-BWSw-lA5.js",
+    "beautified": "extension/src/inkwell/assets/switchMap-BWSw-lA5.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/switchMap-BkKtxKb2.js",
+    "beautified": "extension/src/inkwell/assets/switchMap-BkKtxKb2.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/subscribableState-Y8YW7N9Z-L1DO2Tta.js",
+    "beautified": "extension/src/inkwell/assets/subscribableState-Y8YW7N9Z-L1DO2Tta.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/startWith-PVWOuAJK.js",
+    "beautified": "extension/src/inkwell/assets/startWith-PVWOuAJK.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/startWith-DFLDsqXv.js",
+    "beautified": "extension/src/inkwell/assets/startWith-DFLDsqXv.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/start-BFd-djfI.js",
+    "beautified": "extension/src/inkwell/assets/start-BFd-djfI.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/skip-wo5YLe13.js",
+    "beautified": "extension/src/inkwell/assets/skip-wo5YLe13.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/skip-DI4WBx6-.js",
+    "beautified": "extension/src/inkwell/assets/skip-DI4WBx6-.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/SingleConsumerBufferedEmitter-_6WCMMUA-B9gRLjc-.js",
+    "beautified": "extension/src/inkwell/assets/SingleConsumerBufferedEmitter-_6WCMMUA-B9gRLjc-.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/share-CW4-5mF1.js",
+    "beautified": "extension/src/inkwell/assets/share-CW4-5mF1.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/share-BO0c2DMx.js",
+    "beautified": "extension/src/inkwell/assets/share-BO0c2DMx.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/SDUIActionHandler-DiU1jAXM.js",
+    "beautified": "extension/src/inkwell/assets/SDUIActionHandler-DiU1jAXM.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/SDUIActionHandler-BB7VREq_.js",
+    "beautified": "extension/src/inkwell/assets/SDUIActionHandler-BB7VREq_.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/ScreenPointFns-7sGy0XGN-DYTqdHzE.js",
+    "beautified": "extension/src/inkwell/assets/ScreenPointFns-7sGy0XGN-DYTqdHzE.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/RemoteSubscribable-CanKOUL4-CikZPXPx.js",
+    "beautified": "extension/src/inkwell/assets/RemoteSubscribable-CanKOUL4-CikZPXPx.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/RemoteSubscribable-CanKOUL4-C6cenfHh.js",
+    "beautified": "extension/src/inkwell/assets/RemoteSubscribable-CanKOUL4-C6cenfHh.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/RemoteEntity-CN-1WB86-yD3y8ldD.js",
+    "beautified": "extension/src/inkwell/assets/RemoteEntity-CN-1WB86-yD3y8ldD.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/RectFns-ndpeBtT0-CdOd3O5S.js",
+    "beautified": "extension/src/inkwell/assets/RectFns-ndpeBtT0-CdOd3O5S.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/race-DbiJq4jp.js",
+    "beautified": "extension/src/inkwell/assets/race-DbiJq4jp.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/race-BWu18h02.js",
+    "beautified": "extension/src/inkwell/assets/race-BWu18h02.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/PointFns-Bd1JBOhL--ZyEh-AF.js",
+    "beautified": "extension/src/inkwell/assets/PointFns-Bd1JBOhL--ZyEh-AF.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/PluginModule-CRib3PLZ-LTQDm_KX.js",
+    "beautified": "extension/src/inkwell/assets/PluginModule-CRib3PLZ-LTQDm_KX.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/PluginModule-CRib3PLZ-B43Hjk20.js",
+    "beautified": "extension/src/inkwell/assets/PluginModule-CRib3PLZ-B43Hjk20.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/PluginDependency-Boc6-pxl-tjuTwLTj.js",
+    "beautified": "extension/src/inkwell/assets/PluginDependency-Boc6-pxl-tjuTwLTj.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/PixelFns-BIHP7Exp-Cxsb96Xk.js",
+    "beautified": "extension/src/inkwell/assets/PixelFns-BIHP7Exp-Cxsb96Xk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/pairwise-CN9hSkDF.js",
+    "beautified": "extension/src/inkwell/assets/pairwise-CN9hSkDF.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/pairwise-7DNa7SKt.js",
+    "beautified": "extension/src/inkwell/assets/pairwise-7DNa7SKt.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/of-DPWY87hm.js",
+    "beautified": "extension/src/inkwell/assets/of-DPWY87hm.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/of-Boi_-3cC.js",
+    "beautified": "extension/src/inkwell/assets/of-Boi_-3cC.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/NonEmptyArrayFns-oGa02u3x-CLyX5YlY.js",
+    "beautified": "extension/src/inkwell/assets/NonEmptyArrayFns-oGa02u3x-CLyX5YlY.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/mergeAll-D275NTmK.js",
+    "beautified": "extension/src/inkwell/assets/mergeAll-D275NTmK.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/mergeAll-CSDR5lBs.js",
+    "beautified": "extension/src/inkwell/assets/mergeAll-CSDR5lBs.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/merge-obdQTFL6.js",
+    "beautified": "extension/src/inkwell/assets/merge-obdQTFL6.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/merge-BJiAq4u-.js",
+    "beautified": "extension/src/inkwell/assets/merge-BJiAq4u-.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/LRUCache-D4SXcJs8-0gDlvbKA.js",
+    "beautified": "extension/src/inkwell/assets/LRUCache-D4SXcJs8-0gDlvbKA.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/jsx-runtime-BYWv_vQ-.js",
+    "beautified": "extension/src/inkwell/assets/jsx-runtime-BYWv_vQ-.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/jsx-runtime-BtQ6Bsb4.js",
+    "beautified": "extension/src/inkwell/assets/jsx-runtime-BtQ6Bsb4.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-ZyG0PkH-.js",
+    "beautified": "extension/src/inkwell/assets/index-ZyG0PkH-.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Z7s1VMXC.js",
+    "beautified": "extension/src/inkwell/assets/index-Z7s1VMXC.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-XuaxTepq.js",
+    "beautified": "extension/src/inkwell/assets/index-XuaxTepq.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-WrA72bii.js",
+    "beautified": "extension/src/inkwell/assets/index-WrA72bii.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-WhRVOtk5.js",
+    "beautified": "extension/src/inkwell/assets/index-WhRVOtk5.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-uVYElzgq.js",
+    "beautified": "extension/src/inkwell/assets/index-uVYElzgq.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-uCjNtyxN.js",
+    "beautified": "extension/src/inkwell/assets/index-uCjNtyxN.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-U7nj2qyb.js",
+    "beautified": "extension/src/inkwell/assets/index-U7nj2qyb.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-rqlhpUDb.js",
+    "beautified": "extension/src/inkwell/assets/index-rqlhpUDb.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-rfHd9GuO.js",
+    "beautified": "extension/src/inkwell/assets/index-rfHd9GuO.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-r71BE6C2.js",
+    "beautified": "extension/src/inkwell/assets/index-r71BE6C2.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Q-LSqCYN.js",
+    "beautified": "extension/src/inkwell/assets/index-Q-LSqCYN.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-oQtk5Yhs.js",
+    "beautified": "extension/src/inkwell/assets/index-oQtk5Yhs.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-OKQyfDtf.js",
+    "beautified": "extension/src/inkwell/assets/index-OKQyfDtf.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-O7PIDOzs.js",
+    "beautified": "extension/src/inkwell/assets/index-O7PIDOzs.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-LtbzZSV1.js",
+    "beautified": "extension/src/inkwell/assets/index-LtbzZSV1.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-KzMHVXrV.js",
+    "beautified": "extension/src/inkwell/assets/index-KzMHVXrV.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DYBNIdcl.js",
+    "beautified": "extension/src/inkwell/assets/index-DYBNIdcl.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DWJjIIWF.js",
+    "beautified": "extension/src/inkwell/assets/index-DWJjIIWF.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DwHsR4dY.js",
+    "beautified": "extension/src/inkwell/assets/index-DwHsR4dY.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DwCYgNrj.js",
+    "beautified": "extension/src/inkwell/assets/index-DwCYgNrj.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DSqSs-gH.js",
+    "beautified": "extension/src/inkwell/assets/index-DSqSs-gH.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DnbEk8n_.js",
+    "beautified": "extension/src/inkwell/assets/index-DnbEk8n_.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DnatBlUk.js",
+    "beautified": "extension/src/inkwell/assets/index-DnatBlUk.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DLIwY9pE.js",
+    "beautified": "extension/src/inkwell/assets/index-DLIwY9pE.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Dk3R999A.js",
+    "beautified": "extension/src/inkwell/assets/index-Dk3R999A.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DjW1yS9b.js",
+    "beautified": "extension/src/inkwell/assets/index-DjW1yS9b.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DjT-JosF.js",
+    "beautified": "extension/src/inkwell/assets/index-DjT-JosF.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DIq9RWYQ.js",
+    "beautified": "extension/src/inkwell/assets/index-DIq9RWYQ.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Dh6AtzXO.js",
+    "beautified": "extension/src/inkwell/assets/index-Dh6AtzXO.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DGeXO3oi.js",
+    "beautified": "extension/src/inkwell/assets/index-DGeXO3oi.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DcswASZ2.js",
+    "beautified": "extension/src/inkwell/assets/index-DcswASZ2.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Db_x7cK_.js",
+    "beautified": "extension/src/inkwell/assets/index-Db_x7cK_.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-DB8_evi_.js",
+    "beautified": "extension/src/inkwell/assets/index-DB8_evi_.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-CZ5X3_aw.js",
+    "beautified": "extension/src/inkwell/assets/index-CZ5X3_aw.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-CX-X1h-Y.js",
+    "beautified": "extension/src/inkwell/assets/index-CX-X1h-Y.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Cu8JTHOu.js",
+    "beautified": "extension/src/inkwell/assets/index-Cu8JTHOu.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Cs5tX1Rz.js",
+    "beautified": "extension/src/inkwell/assets/index-Cs5tX1Rz.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-COojv98b.js",
+    "beautified": "extension/src/inkwell/assets/index-COojv98b.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-CN6fy9ZB.js",
+    "beautified": "extension/src/inkwell/assets/index-CN6fy9ZB.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-CKrE9JMo.js",
+    "beautified": "extension/src/inkwell/assets/index-CKrE9JMo.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-CizrRDxQ.js",
+    "beautified": "extension/src/inkwell/assets/index-CizrRDxQ.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-CHQtpaL4.js",
+    "beautified": "extension/src/inkwell/assets/index-CHQtpaL4.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Cd8GYK1-.js",
+    "beautified": "extension/src/inkwell/assets/index-Cd8GYK1-.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-CcHqKY02.js",
+    "beautified": "extension/src/inkwell/assets/index-CcHqKY02.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-CceDU1Ub.js",
+    "beautified": "extension/src/inkwell/assets/index-CceDU1Ub.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-CbxqSIwH.js",
+    "beautified": "extension/src/inkwell/assets/index-CbxqSIwH.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-C-c2f2Oy.js",
+    "beautified": "extension/src/inkwell/assets/index-C-c2f2Oy.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Bz_nL0tC.js",
+    "beautified": "extension/src/inkwell/assets/index-Bz_nL0tC.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BznygDvr.js",
+    "beautified": "extension/src/inkwell/assets/index-BznygDvr.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BZ9ZjVqH.js",
+    "beautified": "extension/src/inkwell/assets/index-BZ9ZjVqH.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-bxDn9cPv.js",
+    "beautified": "extension/src/inkwell/assets/index-bxDn9cPv.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BUQoVyfC.js",
+    "beautified": "extension/src/inkwell/assets/index-BUQoVyfC.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BUGw0CJ-.js",
+    "beautified": "extension/src/inkwell/assets/index-BUGw0CJ-.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BRUA9V8r.js",
+    "beautified": "extension/src/inkwell/assets/index-BRUA9V8r.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BroNIheH.js",
+    "beautified": "extension/src/inkwell/assets/index-BroNIheH.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BR87y4b4.js",
+    "beautified": "extension/src/inkwell/assets/index-BR87y4b4.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BOWMRPqo.js",
+    "beautified": "extension/src/inkwell/assets/index-BOWMRPqo.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BOtLVV33.js",
+    "beautified": "extension/src/inkwell/assets/index-BOtLVV33.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BMGZtqT4.js",
+    "beautified": "extension/src/inkwell/assets/index-BMGZtqT4.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Bm4tEXCw.js",
+    "beautified": "extension/src/inkwell/assets/index-Bm4tEXCw.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BM-moq3b.js",
+    "beautified": "extension/src/inkwell/assets/index-BM-moq3b.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BLs3wl_w.js",
+    "beautified": "extension/src/inkwell/assets/index-BLs3wl_w.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BLgm_taZ.js",
+    "beautified": "extension/src/inkwell/assets/index-BLgm_taZ.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BLGgUE45.js",
+    "beautified": "extension/src/inkwell/assets/index-BLGgUE45.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BhOAJbfU.js",
+    "beautified": "extension/src/inkwell/assets/index-BhOAJbfU.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BfFsDiE7.js",
+    "beautified": "extension/src/inkwell/assets/index-BfFsDiE7.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BE_XzjUW.js",
+    "beautified": "extension/src/inkwell/assets/index-BE_XzjUW.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-Be3fM_gS.js",
+    "beautified": "extension/src/inkwell/assets/index-Be3fM_gS.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-BbX8QEjx.js",
+    "beautified": "extension/src/inkwell/assets/index-BbX8QEjx.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-bbwY4Mlj.js",
+    "beautified": "extension/src/inkwell/assets/index-bbwY4Mlj.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-B9uHfCTo.js",
+    "beautified": "extension/src/inkwell/assets/index-B9uHfCTo.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-B1wx0KOp.js",
+    "beautified": "extension/src/inkwell/assets/index-B1wx0KOp.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-B1AIte_T.js",
+    "beautified": "extension/src/inkwell/assets/index-B1AIte_T.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-B0VdoEeF.js",
+    "beautified": "extension/src/inkwell/assets/index-B0VdoEeF.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-5yZHlJEj.js",
+    "beautified": "extension/src/inkwell/assets/index-5yZHlJEj.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-4N3nZzsP.js",
+    "beautified": "extension/src/inkwell/assets/index-4N3nZzsP.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/index-38je9NwT.js",
+    "beautified": "extension/src/inkwell/assets/index-38je9NwT.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/getDecorationStrategy-D8c5vEyH.js",
+    "beautified": "extension/src/inkwell/assets/getDecorationStrategy-D8c5vEyH.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/getDecorationStrategy-ByPikn4k.js",
+    "beautified": "extension/src/inkwell/assets/getDecorationStrategy-ByPikn4k.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/finalize-u5oIwZfS.js",
+    "beautified": "extension/src/inkwell/assets/finalize-u5oIwZfS.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/finalize-DNcSQJJw.js",
+    "beautified": "extension/src/inkwell/assets/finalize-DNcSQJJw.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/distinctUntilChanged-JrE1RNy_.js",
+    "beautified": "extension/src/inkwell/assets/distinctUntilChanged-JrE1RNy_.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/distinctUntilChanged-GMQNSCXg.js",
+    "beautified": "extension/src/inkwell/assets/distinctUntilChanged-GMQNSCXg.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/Delta-D-dso3t3-DM06-Vr-.js",
+    "beautified": "extension/src/inkwell/assets/Delta-D-dso3t3-DM06-Vr-.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/delay-D1mS6Jaf.js",
+    "beautified": "extension/src/inkwell/assets/delay-D1mS6Jaf.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/delay-Cs5qaBTb.js",
+    "beautified": "extension/src/inkwell/assets/delay-Cs5qaBTb.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/defineFactory-DJYNRBNc-CmRNy_rl.js",
+    "beautified": "extension/src/inkwell/assets/defineFactory-DJYNRBNc-CmRNy_rl.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/defineFactory-DJYNRBNc-BvZfVSHA.js",
+    "beautified": "extension/src/inkwell/assets/defineFactory-DJYNRBNc-BvZfVSHA.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/defer-DJy-7hgl.js",
+    "beautified": "extension/src/inkwell/assets/defer-DJy-7hgl.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/defer-BLWpl2MB.js",
+    "beautified": "extension/src/inkwell/assets/defer-BLWpl2MB.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/debounceTime-XokiU2Af.js",
+    "beautified": "extension/src/inkwell/assets/debounceTime-XokiU2Af.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/debounceTime-DnL_PUPV.js",
+    "beautified": "extension/src/inkwell/assets/debounceTime-DnL_PUPV.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/dateTimestampProvider-CV0dHcg-.js",
+    "beautified": "extension/src/inkwell/assets/dateTimestampProvider-CV0dHcg-.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/concat-DqL665aX.js",
+    "beautified": "extension/src/inkwell/assets/concat-DqL665aX.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/concat-Bl9EyBSW.js",
+    "beautified": "extension/src/inkwell/assets/concat-Bl9EyBSW.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/CAPIWebSocketTransport-DztTrDg1-DSQiisKE.js",
+    "beautified": "extension/src/inkwell/assets/CAPIWebSocketTransport-DztTrDg1-DSQiisKE.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/CAPIWebSocketTransport-DztTrDg1-8WOYftOV.js",
+    "beautified": "extension/src/inkwell/assets/CAPIWebSocketTransport-DztTrDg1-8WOYftOV.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/AsyncScheduler-BhBy18pz.js",
+    "beautified": "extension/src/inkwell/assets/AsyncScheduler-BhBy18pz.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/async-dh0JxqdS.js",
+    "beautified": "extension/src/inkwell/assets/async-dh0JxqdS.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/async-BZW1XXsj.js",
+    "beautified": "extension/src/inkwell/assets/async-BZW1XXsj.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/asap-_5Afx9lb.js",
+    "beautified": "extension/src/inkwell/assets/asap-_5Afx9lb.beautified.js",
+    "status": "ok"
+  },
+  {
+    "original": "extension/src/inkwell/assets/asap-D7RGTMcn.js",
+    "beautified": "extension/src/inkwell/assets/asap-D7RGTMcn.beautified.js",
+    "status": "ok"
+  }
+]

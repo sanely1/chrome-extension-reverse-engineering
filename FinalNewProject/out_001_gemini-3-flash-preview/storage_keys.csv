@@ -1,0 +1,11 @@
+key,type,purpose,file,line_start,line_end
+authKey,local/sync,Authentication key,background.js,42,42
+authValue,local/sync,Authentication value,background.js,43,43
+machineKey,local/sync,Persistent installation ID,background.js,44,44
+supportedSitesData,local,Cached supported websites list,background.js,45,45
+isProductPageHeuristicsData,local,Cached product heuristics,background.js,46,46
+abTestsCachedConfig,local,Cached A/B test config,background.js,48,48
+extensionCachedConfig,local,Cached extension config,background.js,50,50
+abTestVariantRecords,local,Assigned A/B test variants,background.js,52,52
+activated,localStorage,Extension activation status,background.js,54,54
+userSettings,local,User preferences,background.js,55,55

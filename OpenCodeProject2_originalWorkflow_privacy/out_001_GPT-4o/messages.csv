@@ -1,0 +1,11 @@
+channel_name,direction,payload_keys,file,line_start,line_end,purpose
+behavior:strongAlertRef,background->content,alertId|textFieldId,extension/src/js/Grammarly-sidePanel.js,60001,62000,Informs content script to highlight a strong grammar suggestion
+cheetah,content->background,text|cursorPosition,extension/src/js/Grammarly-sidePanel.js,60001,62000,Sends writing context to background for Cheetah (generative AI assistant) processing
+shortFormCard,background->content,cardId|htmlContent,extension/src/js/Grammarly-bg.js,38001,40000,Renders short form spelling/grammar correction card inline in content script
+actionNotification,content->background,actionType|elementId,extension/src/js/Grammarly-sidePanel.js,60001,62000,"Reports a user UI action (e.g., card click, dismiss) to background session manager"
+get_debug_info,ui->background,session_id,extension/src/js/Grammarly-bg.js,38001,40000,Retrieves service worker and connection diagnostic info for debugging UI
+alertsCount,background->content,count|fieldId,extension/src/js/Grammarly-bg.js,38001,40000,Updates the badge/underlines in the text field with the current suggestions count
+settingsMessage,content->background,settingsObject,extension/src/js/Grammarly-bg.js,38001,40000,Pushes editor configuration settings updates from content script to service worker
+update_settings,ui->background,key|value,extension/src/js/Grammarly-bg.js,38001,40000,Updates a specific user preference setting in storage
+login-attempt,ui->background,username|password,extension/src/js/Grammarly-popup.js,50001,50282,Initiates credentials-based authentication and OAuth flow in popup
+session-invalidate,content->background,reason,extension/src/js/Grammarly-bg.js,38001,40000,Signals session expiration or logout to destroy local caches and tokens

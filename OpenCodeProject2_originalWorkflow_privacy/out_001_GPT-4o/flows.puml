@@ -1,0 +1,41 @@
+@startuml
+actor User
+participant "Webpage (DOM/Text Field)" as Page
+participant "Content Script\n(Grammarly-check.js)" as CS
+participant "Google Docs Canvas CS\n(Grammarly-gDocs.js)" as GDocs
+participant "Service Worker\n(sw.js / Grammarly-bg.js)" as SW
+database "chrome.storage.local" as Storage
+participant "Grammarly Telemetry\n(gnar.grammarly.com)" as Gnar
+participant "Checking API\n(capi.grammarly.com)" as Capi
+participant "OAuth / Account\n(auth.grammarly.com)" as Auth
+
+== Onboarding & Initialization ==
+User -> Page: Loads page (e.g. Google Docs)
+CS -> SW: runtime.sendMessage("settingsMessage")
+SW -> Storage: get("preferences")
+Storage --> SW: Caches preferences
+SW --> CS: Sends active editor settings
+
+== Real-Time Writing Assistance ==
+User -> Page: Inputs text into field
+Page -> CS: Intercepts text/selection events
+CS -> SW: runtime.sendMessage("cheetah", {text})
+SW -> Capi: Send text checking query over WebSocket (wss://capi.grammarly.com)
+Capi --> SW: Return suggestions & corrections list
+SW -> Storage: set("session_storage_logs_backup", logs)
+SW --> CS: sendMessage("alertsCount", {count})
+SW --> CS: sendMessage("shortFormCard", {htmlContent})
+CS -> Page: Renders inline underline highlights & Suggestion Card UI
+
+== Telemetry & Analytics ==
+Page -> CS: User clicks suggestion card (accepts suggestion)
+CS -> SW: sendMessage("actionNotification", {actionType: "accept"})
+SW -> Gnar: POST to https://gnar.grammarly.com with telemetry data
+SW -> Storage: set("gnar_nextPingTimestamp", timestamp)
+
+== Google Docs Deep Integration ==
+User -> Page: Edits a Google Doc
+GDocs -> SW: runtime.sendMessage("settingsMessage")
+GDocs -> Page: Injects canvas overlays and custom inline sidebar
+SW -> Capi: Document text check pipeline (https://dox.grammarly.com)
+@enduml

@@ -1,0 +1,160 @@
+{
+  "extension_id": "bmnlcjabgnpnenekpadlanbbkooimhnj",
+  "extension_name": "Honey: Automatic Coupons & Rewards",
+  "comparison_summary": {
+    "declared_category_count": 6,
+    "observed_category_count": 3,
+    "match_count": 3,
+    "underdeclared_count": 0,
+    "overdeclared_count": 3,
+    "unclear_count": 0
+  },
+  "declared_categories": [
+    "personally_identifiable_information",
+    "financial_and_payment_information",
+    "location",
+    "web_history",
+    "user_activity",
+    "website_content"
+  ],
+  "observed_categories": [
+    {
+      "observed_item": "page_url_and_referrer",
+      "mapped_category": "web_history",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Exfiltrates visited page paths, page domain, and referrer URLs on active browser tabs.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/h0.js",
+          "start": 22403,
+          "end": 22571
+        }
+      ]
+    },
+    {
+      "observed_item": "user_identity_tokens",
+      "mapped_category": "personally_identifiable_information",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Collects and syncs distinct user identification (userId), device ID parameters, and linked PayPal email attributes.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/h0.js",
+          "start": 1231,
+          "end": 127254
+        }
+      ]
+    },
+    {
+      "observed_item": "shopping_cart_details",
+      "mapped_category": "financial_and_payment_information",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Captures user items inside shopping carts, quantities, currency types, item images, prices, checkout transaction IDs, and active discounts.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/h0.js",
+          "start": 31186,
+          "end": 31153
+        }
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "declared_category": "web_history",
+      "observed_items": [
+        "page_url_and_referrer"
+      ],
+      "reason": "Observed data extraction for page_url_and_referrer maps directly to the declared category web_history.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/h0.js",
+          "start": 22403,
+          "end": 22571
+        }
+      ]
+    },
+    {
+      "declared_category": "personally_identifiable_information",
+      "observed_items": [
+        "user_identity_tokens"
+      ],
+      "reason": "Observed data extraction for user_identity_tokens maps directly to the declared category personally_identifiable_information.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/h0.js",
+          "start": 1231,
+          "end": 127254
+        }
+      ]
+    },
+    {
+      "declared_category": "financial_and_payment_information",
+      "observed_items": [
+        "shopping_cart_details"
+      ],
+      "reason": "Observed data extraction for shopping_cart_details maps directly to the declared category financial_and_payment_information.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/h0.js",
+          "start": 31186,
+          "end": 31153
+        }
+      ]
+    }
+  ],
+  "underdeclared": [],
+  "overdeclared": [
+    {
+      "declared_category": "location",
+      "reason": "precise GPS coordinates were not exfiltrated, although the background worker determines the country and region from headers/IP server-side.",
+      "confidence": "medium"
+    },
+    {
+      "declared_category": "user_activity",
+      "reason": "detailed physical keystrokes or mouse track-loggers were not observed, though high-level telemetry reports action events.",
+      "confidence": "medium"
+    },
+    {
+      "declared_category": "website_content",
+      "reason": "general webpage content extraction was not found, as extraction focuses strictly on e-commerce shopping elements.",
+      "confidence": "medium"
+    }
+  ],
+  "unclear": [],
+  "developer_statement_checks": [
+    {
+      "statement": "not_sold_to_third_parties",
+      "status": "not_contradicted",
+      "reason": "No evidence of user data selling or unauthorized third-party marketing brokers transfers was found in code. Network calls point strictly to owned joinhoney/paypal servers.",
+      "evidence": []
+    },
+    {
+      "statement": "not_used_for_unrelated_purposes",
+      "status": "not_contradicted",
+      "reason": "Data exfiltration (browsing URLs, e-commerce shopping carts) is strictly coupled to the declared extension functionality of coupon searching and rewards collection.",
+      "evidence": []
+    },
+    {
+      "statement": "not_used_for_creditworthiness",
+      "status": "not_contradicted",
+      "reason": "No features, libraries, or endpoints relating to lending, credit profiling, or credit scoring were discovered.",
+      "evidence": []
+    }
+  ],
+  "overall_assessment": {
+    "is_consistent": true,
+    "risk_level": "low",
+    "confidence": "high",
+    "summary": "The PayPal Honey extension displays exemplary consistency between its Chrome Web Store declarations and actual observed code behavior. Every single data exfiltration activity traced in the code (browsing history and cart items) is fully declared."
+  },
+  "limitations": [
+    "Static parsing only analyzes client-side source code. Server-side processing, analytics sharing, and secondary exfiltration after server receipt cannot be verified.",
+    "Web history and e-commerce transactions represent highly sensitive tracking, but they are fully declared on the Store page."
+  ]
+}

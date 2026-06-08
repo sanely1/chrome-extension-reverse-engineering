@@ -1,0 +1,25 @@
+@startuml
+actor User
+participant "Web Page / Editor" as Page
+participant "Content Script\n(Grammarly-check.js)" as CS
+participant "Service Worker\n(sw.js / Grammarly-bg.js)" as SW
+participant "IFrame Helper\n(Grammarly-gDocsIframeCs.js)" as Iframe
+database "chrome.storage" as Storage
+participant "Grammarly Cloud API\n(capi.grammarly.com)" as CAPI
+participant "Config / Telemetry\n(config.extension.grammarly.com)" as Config
+
+User -> Page: Types or edits text
+Page -> CS: Detect focus & keypress
+CS -> SW: Connect port or sendMessage("documentState")
+SW -> Storage: Read feature gates & configurations
+Storage --> SW: Config / treatments state
+SW -> Config: Fetch latest feature gates (treatment.grammarly.com)
+CS -> Iframe: window.postMessage (frame synchronization)
+CS -> CAPI: wss://capi.grammarly.com (WebSocket revision stream)
+CAPI --> CS: Writing suggestions & alerts
+CS -> Page: Inject Grammarly cards & underline markers
+User -> CS: Accept suggestion / click card
+CS -> SW: Track event / write analytics (feMetricsData)
+SW -> Storage: Cache event telemetry (local / session)
+SW -> Config: POST https://femetrics.grammarly.io/log (upload batch)
+@enduml

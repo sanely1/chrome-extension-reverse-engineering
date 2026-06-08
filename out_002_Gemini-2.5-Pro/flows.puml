@@ -1,0 +1,93 @@
+@startuml
+!theme vibrant
+title Grammarly Extension Component Flows
+
+actor User
+participant Page
+participant "Content Script" as CS
+participant "Service Worker" as SW
+database "chrome.storage" as Storage
+database "IndexedDB" as IDB
+participant "Remote APIs" as Remote
+
+box "Browser"
+  participant Page
+  participant CS
+end box
+
+box "Extension"
+  participant SW
+  participant Storage
+  participant IDB
+end box
+
+box "Grammarly Cloud"
+  participant Remote
+end box
+
+== User Interaction & Text Checking ==
+
+User -> Page: Types in text field
+CS -> CS: TypingTracker captures keystrokes
+CS -> SW: sendMessage("cs-to-bg-rpc", {text_delta})
+note right of CS: via CAPIProxy and RPC channels
+
+SW -> SW: Processes delta with ONNX model (Autocorrect)
+SW -> Remote: CAPI WebSocket sends sanitized delta
+note left of SW: DLP service scrubs PII before sending
+
+Remote --> SW: Receives suggestions (Alerts) via WebSocket
+SW --> CS: Forwards alerts to content script
+
+CS -> Page: Renders highlights and G-button in DOM
+User -> Page: Hovers/clicks highlight
+CS -> Page: Renders suggestion card (React UI)
+User -> Page: Clicks "Accept" on card
+CS -> Page: Applies text change using ReplacementService
+CS -> SW: sendFeedback("accepted")
+SW -> Remote: Logs feedback event (Gnar/Telemetry)
+
+== Authentication ==
+
+User -> SW: Clicks login from popup/UI
+SW -> SW: Initiates OAuth 2.0 flow
+SW -> Remote: POST /oauth2/authorize
+Remote --> SW: Returns auth code
+SW -> Remote: POST /oauth2/token (with PKCE)
+Remote --> SW: Returns access/refresh tokens
+SW -> Storage: Stores tokens in `chrome.storage.local` ("gr-oauth-key")
+
+== Configuration & Feature Gating ==
+
+SW -> SW: On startup
+SW -> Remote: GET page_config.json
+SW -> Remote: GET /passport (user entitlements)
+SW -> Remote: POST /gates/get (feature flags)
+Remote --> SW: Returns configs
+SW -> Storage: Caches configuration
+
+== Telemetry & Tracking ==
+
+group Comprehensive Event Tracking
+  CS -> SW: RPC call for tracking event
+  SW -> SW: Gnar client batches events
+  SW -> Remote: POST /logv2, /events-with-token, /femetrics
+  note left of SW
+    Tracks UI interactions, performance (latency),
+    feature usage, errors, A/B test exposure,
+    and detailed typing stats.
+    Fingerprints browser via UAParser.js.
+  end note
+end
+
+== Agent Platform (GenAI) ==
+
+User -> CS: Interacts with Cheetah/GenAI feature
+CS -> SW: sendMessage("agent-rpc", {prompt})
+SW -> SW: Dynamically loads agent module (e.g., Paraphraser)
+SW -> Remote: CAPI sends agent request
+Remote --> SW: Streams agent response
+SW --> CS: Forwards response to UI
+CS -> Page: Renders GenAI output
+
+@enduml

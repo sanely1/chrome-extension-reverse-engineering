@@ -1,0 +1,64 @@
+@startuml PayPal Honey Extension - Communication Flows
+
+skinparam monochrome false
+skinparam shading false
+skinparam ParticipantBackgroundColor #FFF2CC
+skinparam ParticipantBorderColor #D6B656
+skinparam ActorBackgroundColor #DAE8FC
+skinparam ActorBorderColor #6C8EBF
+
+actor User
+participant "E-Commerce Page\n(Isolated World)" as Page
+participant "Content Script\n(h1-check.js)" as Content
+participant "Popover UI\n(popover.html / h1-popover.js)" as Popover
+participant "Background Worker\n(h0.js)" as Background
+participant "Offscreen Doc\n(offscreen.html / h1-offscreen.js)" as Offscreen
+database "Storage\n(chrome.storage.local)" as Storage
+entity "Honey Telemetry\n(s.joinhoney.com)" as Telemetry
+entity "Recipe API\n(v.joinhoney.com)" as RecipeServer
+entity "PayPal Auth\n(paypal.com)" as PayPal
+
+' 1. Navigation and Supported Check Flow
+User -> Page : Navigates to shopping site
+Page -> Content : Executes on document_end
+Content -> Background : content->background (onMessage: check Supported Store)
+note right: Payload: { url: location.href, referrer: document.referrer }
+Background -> Storage : Check local cached merchant maps
+Background -> Content : background->content (Supported status & active recipes)
+
+' 2. Configuration & Standdown Rules Fetching
+Background -> Telemetry : GET standdown-rules.json & coiny-dash-config.json
+Telemetry --> Background : Rules schema, animation parameters
+
+' 3. Telemetry Event Reporting
+Content -> Background : content->background (Send Telemetry Event)
+note right: Action tracking, user activity payload
+Background -> Telemetry : POST /evs (with user identifiers, URL & referrer)
+Background -> Telemetry : POST /ev/${code} (Immediate event reporting)
+
+' 4. Popup & Authentication Flow
+User -> Popover : Clicks extension icon
+Popover -> Background : ui->background (Get user state & rewards details)
+Background -> Storage : Get cached user tokens and details
+Background --> Popover : User profile and PayPal gold status
+Popover -> PayPal : Sync PayPal rewards & accounts
+note right: Target: history.paypal.com/targeting/set-plugin
+
+' 5. Coupon Finder Automation Flow
+User -> Popover : Clicks "Apply Coupons"
+Popover -> Background : ui->background (Trigger Coupon Finder)
+Background -> RecipeServer : Fetch store recipes (VIM scripts) from v.joinhoney.com
+RecipeServer --> Background : Recipe JSON
+Background -> Content : Inject coupon automation scripts (using chrome.scripting or proxy)
+loop For each coupon code
+  Content -> Page : Inject code in checkout form
+  Content -> Page : Submit form & wait for AJAX update
+  Content -> Page : Parse discounted cart total
+end
+Content --> Background : Best coupon found with total savings
+Background -> Storage : Persist savings and applied code
+Background -> Telemetry : POST /pr (Report coupon success/failure and cart details)
+Background -> Content : background->content (Success UI notification)
+Content -> User : Displays "You saved $X!" popup
+
+@enduml

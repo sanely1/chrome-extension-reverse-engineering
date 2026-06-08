@@ -1,0 +1,2426 @@
+{
+  "metadata": {
+    "name": "Faircado - Second hand shopping",
+    "version": "3.8.12",
+    "manifest_version": 3,
+    "description": "We help you make the sustainable choice your go-to!",
+    "evidence": [
+      {
+        "file": "extension/manifest.json",
+        "start": 1,
+        "end": 41
+      },
+      {
+        "file": "extension/_locales/en/messages.json",
+        "start": 6,
+        "end": 6
+      }
+    ]
+  },
+  "permissions": {
+    "api_permissions": [
+      "contextMenus",
+      "activeTab",
+      "storage",
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://*/*"
+    ],
+    "optional_permissions": [],
+    "evidence": [
+      {
+        "file": "extension/manifest.json",
+        "start": 33,
+        "end": 33
+      }
+    ]
+  },
+  "components": {
+    "background": {
+      "files": [
+        "extension/background.js"
+      ],
+      "apis": [
+        "chrome.storage.local",
+        "chrome.tabs",
+        "chrome.runtime",
+        "chrome.contextMenus",
+        "chrome.action",
+        "browser.management"
+      ],
+      "listeners": [
+        "chrome.tabs.onActivated",
+        "chrome.tabs.onUpdated",
+        "chrome.action.onClicked",
+        "chrome.runtime.onMessage",
+        "chrome.contextMenus.onClicked",
+        "chrome.runtime.onInstalled",
+        "chrome.runtime.onStartup"
+      ],
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 1,
+          "end": 958
+        }
+      ]
+    },
+    "content_scripts": [
+      {
+        "files": [
+          "extension/content.js"
+        ],
+        "apis": [
+          "chrome.runtime.sendMessage",
+          "chrome.runtime.getURL",
+          "chrome.storage.local.get",
+          "chrome.storage.local.set"
+        ],
+        "listeners": [
+          "window.addEventListener(\"message\")",
+          "window.addEventListener(\"load\")",
+          "document.addEventListener(\"DOMContentLoaded\")",
+          "closeButton.addEventListener(\"click\")",
+          "document.onsecuritypolicyviolation",
+          "chrome.runtime.onMessage.addListener",
+          "ResizeObserver",
+          "MutationObserver"
+        ],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 7,
+            "end": 13
+          },
+          {
+            "file": "extension/content.js",
+            "start": 1,
+            "end": 12412
+          }
+        ]
+      }
+    ],
+    "injected_scripts": [
+      {
+        "files": [
+          "extension/navigation-events.js"
+        ],
+        "apis": [],
+        "listeners": [
+          "window.addEventListener(\"popstate\")"
+        ],
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 4848,
+            "end": 4855
+          },
+          {
+            "file": "extension/navigation-events.js",
+            "start": 1,
+            "end": 24
+          }
+        ]
+      }
+    ],
+    "ui": [
+      {
+        "files": [
+          "extension/popup.js"
+        ],
+        "apis": [],
+        "listeners": [],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 2,
+            "end": 3
+          },
+          {
+            "file": "extension/popup.js",
+            "start": 1,
+            "end": 37
+          }
+        ]
+      },
+      {
+        "files": [
+          "extension/data-control.js"
+        ],
+        "apis": [
+          "chrome.runtime.sendMessage",
+          "browser.management.uninstallSelf"
+        ],
+        "listeners": [
+          "document.getElementById(\"uninstallBtn\").addEventListener(\"click\")",
+          "document.getElementById(\"activateBtn\").addEventListener(\"click\")"
+        ],
+        "evidence": [
+          {
+            "file": "extension/data-control.js",
+            "start": 1,
+            "end": 317
+          }
+        ]
+      }
+    ],
+    "web_accessible_resources": [
+      "/save.html",
+      "/public/icons/*",
+      "/navigation-events.js"
+    ]
+  },
+  "network": {
+    "endpoints": [
+      {
+        "url": "https://catalog-service-api.faircado.com/api/v1/supported-website",
+        "purpose": "Check if website is supported",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Content-Type",
+          "X-Machine-Key"
+        ],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 247,
+            "end": 254
+          },
+          {
+            "file": "extension/content.js",
+            "start": 11956,
+            "end": 11956
+          }
+        ]
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/supported-websites/list",
+        "purpose": "Retrieve list of supported websites",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 291,
+            "end": 291
+          }
+        ]
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/is-product-page-heuristic?populate=regexpsUrl&populate=keyphrasesOnPage&populate=keyphrasesOnPage.keyphrases&populate=elementsOnPage&populate=elementsOnPage.regexps&populate=regexpsIsOnPage&populate=stopKeyphrasesOnPage&populate=stopKeyphrasesOnPage.keyphrases",
+        "purpose": "Retrieve product page heuristic data",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 199,
+            "end": 199
+          }
+        ]
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/extension-ab-tests/list",
+        "purpose": "Retrieve AB tests configuration",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 454,
+            "end": 454
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 163,
+            "end": 163
+          }
+        ]
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/extension-config",
+        "purpose": "Retrieve extension configuration",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 462,
+            "end": 462
+          }
+        ]
+      },
+      {
+        "url": "https://api.mixpanel.com/track",
+        "purpose": "Send tracking events to Mixpanel",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Content-Type"
+        ],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 389,
+            "end": 394
+          }
+        ]
+      },
+      {
+        "url": "https://api.mixpanel.com/engage#profile-batch-update",
+        "purpose": "Update user profile in Mixpanel",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Content-Type"
+        ],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 881,
+            "end": 886
+          }
+        ]
+      },
+      {
+        "url": "https://extension-v3-8.faircado.com/uninstall",
+        "purpose": "Set uninstall URL with tracking parameters",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 779,
+            "end": 782
+          }
+        ]
+      },
+      {
+        "url": "https://extension-v3-8.faircado.com",
+        "purpose": "Faircado web application (embedded iframe target)",
+        "methods": [],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 4595,
+            "end": 4595
+          }
+        ]
+      },
+      {
+        "url": "https://faircado.com/redirect-handler",
+        "purpose": "Redirect to Faircado catalogue with page data",
+        "methods": [],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 11877,
+            "end": 11879
+          }
+        ]
+      },
+      {
+        "url": "https://faircado.de/redirect-handler",
+        "purpose": "Redirect to Faircado catalogue with page data (German locale)",
+        "methods": [],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 11877,
+            "end": 11879
+          }
+        ]
+      },
+      {
+        "url": "https://faircado.com/after-extension-install-versioned?v=3-8",
+        "purpose": "Redirect after extension installation (versioned)",
+        "methods": [],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/data-control.js",
+            "start": 161,
+            "end": 161
+          }
+        ]
+      },
+      {
+        "url": "https://faircado.com/extension-to-website-onboarding",
+        "purpose": "Redirect for extension to website onboarding",
+        "methods": [],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/data-control.js",
+            "start": 162,
+            "end": 162
+          }
+        ]
+      },
+      {
+        "url": "https://amazon.de",
+        "purpose": "External product link from popup",
+        "methods": [],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/popup.js",
+            "start": 18,
+            "end": 18
+          }
+        ]
+      },
+      {
+        "url": "https://www.goodreads.com/book/show/55921837-die-mitternachtsbibliothek?from_search=true&from_srp=true&qid=UFFBR0mUQv&rank=1",
+        "purpose": "External book link from popup",
+        "methods": [],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/popup.js",
+            "start": 26,
+            "end": 26
+          }
+        ]
+      },
+      {
+        "url": "https://www.goodreads.com/book/show/142293.Harry_Potter_und_der_Stein_der_Weisen?from_search=true&from_srp=true&qid=gd7epdkEWP&rank=1",
+        "purpose": "External book link from popup",
+        "methods": [],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/popup.js",
+            "start": 34,
+            "end": 34
+          }
+        ]
+      }
+    ]
+  },
+  "messaging": {
+    "channels": [
+      {
+        "name": "InternalMessageTypes.ClearDataFromSessionStorage",
+        "direction": "ui->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 137,
+            "end": 137
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 106,
+            "end": 107
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.GetItemFromSessionStorage",
+        "direction": "ui->background",
+        "payload_schema": {
+          "key": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 140,
+            "end": 141
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 109,
+            "end": 110
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.RemoveItemFromSessionStorage",
+        "direction": "ui->background",
+        "payload_schema": {
+          "key": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 144,
+            "end": 145
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 113,
+            "end": 114
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.SetItemToSessionStorage",
+        "direction": "ui->background",
+        "payload_schema": {
+          "items": "object"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 148,
+            "end": 149
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 116,
+            "end": 117
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.GetMachineKey",
+        "direction": "ui->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 217,
+            "end": 217
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 130,
+            "end": 131
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.GetAbTestsConfig",
+        "direction": "ui->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 481,
+            "end": 481
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 223,
+            "end": 224
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.showExtension",
+        "direction": "background->content",
+        "payload_schema": {
+          "manualExtensionOpen": "boolean",
+          "machineKey": "string",
+          "imageUrl": "string",
+          "manualImageSearch": "boolean",
+          "info": "object"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 623,
+            "end": 625
+          },
+          {
+            "file": "extension/background.js",
+            "start": 766,
+            "end": 770
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.setAuth",
+        "direction": "background->content",
+        "payload_schema": {
+          "authKey": "string",
+          "authValue": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 808,
+            "end": 810
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.clearAuth",
+        "direction": "background->content",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 821,
+            "end": 821
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.init",
+        "direction": "background->ui",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 631,
+            "end": 631
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.login",
+        "direction": "background->ui",
+        "payload_schema": {
+          "authKey": "string",
+          "authValue": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 642,
+            "end": 644
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.logout",
+        "direction": "background->ui",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 648,
+            "end": 648
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.error",
+        "direction": "background->ui",
+        "payload_schema": {
+          "detail": "string",
+          "message": "string",
+          "url": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 654,
+            "end": 658
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.mixpanel",
+        "direction": "background->ui",
+        "payload_schema": {
+          "eventName": "string",
+          "payload": "object"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 665,
+            "end": 667
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.hasResult",
+        "direction": "background->ui",
+        "payload_schema": {
+          "isSnoozed": "boolean"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 673,
+            "end": 673
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.noResult",
+        "direction": "background->ui",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 684,
+            "end": 684
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.isSupportedWebsite",
+        "direction": "background->ui",
+        "payload_schema": {
+          "url": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 689,
+            "end": 689
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.GetHeuristicData",
+        "direction": "background->ui",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 717,
+            "end": 717
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.IsActivated",
+        "direction": "background->ui",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 723,
+            "end": 723
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.GetExtensionConfig",
+        "direction": "background->ui",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 731,
+            "end": 731
+          }
+        ]
+      },
+      {
+        "name": "postMessage (pushStateFaircado)",
+        "direction": "content->page",
+        "payload_schema": {
+          "source": "string",
+          "type": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/navigation-events.js",
+            "start": 11,
+            "end": 11
+          }
+        ]
+      },
+      {
+        "name": "postMessage (replaceStateFaircado)",
+        "direction": "content->page",
+        "payload_schema": {
+          "source": "string",
+          "type": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/navigation-events.js",
+            "start": 11,
+            "end": 11
+          }
+        ]
+      },
+      {
+        "name": "postMessage (popstateFaircado)",
+        "direction": "content->page",
+        "payload_schema": {
+          "source": "string",
+          "type": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/navigation-events.js",
+            "start": 11,
+            "end": 11
+          }
+        ]
+      },
+      {
+        "name": "postMessage (imgUrl, imgData)",
+        "direction": "content->page",
+        "payload_schema": {
+          "imgUrl": "string",
+          "imgData": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/save.js",
+            "start": 37,
+            "end": 42
+          }
+        ]
+      },
+      {
+        "name": "postMessage (imgUrl, imgData=null)",
+        "direction": "content->page",
+        "payload_schema": {
+          "imgUrl": "string",
+          "imgData": "null"
+        },
+        "evidence": [
+          {
+            "file": "extension/save.js",
+            "start": 44,
+            "end": 49
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.init",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 4630,
+            "end": 4630
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.IsActivated",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 4682,
+            "end": 4682
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.GetAbTestsConfig",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 4988,
+            "end": 4988
+          }
+        ]
+      },
+      {
+        "name": "InternalMessageTypes.GetExtensionConfig",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 5364,
+            "end": 5364
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.setAuth",
+        "direction": "content->web_app",
+        "payload_schema": {
+          "authKey": "string",
+          "authValue": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 4638,
+            "end": 4640
+          }
+        ]
+      },
+      {
+        "name": "postMessage (to popup iframe)",
+        "direction": "content->ui",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 4890,
+            "end": 4890
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.setDocumentBackgroundColor",
+        "direction": "content->background",
+        "payload_schema": {
+          "background": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 7530,
+            "end": 7531
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.initializeAppSettings",
+        "direction": "content->background",
+        "payload_schema": {
+          "userSettings": "object",
+          "featureFlags": "object",
+          "source": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 7534,
+            "end": 7535
+          }
+        ]
+      },
+      {
+        "name": "messageTypes.setFilter",
+        "direction": "content->background",
+        "payload_schema": {
+          "productUrl": "string",
+          "source": "string",
+          "pageData": "object"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 7549,
+            "end": 7552
+          }
+        ]
+      },
+      {
+        "name": "postMessage (to embedded iframe)",
+        "direction": "content->embedded_iframe",
+        "payload_schema": {
+          "type": "string",
+          "productUrl": "string",
+          "source": "string",
+          "pageData": "object"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 7438,
+            "end": 7442
+          }
+        ]
+      },
+      {
+        "name": "postMessage (to embedded iframe) setupEmbeddedAppMessages",
+        "direction": "content->embedded_iframe",
+        "payload_schema": {
+          "type": "string",
+          "background": "string",
+          "userSettings": "object",
+          "featureFlags": "object",
+          "source": "string",
+          "authKey": "string",
+          "authValue": "string",
+          "productUrl": "string",
+          "pageData": "object"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 7530,
+            "end": 7553
+          }
+        ]
+      },
+      {
+        "name": "chrome.runtime.sendMessage (external storage request)",
+        "direction": "content->background",
+        "payload_schema": {
+          "type": "string",
+          "key": "string",
+          "selfId": "string",
+          "area": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 12247,
+            "end": 12248
+          }
+        ]
+      },
+      {
+        "name": "chrome.runtime.sendMessage (webApp to background)",
+        "direction": "content->background",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 12367,
+            "end": 12368
+          }
+        ]
+      },
+      {
+        "name": "event.source?.postMessage",
+        "direction": "content->external_app",
+        "payload_schema": {
+          "data": "object",
+          "source": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 12236,
+            "end": 12239
+          }
+        ]
+      },
+      {
+        "name": "popupExtension",
+        "direction": "content->ui",
+        "payload_schema": {
+          "data": "object",
+          "productUrl": "string",
+          "isMetadataPopup": "boolean"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 12005,
+            "end": 12008
+          }
+        ]
+      },
+      {
+        "name": "sendMessageToWebApp (openOnFullMode)",
+        "direction": "content->web_app",
+        "payload_schema": {
+          "type": "string",
+          "data": "object"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 12351,
+            "end": 12354
+          }
+        ]
+      },
+      {
+        "name": "window.addEventListener(\"message\") (from web app)",
+        "direction": "web_app->content",
+        "payload_schema": {
+          "type": "string",
+          "extensionMode": "string",
+          "key": "string",
+          "value": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 12370,
+            "end": 12394
+          }
+        ]
+      },
+      {
+        "name": "chrome.runtime.onMessage.addListener (from background)",
+        "direction": "background->content",
+        "payload_schema": {
+          "type": "string",
+          "info": "object",
+          "manualExtensionOpen": "boolean"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 12327,
+            "end": 12355
+          }
+        ]
+      },
+      {
+        "name": "window.open (to catalogue)",
+        "direction": "content->new_tab",
+        "payload_schema": {
+          "pageData": "object"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 12330,
+            "end": 12334
+          }
+        ]
+      },
+      {
+        "name": "chrome.runtime.sendMessage (external storage response)",
+        "direction": "content->external_app",
+        "payload_schema": {
+          "selfId": "string",
+          "type": "string",
+          "storageData": "any"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 12257,
+            "end": 12258
+          }
+        ]
+      },
+      {
+        "name": "storage.setItem (from web app)",
+        "direction": "web_app->content",
+        "payload_schema": {
+          "key": "string",
+          "value": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 12385,
+            "end": 12392
+          }
+        ]
+      },
+      {
+        "name": "window.open (after activation)",
+        "direction": "ui->new_tab",
+        "payload_schema": {
+          "afterExtensionInstallUrl": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/data-control.js",
+            "start": 315,
+            "end": 315
+          }
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "keys": [
+      {
+        "key": "AUTH_KEY",
+        "type": "local",
+        "purpose": "Authentication token",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 43,
+            "end": 43
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 4,
+            "end": 4
+          }
+        ]
+      },
+      {
+        "key": "AUTH_VALUE",
+        "type": "local",
+        "purpose": "Authentication token",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 44,
+            "end": 44
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 5,
+            "end": 5
+          }
+        ]
+      },
+      {
+        "key": "MACHINE_KEY",
+        "type": "local",
+        "purpose": "Unique machine identifier",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 45,
+            "end": 45
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 6,
+            "end": 6
+          }
+        ]
+      },
+      {
+        "key": "SUPPORTED_WEBSITES_DATA",
+        "type": "local",
+        "purpose": "Cached supported websites data",
+        "retention": "cached_data",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 46,
+            "end": 46
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 7,
+            "end": 7
+          }
+        ]
+      },
+      {
+        "key": "IS_PRODUCT_PAGE_HEURISTICS_DATA",
+        "type": "local",
+        "purpose": "Cached product page heuristics data",
+        "retention": "cached_data",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 47,
+            "end": 47
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 8,
+            "end": 8
+          }
+        ]
+      },
+      {
+        "key": "AB_TESTS_CACHED_CONFIG",
+        "type": "local",
+        "purpose": "Cached AB tests configuration",
+        "retention": "cached_data",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 49,
+            "end": 49
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 10,
+            "end": 10
+          }
+        ]
+      },
+      {
+        "key": "EXTENSION_CACHED_CONFIG",
+        "type": "local",
+        "purpose": "Cached extension configuration",
+        "retention": "cached_data",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 51,
+            "end": 51
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 12,
+            "end": 12
+          }
+        ]
+      },
+      {
+        "key": "AB_TEST_VARIANT_RECORDS",
+        "type": "local",
+        "purpose": "Assigned AB test variant records",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 53,
+            "end": 53
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 14,
+            "end": 14
+          }
+        ]
+      },
+      {
+        "key": "ACTIVATED",
+        "type": "local",
+        "purpose": "User activation status",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 55,
+            "end": 55
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 16,
+            "end": 16
+          }
+        ]
+      },
+      {
+        "key": "USER_SETTINGS",
+        "type": "local",
+        "purpose": "User settings",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 56,
+            "end": 56
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 17,
+            "end": 17
+          }
+        ]
+      },
+      {
+        "key": "FAIRCADO_EXT_SETTINGS",
+        "type": "local",
+        "purpose": "Extension settings (drag position, fold status)",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 11575,
+            "end": 11575
+          }
+        ]
+      },
+      {
+        "key": "redirectionKey (dynamic)",
+        "type": "local",
+        "purpose": "Temporary data for catalogue redirection",
+        "retention": "unknown",
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 11874,
+            "end": 11874
+          }
+        ]
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "name": "Extension Activation / Installation",
+      "triggers": [
+        "Extension installed (chrome.runtime.onInstalled)",
+        "User clicks \"Activate\" button on data-control.html"
+      ],
+      "steps": [
+        "On install or \"Activate\" click: `getMachineKey()` is called to retrieve or generate a unique machine ID.",
+        "Machine key is stored in `localStorage` or `chrome.storage.sync`.",
+        "`localStorage.setItem(STORAGE_KEY.ACTIVATED, \"1\")` marks the extension as activated.",
+        "`runAfterExtensionInstall` is called (on install).",
+        "`trackEvent` sends `extension_installed_background` to Mixpanel.",
+        "`openTabAfterExtensionInstall` opens a new tab.",
+        "If Firefox, opens `data-control.html`.",
+        "Otherwise, opens `AFTER_EXTENSION_INSTALL_URL` or `AFTER_EXTENSION_INSTALL_URL_EXTENSION_TO_WEBSITE` (Faircado website) with `machineKey` as a query parameter."
+      ],
+      "apis": [
+        "chrome.runtime.onInstalled.addListener",
+        "chrome.runtime.sendMessage",
+        "chrome.tabs.create",
+        "localStorage.getItem",
+        "localStorage.setItem",
+        "chrome.storage.sync.getItem",
+        "chrome.storage.sync.setItem",
+        "crypto.getRandomValues",
+        "browser.management.uninstallSelf"
+      ],
+      "messages": [
+        "InternalMessageTypes.GetMachineKey"
+      ],
+      "endpoints": [
+        "https://api.mixpanel.com/track",
+        "https://faircado.com/after-extension-install-versioned",
+        "https://faircado.com/extension-to-website-onboarding"
+      ],
+      "storage_keys": [
+        "machineKey",
+        "activated"
+      ],
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 776,
+          "end": 799
+        },
+        {
+          "file": "extension/background.js",
+          "start": 563,
+          "end": 574
+        },
+        {
+          "file": "extension/background.js",
+          "start": 212,
+          "end": 238
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 311,
+          "end": 316
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 127,
+          "end": 152
+        }
+      ]
+    },
+    {
+      "name": "User Login/Logout (via Background Script)",
+      "triggers": [
+        "messageTypes.login or messageTypes.logout received by background script"
+      ],
+      "steps": [
+        "Background script receives `login` message with `authKey` and `authValue`.",
+        "`storeAuthData` saves `authKey` and `authValue` to `localStorage` or `chrome.storage.sync`.",
+        "`distributeAuthData` sends `setAuth` message to all content scripts.",
+        "Background script receives `logout` message.",
+        "`clearAuthData` removes `authKey` and `authValue` from storage.",
+        "`distributeLogout` sends `clearAuth` message to all content scripts."
+      ],
+      "apis": [
+        "chrome.runtime.onMessage.addListener",
+        "chrome.tabs.query",
+        "chrome.tabs.sendMessage",
+        "localStorage.setItem",
+        "localStorage.removeItem",
+        "chrome.storage.sync.setItem",
+        "chrome.storage.sync.removeItem"
+      ],
+      "messages": [
+        "messageTypes.login",
+        "messageTypes.logout",
+        "messageTypes.setAuth",
+        "messageTypes.clearAuth"
+      ],
+      "endpoints": [],
+      "storage_keys": [
+        "authKey",
+        "authValue"
+      ],
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 629,
+          "end": 650
+        },
+        {
+          "file": "extension/background.js",
+          "start": 830,
+          "end": 840
+        },
+        {
+          "file": "extension/background.js",
+          "start": 864,
+          "end": 871
+        },
+        {
+          "file": "extension/background.js",
+          "start": 803,
+          "end": 814
+        },
+        {
+          "file": "extension/background.js",
+          "start": 816,
+          "end": 825
+        }
+      ]
+    },
+    {
+      "name": "Content Script - Embedded View Injection",
+      "triggers": [
+        "Page load on a supported host (Google, Amazon, Ecosia)",
+        "`checkSupportAndDisplay()` call"
+      ],
+      "steps": [
+        "`checkSupportAndDisplay` determines if embedded view should be injected based on host, AB tests, and element availability.",
+        "`getAuthDataFromStorage` fetches auth data from background.",
+        "`getEmbeddedHostData` fetches page-specific data (query, image) using selectors/metadata.",
+        "`getInitialAppData` retrieves user settings and feature flags.",
+        "`getAssignedAbTestVariants` fetches AB test variants.",
+        "An iframe is created (`createIframe`) with `WEB_APP_ADDRESS` as its `src`, including `machineKey`, `extensionVersion`, `interactionOrigin`, and `abTestVariantRecords` as URL parameters. Clipboard permissions are granted.",
+        "The iframe is injected into the appropriate location on the page (`injectEmbeddedViewInGoogle`, `injectEmbeddedViewInAmazon`, `injectEmbeddedViewInEcosia`).",
+        "Messages are set up to be sent to the embedded app (`setupEmbeddedAppMessages`, `sendMessageToEmbeddedApp`), including `setDocumentBackgroundColor`, `initializeAppSettings`, `setAuth`/`clearAuth`, and `setFilter` (with `productUrl` and `pageData`)."
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "chrome.runtime.getURL",
+        "chrome.storage.local.get",
+        "window.postMessage",
+        "document.createElement",
+        "document.getElementById",
+        "document.querySelector",
+        "classList.add",
+        "classList.remove",
+        "style.*",
+        "setAttribute",
+        "appendChild",
+        "prepend",
+        "getComputedStyle",
+        "navigator.userAgent",
+        "URLSearchParams"
+      ],
+      "messages": [
+        "InternalMessageTypes.GetMachineKey",
+        "InternalMessageTypes.GetAbTestsConfig",
+        "messageTypes.initializeAppSettings",
+        "messageTypes.setAuth",
+        "messageTypes.clearAuth",
+        "messageTypes.setDocumentBackgroundColor",
+        "messageTypes.setFilter"
+      ],
+      "endpoints": [
+        "https://extension-v3-8.faircado.com"
+      ],
+      "storage_keys": [
+        "userSettings",
+        "abTestVariantRecords"
+      ],
+      "evidence": [
+        {
+          "file": "extension/content.js",
+          "start": 7425,
+          "end": 7465
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7348,
+          "end": 7372
+        },
+        {
+          "file": "extension/content.js",
+          "start": 5099,
+          "end": 5113
+        },
+        {
+          "file": "extension/content.js",
+          "start": 5214,
+          "end": 5240
+        },
+        {
+          "file": "extension/content.js",
+          "start": 5301,
+          "end": 5314
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7520,
+          "end": 7554
+        }
+      ]
+    },
+    {
+      "name": "Content Script - Catalogue Redirection",
+      "triggers": [
+        "Product page detected",
+        "User clicks on injected \"Faircado Redirector\" element"
+      ],
+      "steps": [
+        "`isProductPage()` uses heuristics (URL regexps, keyphrases, elements on page) and metadata (schema.org, Open Graph) to detect product pages.",
+        "If a product page is detected and embedded mode is not used, the \"Faircado Redirector\" div is injected into `document.body` (`injectCatalogueRedirector`).",
+        "On click: `handleRedirectToCatalogue` is called.",
+        "A `redirectionKey` (UUID) is generated.",
+        "`getCatalogueAddress()` determines `faircado.com` or `faircado.de` based on user language.",
+        "`pageData` (extracted product info) and `machineKey` are stored in `sessionStorage` under `redirectionKey`.",
+        "`trackExperimentWebSiteExtensionAction` sends `click` event to Mixpanel.",
+        "`window.open` redirects to `${catalogueAddress}/redirect-handler?redirectionId=${redirectionKey}`."
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "localStorage.getItem",
+        "chrome.storage.sync.getItem",
+        "sessionStorage.setItem",
+        "window.open",
+        "document.createElement",
+        "document.getElementById",
+        "document.querySelectorAll",
+        "document.querySelector",
+        "document.body.appendChild",
+        "addEventListener",
+        "classList.add",
+        "classList.remove",
+        "window.location.href",
+        "window.location.pathname",
+        "navigator.language",
+        "crypto.getRandomValues"
+      ],
+      "messages": [
+        "InternalMessageTypes.GetHeuristicData",
+        "messageTypes.mixpanel"
+      ],
+      "endpoints": [
+        "https://faircado.com/redirect-handler",
+        "https://faircado.de/redirect-handler",
+        "https://api.mixpanel.com/track",
+        "https://cms-api.faircado.com/api/is-product-page-heuristic"
+      ],
+      "storage_keys": [
+        "redirectionKey (dynamic)",
+        "machineKey",
+        "userSettings"
+      ],
+      "evidence": [
+        {
+          "file": "extension/content.js",
+          "start": 11934,
+          "end": 11965
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11857,
+          "end": 11881
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11141,
+          "end": 11320
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11904,
+          "end": 11933
+        }
+      ]
+    },
+    {
+      "name": "Handling Content Security Policy (CSP) Violations",
+      "triggers": [
+        "A CSP violation related to `WEB_APP_ADDRESS` occurs"
+      ],
+      "steps": [
+        "`document.onsecuritypolicyviolation` listener catches the event.",
+        "If the `blockedURI` includes `WEB_APP_ADDRESS`, `removeEmbeddedIframeWrapper()` is called to remove the embedded UI.",
+        "`injectIframeBlockedMessage()` injects a user-facing message into the popup wrapper, informing the user about the blocked iframe and suggesting a different browser."
+      ],
+      "apis": [
+        "document.onsecuritypolicyviolation",
+        "document.createElement",
+        "document.getElementById",
+        "classList.add",
+        "textContent",
+        "appendChild",
+        "prepend",
+        "chrome.runtime.getURL"
+      ],
+      "messages": [],
+      "endpoints": [],
+      "storage_keys": [],
+      "evidence": [
+        {
+          "file": "extension/content.js",
+          "start": 12111,
+          "end": 12119
+        },
+        {
+          "file": "extension/content.js",
+          "start": 12088,
+          "end": 12108
+        }
+      ]
+    },
+    {
+      "name": "External App Storage Access",
+      "triggers": [
+        "window.postMessage from an external app with `type: externalMessageTypes.getFromExtensionStorage`"
+      ],
+      "steps": [
+        "`listenForMessagesFromExternalApps` on the content script receives the message.",
+        "Validates `key`, `selfId`, and `area`.",
+        "Retrieves data from `chrome.storage.local`, `sync`, or `session` using `storagesMap[storageArea].getItem(event.data.key)`.",
+        "Sends a response back to the original `event.source` using `postMessage` with `externalMessageTypes.getFromExtensionStorageResponse` and the retrieved `storageData`.",
+        "If `shouldRemoveAfterReading` is true, removes the item from storage."
+      ],
+      "apis": [
+        "window.addEventListener(\"message\")",
+        "window.postMessage",
+        "chrome.storage.local.getItem",
+        "chrome.storage.local.removeItem",
+        "chrome.storage.sync.getItem",
+        "chrome.storage.sync.removeItem",
+        "chrome.storage.session.getItem",
+        "chrome.storage.session.removeItem"
+      ],
+      "messages": [
+        "externalMessageTypes.getFromExtensionStorage",
+        "externalMessageTypes.getFromExtensionStorageResponse"
+      ],
+      "endpoints": [],
+      "storage_keys": [
+        "key (dynamic)"
+      ],
+      "evidence": [
+        {
+          "file": "extension/content.js",
+          "start": 12234,
+          "end": 12270
+        }
+      ]
+    },
+    {
+      "name": "Dynamic Image Search (from Context Menu)",
+      "triggers": [
+        "User right-clicks an image and selects \"Search this image on faircado\""
+      ],
+      "steps": [
+        "`chrome.contextMenus.onClicked.addListener` in background script is triggered.",
+        "If `menuItemId` is `MediaTypes.SearchImage`, `getAuthData()` is called.",
+        "`chrome.tabs.sendMessage` sends `messageTypes.showExtension` to the content script, including `imageUrl` (from `info.srcUrl`) and `manualImageSearch`.",
+        "Content script's `listenForMessagesFromBackground` receives the message.",
+        "If `isExtensionToWebsiteTestEnabled()`, `getImageBaseDataByIframe` is called with `request.info.srcUrl` to get image data.",
+        "`handleRedirectToCatalogue` is called with `pageData: { image: image }`.",
+        "`trackExperimentWebSiteExtensionAction(\"image_search\")` is sent to Mixpanel.",
+        "Otherwise, `checkSupportAndDisplay(true, request.info)` is called, and `sendMessageToWebApp` sends `messageTypes.openOnFullMode` to the web app with `data` including `query` (from page title or `GLOBAL_STATE.pageMetadata`)."
+      ],
+      "apis": [
+        "chrome.contextMenus.onClicked.addListener",
+        "chrome.tabs.sendMessage",
+        "chrome.runtime.sendMessage",
+        "document.getElementsByTagName",
+        "localStorage.getItem",
+        "chrome.storage.sync.getItem"
+      ],
+      "messages": [
+        "messageTypes.showExtension",
+        "messageTypes.openOnFullMode",
+        "messageTypes.mixpanel"
+      ],
+      "endpoints": [
+        "https://faircado.com/redirect-handler",
+        "https://api.mixpanel.com/track"
+      ],
+      "storage_keys": [
+        "authKey",
+        "authValue",
+        "machineKey"
+      ],
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 758,
+          "end": 775
+        },
+        {
+          "file": "extension/background.js",
+          "start": 621,
+          "end": 627
+        },
+        {
+          "file": "extension/content.js",
+          "start": 12325,
+          "end": 12355
+        }
+      ]
+    }
+  ],
+  "privacy": {
+    "data_categories": [
+      "user_credentials",
+      "browsing_history",
+      "unique_identifiers",
+      "user_preferences_settings",
+      "analytics_telemetry",
+      "page_content_metadata",
+      "ab_test_information",
+      "browser_os_information"
+    ],
+    "purposes": [
+      "authentication",
+      "personalization",
+      "analytics",
+      "advertising_monetization",
+      "feature_functionality"
+    ],
+    "minimization": "Collects more data than necessary for stated purpose. The extension collects a significant amount of data, particularly browsing history (URLs, extracted page content) and unique identifiers (`machineKey`). This might exceed the minimal necessary data for stated features, especially considering the extensive redirection and detailed page data extraction.",
+    "consent": "No explicit, granular consent mechanism observed for all data collection practices, especially for browsing history and page content exfiltration. The `data-control.html` page provides some consent for \"data control\" but its scope is unclear regarding pervasive tracking.",
+    "retention": "Indefinite storage for persistent data types (auth, machine key, settings, cached config). No clear retention policy for collected browsing data (implicitly kept indefinitely if associated with machineKey and sent to backend).",
+    "third_parties": [
+      {
+        "name": "Mixpanel",
+        "purpose": "Analytics, event tracking, user profile management",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 375,
+            "end": 398
+          },
+          {
+            "file": "extension/background.js",
+            "start": 872,
+            "end": 897
+          }
+        ]
+      },
+      {
+        "name": "Faircado Web Application",
+        "purpose": "Hosts the embedded UI and interacts with the content script for data exchange",
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 4595,
+            "end": 4595
+          },
+          {
+            "file": "extension/content.js",
+            "start": 7357,
+            "end": 7363
+          }
+        ]
+      },
+      {
+        "name": "Faircado Catalogue",
+        "purpose": "The target for redirection, receiving extensive page data and tracking parameters",
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 11877,
+            "end": 11879
+          }
+        ]
+      },
+      {
+        "name": "CMS API",
+        "purpose": "Provides AB test configurations, product page heuristics, and extension configurations",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 199,
+            "end": 199
+          },
+          {
+            "file": "extension/background.js",
+            "start": 454,
+            "end": 454
+          },
+          {
+            "file": "extension/background.js",
+            "start": 462,
+            "end": 462
+          }
+        ]
+      },
+      {
+        "name": "Catalog Service API",
+        "purpose": "Checks if websites are supported",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 247,
+            "end": 254
+          }
+        ]
+      },
+      {
+        "name": "Goodreads.com",
+        "purpose": "External links from popup UI",
+        "evidence": [
+          {
+            "file": "extension/popup.js",
+            "start": 26,
+            "end": 26
+          },
+          {
+            "file": "extension/popup.js",
+            "start": 34,
+            "end": 34
+          }
+        ]
+      },
+      {
+        "name": "Amazon.de",
+        "purpose": "External product link from popup",
+        "evidence": [
+          {
+            "file": "extension/popup.js",
+            "start": 18,
+            "end": 18
+          }
+        ]
+      }
+    ],
+    "policy_compliance": "Potential GDPR/CCPA Concerns: The extensive tracking of browsing behavior (URLs, page content, events) and unique identifiers (`machineKey`), coupled with unclear granular consent mechanisms and potentially indefinite data retention, raises significant concerns regarding compliance with data privacy regulations like GDPR and CCPA. Chrome Web Store Developer Program Policies: The level of detail observed in the code regarding tracking and data exfiltration might not be adequately communicated to the user. If the extent of background tracking and data sharing is not transparent, it could be seen as misleading. The dynamic loading of content into iframes and the `window.postMessage` with a wildcard origin could potentially be misused if the web app or communication channel is compromised.",
+    "evidence": [
+      {
+        "file": "extension/background.js",
+        "start": 375,
+        "end": 398
+      },
+      {
+        "file": "extension/background.js",
+        "start": 776,
+        "end": 799
+      },
+      {
+        "file": "extension/data-control.js",
+        "start": 315,
+        "end": 315
+      },
+      {
+        "file": "extension/data-control.js",
+        "start": 294,
+        "end": 302
+      },
+      {
+        "file": "extension/content.js",
+        "start": 11863,
+        "end": 11872
+      },
+      {
+        "file": "extension/content.js",
+        "start": 11901,
+        "end": 11902
+      },
+      {
+        "file": "extension/content.js",
+        "start": 7357,
+        "end": 7363
+      },
+      {
+        "file": "extension/background.js",
+        "start": 872,
+        "end": 897
+      },
+      {
+        "file": "extension/data-control.js",
+        "start": 301,
+        "end": 301
+      },
+      {
+        "file": "extension/content.js",
+        "start": 7539,
+        "end": 7541
+      },
+      {
+        "file": "extension/content.js",
+        "start": 11874,
+        "end": 11876
+      },
+      {
+        "file": "extension/content.js",
+        "start": 4848,
+        "end": 4855
+      },
+      {
+        "file": "extension/content.js",
+        "start": 7369,
+        "end": 7369
+      },
+      {
+        "file": "extension/content.js",
+        "start": 4890,
+        "end": 4890
+      },
+      {
+        "file": "extension/content.js",
+        "start": 7437,
+        "end": 7442
+      },
+      {
+        "file": "extension/content.js",
+        "start": 7555,
+        "end": 7557
+      },
+      {
+        "file": "extension/content.js",
+        "start": 11904,
+        "end": 11930
+      },
+      {
+        "file": "extension/content.js",
+        "start": 12088,
+        "end": 12107
+      },
+      {
+        "file": "extension/save.js",
+        "start": 60,
+        "end": 60
+      },
+      {
+        "file": "extension/save.js",
+        "start": 21,
+        "end": 21
+      },
+      {
+        "file": "extension/background.js",
+        "start": 221,
+        "end": 224
+      },
+      {
+        "file": "extension/background.js",
+        "start": 409,
+        "end": 409
+      },
+      {
+        "file": "extension/background.js",
+        "start": 831,
+        "end": 833
+      },
+      {
+        "file": "extension/background.js",
+        "start": 846,
+        "end": 847
+      },
+      {
+        "file": "extension/background.js",
+        "start": 866,
+        "end": 867
+      },
+      {
+        "file": "extension/background.js",
+        "start": 228,
+        "end": 231
+      },
+      {
+        "file": "extension/background.js",
+        "start": 835,
+        "end": 838
+      },
+      {
+        "file": "extension/background.js",
+        "start": 853,
+        "end": 856
+      },
+      {
+        "file": "extension/background.js",
+        "start": 869,
+        "end": 870
+      },
+      {
+        "file": "extension/content.js",
+        "start": 12383,
+        "end": 12393
+      },
+      {
+        "file": "extension/manifest.json",
+        "start": 33,
+        "end": 33
+      },
+      {
+        "file": "extension/manifest.json",
+        "start": 11,
+        "end": 11
+      }
+    ]
+  },
+  "risks": [
+    {
+      "type": "tracking",
+      "severity": "high",
+      "justification": "Extension extensively tracks user browsing activity (URLs, page content, clicks, installs, updates) and associates it with a `machineKey`. This data is sent to Mixpanel and Faircado's catalogue, enabling a detailed profile of user behavior across various websites.",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 375,
+          "end": 398
+        },
+        {
+          "file": "extension/background.js",
+          "start": 776,
+          "end": 799
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 315,
+          "end": 315
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 294,
+          "end": 302
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11863,
+          "end": 11872
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11901,
+          "end": 11901
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11902,
+          "end": 11902
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7357,
+          "end": 7363
+        }
+      ]
+    },
+    {
+      "type": "pii_exfiltration",
+      "severity": "high",
+      "justification": "Sensitive data, including `authKey`, `authValue`, `machineKey`, and `pageData` (extracted product information like query, image URL, brand, color), is either stored persistently or transmitted to Faircado's backend services (Mixpanel, catalogue) or embedded web app. `pageData` from a product page can be highly personal if the user is browsing specific health products, financial items, or other sensitive categories.",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 872,
+          "end": 897
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 301,
+          "end": 301
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7539,
+          "end": 7541
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11863,
+          "end": 11872
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11874,
+          "end": 11876
+        }
+      ]
+    },
+    {
+      "type": "remote_code",
+      "severity": "medium",
+      "justification": "1. **Dynamic Script Injection**: `extension/navigation-events.js` is dynamically injected into pages by `content.js`. While `chrome.runtime.getURL` restricts the source, dynamic injection is a vector if the injected script's content could be tampered with.\n2. **Embedded Web App Interaction**: The embedded iframe interacts with the content script via `window.postMessage` using a wildcard origin (`*`). If the embedded web app is compromised, it could send malicious messages to the content script.\n3. **Clipboard Access**: The embedded iframe is granted `clipboard-read; clipboard-write` permissions. A compromised web app could read/write user's clipboard.\n4. **Catalogue Redirector Injection**: `injectCatalogueRedirector` (in `content.js`) dynamically builds and injects HTML into `document.body`. If extracted `pageData.query` (from the visited page) or `TRANSLATIONS` could contain malicious HTML/script, this could lead to Cross-Site Scripting (XSS).\n5. **CSP Violation Handling**: `injectIframeBlockedMessage` also dynamically injects HTML into the DOM. While its content is static, it's a DOM manipulation point.\n6. **Dynamic Image Loading**: `extension/save.js` loads images from a URL provided via `postMessage`. Without strict origin validation, a malicious page could trigger loading of malicious images.",
+      "evidence": [
+        {
+          "file": "extension/content.js",
+          "start": 4848,
+          "end": 4855
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7369,
+          "end": 7369
+        },
+        {
+          "file": "extension/content.js",
+          "start": 4890,
+          "end": 4890
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7437,
+          "end": 7442
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7555,
+          "end": 7557
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11904,
+          "end": 11930
+        },
+        {
+          "file": "extension/content.js",
+          "start": 12088,
+          "end": 12107
+        },
+        {
+          "file": "extension/save.js",
+          "start": 60,
+          "end": 60
+        },
+        {
+          "file": "extension/save.js",
+          "start": 21,
+          "end": 21
+        }
+      ]
+    },
+    {
+      "type": "insecure_storage",
+      "severity": "medium",
+      "justification": "`authKey`, `authValue`, and `machineKey` are stored in `localStorage` or `chrome.storage.sync` without explicit encryption. While `chrome.storage` is generally more secure than plain `localStorage` for extensions, sensitive data should ideally be encrypted, especially if the `authValue` is directly an authentication token. Additionally, dynamic parsing and merging of data into local storage from potentially untrusted messages (via `setToExtensionStorage`) and temporary storage in `sessionStorage` for redirection data pose risks.",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 221,
+          "end": 224
+        },
+        {
+          "file": "extension/background.js",
+          "start": 409,
+          "end": 409
+        },
+        {
+          "file": "extension/background.js",
+          "start": 831,
+          "end": 833
+        },
+        {
+          "file": "extension/background.js",
+          "start": 846,
+          "end": 847
+        },
+        {
+          "file": "extension/background.js",
+          "start": 866,
+          "end": 867
+        },
+        {
+          "file": "extension/background.js",
+          "start": 228,
+          "end": 231
+        },
+        {
+          "file": "extension/background.js",
+          "start": 835,
+          "end": 838
+        },
+        {
+          "file": "extension/background.js",
+          "start": 853,
+          "end": 856
+        },
+        {
+          "file": "extension/background.js",
+          "start": 869,
+          "end": 870
+        },
+        {
+          "file": "extension/content.js",
+          "start": 12383,
+          "end": 12393
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11874,
+          "end": 11876
+        }
+      ]
+    },
+    {
+      "type": "excessive_permissions",
+      "severity": "medium",
+      "justification": "The extension requests `activeTab`, `contextMenus`, `storage`, and `tabs`. The combined capabilities (content script on `<all_urls>`, reading sensitive page content, dynamic injections, extensive communication channels, clipboard access for iframe) grant significant control over the user's browsing environment and data, potentially beyond what is strictly necessary for the stated features.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 33,
+          "end": 33
+        },
+        {
+          "file": "extension/manifest.json",
+          "start": 11,
+          "end": 11
+        }
+      ]
+    },
+    {
+      "type": "policy_violation",
+      "severity": "high",
+      "justification": "The aggressive tracking, data exfiltration, and dynamic content injection practices, especially if not transparently communicated and explicitly consented to, likely violate Chrome Web Store Developer Program Policies regarding user data privacy, transparency, and acceptable use of permissions. The redirection on install/activate and uninstall with tracking parameters also falls under this.",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 375,
+          "end": 398
+        },
+        {
+          "file": "extension/background.js",
+          "start": 776,
+          "end": 799
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 315,
+          "end": 315
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 294,
+          "end": 302
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11863,
+          "end": 11872
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11901,
+          "end": 11902
+        },
+        {
+          "file": "extension/background.js",
+          "start": 872,
+          "end": 897
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 301,
+          "end": 301
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7539,
+          "end": 7541
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11874,
+          "end": 11876
+        },
+        {
+          "file": "extension/content.js",
+          "start": 4848,
+          "end": 4855
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7369,
+          "end": 7369
+        },
+        {
+          "file": "extension/content.js",
+          "start": 4890,
+          "end": 4890
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7437,
+          "end": 7442
+        },
+        {
+          "file": "extension/content.js",
+          "start": 7555,
+          "end": 7557
+        },
+        {
+          "file": "extension/content.js",
+          "start": 11904,
+          "end": 11930
+        },
+        {
+          "file": "extension/content.js",
+          "start": 12088,
+          "end": 12107
+        },
+        {
+          "file": "extension/save.js",
+          "start": 60,
+          "end": 60
+        },
+        {
+          "file": "extension/save.js",
+          "start": 21,
+          "end": 21
+        }
+      ]
+    }
+  ],
+  "code_signals": {
+    "chrome_api_calls": [
+      "chrome.tabs.create",
+      "chrome.tabs.onActivated.addListener",
+      "chrome.tabs.onUpdated.addListener",
+      "chrome.action.onClicked.addListener",
+      "chrome.tabs.sendMessage",
+      "chrome.runtime.onMessage.addListener",
+      "chrome.runtime.getURL",
+      "chrome.contextMenus.onClicked.addListener",
+      "chrome.contextMenus.create",
+      "chrome.runtime.onInstalled.addListener",
+      "chrome.runtime.setUninstallURL",
+      "chrome.runtime.onStartup.addListener",
+      "chrome.tabs.query",
+      "chrome.action.setPopup",
+      "chrome.action.setIcon",
+      "chrome.storage.local.get",
+      "chrome.storage.local.set",
+      "chrome.storage.local.remove",
+      "chrome.storage.local.clear",
+      "chrome.storage.sync.get",
+      "chrome.storage.sync.set",
+      "chrome.storage.sync.remove",
+      "chrome.storage.session.get",
+      "chrome.storage.session.set",
+      "chrome.storage.session.remove",
+      "chrome.storage.session.clear",
+      "browser.management.uninstallSelf"
+    ],
+    "event_listeners": [
+      "chrome.tabs.onActivated.addListener",
+      "chrome.tabs.onUpdated.addListener",
+      "chrome.action.onClicked.addListener",
+      "chrome.runtime.onMessage.addListener",
+      "chrome.contextMenus.onClicked.addListener",
+      "chrome.runtime.onInstalled.addListener",
+      "chrome.runtime.onStartup.addListener",
+      "window.addEventListener(\"popstate\")",
+      "window.addEventListener(\"message\")",
+      "image.onload",
+      "image.onerror",
+      "script.onload",
+      "document.addEventListener(\"DOMContentLoaded\")",
+      "ResizeObserver",
+      "MutationObserver",
+      "document.getElementById(\"uninstallBtn\").addEventListener(\"click\")",
+      "document.getElementById(\"activateBtn\").addEventListener(\"click\")",
+      "box.addEventListener(\"click\")",
+      "window.addEventListener(\"load\")",
+      "closeButton.addEventListener(\"click\")",
+      "document.onsecuritypolicyviolation"
+    ],
+    "dynamic_code": [
+      "JSON.parse",
+      "JSON.stringify",
+      "crypto.getRandomValues",
+      "RegExp",
+      "Function"
+    ],
+    "wasm_modules": [],
+    "third_party_libs": [
+      "setvalue",
+      "htmlmetaparser",
+      "lodash-es",
+      "htmlparser2",
+      "entities"
+    ]
+  }
+}

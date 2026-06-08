@@ -1,0 +1,23 @@
+channel_name,direction,payload_keys,file,line_start,line_end
+postMessage,content->background,"{
+type: ""ccall""",extension/src/js/Grammarly-bg.js,2,2
+runtime.sendMessage,content->background,e,extension/src/js/Grammarly-bg.js,2,2
+content: n",extension/src/js/Grammarly-bg.js,2,2
+type: bl.IsReady
+}",extension/src/js/Grammarly-bg.js,2,2
+tabs.sendMessage,content->background,e,extension/src/js/Grammarly-bg.js,2,2
+name: ""loginHint""",extension/src/js/Grammarly-check.js,2,2
+type: e",extension/src/js/Grammarly-check.js,2,2
+content: t",extension/src/js/Grammarly-check.js,2,2
+type: e",extension/src/js/Grammarly.js,2,2
+content: t",extension/src/js/Grammarly.js,2,2
+type: e",extension/src/js/Grammarly-gDocs.js,2,2
+content: t",extension/src/js/Grammarly-gDocs.js,2,2
+type: ""cs-to-bg-rpc-1557421403805""",extension/src/js/Grammarly-gDocsEarlyInjector.js,1,1
+type: e",extension/src/js/Grammarly-gDocsIframeCs.js,2,2
+content: t",extension/src/js/Grammarly-gDocsIframeCs.js,2,2
+type: e",extension/src/js/Grammarly-popup.js,2,2
+content: t",extension/src/js/Grammarly-popup.js,2,2
+type: e",extension/src/js/Grammarly-sidePanel.js,2,2
+content: t",extension/src/js/Grammarly-sidePanel.js,2,2
+language: l.language",extension/src/js/Grammarly-sidePanel.js,2,2

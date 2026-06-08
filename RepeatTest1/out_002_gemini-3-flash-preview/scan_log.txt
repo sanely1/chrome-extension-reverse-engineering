@@ -1,0 +1,40 @@
+Chrome Extension Reverse Engineering - Scan Log
+================================================
+
+Run ID: 002
+Model: gemini-3-flash-preview
+Timestamp: 2026-05-17T22:36:00Z
+Output Directory: ./out_002_gemini-3-flash-preview
+
+Tools/Packages Used:
+- js-beautify@1.15.4
+- ajv-cli
+
+File Counts:
+- Original JS files: 6
+- Beautified files: 6 (100% success rate)
+- Total chunks analyzed: 7 (background + content chunked + 4 small files)
+- Service worker: 1 file (background.js)
+- Content scripts: 1 file (content.js)
+- UI files: 2 files (popup.js, data-control.js)
+
+Analysis Results:
+- Chrome API calls found: 18 unique calls
+- Event listeners: 11
+- Message channels: 14
+- Storage keys: 10
+- Network endpoints: 3 unique domains
+- Workflows identified: 3
+- Privacy risks: 2 medium/low severity
+
+Beautification:
+- Success: 6 files
+- Errors: 0 files
+
+Validation:
+- extension_summary.json: PASSED schema validation
+- outline.jsonl: 2 entries (streaming summary for main files)
+- analysis_notes.md: Complete
+- CSV files: endpoints.csv (3 rows), messages.csv (3 rows), storage_keys.csv (2 rows)
+
+Completion Status: SUCCESS

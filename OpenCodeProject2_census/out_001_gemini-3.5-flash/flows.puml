@@ -1,0 +1,28 @@
+@startuml
+skinparam handwritten false
+skinparam monochrome false
+skinparam packageStyle rect
+skinparam shadowing true
+
+actor User
+participant "Web Page / UI" as WebPage
+participant "Content Script\n(Grammarly-check.js)" as ContentScript
+participant "Background\n(sw.js)" as Background
+database "Chrome Storage\n(Local/Session)" as Storage
+participant "Grammarly Servers\n(CAPI / Auth)" as GrammarlyServers
+participant "Telemetry / Logging\n(f-log-extension)" as Telemetry
+
+User -> WebPage : Inputs text / starts writing
+WebPage -> ContentScript : Intercepts text (DOM, MutationObserver)
+ContentScript -> Background : chrome.runtime.sendMessage (text metadata, editor events)
+Background -> Storage : sessionStorage.get / set ("isBGInitialized")
+Background -> GrammarlyServers : WebSocket connection (wss://capi.grammarly.com/fpws)
+Background -> GrammarlyServers : Send text payload for checking (CAPI check)
+GrammarlyServers --> Background : Receive suggestions / corrections
+Background --> ContentScript : chrome.runtime.sendMessage (suggestions)
+ContentScript -> WebPage : Inject Grammarly Widget / Underlines / Suggestions UI
+
+Background -> Telemetry : POST /batch/log (f-log-extension.grammarly.io)
+Background -> GrammarlyServers : GET /vmetrics (Metrics, treatments, experiment config)
+
+@enduml

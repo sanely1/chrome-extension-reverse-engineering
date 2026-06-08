@@ -1,0 +1,4 @@
+key,type,purpose,file,line_start,line_end
+authKey,local,Store auth key,extension/background.js,43,43
+authValue,local,Store auth value,extension/background.js,44,44
+machineKey,sync,Store machine key,extension/background.js,45,45

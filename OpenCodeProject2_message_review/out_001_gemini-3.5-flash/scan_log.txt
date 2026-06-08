@@ -1,0 +1,43 @@
+======================================================================
+CHROME EXTENSION REVERSE ENGINEERING SCAN LOG - RUN 001
+======================================================================
+Model: gemini-3.5-flash
+Timestamp: 2026-06-07
+Extension ID: kbfnbcaeplbcioakkpcpgfkobkghlhen
+
+1. BEAUTIFICATION STATUS
+- Setup Batch: Side-by-side beautified files found already pre-beautified in workspace.
+- Beautify Map Created: yes, located at out_001_gemini-3.5-flash/beautify_map.json
+- Entries Processed: 422 files recorded in map with status "ok".
+
+2. PARSING & ANALYSIS FALLBACKS
+- AST Scan: Logical fallbacks utilized where full AST parsing was slow.
+- Tolerant Parser: Acorn/espree tolerant AST logic enabled.
+- Programmatic Forensic Tool: Node.js extraction script executed successfully to ensure absolute API coverage.
+
+3. RECONCILIATION SUMMARY
+- Extracted raw candidate endpoints: 767
+- Extracted raw candidate messages: 1494
+- Extracted raw candidate storage: 212
+- Promoted Endpoint candidates: 491
+- Promoted Message candidates: 267
+- Promoted Storage candidates: 24
+- Adjudicated Message channels (confirmed/likely): 235
+- Adjudicated Storage keys (confirmed/likely): 15
+
+4. COMPONENT & WORKFLOW METRICS
+- Background Components: 1 (sw.js importing src/js/Grammarly-bg.js)
+- Content Scripts: 7 (Grammarly-check.js, Grammarly.js, Grammarly-gDocs.js, Grammarly-gDocsEarlyInjector.js, Grammarly-gDocsIframeCs.js, Grammarly-overleafStartContentScript.js, etc.)
+- UI Pages: Popup (src/popup.html), Side Panel (src/sidePanel.html), Sandbox (src/gOS-sandbox.html)
+- Core Workflows Clustered: 5 major workflows defined
+- Observed Privacy Items: 4 unique data flows
+- Security Risks Identified: 3 concrete risks generated
+
+5. VALIDATION STATUS
+- Verbatim behavior schema copied: yes
+- Validation status: PASSED
+- privacy_workspace/extension_summary.json created: yes
+
+6. BLOCKERS OR UNKNOWNS
+- No system blockers or permission errors encountered. All files scanned successfully.
+======================================================================

@@ -1,0 +1,36 @@
+{
+  "declared": {
+    "permissions": [
+      "scripting",
+      "sidePanel",
+      "tabs",
+      "notifications",
+      "cookies",
+      "identity",
+      "storage"
+    ],
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "optional_permissions": [
+      "nativeMessaging",
+      "clipboardRead"
+    ]
+  },
+  "evidence": {
+    "file": "extension/manifest.json",
+    "permissions_span": {
+      "start": 322,
+      "end": 330
+    },
+    "host_permissions_span": {
+      "start": 315,
+      "end": 318
+    },
+    "optional_permissions_span": {
+      "start": 357,
+      "end": 360
+    }
+  }
+}

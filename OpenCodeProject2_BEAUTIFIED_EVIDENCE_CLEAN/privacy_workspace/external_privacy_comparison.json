@@ -1,0 +1,212 @@
+{
+  "extension_id": "kbfnbcaeplbcioakkpcpgfkobkghlhen",
+  "extension_name": "Grammarly: AI Writing Assistant and Grammar Checker App",
+  "external_privacy_policy_url": "https://www.grammarly.com/privacy-policy",
+  "comparison_summary": {
+    "external_declared_category_count": 8,
+    "observed_category_count": 4,
+    "match_count": 3,
+    "underdeclared_external_count": 0,
+    "overdeclared_external_count": 1,
+    "unclear_count": 0
+  },
+  "external_declared_categories": [
+    "personally_identifiable_information",
+    "financial_and_payment_information",
+    "authentication_information",
+    "personal_communications",
+    "location",
+    "web_history",
+    "user_activity",
+    "website_content"
+  ],
+  "observed_categories": [
+    {
+      "observed_item": "Typed Document Content",
+      "mapped_category": "website_content",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Character keystrokes, sentences, and webpage inputs harvested for grammatical analysis.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-check.js",
+          "start": 1,
+          "end": 150
+        }
+      ]
+    },
+    {
+      "observed_item": "Browsing URLs and Active Domain",
+      "mapped_category": "web_history",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Active tab URL, page host domains, and window location properties are processed for site exclusions and localized configuration.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/sw.js",
+          "start": 1,
+          "end": 120
+        }
+      ]
+    },
+    {
+      "observed_item": "User Identifiers and Auth Tokens",
+      "mapped_category": "authentication_information",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Authentication tokens, cloud profile IDs, and unique account cookies processed for session tracking.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/sw.js",
+          "start": 1,
+          "end": 150
+        }
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "external_policy_category": "personally_identifiable_information",
+      "observed_items": [
+        "User Identifiers and Auth Tokens"
+      ],
+      "reason": "User ID, unique account identifiers, and profile details are adequately covered by the external policy.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/sw.js",
+          "start": 1,
+          "end": 150
+        }
+      ]
+    },
+    {
+      "external_policy_category": "personal_communications",
+      "observed_items": [
+        "Typed Document Content"
+      ],
+      "reason": "Keystrokes and inputted text (such as email messages or chat messages) are covered by the external policy.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-check.js",
+          "start": 1,
+          "end": 150
+        }
+      ]
+    },
+    {
+      "external_policy_category": "website_content",
+      "observed_items": [
+        "Typed Document Content"
+      ],
+      "reason": "Harvesting of DOM elements and document text inputs is explicitly described in Grammarly's central policy.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-check.js",
+          "start": 1,
+          "end": 150
+        }
+      ]
+    },
+    {
+      "external_policy_category": "user_activity",
+      "observed_items": [
+        "Browsing URLs and Active Domain"
+      ],
+      "reason": "Telemetry metrics logs, click events, and timing statistics are covered by the external policy.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/sw.js",
+          "start": 1,
+          "end": 120
+        }
+      ]
+    },
+    {
+      "external_policy_category": "web_history",
+      "observed_items": [
+        "Browsing URLs and Active Domain"
+      ],
+      "reason": "Checking tab URLs for exclusion lists is covered by web_history declarations in the external policy.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/sw.js",
+          "start": 1,
+          "end": 120
+        }
+      ]
+    },
+    {
+      "external_policy_category": "authentication_information",
+      "observed_items": [
+        "User Identifiers and Auth Tokens"
+      ],
+      "reason": "Management of user accounts and session keys is described under authentication information in the external policy.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/sw.js",
+          "start": 1,
+          "end": 150
+        }
+      ]
+    },
+    {
+      "external_policy_category": "location",
+      "observed_items": [
+        "Browsing URLs and Active Domain"
+      ],
+      "reason": "TimeZone detection and geographic routing checks map to the external location category.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/sw.js",
+          "start": 1,
+          "end": 120
+        }
+      ]
+    }
+  ],
+  "underdeclared_external": [],
+  "overdeclared_external": [
+    {
+      "external_policy_category": "financial_and_payment_information",
+      "reason": "Grammarly declares financial details collection inside its global privacy policy to manage user premium subscriptions. However, no credit card or billing data is processed or handled locally inside the browser extension code.",
+      "confidence": "high"
+    }
+  ],
+  "unclear": [],
+  "developer_statement_checks": [
+    {
+      "statement": "not_sold_to_third_parties",
+      "status": "not_contradicted",
+      "reason": "No evidence was found in the source code analysis suggesting the sell of user data to third parties.",
+      "evidence": []
+    },
+    {
+      "statement": "not_used_for_unrelated_purposes",
+      "status": "not_contradicted",
+      "reason": "All observed data transmissions (CAPI WebSocket, telemetry logging, auth matching) are directly tied to Grammarly's core writing assistance functionalities.",
+      "evidence": []
+    },
+    {
+      "statement": "not_used_for_creditworthiness",
+      "status": "not_contradicted",
+      "reason": "The analyzed scripts contain no financial credit evaluation, lending eligibility, or scoring mechanisms.",
+      "evidence": []
+    }
+  ],
+  "overall_assessment": {
+    "is_consistent_with_external_policy": true,
+    "risk_level": "low",
+    "confidence": "high",
+    "summary": "The extension's actual code-level behaviors are fully consistent with Grammarly's comprehensive external privacy policy. The external policy correctly explains and declares all observed data types (including web_history, website_content, and authentication_information), showing zero underdeclaration."
+  },
+  "limitations": [
+    "This comparison depends exclusively on the accuracy and structural completeness of both generated inputs."
+  ]
+}

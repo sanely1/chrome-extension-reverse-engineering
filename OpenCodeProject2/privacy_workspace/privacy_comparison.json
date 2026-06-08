@@ -1,0 +1,1006 @@
+{
+  "extension_id": "gngckpdhcngilcedefiiiapkhocojghm",
+  "extension_name": "Faircado - Second hand shopping",
+  "comparison_summary": {
+    "declared_category_count": 4,
+    "observed_category_count": 6,
+    "match_count": 4,
+    "underdeclared_count": 2,
+    "overdeclared_count": 0,
+    "unclear_count": 3
+  },
+  "declared_categories": [
+    "personally_identifiable_information",
+    "location",
+    "user_activity",
+    "website_content"
+  ],
+  "observed_categories": [
+    {
+      "observed_item": "Current URL of active tab",
+      "mapped_category": "web_history",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Explicitly captures URLs, transmitted for analytics/support, which can infer user activity and potentially location.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 235,
+          "end": 241
+        },
+        {
+          "file": "extension/background.js",
+          "start": 583,
+          "end": 588
+        },
+        {
+          "file": "extension/background.js",
+          "start": 627,
+          "end": 632
+        },
+        {
+          "file": "extension/background.js",
+          "start": 661,
+          "end": 684
+        },
+        {
+          "file": "extension/background.js",
+          "start": 863,
+          "end": 871
+        }
+      ]
+    },
+    {
+      "observed_item": "Machine ID (machineKey)",
+      "mapped_category": "personally_identifiable_information",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Unique identifier used for tracking across sessions and services, and used as a distinct ID for analytics.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 197,
+          "end": 227
+        },
+        {
+          "file": "extension/background.js",
+          "start": 239,
+          "end": 239
+        },
+        {
+          "file": "extension/background.js",
+          "start": 367,
+          "end": 367
+        },
+        {
+          "file": "extension/background.js",
+          "start": 537,
+          "end": 537
+        },
+        {
+          "file": "extension/background.js",
+          "start": 599,
+          "end": 600
+        },
+        {
+          "file": "extension/background.js",
+          "start": 736,
+          "end": 736
+        },
+        {
+          "file": "extension/background.js",
+          "start": 747,
+          "end": 752
+        },
+        {
+          "file": "extension/background.js",
+          "start": 809,
+          "end": 809
+        },
+        {
+          "file": "extension/background.js",
+          "start": 816,
+          "end": 816
+        },
+        {
+          "file": "extension/background.js",
+          "start": 831,
+          "end": 837
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 21,
+          "end": 25
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 127,
+          "end": 131
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 134,
+          "end": 138
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 298,
+          "end": 298
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 288,
+          "end": 289
+        }
+      ]
+    },
+    {
+      "observed_item": "Browser Type",
+      "mapped_category": "user_activity",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Device/browser information is collected and transmitted for analytics.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 340,
+          "end": 355
+        },
+        {
+          "file": "extension/background.js",
+          "start": 368,
+          "end": 368
+        },
+        {
+          "file": "extension/background.js",
+          "start": 395,
+          "end": 395
+        },
+        {
+          "file": "extension/background.js",
+          "start": 544,
+          "end": 544
+        }
+      ]
+    },
+    {
+      "observed_item": "Analytics Event Data",
+      "mapped_category": "user_activity",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Direct collection and transmission of user interaction events and properties for analytics and error reporting.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 358,
+          "end": 381
+        },
+        {
+          "file": "extension/background.js",
+          "start": 556,
+          "end": 560
+        },
+        {
+          "file": "extension/background.js",
+          "start": 625,
+          "end": 643
+        },
+        {
+          "file": "extension/background.js",
+          "start": 762,
+          "end": 764
+        },
+        {
+          "file": "extension/background.js",
+          "start": 829,
+          "end": 854
+        }
+      ]
+    },
+    {
+      "observed_item": "Authentication Credentials (authKey, authValue)",
+      "mapped_category": "authentication_information",
+      "source_field": "observed_privacy_data.items",
+      "reason": "The extension clearly stores and distributes user authentication keys and values.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 614,
+          "end": 618
+        },
+        {
+          "file": "extension/background.js",
+          "start": 768,
+          "end": 777
+        },
+        {
+          "file": "extension/background.js",
+          "start": 791,
+          "end": 820
+        }
+      ]
+    },
+    {
+      "observed_item": "A/B Test Variant Records",
+      "mapped_category": "user_activity",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Records user's assigned experience which affects and reflects user behavior, used for A/B testing.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 485,
+          "end": 494
+        },
+        {
+          "file": "extension/background.js",
+          "start": 498,
+          "end": 508
+        },
+        {
+          "file": "extension/background.js",
+          "start": 510,
+          "end": 510
+        }
+      ]
+    },
+    {
+      "observed_item": "Supported Websites Data",
+      "mapped_category": "website_content",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Cached data describing the properties and structure of websites the extension interacts with, enabling core functionality.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 9,
+          "end": 9
+        },
+        {
+          "file": "extension/background.js",
+          "start": 150,
+          "end": 185
+        },
+        {
+          "file": "extension/background.js",
+          "start": 253,
+          "end": 337
+        },
+        {
+          "file": "extension/background.js",
+          "start": 661,
+          "end": 684
+        }
+      ]
+    },
+    {
+      "observed_item": "Product Page Heuristics Data",
+      "mapped_category": "website_content",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Data used to analyze and interpret web page content to identify product pages for core extension functionality.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 10,
+          "end": 10
+        },
+        {
+          "file": "extension/background.js",
+          "start": 150,
+          "end": 185
+        },
+        {
+          "file": "extension/background.js",
+          "start": 188,
+          "end": 193
+        },
+        {
+          "file": "extension/background.js",
+          "start": 686,
+          "end": 691
+        }
+      ]
+    },
+    {
+      "observed_item": "Extension Configuration Data",
+      "mapped_category": "unclear",
+      "source_field": "observed_privacy_data.items",
+      "reason": "This data represents internal configuration settings for the extension and is not directly identifiable user data in a privacy sense unless it contains user-specific or sensitive values. Its privacy implications are tied to how it influences other data collection, which is already captured.",
+      "confidence": "low",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 12,
+          "end": 12
+        },
+        {
+          "file": "extension/background.js",
+          "start": 150,
+          "end": 185
+        },
+        {
+          "file": "extension/background.js",
+          "start": 440,
+          "end": 444
+        },
+        {
+          "file": "extension/background.js",
+          "start": 701,
+          "end": 705
+        }
+      ]
+    },
+    {
+      "observed_item": "A/B Test Configuration Data",
+      "mapped_category": "unclear",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Similar to Extension Configuration Data, this is internal operational data for managing A/B tests, not directly user-private information unless it influences identifiable data collection. Its privacy implications are tied to how it influences other data collection, which is already captured.",
+      "confidence": "low",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 11,
+          "end": 11
+        },
+        {
+          "file": "extension/background.js",
+          "start": 150,
+          "end": 185
+        },
+        {
+          "file": "extension/background.js",
+          "start": 432,
+          "end": 436
+        },
+        {
+          "file": "extension/background.js",
+          "start": 696,
+          "end": 700
+        }
+      ]
+    },
+    {
+      "observed_item": "Navigation Event Type",
+      "mapped_category": "user_activity",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Events related to user interaction with browser history, transmitted to the host page for SPA compatibility or internal routing changes.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/navigation-events.js",
+          "start": 3,
+          "end": 22
+        }
+      ]
+    },
+    {
+      "observed_item": "Browser Language",
+      "mapped_category": "unclear",
+      "source_field": "observed_privacy_data.items",
+      "reason": "The observed use of browser language is strictly for UI localization within the popup and is not transmitted externally or used for profiling. This does not map well to existing CWS privacy categories which focus on collected/transmitted data for other purposes.",
+      "confidence": "low",
+      "evidence": [
+        {
+          "file": "extension/popup.js",
+          "start": 3,
+          "end": 3
+        }
+      ]
+    },
+    {
+      "observed_item": "Image URL",
+      "mapped_category": "website_content",
+      "source_field": "observed_privacy_data.items",
+      "reason": "URL of an image, representing content from web pages, processed and transmitted back to the parent window.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/save.js",
+          "start": 19,
+          "end": 19
+        },
+        {
+          "file": "extension/save.js",
+          "start": 33,
+          "end": 33
+        },
+        {
+          "file": "extension/save.js",
+          "start": 41,
+          "end": 41
+        },
+        {
+          "file": "extension/save.js",
+          "start": 51,
+          "end": 51
+        },
+        {
+          "file": "extension/save.js",
+          "start": 57,
+          "end": 57
+        }
+      ]
+    },
+    {
+      "observed_item": "Image Data (Base64)",
+      "mapped_category": "website_content",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Base64 encoded representation of a resized image, representing content from web pages, generated and transmitted.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/save.js",
+          "start": 30,
+          "end": 30
+        },
+        {
+          "file": "extension/save.js",
+          "start": 34,
+          "end": 34
+        }
+      ]
+    },
+    {
+      "observed_item": "Extension Activation Status (activated)",
+      "mapped_category": "user_activity",
+      "source_field": "observed_privacy_data.items",
+      "reason": "A flag indicating a user interaction state (extension activation), stored locally.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/data-control.js",
+          "start": 300,
+          "end": 300
+        }
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "declared_category": "personally_identifiable_information",
+      "observed_items": [
+        "Machine ID (machineKey)"
+      ],
+      "reason": "The extension collects a unique machine ID which is considered personally identifiable information due to its persistent nature and use for tracking.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 197,
+          "end": 227
+        },
+        {
+          "file": "extension/background.js",
+          "start": 239,
+          "end": 239
+        },
+        {
+          "file": "extension/background.js",
+          "start": 367,
+          "end": 367
+        },
+        {
+          "file": "extension/background.js",
+          "start": 537,
+          "end": 537
+        },
+        {
+          "file": "extension/background.js",
+          "start": 599,
+          "end": 600
+        },
+        {
+          "file": "extension/background.js",
+          "start": 736,
+          "end": 736
+        },
+        {
+          "file": "extension/background.js",
+          "start": 747,
+          "end": 752
+        },
+        {
+          "file": "extension/background.js",
+          "start": 809,
+          "end": 809
+        },
+        {
+          "file": "extension/background.js",
+          "start": 816,
+          "end": 816
+        },
+        {
+          "file": "extension/background.js",
+          "start": 831,
+          "end": 837
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 21,
+          "end": 25
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 127,
+          "end": 131
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 134,
+          "end": 138
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 298,
+          "end": 298
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 288,
+          "end": 289
+        }
+      ]
+    },
+    {
+      "declared_category": "location",
+      "observed_items": [
+        "Current URL of active tab"
+      ],
+      "reason": "While not directly collecting GPS, the transmission of current URLs to external services for website support and analytics can indirectly infer user location (e.g., via GeoIP). The external privacy policy also mentions country-level location detection.",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 235,
+          "end": 241
+        },
+        {
+          "file": "extension/background.js",
+          "start": 661,
+          "end": 684
+        }
+      ]
+    },
+    {
+      "declared_category": "user_activity",
+      "observed_items": [
+        "Current URL of active tab",
+        "Browser Type",
+        "Analytics Event Data",
+        "A/B Test Variant Records",
+        "Navigation Event Type",
+        "Extension Activation Status (activated)"
+      ],
+      "reason": "The extension collects various forms of user activity, including browsing behavior (URLs), browser information, analytics events, A/B test assignments, navigation events, and activation status, all of which fall under user activity.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 235,
+          "end": 241
+        },
+        {
+          "file": "extension/background.js",
+          "start": 583,
+          "end": 588
+        },
+        {
+          "file": "extension/background.js",
+          "start": 627,
+          "end": 632
+        },
+        {
+          "file": "extension/background.js",
+          "start": 661,
+          "end": 684
+        },
+        {
+          "file": "extension/background.js",
+          "start": 863,
+          "end": 871
+        },
+        {
+          "file": "extension/background.js",
+          "start": 340,
+          "end": 355
+        },
+        {
+          "file": "extension/background.js",
+          "start": 368,
+          "end": 368
+        },
+        {
+          "file": "extension/background.js",
+          "start": 395,
+          "end": 395
+        },
+        {
+          "file": "extension/background.js",
+          "start": 544,
+          "end": 544
+        },
+        {
+          "file": "extension/background.js",
+          "start": 358,
+          "end": 381
+        },
+        {
+          "file": "extension/background.js",
+          "start": 556,
+          "end": 560
+        },
+        {
+          "file": "extension/background.js",
+          "start": 625,
+          "end": 643
+        },
+        {
+          "file": "extension/background.js",
+          "start": 762,
+          "end": 764
+        },
+        {
+          "file": "extension/background.js",
+          "start": 829,
+          "end": 854
+        },
+        {
+          "file": "extension/background.js",
+          "start": 485,
+          "end": 494
+        },
+        {
+          "file": "extension/background.js",
+          "start": 498,
+          "end": 508
+        },
+        {
+          "file": "extension/background.js",
+          "start": 510,
+          "end": 510
+        },
+        {
+          "file": "extension/navigation-events.js",
+          "start": 3,
+          "end": 22
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 300,
+          "end": 300
+        }
+      ]
+    },
+    {
+      "declared_category": "website_content",
+      "observed_items": [
+        "Supported Websites Data",
+        "Product Page Heuristics Data",
+        "Image URL",
+        "Image Data (Base64)"
+      ],
+      "reason": "The extension processes various forms of website content, including supported site properties, product page identification heuristics, and image data (URLs and Base64 encoded pixel data).",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 9,
+          "end": 9
+        },
+        {
+          "file": "extension/background.js",
+          "start": 150,
+          "end": 185
+        },
+        {
+          "file": "extension/background.js",
+          "start": 253,
+          "end": 337
+        },
+        {
+          "file": "extension/background.js",
+          "start": 661,
+          "end": 684
+        },
+        {
+          "file": "extension/background.js",
+          "start": 10,
+          "end": 10
+        },
+        {
+          "file": "extension/background.js",
+          "start": 188,
+          "end": 193
+        },
+        {
+          "file": "extension/background.js",
+          "start": 686,
+          "end": 691
+        },
+        {
+          "file": "extension/save.js",
+          "start": 19,
+          "end": 19
+        },
+        {
+          "file": "extension/save.js",
+          "start": 33,
+          "end": 33
+        },
+        {
+          "file": "extension/save.js",
+          "start": 41,
+          "end": 41
+        },
+        {
+          "file": "extension/save.js",
+          "start": 51,
+          "end": 51
+        },
+        {
+          "file": "extension/save.js",
+          "start": 57,
+          "end": 57
+        },
+        {
+          "file": "extension/save.js",
+          "start": 30,
+          "end": 30
+        },
+        {
+          "file": "extension/save.js",
+          "start": 34,
+          "end": 34
+        }
+      ]
+    }
+  ],
+  "underdeclared": [
+    {
+      "observed_item": "Authentication Credentials (authKey, authValue)",
+      "mapped_category": "authentication_information",
+      "reason": "The extension stores and distributes user authentication keys and values, which falls under 'authentication_information', but this category is not explicitly declared by the developer in the Chrome Web Store privacy section.",
+      "severity": "high",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 614,
+          "end": 618
+        },
+        {
+          "file": "extension/background.js",
+          "start": 768,
+          "end": 777
+        },
+        {
+          "file": "extension/background.js",
+          "start": 791,
+          "end": 820
+        }
+      ]
+    },
+    {
+      "observed_item": "Current URL of active tab",
+      "mapped_category": "web_history",
+      "reason": "The extension collects and transmits the current URL of the active tab, which directly constitutes web history data. This category is not explicitly declared in the Chrome Web Store privacy section.",
+      "severity": "medium",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 235,
+          "end": 241
+        },
+        {
+          "file": "extension/background.js",
+          "start": 583,
+          "end": 588
+        },
+        {
+          "file": "extension/background.js",
+          "start": 627,
+          "end": 632
+        },
+        {
+          "file": "extension/background.js",
+          "start": 661,
+          "end": 684
+        },
+        {
+          "file": "extension/background.js",
+          "start": 863,
+          "end": 871
+        }
+      ]
+    }
+  ],
+  "overdeclared": [],
+  "unclear": [
+    {
+      "category_or_item": "Extension Configuration Data",
+      "reason": "This data represents internal configuration settings for the extension and is not directly identifiable user data in a privacy sense unless it contains user-specific or sensitive values. Its privacy implications are tied to how it influences other data collection, which is already captured.",
+      "needed_information": "Clearer definition of whether these configurations contain user-specific or sensitive values."
+    },
+    {
+      "category_or_item": "A/B Test Configuration Data",
+      "reason": "Similar to Extension Configuration Data, this is internal operational data for managing A/B tests, not directly user-private information unless it influences identifiable data collection. Its privacy implications are tied to how it influences other data collection, which is already captured.",
+      "needed_information": "Clearer definition of whether these configurations contain user-specific or sensitive values."
+    },
+    {
+      "category_or_item": "Browser Language",
+      "reason": "The observed use of browser language is strictly for UI localization within the popup and is not transmitted externally or used for profiling. This does not map well to existing CWS privacy categories which focus on collected/transmitted data for other purposes.",
+      "needed_information": "If this data is ever transmitted or used for profiling."
+    }
+  ],
+  "developer_statement_checks": [
+    {
+      "statement": "not_sold_to_third_parties",
+      "status": "not_contradicted",
+      "reason": "The extension transmits analytics data to Mixpanel, a third-party analytics provider, and URLs to Faircado Catalog Service API. These are typically service provisions, not data sales. No direct evidence of data sale or advertising/marketing transfer beyond approved use cases was found in the extension_summary.json.",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 358,
+          "end": 381
+        },
+        {
+          "file": "extension/background.js",
+          "start": 625,
+          "end": 643
+        },
+        {
+          "file": "extension/background.js",
+          "start": 829,
+          "end": 854
+        },
+        {
+          "file": "extension/background.js",
+          "start": 235,
+          "end": 241
+        }
+      ]
+    },
+    {
+      "statement": "not_used_for_unrelated_purposes",
+      "status": "not_contradicted",
+      "reason": "All observed data collection and processing activities (website support checks, analytics, authentication, A/B testing, configuration fetches, image processing) appear to be directly related to the core functionality of the 'Faircado - Second hand shopping' extension.",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 746,
+          "end": 766
+        },
+        {
+          "file": "extension/background.js",
+          "start": 231,
+          "end": 249
+        },
+        {
+          "file": "extension/background.js",
+          "start": 251,
+          "end": 337
+        },
+        {
+          "file": "extension/background.js",
+          "start": 188,
+          "end": 193
+        },
+        {
+          "file": "extension/background.js",
+          "start": 661,
+          "end": 684
+        },
+        {
+          "file": "extension/background.js",
+          "start": 686,
+          "end": 691
+        },
+        {
+          "file": "extension/background.js",
+          "start": 150,
+          "end": 185
+        },
+        {
+          "file": "extension/background.js",
+          "start": 614,
+          "end": 623
+        },
+        {
+          "file": "extension/background.js",
+          "start": 606,
+          "end": 613
+        },
+        {
+          "file": "extension/background.js",
+          "start": 768,
+          "end": 786
+        },
+        {
+          "file": "extension/background.js",
+          "start": 791,
+          "end": 828
+        },
+        {
+          "file": "extension/background.js",
+          "start": 358,
+          "end": 381
+        },
+        {
+          "file": "extension/background.js",
+          "start": 556,
+          "end": 560
+        },
+        {
+          "file": "extension/background.js",
+          "start": 625,
+          "end": 643
+        },
+        {
+          "file": "extension/background.js",
+          "start": 762,
+          "end": 764
+        },
+        {
+          "file": "extension/background.js",
+          "start": 829,
+          "end": 854
+        },
+        {
+          "file": "extension/background.js",
+          "start": 432,
+          "end": 436
+        },
+        {
+          "file": "extension/background.js",
+          "start": 440,
+          "end": 444
+        },
+        {
+          "file": "extension/background.js",
+          "start": 459,
+          "end": 527
+        },
+        {
+          "file": "extension/background.js",
+          "start": 696,
+          "end": 705
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 211,
+          "end": 216
+        },
+        {
+          "file": "extension/data-control.js",
+          "start": 219,
+          "end": 279
+        },
+        {
+          "file": "extension/save.js",
+          "start": 18,
+          "end": 59
+        }
+      ]
+    },
+    {
+      "statement": "not_used_for_creditworthiness",
+      "status": "not_contradicted",
+      "reason": "No observed behavior, API calls, or data storage in extension_summary.json indicates any use or transfer of data for determining creditworthiness, lending, or financial purposes.",
+      "evidence": []
+    }
+  ],
+  "overall_assessment": {
+    "is_consistent": false,
+    "risk_level": "medium",
+    "confidence": "high",
+    "summary": "The extension underdeclares the collection of 'authentication_information' (user credentials) and 'web_history' (current page URLs transmitted to third parties) in its Chrome Web Store privacy disclosure, despite these being clearly observed in the code. Other collected data categories ('personally_identifiable_information', 'user_activity', 'website_content', 'location') generally align with declarations. Developer statements regarding data sale, unrelated purposes, and creditworthiness are not directly contradicted by the observed behavior."
+  },
+  "limitations": [
+    "This comparison depends entirely on the completeness and accuracy of `privacy_workspace/declared_privacy.json` (Chrome Web Store declarations) and `privacy_workspace/extension_summary.json` (observed behavior).",
+    "The mapping of generic configuration data (`Extension Configuration Data`, `A/B Test Configuration Data`) and localized UI data (`Browser Language`) to Chrome Web Store privacy categories is ambiguous due to their operational nature and lack of explicit privacy relevance in the observed data flows.",
+    "The determination of 'location' as a match is based on the transmission of URLs which can infer location via GeoIP and a statement in the external privacy policy, rather than direct collection of GPS coordinates or explicit IP address in `observed_privacy_data.items`."
+  ]
+}

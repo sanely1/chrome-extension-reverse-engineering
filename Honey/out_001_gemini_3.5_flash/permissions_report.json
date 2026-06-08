@@ -1,0 +1,112 @@
+{
+  "permissions": [
+    {
+      "name": "alarms",
+      "type": "API Permission",
+      "description": "Allows scheduling of recurring tasks or periodic executions in the background worker.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 47,
+          "end": 47
+        }
+      ]
+    },
+    {
+      "name": "cookies",
+      "type": "API Permission",
+      "description": "Enables querying, setting, and receiving notifications for cookie changes, often used for session management or tracking affiliate tracking cookies.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 48,
+          "end": 48
+        }
+      ]
+    },
+    {
+      "name": "storage",
+      "type": "API Permission",
+      "description": "Provides local and synchronized storage access for persisting user settings, coupon catalogs, and application state.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 49,
+          "end": 49
+        }
+      ]
+    },
+    {
+      "name": "unlimitedStorage",
+      "type": "API Permission",
+      "description": "Removes the quota limit for chrome.storage.local, vital for storing large caches of coupons, products, or merchant indexes.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 50,
+          "end": 50
+        }
+      ]
+    },
+    {
+      "name": "scripting",
+      "type": "API Permission",
+      "description": "Enables programmatically injecting JavaScript and CSS into target shopping web pages dynamically.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 51,
+          "end": 51
+        }
+      ]
+    },
+    {
+      "name": "webRequest",
+      "type": "API Permission",
+      "description": "Permits monitoring, intercepting, and modifying HTTP requests. Often used to trace checkout requests or append affiliate parameters.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 52,
+          "end": 52
+        }
+      ]
+    },
+    {
+      "name": "offscreen",
+      "type": "API Permission",
+      "description": "Enables creating and interacting with offscreen DOM environments, typically used to run third-party SDKs, perform audio playback, parse DOM, or manage web workers in MV3.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 53,
+          "end": 53
+        }
+      ]
+    }
+  ],
+  "host_permissions": [
+    {
+      "pattern": "http://*/*",
+      "description": "Grants access to run network interceptors and script injectors on any unencrypted HTTP website.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 56,
+          "end": 56
+        }
+      ]
+    },
+    {
+      "pattern": "https://*/*",
+      "description": "Grants access to run network interceptors and script injectors on any secure HTTPS website, which covers almost all major checkout and e-commerce portals.",
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 57,
+          "end": 57
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+Grammarly Extension Reverse Engineering Scan Log
+--------------------------------------------------
+Scan Date: 2026-06-07
+Extension ID: kbfnbcaeplbcioakkpcpgfkobkghlhen
+Model Name: gemini-3.5-flash
+Output Directory: out_001_gemini-3.5-flash
+
+1. Beautification Status:
+- Original JS Files: 422
+- Side-by-side Beautified JS Files Found/Generated: 422
+- Beautification rate: 100% (using local pre-beautified files and js-beautify fallback)
+
+2. Excluded Files/Directories:
+- node_modules/
+- vendor/
+- out_001_gemini-3.5-flash/
+
+3. Parse Fallbacks:
+- Built-in Node AST parsers fallback to robust regex and string scans during census extraction to handle very large bundled JS assets without performance degradation.
+
+4. Entity Counts:
+- Total source files scanned: 431
+- Total beautified files mapped: 422
+- Promoted Endpoint candidates: 491
+- Promoted Messaging channel candidates: 124
+- Promoted Storage key candidates: 24
+- Workflows defined: 3
+- Observed Privacy Data items: 3
+- Security/Privacy Risks identified: 3
+
+5. Validation Result:
+- Validated against schema.chrome_extension_behavior.json using Ajv validator.
+- Status: SUCCESS - extension_summary.json is fully schema-compliant.
+
+6. Blockers or Unknowns:
+- No system blockers or permission errors encountered.
+- High-volume webpack chunk files were processed systematically using the census extractor.
+
+7. Privacy Suite status:
+- Copied extension_summary.json to privacy_workspace/extension_summary.json: YES
+- Privacy suite steps (Steps 8-11) pending execution.

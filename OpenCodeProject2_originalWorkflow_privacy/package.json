@@ -1,0 +1,25 @@
+{
+  "name": "opencodeproject2_originalworkflow_privacy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "js-beautify": "^1.15.4"
+  },
+  "dependencies": {
+    "@typescript-eslint/typescript-estree": "^8.60.0",
+    "acorn": "^8.16.0",
+    "acorn-walk": "^8.3.5",
+    "espree": "^11.2.0"
+  }
+}

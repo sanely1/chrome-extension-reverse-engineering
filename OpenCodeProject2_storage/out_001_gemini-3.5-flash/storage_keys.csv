@@ -1,0 +1,25 @@
+key,type,purpose,file,line_start,line_end
+sessionId,local,Store extension settings or operational state,src/inkwell/assets/index-DcswASZ2.js,1,1
+isSidePanelOpen,local,Track if the assistant side panel is open,src/js/AAA-initAssistant.common.chunk.js,1,1
+host.userAccount.,indexeddb,Store extension settings or operational state,src/js/Grammarly-bg.js,2,2
+human_writing_report,indexeddb,Store writing diagnostics and report metrics,src/js/Grammarly-bg.js,2,2
+schema,indexeddb,Store extension settings or operational state,src/js/Grammarly-bg.js,2,2
+host.userAccount.,indexeddb,Store extension settings or operational state,src/js/Grammarly-bg.js,2,2
+document_state_enc,indexeddb,Store extension settings or operational state,src/js/Grammarly-bg.js,2,2
+host.userAccount.,cookies,Store extension settings or operational state,src/js/Grammarly-bg.js,2,2
+host.userAccount.,local,Store extension settings or operational state,src/js/Grammarly-bg.js,2,2
+isBGInitialized,local,Track service worker initialization status,src/js/Grammarly-bg.js,2,2
+GrammarlyEnrollmentToken,local,Store extension settings or operational state,src/js/Grammarly-bg.js,2,2
+feMetricsAlarms,local,Manage telemetry and logging upload alarms,src/js/Grammarly-bg.js,2,2
+feMetricsData,local,Cache client performance metrics and event counts,src/js/Grammarly-bg.js,2,2
+bgInitFail,local,Store extension settings or operational state,src/js/Grammarly-bg.js,2,2
+schema,local,Store extension settings or operational state,src/js/Grammarly-bg.js,2,2
+human_writing_report,local,Store writing diagnostics and report metrics,src/js/Grammarly-bg.js,2,2
+ChromeMV3SessionStorageApiImpl,local,Store extension settings or operational state,src/js/Grammarly-debug.js,2,2
+selectAdjacentFailed,managed,Store extension settings or operational state,src/js/Grammarly-gDocs.js,2,2
+gdocs_peak_collabs_dismissed,local,Track dismissal of high-collaboration notification in Google Docs,src/js/Grammarly-gDocs.js,2,2
+selectAdjacentFailed,local,Store extension settings or operational state,src/js/Grammarly-gDocs.js,2,2
+gdocs_peak_collabs_dismissed,local,Track dismissal of high-collaboration notification in Google Docs,src/js/Grammarly-gDocs.js,2,2
+ltr,indexeddb,Store extension settings or operational state,src/js/Grammarly-sidePanel.js,2,2
+alwaysOnAssistantOnOpenData,local,Cache open-context data for the side panel assistant,src/js/Grammarly-sidePanel.js,2,2
+document_state,indexeddb,Store extension settings or operational state,src/js/humanWritingReport.common.chunk.js,1,1

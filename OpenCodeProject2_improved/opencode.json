@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "docs/opencode/output-contract.md",
+    "docs/opencode/quality-gates.md"
+  ],
+  "agent": {
+    "build": {
+      "prompt": "{file:./prompts/build.md}"
+    },
+    "plan": {
+      "prompt": "{file:./prompts/plan.md}",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      }
+    }
+  }
+}

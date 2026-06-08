@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/js/MotionPlugin-C38oVXrY.js","assets/js/style-cpFB66wV.js","assets/css/style-CrTXrpPu.css"])))=>i.map(i=>d[i]);
+import{_ as n}from"./style-cpFB66wV.js";async function i(i,o=!0){const{MotionPlugin:t}=await n((async()=>{const{MotionPlugin:n}=await import("./MotionPlugin-C38oVXrY.js");return{MotionPlugin:n}}),__vite__mapDeps([0,1,2]));await i.addPlugin(new t(i),o)}export{i as loadMotionPlugin};

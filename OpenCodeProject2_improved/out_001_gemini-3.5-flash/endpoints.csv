@@ -1,0 +1,9 @@
+url,method,file,line_start,line_end
+"https://config.extension.grammarly.com/dynamicConfig.json","GET","src/js/Grammarly-bg.js",40001,42000
+"https://auth.grammarly.com/v4/api/oauth2/token","POST","src/js/Grammarly-bg.js",44001,46000
+"https://auth.grammarly.com/v4/api/userinfo","GET","src/js/Grammarly-bg.js",44001,46000
+"wss://capi.grammarly.com","GET","src/js/Grammarly.js",1,2000
+"https://dox.grammarly.com","POST","src/js/Grammarly-check.js",12001,14000
+"https://gateway.grammarly.com/authorship/v1/","POST","src/js/Grammarly-bg.js",50001,52000
+"https://f-log-extension.grammarly.io","POST","src/js/Grammarly-bg.js",40001,42000
+"https://extension.femetrics.grammarly.io/batch/import","POST","src/js/Grammarly-bg.js",40001,42000

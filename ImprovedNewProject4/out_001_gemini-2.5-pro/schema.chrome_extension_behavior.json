@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChromeExtensionBehavior",
+  "type": "object",
+  "required": ["metadata", "permissions", "components", "workflows", "network", "messaging", "storage", "privacy", "risks"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["name", "version", "manifest_version"],
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "manifest_version": {"type": "integer"},
+        "description": {"type": "string"},
+        "evidence": {"$ref": "#/$defs/evidenceArray"}
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "required": ["api_permissions", "host_permissions", "optional_permissions"],
+      "properties": {
+        "api_permissions": {"type": "array", "items": {"type": "string"}},
+        "host_permissions": {"type": "array", "items": {"type": "string"}},
+        "optional_permissions": {"type": "array", "items": {"type": "string"}},
+        "evidence": {"$ref": "#/$defs/evidenceArray"}
+      }
+    },
+    "components": {
+      "type": "object",
+      "required": ["background", "content_scripts", "injected_scripts", "ui"],
+      "properties": {
+        "background": {"$ref": "#/$defs/component"},
+        "content_scripts": {"type": "array", "items": {"$ref": "#/$defs/component"}},
+        "injected_scripts": {"type": "array", "items": {"$ref": "#/$defs/component"}},
+        "ui": {"type": "array", "items": {"$ref": "#/$defs/component"}},
+        "web_accessible_resources": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "network": {
+      "type": "object",
+      "required": ["endpoints"],
+      "properties": {
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url", "purpose"],
+            "properties": {
+              "url": {"type": "string"},
+              "purpose": {"type": "string"},
+              "methods": {"type": "array", "items": {"type": "string"}},
+              "headers": {"type": "array", "items": {"type": "string"}},
+              "evidence": {"$ref": "#/$defs/evidenceArray"}
+            }
+          }
+        }
+      }
+    },
+    "messaging": {
+      "type": "object",
+      "required": ["channels"],
+      "properties": {
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "direction"],
+            "properties": {
+              "name": {"type": "string"},
+              "direction": {"type": "string"},
+              "payload_schema": {"type": "object"},
+              "evidence": {"$ref": "#/$defs/evidenceArray"}
+            }
+          }
+        }
+      }
+    },
+    "storage": {
+      "type": "object",
+      "required": ["keys"],
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["key", "type", "purpose"],
+            "properties": {
+              "key": {"type": "string"},
+              "type": {"type": "string", "enum": ["local", "sync", "managed", "indexeddb", "cookies"]},
+              "purpose": {"type": "string"},
+              "retention": {"type": "string"},
+              "evidence": {"$ref": "#/$defs/evidenceArray"}
+            }
+          }
+        }
+      }
+    },
+    "workflows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "triggers", "steps"],
+        "properties": {
+          "name": {"type": "string"},
+          "triggers": {"type": "array", "items": {"type": "string"}},
+          "steps": {"type": "array", "items": {"type": "string"}},
+          "apis": {"type": "array", "items": {"type": "string"}},
+          "messages": {"type": "array", "items": {"type": "string"}},
+          "endpoints": {"type": "array", "items": {"type": "string"}},
+          "storage_keys": {"type": "array", "items": {"type": "string"}},
+          "evidence": {"$ref": "#/$defs/evidenceArray"}
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "required": ["data_categories", "purposes", "minimization", "consent", "retention", "third_parties"],
+      "properties": {
+        "data_categories": {"type": "array", "items": {"type": "string"}},
+        "purposes": {"type": "array", "items": {"type": "string"}},
+        "minimization": {"type": "string"},
+        "consent": {"type": "string"},
+        "retention": {"type": "string"},
+        "third_parties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "purpose"],
+            "properties": {
+              "name": {"type": "string"},
+              "purpose": {"type": "string"},
+              "evidence": {"$ref": "#/$defs/evidenceArray"}
+            }
+          }
+        },
+        "policy_compliance": {"type": "string"},
+        "evidence": {"$ref": "#/$defs/evidenceArray"}
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "severity", "justification"],
+        "properties": {
+          "type": {"type": "string", "enum": ["tracking", "fingerprinting", "pii_exfiltration", "excessive_permissions", "remote_code", "insecure_storage", "policy_violation", "other"]},
+          "severity": {"type": "string", "enum": ["low", "medium", "high"]},
+          "justification": {"type": "string"},
+          "evidence": {"$ref": "#/$defs/evidenceArray"}
+        }
+      }
+    },
+    "code_signals": {
+      "type": "object",
+      "properties": {
+        "chrome_api_calls": {"type": "array", "items": {"type": "string"}},
+        "event_listeners": {"type": "array", "items": {"type": "string"}},
+        "dynamic_code": {"type": "array", "items": {"type": "string"}},
+        "wasm_modules": {"type": "array", "items": {"type": "string"}},
+        "third_party_libs": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  },
+  "$defs": {
+    "evidenceArray": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file"],
+        "properties": {
+          "file": {"type": "string"},
+          "start": {"type": "integer"},
+          "end": {"type": "integer"},
+          "ast_id": {"type": "string"}
+        }
+      }
+    },
+    "component": {
+      "type": "object",
+      "required": ["files"],
+      "properties": {
+        "files": {"type": "array", "items": {"type": "string"}},
+        "apis": {"type": "array", "items": {"type": "string"}},
+        "listeners": {"type": "array", "items": {"type": "string"}},
+        "evidence": {"$ref": "#/$defs/evidenceArray"}
+      }
+    }
+  }
+}

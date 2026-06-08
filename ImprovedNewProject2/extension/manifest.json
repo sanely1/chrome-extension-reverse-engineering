@@ -1,0 +1,41 @@
+{
+   "action": {
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "content.css" ],
+      "js": [ "content.js" ],
+      "matches": [ "https://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": {
+      "extension_pages": "default-src 'none'; font-src 'self' https://assets.faircado.com; img-src * data: blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; media-src https://assets.faircado.com; connect-src https://assets.faircado.com https://catalog-service-api.faircado.com https://customer-service-api.faircado.com https://catalog-service-api.staging.faircado.com https://customer-service-api.staging.faircado.com https://api.mixpanel.com https://cms.faircado.com https://cms.staging.faircado.com https://cms-api.faircado.com https://cms-api.staging.faircado.com;",
+      "img-src": "self"
+   },
+   "default_locale": "en",
+   "description": "__MSG_Faircado_Description__",
+   "icons": {
+      "128": "/icons/green/icon-128.png",
+      "16": "/icons/green/icon-16.png",
+      "32": "/icons/green/icon-32.png",
+      "48": "/icons/green/icon-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsK7UGiZcPNlqj3MGPM/BwSGFWDO9ukbT1v0Ruc2Q7P22edgmI6xE7L5QIt5Sp/1MWD3AQGMSzBsq+6RzpaQIzSE/C6jkkj0jPq5dGN/AcG2hJ5EqLel+mCy6/4oJ0e0cBqeggNhKHwKF8XRDFiA4w9kafHXitupasY8I+8p1Ul3qddYLMWbMlqd+MCv8fgP50o5TL9BnK9hvarK1x9buhMulh/bWOpo7f/BG/hAvLbCgnVs+fhqroU59qaiO4BfwG9BWiGozqkcU517gfmxH0NF38R0ECp4MLEs3lhRsfOWNwcjAaTZ+s8BTFu96zK1zc695FAtzEYPATjG4/mldtwIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_Faircado_Name__",
+   "oauth2": {
+      "client_id": "56728365748-594crqe66dmn6aff41vkpbjsik6uqeko.apps.googleusercontent.com",
+      "scopes": [ "https://www.googleapis.com/auth/userinfo.email" ]
+   },
+   "permissions": [ "contextMenus", "activeTab", "storage", "tabs" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.8.12",
+   "version_name": "3.8.12",
+   "web_accessible_resources": [ {
+      "matches": [ "*://*/*" ],
+      "resources": [ "/save.html", "/public/icons/*", "/navigation-events.js" ]
+   } ]
+}

@@ -1,0 +1,8 @@
+url,method,file,line_start,line_end
+https://catalog-service-api.faircado.com/api/v1/supported-website,POST,background.js,241,263
+https://cms-api.faircado.com/api/supported-websites/list,GET,background.js,267,331
+https://api.mixpanel.com/track,POST,background.js,378,398
+https://api.mixpanel.com/engage#profile-batch-update,POST,background.js,872,897
+https://cms-api.faircado.com/api/is-product-page-heuristic,GET,background.js,10,10
+https://cms-api.faircado.com/api/extension-ab-tests/list,GET,background.js,11,11
+https://cms-api.faircado.com/api/extension-config,GET,background.js,12,12

@@ -1,0 +1,40 @@
+message_type,direction,description,evidence_file,evidence_start_line,evidence_end_line
+messageTypes.init,content->background,Requests initial authentication data.,extension/content.js,517,519
+InternalMessageTypes.IsActivated,content->background,Checks if the extension is activated.,extension/content.js,5229,5231
+InternalMessageTypes.GetExtensionConfig,content->background,Requests extension configuration.,extension/content.js,5892,5894
+messageTypes.isSupportedWebsite,content->background,Queries background script for website support data.,extension/content.js,10342,10344
+messageTypes.error,content->background,Reports an error to the background script for Mixpanel tracking.,extension/content.js,10369,10374
+messageTypes.mixpanel,content->background,Sends Mixpanel event data to the background script for tracking.,extension/content.js,10407,10415
+InternalMessageTypes.GetMachineKey,content->background,Requests machine key from background script.,extension/content.js,10422,10424
+messageTypes.showExtension,background->content,Receives message to show extension popup, triggered by background script.,extension/content.js,10903,10930
+messageTypes.closeExtension,background->content,Receives message to close extension popup, triggered by background script.,extension/content.js,10931,10932
+messageTypes.openOnFullMode,background->content,Message to open extension in full mode from background script.,extension/content.js,10925,10928
+messageTypes.webAppReady,web_app->content,Web app signals it's ready to receive messages.,extension/content.js,10943,10947
+messageTypes.hasResult,web_app->content,Web app signals search results are available, influencing extension visibility.,extension/content.js,10948,10952
+messageTypes.closeExtension,web_app->content,Web app requests to close the extension popup.,extension/content.js,10953,10955
+messageTypes.setToExtensionStorage,web_app->content,Web app requests to set an item in extension storage.,extension/content.js,10956,10967
+messageTypes.setAuth,content->web_app,Content script sends authentication data to the web app.,extension/content.js,5185,5189
+messageTypes.setAuth,content->web_app,Content script sends authentication data to the web app.,extension/content.js,10279,10283
+messageTypes.setAuth,content->web_app,Content script sends authentication data to the web app.,extension/content.js,7941,7945
+messageTypes.clearAuth,content->web_app,Content script clears authentication data in the web app.,extension/content.js,10285,10287
+messageTypes.clearAuth,content->web_app,Content script clears authentication data in the web app.,extension/content.js,7947,7949
+messageTypes.setFilter,content->web_app,Content script sends filtering/product data to the web app.,extension/content.js,10138,10143
+messageTypes.setFilter,content->web_app,Content script sends filtering/product data to the web app.,extension/content.js,7850,7855
+messageTypes.setFilter,content->web_app,Content script sends filtering/product data to the web app.,extension/content.js,7952,7956
+messageTypes.iconClicked,content->web_app,User clicks on the extension icon.,extension/content.js,10162,10164
+messageTypes.initializeAppSettings,content->web_app,Content script sends initial app settings to the web app.,extension/content.js,10274,10277
+messageTypes.initializeAppSettings,content->web_app,Content script sends initial app settings to the web app.,extension/content.js,7937,7939
+messageTypes.setDocumentBackgroundColor,content->web_app,Content script sends document background color to the embedded app.,extension/content.js,7932,7935
+messageTypes.toggleEmbeddedAccordion,embedded_app->content,Embedded app requests to toggle its accordion state.,extension/content.js,7981,7983
+messageTypes.removeExtensionFromDOM,embedded_app->content,Embedded app requests to remove itself from the DOM.,extension/content.js,7984,7989
+messageTypes.colorScheme,content->web_app,Content script sends detected color scheme to the web app.,extension/content.js,8013,8016
+messageTypes.colorScheme,content->embedded_app,Content script sends detected color scheme to the embedded app.,extension/content.js,8017,8020
+externalMessageTypes.getFromExtensionStorage,other,External web app requests data from extension storage.,extension/content.js,10823,10845
+externalMessageTypes.getFromExtensionStorageResponse,content->other,Content script responds to external web app's request for storage data.,extension/content.js,10833,10839
+custom:image_data_request,parent->iframe,Parent window (content script) sends an image URL to the iframe for processing.,extension/save.js,18,19
+custom:image_data_response,iframe->parent,Iframe sends back base64 encoded image data or null if processing failed.,extension/save.js,31,37
+custom:image_data_response,iframe->parent,Iframe sends back base64 encoded image data or null if processing failed.,extension/save.js,39,45
+custom:image_data_response,iframe->parent,Iframe sends back base64 encoded image data or null if processing failed.,extension/save.js,49,55
+custom:pushStateFaircado,injected_script->content,Reports pushState navigation event.,extension/navigation-events.js,13,13
+custom:replaceStateFaircado,injected_script->content,Reports replaceState navigation event.,extension/navigation-events.js,17,17
+custom:popstateFaircado,injected_script->content,Reports popstate navigation event.,extension/navigation-events.js,21,21

@@ -1,0 +1,1 @@
+import{n as e}from"./_plugin-vue2_normalizer-DeUNqxFl.js";const l=e({name:"ToggleSwitch",props:{value:{type:Boolean,default:!1},disabled:{type:Boolean,default:!1}}},(function(){var e=this;return(0,e._self._c)("div",e._g({staticClass:"toggle-switch",class:{on:e.value},attrs:{"aria-disabled":e.disabled}},e.$listeners))}),[],!1,null,null).exports;export{l as T};

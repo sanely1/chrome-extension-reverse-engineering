@@ -1,0 +1,47 @@
+channel_name,direction,payload_keys,file,line_start,line_end
+"Internal RPC/messaging framework","other","","src/js/Grammarly-bg.js","1","2000"
+"tracking/RPC","content->background","function_name,...args","src/js/Grammarly-check.js","6070","6085"
+"message:to-priv","content->background","","src/js/Grammarly-check.beautified.js","12185","12285"
+"side-panel-close-status","background->content","","src/js/Grammarly-check.beautified.js","12185","12285"
+"message-bus-port","content->background","","src/js/Grammarly-check.beautified.js","13208","13288"
+cs-to-bg-rpc-1587687052565,content->background,[],/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,58100,58250
+cs-to-bg-rpc-1557421403805,content->background,[],/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,58300,58500
+cs-to-bg-static-capi-rpc-1668544923207,content->background,[],/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.beautified.js,59750,59850
+tracking/RPC,content->background,"[...any]",src/js/Grammarly.beautified.js,64700,64713
+CODE_SPLITTING_INJECT,unknown,"[type,file]",src/js/Grammarly.js,94088,94143
+CODE_SPLITTING_INJECT,other,"[file]",src/js/Grammarly-gDocs.beautified.js,21216,21220
+iframe-integration-rpc,other,"[showCard,openAssistant,closeAssistant,pushTextChanges,selectHighlight,syncHighlights]",src/js/Grammarly-gDocs.beautified.js,23438,23488
+bgSW-shutdown,background->content,[],/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js,24001,26000
+pushChanges,content->background,"[token,rev,args]",/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js,24001,26000
+setSessionOption,content->background,"[token,args]",/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js,24001,26000
+side-panel-to-cs-text-field-rpc,other,[],/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js,26001,28000
+cs-text-field-to-side-panel-rpc,other,[],/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js,26001,28000
+sendCsLogsToPopup,other,[],/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js,28001,30000
+downloadDebugReportsFromCS,other,[],/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.beautified.js,28001,30000
+sendFeedback,content->background,"[id,kind,reason,replacementText,alternativeIndex,subtype,snippetUuid,domainCategory,popupType]",src/js/Grammarly-gDocs.beautified.js,38120,38265
+requestGrantPermission,content->background,"[nativeMessaging]",src/js/Grammarly-gDocs.beautified.js,40050,40075
+sendToFocusTab,content->background,"[showOnboardingDialog,disableOnTab]",src/js/Grammarly-gDocs.beautified.js,41900,41950
+requestGrantPermission,content->background,"[nativeMessaging]",src/js/Grammarly-gDocs.beautified.js,40050,40075
+sendToFocusTab,content->background,"[showOnboardingDialog,disableOnTab]",src/js/Grammarly-gDocs.beautified.js,41900,41950
+message-bus-port,content->background,[],/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-gDocs.js,48055,48291
+CustomEvent,other,[],src/js/Grammarly-gDocs.js,50001,52000
+postMessage (custom __grammarly protocol),other,[],src/js/Grammarly-gDocs.js,58001,60000
+bgSW-shutdown,background->content,[],src/js/Grammarly-gDocs.js,64001,66000
+contentScript-disconnected,background->content,[],src/js/Grammarly-gDocs.js,64001,66000
+cs-to-bg-rpc-1587687052565,content->background,[],src/js/Grammarly-gDocs.js,66001,68000
+cs-to-bg-observable-rpc-1587687052565,content->background,[],src/js/Grammarly-gDocs.js,66001,68000
+cs-to-bg-rpc-1557421403805,content->background,[],src/js/Grammarly-gDocs.js,66001,68000
+cs-to-bg-static-capi-rpc-1668544923207,content->background,[],src/js/Grammarly-gDocs.js,66001,68000
+cardAction/:docId,other,[],src/js/Grammarly-gDocs.beautified.js,96182,96651
+panelAction/:docId,other,[],src/js/Grammarly-gDocs.beautified.js,96670,97011
+CODE_SPLITTING_INJECT,unknown,"[type,file]",src/js/Grammarly-gDocs.beautified.js,104860,104863
+message:to-priv,content->background,[],src/js/Grammarly-gDocsEarlyInjector.beautified.js,71,71
+cs-to-bg-rpc-1557421403805,content->background,"[callid,content]",src/js/Grammarly-gDocsEarlyInjector.beautified.js,153,164
+tab-connected,other,[],src/js/Grammarly-popup.beautified.js,14100,14100
+update-window-size,other,[],src/js/Grammarly-popup.beautified.js,15600,15600
+message:to-priv,content->background,Generic message passing from content script to background,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js,17315,17315
+cs-bg-runtime-*,background->content,Runtime messages from background to content script,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js,17408,17408
+cs-to-bg-rpc-1557421403805,content->background,RPC channel for general API calls,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js,18103,18103
+cs-to-bg-rpc-1587687052565,content->background,RPC channel for legacy API calls,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js,18089,18089
+cs-to-bg-static-capi-rpc-1668544923207,content->background,RPC channel for static CAPI calls,/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js,18113,18113
+CODE_SPLITTING_INJECT,other,[],/Users/jfri/Downloads/kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly-popup.beautified.js,50001,50282

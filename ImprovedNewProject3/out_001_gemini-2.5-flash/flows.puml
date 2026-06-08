@@ -1,0 +1,53 @@
+@startuml
+actor User
+participant Page
+participant "Content Script" as CS
+participant "Injected Script" as IS
+participant "Service Worker" as SW
+database "Storage" as Storage
+participant "Faircado API" as F_API
+participant "Mixpanel API" as M_API
+
+User -> Page: Visits product page
+Page -> CS: Injects content script
+
+alt Is product page?
+    CS -> SW: sendMessage("isSupportedWebsite")
+    SW -> F_API: POST /api/v1/supported-website
+    F_API --> SW: Supported status
+    SW --> CS: Response
+    
+    opt selectors enabled
+        CS -> Page: Injects UI Iframe
+        CS -> Page: Injects "navigation-events.js"
+        IS -> CS: postMessage (navigation events)
+        CS -> Page: Extracts product data (DOM, metadata)
+        CS -> SW: sendMessage("init")
+        SW --> CS: Auth data
+        CS -> Page: postMessage (auth data to iframe)
+    else metadata enabled
+        CS -> Page: Injects UI Iframe
+        CS -> Page: Extracts product metadata (JSON-LD, etc.)
+        CS -> SW: sendMessage("init")
+        SW --> CS: Auth data
+        CS -> Page: postMessage (auth data to iframe)
+    end
+end
+
+User -> CS: Clicks extension icon
+CS -> SW: sendMessage("showExtension", {manualExtensionOpen: true})
+SW -> CS: sendMessage("showExtension", ...)
+CS -> Page: Shows UI Iframe
+
+User -> Page: Clicks "Activate" on data-control page
+"data-control.js" -> Storage: localStorage.setItem("activated", "1")
+"data-control.js" -> SW: sendMessage("getMachineKey")
+SW --> "data-control.js": Machine Key
+"data-control.js" -> Page: Redirect to faircado.com with machine key
+
+SW -> M_API: POST /track (e.g., "extension_installed")
+SW -> M_API: POST /engage#profile-batch-update
+
+SW -> F_API: GET /api/supported-websites/list
+F_API --> SW: List of sites
+SW -> Storage: Cache sites in chrome.storage.local

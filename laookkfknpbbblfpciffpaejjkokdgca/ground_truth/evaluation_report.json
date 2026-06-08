@@ -1,0 +1,335 @@
+{
+  "ground_truth_stats": {
+    "network_endpoints": 12,
+    "messaging_channels": 18,
+    "storage_keys": 22
+  },
+  "model_results": [
+    {
+      "model": "GPT4.1",
+      "network": {
+        "metrics": {
+          "true_positives": 7,
+          "false_positives": 1,
+          "false_negatives": 5,
+          "precision": 0.875,
+          "recall": 0.5833,
+          "f1": 0.7
+        },
+        "details": {
+          "correct": [
+            "chrome-extension://<id>/site-blocker.html?hostname=...&sitename=...&metatitle=...&documenttitle=...",
+            "https://account.momentumdash.com/",
+            "https://api.momentumdash.com/",
+            "https://api.momentumdash.com/config",
+            "https://modash.blob.core.windows.net/",
+            "https://posthog.momentumdash.com/e/",
+            "https://www.momentumdash.com/"
+          ],
+          "missing": [
+            ".posthog.com",
+            "https://api.momentumdash.com/user:migrateLegacy?canceled=true",
+            "https://browser-http-intake.logs.datadoghq.com/v1/input/",
+            "https://momentumdash.com/uninstall",
+            "posthog.momentumdash.com/e/"
+          ],
+          "extra": [
+            "https://browser-http-intake.logs.datadoghq.com/v1/input/pub18ef9128dd80db1a80dfc3f9180b55b5"
+          ]
+        }
+      },
+      "messaging": {
+        "metrics": {
+          "true_positives": 11,
+          "false_positives": 0,
+          "false_negatives": 7,
+          "precision": 1.0,
+          "recall": 0.6111,
+          "f1": 0.7586
+        },
+        "details": {
+          "correct": [
+            "flashMessage",
+            "legacyUserMigration",
+            "momentum-intervention:dismiss",
+            "momentum-intervention:show",
+            "momentum:authState",
+            "momentum:checkUserId",
+            "momentum:getUserId",
+            "momentum:oneTimeLogin",
+            "momentum:openNew",
+            "notificationClick",
+            "runtime.onMessage"
+          ],
+          "missing": [
+            "activateNewWorker",
+            "legacyUserMigration:triggerOffscreenDocumentRequest",
+            "momentum:callback:checkUserId",
+            "momentum:callback:oneTimeLogin",
+            "momentum:callback:openNew",
+            "oneTimeLogin",
+            "unknown"
+          ],
+          "extra": []
+        }
+      },
+      "storage": {
+        "metrics": {
+          "true_positives": 13,
+          "false_positives": 2,
+          "false_negatives": 9,
+          "precision": 0.8667,
+          "recall": 0.5909,
+          "f1": 0.7027
+        },
+        "details": {
+          "correct": [
+            "analyticsQueue",
+            "calculateUnregisteredDashboardExperiment",
+            "client_uuid",
+            "idMap",
+            "installDate",
+            "momentum-customization-1",
+            "notificationsQueue",
+            "releaseUpdateModalCheck",
+            "timestamp",
+            "token",
+            "token_uuid",
+            "unregistered",
+            "xhrQueue"
+          ],
+          "missing": [
+            "authState",
+            "chrome.storage",
+            "config",
+            "indexedDB",
+            "keyValueDb",
+            "localStorage",
+            "momentumExtensionUserId",
+            "momentumPlatform",
+            "momentumVersion"
+          ],
+          "extra": [
+            "misc",
+            "userPrefs"
+          ]
+        }
+      }
+    },
+    {
+      "model": "Claude-Sonnet-4",
+      "network": {
+        "metrics": {
+          "true_positives": 7,
+          "false_positives": 0,
+          "false_negatives": 5,
+          "precision": 1.0,
+          "recall": 0.5833,
+          "f1": 0.7368
+        },
+        "details": {
+          "correct": [
+            ".posthog.com",
+            "https://account.momentumdash.com/",
+            "https://api.momentumdash.com/",
+            "https://browser-http-intake.logs.datadoghq.com/v1/input/",
+            "https://modash.blob.core.windows.net/",
+            "https://www.momentumdash.com/",
+            "posthog.momentumdash.com/e/"
+          ],
+          "missing": [
+            "chrome-extension://<id>/site-blocker.html?hostname=...&sitename=...&metatitle=...&documenttitle=...",
+            "https://api.momentumdash.com/config",
+            "https://api.momentumdash.com/user:migrateLegacy?canceled=true",
+            "https://momentumdash.com/uninstall",
+            "https://posthog.momentumdash.com/e/"
+          ],
+          "extra": []
+        }
+      },
+      "messaging": {
+        "metrics": {
+          "true_positives": 9,
+          "false_positives": 0,
+          "false_negatives": 9,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "details": {
+          "correct": [
+            "legacyUserMigration",
+            "momentum-intervention:dismiss",
+            "momentum-intervention:show",
+            "momentum:authState",
+            "momentum:checkUserId",
+            "momentum:getUserId",
+            "momentum:oneTimeLogin",
+            "momentum:openNew",
+            "oneTimeLogin"
+          ],
+          "missing": [
+            "activateNewWorker",
+            "flashMessage",
+            "legacyUserMigration:triggerOffscreenDocumentRequest",
+            "momentum:callback:checkUserId",
+            "momentum:callback:oneTimeLogin",
+            "momentum:callback:openNew",
+            "notificationClick",
+            "runtime.onMessage",
+            "unknown"
+          ],
+          "extra": []
+        }
+      },
+      "storage": {
+        "metrics": {
+          "true_positives": 16,
+          "false_positives": 0,
+          "false_negatives": 6,
+          "precision": 1.0,
+          "recall": 0.7273,
+          "f1": 0.8421
+        },
+        "details": {
+          "correct": [
+            "analyticsQueue",
+            "chrome.storage",
+            "client_uuid",
+            "idMap",
+            "indexedDB",
+            "keyValueDb",
+            "localStorage",
+            "momentumExtensionUserId",
+            "momentumPlatform",
+            "momentumVersion",
+            "notificationsQueue",
+            "timestamp",
+            "token",
+            "token_uuid",
+            "unregistered",
+            "xhrQueue"
+          ],
+          "missing": [
+            "authState",
+            "calculateUnregisteredDashboardExperiment",
+            "config",
+            "installDate",
+            "momentum-customization-1",
+            "releaseUpdateModalCheck"
+          ],
+          "extra": []
+        }
+      }
+    },
+    {
+      "model": "Gemini-2.5-Pro",
+      "network": {
+        "metrics": {
+          "true_positives": 5,
+          "false_positives": 2,
+          "false_negatives": 7,
+          "precision": 0.7143,
+          "recall": 0.4167,
+          "f1": 0.5263
+        },
+        "details": {
+          "correct": [
+            "https://api.momentumdash.com/config",
+            "https://api.momentumdash.com/user:migrateLegacy?canceled=true",
+            "https://modash.blob.core.windows.net/",
+            "https://momentumdash.com/uninstall",
+            "posthog.momentumdash.com/e/"
+          ],
+          "missing": [
+            ".posthog.com",
+            "chrome-extension://<id>/site-blocker.html?hostname=...&sitename=...&metatitle=...&documenttitle=...",
+            "https://account.momentumdash.com/",
+            "https://api.momentumdash.com/",
+            "https://browser-http-intake.logs.datadoghq.com/v1/input/",
+            "https://posthog.momentumdash.com/e/",
+            "https://www.momentumdash.com/"
+          ],
+          "extra": [
+            ".posthog.com/e/",
+            "https://browser-http-intake.logs.datadoghq.com/v1/input/pub18ef9128dd80db1a80dfc3f9180b55b5?ddsource=browser&ddtags=env:production,service:extension,version:2.25.3"
+          ]
+        }
+      },
+      "messaging": {
+        "metrics": {
+          "true_positives": 17,
+          "false_positives": 0,
+          "false_negatives": 1,
+          "precision": 1.0,
+          "recall": 0.9444,
+          "f1": 0.9714
+        },
+        "details": {
+          "correct": [
+            "activateNewWorker",
+            "flashMessage",
+            "legacyUserMigration",
+            "legacyUserMigration:triggerOffscreenDocumentRequest",
+            "momentum-intervention:dismiss",
+            "momentum-intervention:show",
+            "momentum:authState",
+            "momentum:callback:checkUserId",
+            "momentum:callback:oneTimeLogin",
+            "momentum:callback:openNew",
+            "momentum:checkUserId",
+            "momentum:getUserId",
+            "momentum:oneTimeLogin",
+            "momentum:openNew",
+            "notificationClick",
+            "oneTimeLogin",
+            "unknown"
+          ],
+          "missing": [
+            "runtime.onMessage"
+          ],
+          "extra": []
+        }
+      },
+      "storage": {
+        "metrics": {
+          "true_positives": 10,
+          "false_positives": 0,
+          "false_negatives": 12,
+          "precision": 1.0,
+          "recall": 0.4545,
+          "f1": 0.625
+        },
+        "details": {
+          "correct": [
+            "authState",
+            "calculateUnregisteredDashboardExperiment",
+            "client_uuid",
+            "config",
+            "installDate",
+            "momentum-customization-1",
+            "releaseUpdateModalCheck",
+            "token",
+            "token_uuid",
+            "unregistered"
+          ],
+          "missing": [
+            "analyticsQueue",
+            "chrome.storage",
+            "idMap",
+            "indexedDB",
+            "keyValueDb",
+            "localStorage",
+            "momentumExtensionUserId",
+            "momentumPlatform",
+            "momentumVersion",
+            "notificationsQueue",
+            "timestamp",
+            "xhrQueue"
+          ],
+          "extra": []
+        }
+      }
+    }
+  ]
+}

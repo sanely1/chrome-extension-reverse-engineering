@@ -1,0 +1,13 @@
+https://properties.grammarly.com/properties,GET/POST,src/js/Grammarly-bg.js,5834,5834
+https://treatment.grammarly.com/treatment/get,POST,src/js/Grammarly-bg.js,6250,6250
+https://gates.grammarly.com/gates/get,POST,src/js/Grammarly-bg.js,5460,5460
+/configuration,GET,src/js/Grammarly-bg.js,7820,7820
+/events,POST,src/js/Grammarly-bg.js,7837,7837
+/plans,GET,src/js/Grammarly-bg.js,9673,9673
+/setup-trial,POST,src/js/Grammarly-bg.js,9691,9691
+/special-offers,GET,src/js/Grammarly-bg.js,9706,9706
+/subscribe,POST,src/js/Grammarly-bg.js,9726,9726
+https://properties.grammarly.com/plans,GET,src/js/Grammarly-bg.js,9673,9673
+https://treatment.grammarly.com/setup-trial,POST,src/js/Grammarly-bg.js,9691,9691
+https://gates.grammarly.com/special-offers,GET,src/js/Grammarly-bg.js,9706,9706
+https://subscription.grammarly.com/subscribe,POST,src/js/Grammarly-bg.js,9726,9726

@@ -1,0 +1,50 @@
+Chrome Extension Reverse Engineering - Scan Log
+================================================
+
+Run ID: 001
+Model: gemini-2.5-flash
+Timestamp: 2026-05-17T17:16:00Z
+Output Directory: ./out_001_gemini-2.5-flash
+
+Tools/Packages Used:
+- js-beautify
+- espree
+- @typescript-eslint/typescript-estree
+- acorn
+- acorn-walk
+- ajv-cli
+
+File Counts:
+- Original JS files: 6
+- Beautified files: 6 (100% success rate)
+- Total chunks analyzed: 6
+- Service worker: 1 file (extension/background.js)
+- Content scripts: 1 file (extension/content.js)
+- UI files: 3 files (extension/data-control.js, extension/popup.js, extension/save.js)
+- Injected Scripts: 1 file (extension/navigation-events.js)
+
+Analysis Results:
+- Chrome API calls found: 25 unique calls
+- Event listeners: 10 unique types
+- Message channels: 27
+- Storage keys: 17
+- Network endpoints: 8 unique domains
+- Workflows identified: 4
+- Privacy risks: 4 (1 medium, 3 low)
+
+Beautification:
+- Success: 6 files
+- Errors: 0 files
+- Files excluded: node_modules
+
+Validation:
+- extension_summary.json: PASSED schema validation
+- outline.jsonl: 6 entries (all chunks covered)
+- analysis_notes.md: Complete, all chunks documented
+- CSV files: endpoints.csv (10 rows), messages.csv (27 rows), storage_keys.csv (8 rows)
+
+Known Gaps/Unknowns:
+- The full payload schema for some complex messages could not be entirely inferred from the static analysis.
+- The precise conditions for some A/B tests are configured server-side and are not visible in the client-side code.
+
+Completion Status: SUCCESS

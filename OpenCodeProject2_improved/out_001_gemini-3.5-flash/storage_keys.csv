@@ -1,0 +1,4 @@
+key,type,purpose,file,line_start,line_end
+"auth_token","local","Saves authenticated credentials","src/js/Grammarly-bg.js",44001,46000
+"extensionCachedConfig","local","Caches blocklist allowed rule configurations","src/js/Grammarly-bg.js",40001,42000
+"machineKey","local","Identifies distinct client profiles","src/js/Grammarly-bg.js",40001,42000

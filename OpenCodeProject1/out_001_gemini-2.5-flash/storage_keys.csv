@@ -1,0 +1,19 @@
+key,scope,description,evidence_file,evidence_start_line,evidence_end_line
+AUTH_KEY,localStorage/syncStorage,Stores authentication key,extension/background.js,43,43
+AUTH_VALUE,localStorage/syncStorage,Stores authentication value,extension/background.js,44,44
+MACHINE_KEY,localStorage/syncStorage,Stores a unique machine identifier (UUID v4),extension/background.js,45,45
+SUPPORTED_WEBSITES_DATA,local,Caches data about supported websites,extension/background.js,46,46
+IS_PRODUCT_PAGE_HEURISTICS_DATA,local,Caches heuristic data for product page detection,extension/background.js,47,47
+AB_TESTS_CACHED_CONFIG,local,Caches A/B test configuration,extension/background.js,49,49
+EXTENSION_CACHED_CONFIG,local,Caches extension configuration,extension/background.js,51,51
+AB_TEST_VARIANT_RECORDS,local,Stores assigned A/B test variants,extension/background.js,53,53
+ACTIVATED,local,Stores activation status,extension/background.js,55,55
+USER_SETTINGS,local,Stores user settings,extension/background.js,56,56
+USER_SETTINGS,local,User's preferred language setting.,extension/content.js,7752,7752
+AB_TEST_VARIANT_RECORDS,local,Records the assigned variant for A/B tests.,extension/content.js,5571,5571
+AB_TEST_VARIANT_RECORDS,local,Records the assigned variant for A/B tests.,extension/content.js,5553,5555
+FAIRCADO_EXT_SETTINGS,sessionStorage,Stores popup draggable settings.,extension/content.js,10221,10221
+redirectionKey (dynamic),sessionStorage,Stores data for catalogue redirection with a dynamically generated key.,extension/content.js,10495,10495
+event.data.key,storage (dynamic area),Dynamically gets an item from local/sync/session storage based on message from external app.,extension/content.js,10827,10827
+event.data.key,storage (dynamic area),Dynamically removes an item from local/sync/session storage based on message from external app.,extension/content.js,10841,10841
+event.data.key,local,Sets an item in local storage based on message from web app.,extension/content.js,10958,10965

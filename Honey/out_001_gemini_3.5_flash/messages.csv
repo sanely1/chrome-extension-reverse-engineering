@@ -1,0 +1,168 @@
+channel_name,direction,payload_keys,file,line_start,line_end
+unknown,content->background,r,extension/checkoutPaypal/honeySPBContent.js,1,1
+unknown,content->background,"r, null, (n => { if (window.chrome.runtime.lastError",extension/checkoutPaypal/honeySPBContent.js,1,1
+window_postMessage,other,"e, this.targetOrigin",extension/checkoutPaypal/honeySPBResponders.js,1,1
+unknown,content->background,r,extension/checkoutPaypal/merchantSPBContent.js,1,1
+unknown,content->background,"r, null, (n => { if (window.chrome.runtime.lastError",extension/checkoutPaypal/merchantSPBContent.js,1,1
+window_postMessage,other,"e, this.targetOrigin",extension/checkoutPaypal/merchantSPBResponders.js,1,1
+window_postMessage,other,"t, ""*""",extension/h0.js,43,43
+window_postMessage,other,"{id:r,method:n,success:!0,response:t}",extension/h0.js,43,43
+window_postMessage,other,"{id:r,method:n,success:!1,response:t.message}",extension/h0.js,43,43
+postMessage:init,other,"{id:void 0,method:""init"",success:!0,response:void 0}",extension/h0.js,43,43
+window_postMessage,other,"e, t",extension/h0.js,43,43
+window_postMessage,other,"{ id: r, method: e, arg: t }",extension/h0.js,43,43
+window_postMessage,other,"""clear""",extension/h0.js,43,43
+window_postMessage,other,"""addEvent"", e",extension/h0.js,43,43
+window_postMessage,other,"""finish""",extension/h0.js,43,43
+window_postMessage,other,n,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,19,19
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+get,other,onMessage switch-case branch,extension/h0.js,139,139
+set,other,onMessage switch-case branch,extension/h0.js,139,139
+remove,other,onMessage switch-case branch,extension/h0.js,139,139
+getAllForUrl,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,19,19
+sendHeartbeat,other,onMessage switch-case branch,extension/h0.js,139,139
+sendPaypalHeartbeat,other,onMessage switch-case branch,extension/h0.js,139,139
+getDeviceId,other,onMessage switch-case branch,extension/h0.js,139,139
+getExv,other,onMessage switch-case branch,extension/h0.js,139,139
+getManifest,other,onMessage switch-case branch,extension/h0.js,139,139
+getSessionId,other,onMessage switch-case branch,extension/h0.js,139,139
+getScreenViewId,other,onMessage switch-case branch,extension/h0.js,139,139
+getSetting,other,onMessage switch-case branch,extension/h0.js,139,139
+getSettings,other,onMessage switch-case branch,extension/h0.js,139,139
+updateSetting,other,onMessage switch-case branch,extension/h0.js,139,139
+isFirstTime,other,onMessage switch-case branch,extension/h0.js,139,139
+isFirstTimeFS,other,onMessage switch-case branch,extension/h0.js,139,139
+clearFirstTimeFS,other,onMessage switch-case branch,extension/h0.js,139,139
+isFirstTimeHG,other,onMessage switch-case branch,extension/h0.js,139,139
+clearFirstTimeHG,other,onMessage switch-case branch,extension/h0.js,139,139
+isFirstTimeFSHG,other,onMessage switch-case branch,extension/h0.js,139,139
+clearFirstTimeFSHG,other,onMessage switch-case branch,extension/h0.js,139,139
+isFirstTimeLaunchpad,other,onMessage switch-case branch,extension/h0.js,139,139
+clearFirstTimeLaunchpad,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,19,19
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,19,19
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+unknown,background->content,"n, l, { frameId: c }, (function(",extension/h0.js,139,139
+unknown,background->content,"n, l, { frameId: c }, (function(t",extension/h0.js,139,139
+unknown,content->background,"{ type: ""offscreen:tag"", affUrl: e, storeId: t, offscreen: !0 }",extension/h0.js,139,139
+unknown,content->background,"{ type: ""offscreen:tag"", affUrl: e, storeId: t, offscreen: !0 }",extension/h0.js,139,139
+getLastSetIcon,other,onMessage switch-case branch,extension/h0.js,139,139
+setButtonInfo,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+open,other,onMessage switch-case branch,extension/h0.js,139,139
+close,other,onMessage switch-case branch,extension/h0.js,139,139
+closeCurrent,other,onMessage switch-case branch,extension/h0.js,139,139
+get,other,onMessage switch-case branch,extension/h0.js,139,139
+getCurrent,other,onMessage switch-case branch,extension/h0.js,139,139
+getSelectedTab,other,onMessage switch-case branch,extension/h0.js,139,139
+waitReady,other,onMessage switch-case branch,extension/h0.js,139,139
+isCurrentTabId,other,onMessage switch-case branch,extension/h0.js,139,139
+end,other,onMessage switch-case branch,extension/h0.js,139,139
+unknown,content->background,"e, null, (function(e",extension/h1-check.js,107,107
+unknown,content->background,"n, null, (function(t",extension/h1-check.js,107,107
+window_postMessage,other,"e, this.targetOrigin",extension/h1-honeyscience-main-popover.js,19,19
+window_postMessage,other,"e, ""*""",extension/h1-main.js,9,9
+window_postMessage,other,"{id:r,method:n,success:!0,response:t}",extension/h1-main.js,9,9
+window_postMessage,other,"{id:r,method:n,success:!1,response:t.message}",extension/h1-main.js,9,9
+postMessage:init,other,"{id:void 0,method:""init"",success:!0,response:void 0}",extension/h1-main.js,9,9
+window_postMessage,other,"t, e",extension/h1-main.js,9,9
+window_postMessage,other,"{ id: r, method: t, arg: e }",extension/h1-main.js,9,9
+window_postMessage,other,"""clear""",extension/h1-main.js,9,9
+window_postMessage,other,"""addEvent"", t",extension/h1-main.js,9,9
+window_postMessage,other,"""finish""",extension/h1-main.js,9,9
+unknown,content->background,"{ type: ""offscreen:tag:success"", msg: ""tagged wtih "".concat(e.affUrl, "" """,extension/h1-offscreen.js,1,1
+window_postMessage,other,"e, this.targetOrigin",extension/h1-searchEngine.js,19,19
+window_postMessage,other,null,extension/h1-searchEngine.js,192,192
+window_postMessage,other,null,extension/h1-searchEngine.js,192,192
+window_postMessage,other,null,extension/h1-searchEngine.js,192,192
+setButtonInfo,content->background,"{ service: ""button:cs"", type: ""setButtonInfo"", info: e }, null, (function(e",extension/h1-searchEngine.js,192,192
+getLastSetIcon,content->background,"{ service: ""button:cs"", type: ""getLastSetIcon"" }, null, (function(r",extension/h1-searchEngine.js,192,192
+set,content->background,"{ service: ""cookies:cs"", type: ""set"", cookieDetails: e }, null, (function(e",extension/h1-searchEngine.js,192,192
+get,content->background,"{ service: ""cookies:cs"", type: ""get"", cookieDetails: e }, null, (function(e",extension/h1-searchEngine.js,192,192
+remove,content->background,"{ service: ""cookies:cs"", type: ""remove"", cookieDetails: e }, null, (function(e",extension/h1-searchEngine.js,192,192
+unknown,content->background,c,extension/h1-searchEngine.js,192,192
+unknown,content->background,"c, null, (function(t",extension/h1-searchEngine.js,192,192
+open,content->background,"{ service: ""tabs:cs"", type: ""open"", params: e }, null, (function(e",extension/h1-searchEngine.js,192,192
+close,content->background,"{ service: ""tabs:cs"", type: ""close"", tabId: e }, null, (function(e",extension/h1-searchEngine.js,192,192
+closeCurrent,content->background,"{ service: ""tabs:cs"", type: ""closeCurrent"" }, null, (function(r",extension/h1-searchEngine.js,192,192
+get,content->background,"{ service: ""tabs:cs"", type: ""get"", tabId: e }, null, (function(e",extension/h1-searchEngine.js,192,192
+getCurrent,content->background,"{ service: ""tabs:cs"", type: ""getCurrent"" }, null, (function(r",extension/h1-searchEngine.js,192,192
+getSelectedTab,content->background,"{ service: ""tabs:cs"", type: ""getSelectedTab"" }, null, (function(r",extension/h1-searchEngine.js,192,192
+isCurrentTabId,content->background,"{ service: ""tabs:cs"", type: ""isCurrentTabId"", tabId: e }, null, (function(e",extension/h1-searchEngine.js,192,192
+waitReady,content->background,"{ service: ""tabs:cs"", type: ""waitReady"" }, null, (function(r",extension/h1-searchEngine.js,192,192
+end,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+end,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+end,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+end,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+end,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+end,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+end,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+end,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+end,other,onMessage switch-case branch,extension/h1-searchEngine.js,36,36
+end,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+showHoneyQuotes,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+checkCache,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+reset,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+tag,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+applyCpn,other,onMessage switch-case branch,extension/h1-searchEngine.js,192,192
+window_postMessage,other,null,extension/h1-vendors-main-popover.js,151,151
+window_postMessage,other,null,extension/h1-vendors-main-popover.js,151,151
+window_postMessage,other,null,extension/h1-vendors-main-popover.js,151,151
+setButtonInfo,content->background,"{ service: ""button:cs"", type: ""setButtonInfo"", info: e }, null, (function(e",extension/h1-vendors-main-popover.js,151,151
+getLastSetIcon,content->background,"{ service: ""button:cs"", type: ""getLastSetIcon"" }, null, (function(r",extension/h1-vendors-main-popover.js,151,151
+set,content->background,"{ service: ""cookies:cs"", type: ""set"", cookieDetails: e }, null, (function(e",extension/h1-vendors-main-popover.js,151,151
+get,content->background,"{ service: ""cookies:cs"", type: ""get"", cookieDetails: e }, null, (function(e",extension/h1-vendors-main-popover.js,151,151
+remove,content->background,"{ service: ""cookies:cs"", type: ""remove"", cookieDetails: e }, null, (function(e",extension/h1-vendors-main-popover.js,151,151
+unknown,content->background,s,extension/h1-vendors-main-popover.js,151,151
+unknown,content->background,"s, null, (function(t",extension/h1-vendors-main-popover.js,151,151
+open,content->background,"{ service: ""tabs:cs"", type: ""open"", params: e }, null, (function(e",extension/h1-vendors-main-popover.js,151,151
+close,content->background,"{ service: ""tabs:cs"", type: ""close"", tabId: e }, null, (function(e",extension/h1-vendors-main-popover.js,151,151
+closeCurrent,content->background,"{ service: ""tabs:cs"", type: ""closeCurrent"" }, null, (function(r",extension/h1-vendors-main-popover.js,151,151
+get,content->background,"{ service: ""tabs:cs"", type: ""get"", tabId: e }, null, (function(e",extension/h1-vendors-main-popover.js,151,151
+getCurrent,content->background,"{ service: ""tabs:cs"", type: ""getCurrent"" }, null, (function(r",extension/h1-vendors-main-popover.js,151,151
+getSelectedTab,content->background,"{ service: ""tabs:cs"", type: ""getSelectedTab"" }, null, (function(r",extension/h1-vendors-main-popover.js,151,151
+isCurrentTabId,content->background,"{ service: ""tabs:cs"", type: ""isCurrentTabId"", tabId: e }, null, (function(e",extension/h1-vendors-main-popover.js,151,151
+waitReady,content->background,"{ service: ""tabs:cs"", type: ""waitReady"" }, null, (function(r",extension/h1-vendors-main-popover.js,151,151
+end,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+end,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+end,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+end,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+end,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+end,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+end,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+showHoneyQuotes,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+checkCache,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+reset,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+tag,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+applyCpn,other,onMessage switch-case branch,extension/h1-vendors-main-popover.js,151,151
+window_postMessage,other,"{ type, content }",extension/h2.js,107,107
+query,other,onMessage switch-case branch,extension/h2.js,107,107
+port,other,onMessage switch-case branch,extension/h2.js,107,107
+hostname,other,onMessage switch-case branch,extension/h2.js,107,107
+host,other,onMessage switch-case branch,extension/h2.js,107,107
+protocol,other,onMessage switch-case branch,extension/h2.js,107,107
+pathname,other,onMessage switch-case branch,extension/h2.js,107,107
+hash,other,onMessage switch-case branch,extension/h2.js,107,107
+username,other,onMessage switch-case branch,extension/h2.js,107,107
+password,other,onMessage switch-case branch,extension/h2.js,107,107
+auth,other,onMessage switch-case branch,extension/h2.js,107,107
+debug,other,onMessage switch-case branch,extension/h2.js,107,107
+info,other,onMessage switch-case branch,extension/h2.js,107,107
+warn,other,onMessage switch-case branch,extension/h2.js,107,107
+window_postMessage,other,"{ ok: a, messageId: ""honey:fetchPayPalMeta"", paypal: o }, window.location.origin",extension/paypal/meta.js,1,1
+postMessage:request,other,"{ messageId, type: ""request"", requestId: n }, window.location.origin",extension/proxies/requestProxies.js,1,1
+postMessage:response,other,"{ messageId, type: ""response"", requestId: n }, window.location.origin",extension/proxies/requestProxies.js,1,1
+postMessage:request,other,"{ messageId, type: ""request"", requestId: n }, window.location.origin",extension/proxies/requestProxies.js,1,1
+postMessage:response,other,"{ messageId, type: ""response"", requestId: n }, window.location.origin",extension/proxies/requestProxies.js,1,1

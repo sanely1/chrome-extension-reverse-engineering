@@ -1,0 +1,705 @@
+{
+  "metadata": {
+    "name": "Faircado - Second hand shopping",
+    "version": "3.8.12",
+    "manifest_version": 3,
+    "description": "We help you make the sustainable choice your go-to!",
+    "evidence": [
+      {
+        "file": "extension/manifest.json",
+        "start": 1,
+        "end": 41
+      },
+      {
+        "file": "extension/_locales/en/messages.json",
+        "start": 1,
+        "end": 8
+      }
+    ]
+  },
+  "permissions": {
+    "api_permissions": [
+      "contextMenus",
+      "activeTab",
+      "storage",
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://*/*"
+    ],
+    "optional_permissions": [],
+    "evidence": [
+      {
+        "file": "extension/manifest.json",
+        "start": 33,
+        "end": 33
+      },
+      {
+        "file": "extension/manifest.json",
+        "start": 11,
+        "end": 11
+      }
+    ]
+  },
+  "components": {
+    "background": {
+      "files": [
+        "extension/background.js"
+      ],
+      "apis": [
+        "chrome.tabs",
+        "chrome.action",
+        "chrome.runtime",
+        "chrome.contextMenus",
+        "chrome.storage"
+      ],
+      "listeners": [
+        "tabs.onActivated",
+        "tabs.onUpdated",
+        "action.onClicked",
+        "runtime.onMessage",
+        "runtime.onInstalled",
+        "runtime.onStartup",
+        "contextMenus.onClicked"
+      ],
+      "evidence": [
+        {
+          "file": "extension/manifest.json",
+          "start": 5,
+          "end": 5
+        }
+      ]
+    },
+    "content_scripts": [
+      {
+        "files": [
+          "extension/content.js"
+        ],
+        "apis": [
+          "chrome.runtime",
+          "chrome.storage"
+        ],
+        "listeners": [
+          "window.message",
+          "document.securitypolicyviolation",
+          "DOMContentLoaded",
+          "MutationObserver"
+        ],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 7,
+            "end": 13
+          }
+        ]
+      }
+    ],
+    "injected_scripts": [
+      {
+        "files": [
+          "extension/navigation-events.js"
+        ],
+        "apis": [],
+        "listeners": [
+          "window.popstate"
+        ],
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 4848,
+            "end": 4854
+          }
+        ]
+      }
+    ],
+    "ui": [
+      {
+        "files": [
+          "extension/data-control.js",
+          "extension/popup.js",
+          "extension/save.js"
+        ],
+        "apis": [
+          "browser.management"
+        ],
+        "listeners": [
+          "element.click",
+          "window.message"
+        ],
+        "evidence": [
+          {
+            "file": "extension/manifest.json",
+            "start": 37,
+            "end": 40
+          }
+        ]
+      }
+    ],
+    "web_accessible_resources": [
+      "/save.html",
+      "/public/icons/*",
+      "/navigation-events.js"
+    ]
+  },
+  "network": {
+    "endpoints": [
+      {
+        "url": "https://catalog-service-api.faircado.com/api/v1/supported-website",
+        "purpose": "Check if a website is supported for data extraction.",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Content-Type",
+          "X-Machine-Key"
+        ],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 3,
+            "end": 3
+          },
+          {
+            "file": "extension/background.js",
+            "start": 247,
+            "end": 254
+          }
+        ]
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/supported-websites/list",
+        "purpose": "Fetch the list of all supported websites.",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 9,
+            "end": 9
+          },
+          {
+            "file": "extension/background.js",
+            "start": 291,
+            "end": 291
+          }
+        ]
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/is-product-page-heuristic",
+        "purpose": "Fetch heuristics data to determine if a page is a product page.",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 10,
+            "end": 10
+          }
+        ]
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/extension-ab-tests/list",
+        "purpose": "Fetch configuration for A/B tests.",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 11,
+            "end": 11
+          }
+        ]
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/extension-config",
+        "purpose": "Fetch general extension configuration.",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 12,
+            "end": 12
+          }
+        ]
+      },
+      {
+        "url": "https://api.mixpanel.com/track",
+        "purpose": "Send event tracking data to Mixpanel analytics.",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Content-Type"
+        ],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 379,
+            "end": 379
+          }
+        ]
+      },
+      {
+        "url": "https://api.mixpanel.com/engage#profile-batch-update",
+        "purpose": "Update user profile data in Mixpanel.",
+        "methods": [
+          "POST"
+        ],
+        "headers": [
+          "Content-Type"
+        ],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 875,
+            "end": 875
+          }
+        ]
+      },
+      {
+        "url": "https://faircado.com/after-extension-install-versioned",
+        "purpose": "Post-installation landing and tracking page.",
+        "methods": [
+          "GET"
+        ],
+        "headers": [],
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 7,
+            "end": 7
+          },
+          {
+            "file": "extension/data-control.js",
+            "start": 313,
+            "end": 315
+          }
+        ]
+      }
+    ]
+  },
+  "messaging": {
+    "channels": [
+      {
+        "name": "isSupportedWebsite",
+        "direction": "content->background",
+        "payload_schema": {
+          "url": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 11706,
+            "end": 11709
+          }
+        ]
+      },
+      {
+        "name": "showExtension",
+        "direction": "background->content",
+        "payload_schema": {
+          "manualExtensionOpen": "boolean",
+          "info": "object"
+        },
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 622,
+            "end": 626
+          }
+        ]
+      },
+      {
+        "name": "mixpanel",
+        "direction": "content->background",
+        "payload_schema": {
+          "eventName": "string",
+          "payload": "object"
+        },
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 11517,
+            "end": 11523
+          }
+        ]
+      },
+      {
+        "name": "pushStateFaircado",
+        "direction": "other",
+        "payload_schema": {},
+        "evidence": [
+          {
+            "file": "extension/navigation-events.js",
+            "start": 13,
+            "end": 16
+          }
+        ]
+      },
+      {
+        "name": "save.html_img_data",
+        "direction": "other",
+        "payload_schema": {
+          "imgUrl": "string",
+          "imgData": "string"
+        },
+        "evidence": [
+          {
+            "file": "extension/save.js",
+            "start": 37,
+            "end": 42
+          }
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "keys": [
+      {
+        "key": "machineKey",
+        "type": "local",
+        "purpose": "A unique identifier (UUIDv4) for the extension installation, used for analytics and API requests.",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 45,
+            "end": 45
+          },
+          {
+            "file": "extension/background.js",
+            "start": 221,
+            "end": 224
+          }
+        ]
+      },
+      {
+        "key": "activated",
+        "type": "local",
+        "purpose": "A flag set to '1' when a user accepts the data control terms, primarily used in the Firefox flow.",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/data-control.js",
+            "start": 314,
+            "end": 314
+          }
+        ]
+      },
+      {
+        "key": "supportedSitesData",
+        "type": "local",
+        "purpose": "Caches the list of supported websites fetched from the Faircado API to reduce network requests.",
+        "retention": "cache",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 46,
+            "end": 46
+          }
+        ]
+      },
+      {
+        "key": "abTestVariantRecords",
+        "type": "local",
+        "purpose": "Stores the assigned variants for A/B tests to ensure user consistency.",
+        "retention": "indefinite",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 53,
+            "end": 53
+          }
+        ]
+      },
+      {
+        "key": "FAIRCADO_EXT_SETTINGS",
+        "type": "session",
+        "purpose": "Stores session-specific UI settings for the extension popup, like its position on the screen.",
+        "retention": "session_only",
+        "evidence": [
+          {
+            "file": "extension/content.js",
+            "start": 11575,
+            "end": 11575
+          }
+        ]
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "name": "Initial Page Load and UI Injection",
+      "triggers": [
+        "User navigates to a new page"
+      ],
+      "steps": [
+        "Content script is injected.",
+        "It messages the service worker to check if the current website is supported.",
+        "Service worker calls the Faircado API to get the site's status and data extraction configuration (selectors or metadata).",
+        "Based on the mode, the content script extracts product data from the DOM or from structured data (JSON-LD, etc.).",
+        "If an A/B test is active, a 'catalogue redirector' UI is shown; otherwise, an iframe for the embedded or popup view is prepared.",
+        "A separate script is injected to monitor SPA navigation events."
+      ],
+      "apis": [
+        "chrome.runtime.sendMessage",
+        "fetch"
+      ],
+      "messages": [
+        "isSupportedWebsite",
+        "getHeuristicData"
+      ],
+      "endpoints": [
+        "https://catalog-service-api.faircado.com/api/v1/supported-website"
+      ],
+      "storage_keys": [],
+      "evidence": [
+        {
+          "file": "extension/content.js",
+          "start": 11981,
+          "end": 12065
+        },
+        {
+          "file": "extension/background.js",
+          "start": 688,
+          "end": 714
+        }
+      ]
+    },
+    {
+      "name": "Manual Extension Activation (Icon Click)",
+      "triggers": [
+        "User clicks the extension's toolbar icon"
+      ],
+      "steps": [
+        "Service worker's icon click listener is triggered.",
+        "It checks for data consent; if missing, it opens the consent page.",
+        "It sends a 'showExtension' message to the content script.",
+        "The content script forces the data extraction process.",
+        "The UI iframe is made visible.",
+        "Page data is sent to the iframe via `postMessage` to populate the search."
+      ],
+      "apis": [
+        "chrome.action.onClicked",
+        "chrome.tabs.sendMessage"
+      ],
+      "messages": [
+        "showExtension",
+        "openOnFullMode"
+      ],
+      "endpoints": [],
+      "storage_keys": [],
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 614,
+          "end": 628
+        },
+        {
+          "file": "extension/content.js",
+          "start": 12327,
+          "end": 12356
+        }
+      ]
+    },
+    {
+      "name": "Data Consent and Uninstallation",
+      "triggers": [
+        "User opens data-control.html page"
+      ],
+      "steps": [
+        "User clicks the 'activate' button.",
+        "An 'activated' flag is stored in localStorage.",
+        "The script retrieves the unique `machineKey`.",
+        "The user is redirected to a post-install URL with the `machineKey` for tracking.",
+        "Alternatively, the user clicks the 'uninstall' button, which triggers the extension to uninstall itself."
+      ],
+      "apis": [
+        "browser.management.uninstallSelf",
+        "localStorage.setItem"
+      ],
+      "messages": [],
+      "endpoints": [
+        "https://faircado.com/after-extension-install-versioned"
+      ],
+      "storage_keys": [
+        "activated"
+      ],
+      "evidence": [
+        {
+          "file": "extension/data-control.js",
+          "start": 306,
+          "end": 316
+        }
+      ]
+    }
+  ],
+  "privacy": {
+    "data_categories": [
+      "unique_user_identifier",
+      "browsing_activity",
+      "analytics_telemetry"
+    ],
+    "purposes": [
+      "core_functionality",
+      "analytics_tracking",
+      "user_onboarding"
+    ],
+    "minimization": "The extension collects a persistent unique identifier (machineKey) for analytics, which is not strictly necessary for its core product-finding functionality. It also has broad host permissions and reads the entire page DOM for metadata parsing.",
+    "consent": "Consent is handled via an explicit 'activate' button on a data control page for Firefox users. For other browsers, consent appears to be implicit upon installation, with no observed opt-out mechanism for tracking.",
+    "retention": "The unique 'machineKey' and A/B test assignments are stored indefinitely. API data is cached with a time-based expiration.",
+    "third_parties": [
+      {
+        "name": "api.mixpanel.com",
+        "purpose": "Analytics and user behavior tracking.",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 379,
+            "end": 379
+          }
+        ]
+      },
+      {
+        "name": "*.faircado.com",
+        "purpose": "Core application functionality, configuration, and installation tracking.",
+        "evidence": [
+          {
+            "file": "extension/background.js",
+            "start": 3,
+            "end": 12
+          }
+        ]
+      }
+    ],
+    "policy_compliance": "Potential violation of Chrome Web Store policy by dynamically injecting a script tag into the host page's DOM. The collection of a persistent identifier for tracking without explicit opt-in may raise concerns under privacy regulations like GDPR.",
+    "evidence": [
+      {
+        "file": "extension/content.js",
+        "start": 4848,
+        "end": 4854
+      },
+      {
+        "file": "extension/background.js",
+        "start": 221,
+        "end": 224
+      }
+    ]
+  },
+  "risks": [
+    {
+      "type": "tracking",
+      "severity": "medium",
+      "justification": "The extension assigns a unique, persistent identifier ('machineKey') to each installation and sends it with analytics events to Mixpanel and with requests to its own backend. This allows for detailed, cross-site tracking of user browsing habits (on supported sites) and interactions with the extension.",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 378,
+          "end": 398
+        },
+        {
+          "file": "extension/background.js",
+          "start": 247,
+          "end": 252
+        }
+      ]
+    },
+    {
+      "type": "policy_violation",
+      "severity": "medium",
+      "justification": "The content script injects 'navigation-events.js' by creating a <script> element and appending it directly to the host page's DOM. This technique can be used to bypass a website's Content Security Policy (CSP) and is often flagged as a high-risk behavior by browser web stores.",
+      "evidence": [
+        {
+          "file": "extension/content.js",
+          "start": 4848,
+          "end": 4854
+        }
+      ]
+    },
+    {
+      "type": "insecure_storage",
+      "severity": "low",
+      "justification": "Sensitive identifiers, including authentication tokens and the unique 'machineKey', are stored in localStorage or chrome.storage.sync without any apparent client-side encryption.",
+      "evidence": [
+        {
+          "file": "extension/background.js",
+          "start": 830,
+          "end": 839
+        },
+        {
+          "file": "extension/background.js",
+          "start": 43,
+          "end": 45
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "severity": "low",
+      "justification": "The script modifies the browser's native History API (`pushState`, `replaceState`) via monkey-patching. This can potentially conflict with the host website's own JavaScript and cause unintended side effects.",
+      "evidence": [
+        {
+          "file": "extension/navigation-events.js",
+          "start": 13,
+          "end": 20
+        }
+      ]
+    }
+  ],
+  "code_signals": {
+    "chrome_api_calls": [
+      "chrome.tabs.onActivated.addListener",
+      "chrome.tabs.onUpdated.addListener",
+      "chrome.action.onClicked.addListener",
+      "chrome.runtime.onMessage.addListener",
+      "chrome.runtime.onInstalled.addListener",
+      "chrome.runtime.onStartup.addListener",
+      "chrome.contextMenus.onClicked.addListener",
+      "chrome.tabs.create",
+      "chrome.tabs.sendMessage",
+      "chrome.tabs.query",
+      "chrome.action.setIcon",
+      "chrome.runtime.getURL",
+      "chrome.runtime.setUninstallURL",
+      "chrome.contextMenus.create",
+      "chrome.storage.local.get",
+      "chrome.storage.local.set",
+      "chrome.storage.local.remove",
+      "chrome.storage.sync.get",
+      "chrome.storage.sync.set",
+      "chrome.storage.sync.remove",
+      "chrome.storage.session.get",
+      "chrome.storage.session.set",
+      "chrome.storage.session.remove",
+      "chrome.storage.session.clear",
+      "browser.management.uninstallSelf"
+    ],
+    "event_listeners": [
+      "window.message",
+      "window.popstate",
+      "document.securitypolicyviolation",
+      "element.click",
+      "MutationObserver",
+      "ResizeObserver"
+    ],
+    "dynamic_code": [],
+    "wasm_modules": [],
+    "third_party_libs": [
+      "lodash-es",
+      "htmlmetaparser",
+      "entities",
+      "htmlparser2",
+      "domutils",
+      "dom-serializer"
+    ]
+  }
+}

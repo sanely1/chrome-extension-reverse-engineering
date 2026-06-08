@@ -1,0 +1,6 @@
+signal_id,source_section,signal_type,name_or_url,operation,data_type,recipient_or_storage,trigger,purpose_guess,sensitivity,evidence_file,evidence_start,evidence_end,privacy_candidate,risk_candidate,notes
+url_navigation,endpoints,websocket,wss://capi.grammarly.com/freews,transmit,active tab URL,CAPI,tab changes,check if domain is supported,medium,src/js/Grammarly-bg.js,2,2,yes,yes,Tracks active domains to run corrections.
+written_text_checking,endpoints,websocket,wss://capi.grammarly.com/freews,transmit,written keystrokes,CAPI,text inputs,grammar real-time checking,high,src/js/Grammarly-bg.js,2,2,yes,yes,Standard Grammarly check loop.
+ai_text_selections,endpoints,websocket,wss://capi.grammarly.com/fpws,transmit,selected text,CAPI,user rewrite click,provide AI rewrite options,high,src/inkwell/assets/index-DcswASZ2.js,1,1,yes,yes,Inkwell assistant rewrite loop.
+user_auth_tokens,endpoints,fetch,https://auth.grammarly.com/v3,transmit,profile credentials,Auth server,login verification,session identity verification,high,src/js/Grammarly-bg.js,2,2,yes,yes,Saves login tokens locally.
+telemetry_gnar,endpoints,fetch,https://data.grammarly.com,transmit,UI interaction metadata,GNAR server,button clicks,product usage metrics,medium,src/js/Grammarly-bg.js,2,2,yes,yes,Exhaustive event clicks tracked.

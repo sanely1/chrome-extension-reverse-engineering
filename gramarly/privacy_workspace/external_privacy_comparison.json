@@ -1,0 +1,173 @@
+{
+  "extension_id": "kbfnbcaeplbcioakkpcpgfkobkghlhen",
+  "extension_name": "Grammarly: AI Writing Assistant and Grammar Checker App",
+  "external_privacy_policy_url": "https://www.grammarly.com/privacy-policy",
+  "comparison_summary": {
+    "external_declared_category_count": 8,
+    "observed_category_count": 4,
+    "match_count": 3,
+    "underdeclared_external_count": 0,
+    "overdeclared_external_count": 5,
+    "unclear_count": 0
+  },
+  "external_declared_categories": [
+    "personally_identifiable_information",
+    "financial_and_payment_information",
+    "authentication_information",
+    "personal_communications",
+    "location",
+    "web_history",
+    "user_activity",
+    "website_content"
+  ],
+  "observed_categories": [
+    {
+      "observed_item": "Document Content",
+      "mapped_category": "website_content",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Full text body, corrections, and edit sessions of documents checked by the user are transmitted to Grammarly APIs for real-time spelling, grammar, and AI assistance.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly.js",
+          "start": 2,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "observed_item": "Authentication Tokens",
+      "mapped_category": "authentication_information",
+      "source_field": "observed_privacy_data.items",
+      "reason": "User access tokens, cookie data, and credentials used to authorize API calls to premium/personal features.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 2,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "observed_item": "User Telemetry & Interaction Logs",
+      "mapped_category": "user_activity",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Anonymized or pseudonymous behavioral events, clicks, hover times, writing sessions, and error logs are collected to monitor product usage.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 2,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "observed_item": "Extension Settings",
+      "mapped_category": "user_activity",
+      "source_field": "observed_privacy_data.items",
+      "reason": "Configurable user preferences such as writing language, dictionary words, and active/inactive sites.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 2,
+          "end": 2
+        }
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "external_policy_category": "website_content",
+      "observed_items": [
+        "Document Content"
+      ],
+      "reason": "Observed website_content collection is fully disclosed in the external privacy policy.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly.js",
+          "start": 2,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "external_policy_category": "authentication_information",
+      "observed_items": [
+        "Authentication Tokens"
+      ],
+      "reason": "Observed authentication_information collection is fully disclosed in the external privacy policy.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 2,
+          "end": 2
+        }
+      ]
+    },
+    {
+      "external_policy_category": "user_activity",
+      "observed_items": [
+        "User Telemetry & Interaction Logs",
+        "Extension Settings"
+      ],
+      "reason": "Observed user_activity collection is fully disclosed in the external privacy policy.",
+      "confidence": "high",
+      "evidence": [
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 2,
+          "end": 2
+        },
+        {
+          "file": "extension/src/js/Grammarly-bg.js",
+          "start": 2,
+          "end": 2
+        }
+      ]
+    }
+  ],
+  "underdeclared_external": [],
+  "overdeclared_external": [
+    {
+      "external_policy_category": "personally_identifiable_information",
+      "reason": "Declared in the general external privacy policy (which covers multiple platform products) but not observed inside this specific extension bundle.",
+      "confidence": "medium"
+    },
+    {
+      "external_policy_category": "financial_and_payment_information",
+      "reason": "Financial and payment details are mentioned in the external policy (e.g. for premium product subscriptions) but are processed server-side rather than in content scripts.",
+      "confidence": "high"
+    },
+    {
+      "external_policy_category": "personal_communications",
+      "reason": "Declared in the general external privacy policy (which covers multiple platform products) but not observed inside this specific extension bundle.",
+      "confidence": "medium"
+    },
+    {
+      "external_policy_category": "location",
+      "reason": "Location-based tracking is declared in the external policy (IP address geolocation) but not directly accessed client-side inside the content scripts.",
+      "confidence": "medium"
+    },
+    {
+      "external_policy_category": "web_history",
+      "reason": "Web history (browsing/navigation) is declared in the external policy for general products but not directly logged client-side by this specific extension beyond active tab URL checking.",
+      "confidence": "medium"
+    }
+  ],
+  "unclear": [],
+  "developer_statement_checks": [],
+  "overall_assessment": {
+    "is_consistent_with_external_policy": true,
+    "risk_level": "low",
+    "confidence": "high",
+    "summary": "Consistent: Grammarly's external privacy policy is highly comprehensive and accurately covers all observed data categories, including 'website_content', 'user_activity', and 'authentication_information'. Overdeclared categories arise from the policy's multi-product scope."
+  },
+  "limitations": [
+    "The general privacy policy applies to multiple products (Grammarly, Superhuman, Coda) and therefore declares categories wider than what is observed in this single extension."
+  ]
+}

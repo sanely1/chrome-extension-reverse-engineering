@@ -1,0 +1,45 @@
+Chrome Extension Reverse Engineering - Scan Log
+================================================
+
+Run ID: 001
+Model: gemini-2.5-pro
+Timestamp: 2026-05-17T18:24:00Z
+Output Directory: ./out_001_gemini-2.5-pro
+
+Tools/Packages Used:
+- js-beautify
+- espree
+- ajv-cli
+
+File Counts:
+- Original JS files: 6
+- Beautified files: 6 (100% success rate)
+- Total chunks analyzed: 10 (1 for background, 6 for content, 1 for data-control, 1 for navigation-events, 1 for popup, 1 for save)
+- Service worker: 1 file (extension/background.js)
+- Content scripts: 1 file (extension/content.js)
+- UI files: 3 files (extension/popup.js, extension/data-control.js, extension/save.js)
+
+Analysis Results:
+- Chrome API calls found: 26 unique calls
+- Event listeners: 7
+- Message channels: 20
+- Storage keys: 12
+- Network endpoints: 8 unique domains
+- Workflows identified: 5
+- Privacy risks: 2
+
+Beautification:
+- Success: 6 files
+- Errors: 0 files
+
+Validation:
+- extension_summary.json: PASSED schema validation
+- outline.jsonl: 10 entries (all chunks covered)
+- analysis_notes.md: Complete, all chunks documented
+- CSV files: endpoints.csv (11 rows), messages.csv (23 rows), storage_keys.csv (15 rows)
+
+Known Gaps/Unknowns:
+- The exact consent flow for Chrome users is unclear.
+- The full payload schema for some messages could not be fully inferred.
+
+Completion Status: SUCCESS

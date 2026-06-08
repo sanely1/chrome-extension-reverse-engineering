@@ -1,0 +1,53 @@
+Chrome Extension Reverse Engineering - Scan Log
+================================================
+
+Run ID: 001
+Model: gemini-2.5-flash
+Timestamp: 2026-05-17T16:53:00Z
+Output Directory: ./out_001_gemini-2.5-flash
+
+Tools/Packages Used:
+- js-beautify
+- espree
+- @typescript-eslint/typescript-estree
+- acorn
+- acorn-walk
+- ajv-cli
+
+File Counts:
+- Original JS files: 6
+- Beautified files: 6 (100% success rate)
+- Total chunks analyzed: 12
+- Service worker: 1 file (extension/background.js)
+- Content scripts: 1 file (extension/content.js)
+- Injected scripts: 1 file (extension/navigation-events.js)
+- UI files: 2 files (extension/popup.js, extension/data-control.js)
+- Web accessible resources: 1 file (extension/save.js)
+
+Analysis Results:
+- Chrome API calls found: 29 unique calls
+- Event listeners: 23
+- Message channels: 29
+- Storage keys: 12 (dynamic keys handled as patterns)
+- Network endpoints: 17 unique URLs/domains
+- Workflows identified: 7
+- Privacy risks: 6 (High: 3, Medium: 3, Low: 0)
+
+Beautification:
+- Success: 6 files
+- Errors: 0 files
+- Files excluded: node_modules (implicit, not scanned)
+
+Validation:
+- extension_summary.json: PASSED schema validation
+- outline.jsonl: 12 entries (all chunks covered)
+- analysis_notes.md: Complete, all chunks documented
+- CSV files: endpoints.csv (17 rows), messages.csv (29 rows), storage_keys.csv (12 rows)
+
+Known Gaps/Unknowns:
+- Dynamic payload schema for some messages could not be fully inferred, marked as "object" or "any".
+- Exact purpose and sensitivity of 'AUTH_KEY' and 'AUTH_VALUE' not fully determined without backend context.
+- Full scope of data sent to third-party oEmbed providers is not explicitly analyzed beyond URL patterns.
+- Specific content and functionality of the Faircado Web App hosted at `https://extension-v3-8.faircado.com` is beyond the scope of local extension analysis.
+
+Completion Status: SUCCESS

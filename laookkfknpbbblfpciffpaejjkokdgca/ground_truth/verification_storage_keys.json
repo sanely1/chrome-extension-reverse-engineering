@@ -1,0 +1,683 @@
+[
+  {
+    "key": "analyticsQueue",
+    "type": "indexeddb",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4500,
+        "end": 4550
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 4500-4550)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "authState",
+    "type": "local",
+    "purpose": "Authentication state",
+    "retention": "",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "calculateUnregisteredDashboardExperiment",
+    "type": "local",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "chrome.storage",
+    "type": "local",
+    "purpose": "Generic Chrome storage API usage",
+    "retention": "indefinite",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 37,
+        "end": 42
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 37-42)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "client_uuid",
+    "type": "localstorage",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5300,
+        "end": 5310
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 5300-5310); Evidence 4: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "config",
+    "type": "local",
+    "purpose": "Configuration",
+    "retention": "",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 1,
+        "end": 2000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 1,
+        "end": 2000
+      }
+    ],
+    "found_by_models": [
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in serviceWorker.js (lines 1-2000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 1-2000)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "idMap",
+    "type": "indexeddb",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4200,
+        "end": 4250
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 4200-4250)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "indexedDB",
+    "type": "indexeddb",
+    "purpose": "Generic IndexedDB database operations",
+    "retention": "indefinite",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in serviceWorker.js (lines 2001-4000)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "installDate",
+    "type": "local",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "keyValueDb",
+    "type": "indexeddb",
+    "purpose": "Generic key-value storage using Dexie.js",
+    "retention": "indefinite",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 100,
+        "end": 150
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in serviceWorker.js (lines 100-150)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "localStorage",
+    "type": "local",
+    "purpose": "Generic local storage operations",
+    "retention": "indefinite",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 4800,
+        "end": 4850
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 4800-4850)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "misc",
+    "type": "indexeddb",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1"
+    ],
+    "verified": false,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✗ NOT found in serviceWorker.js (lines 4001-5360)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "momentum-customization-1",
+    "type": "localstorage",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "momentumExtensionUserId",
+    "type": "local",
+    "purpose": "User ID injected into page DOM",
+    "retention": "session",
+    "evidence": [
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 20,
+        "end": 25
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in content-scripts/momoSiteInterop.js (lines 20-25)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "momentumPlatform",
+    "type": "local",
+    "purpose": "Platform identifier injected into page DOM",
+    "retention": "session",
+    "evidence": [
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 10,
+        "end": 15
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in content-scripts/momoSiteInterop.js (lines 10-15)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "momentumVersion",
+    "type": "local",
+    "purpose": "Extension version injected into page DOM",
+    "retention": "session",
+    "evidence": [
+      {
+        "file": "content-scripts/momoSiteInterop.js",
+        "start": 15,
+        "end": 20
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in content-scripts/momoSiteInterop.js (lines 15-20)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "notificationsQueue",
+    "type": "indexeddb",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4300,
+        "end": 4350
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 4300-4350)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "releaseUpdateModalCheck",
+    "type": "local",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "timestamp",
+    "type": "indexeddb",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4400,
+        "end": 4450
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 4400-4450)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "token",
+    "type": "localstorage",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5310,
+        "end": 5320
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 5310-5320); Evidence 4: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "token_uuid",
+    "type": "localstorage",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5320,
+        "end": 5330
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 5320-5330); Evidence 4: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "unregistered",
+    "type": "localstorage",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5330,
+        "end": 5340
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 5330-5340); Evidence 4: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "userPrefs",
+    "type": "local",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 1,
+        "end": 2000
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1"
+    ],
+    "verified": false,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 1-2000)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  },
+  {
+    "key": "xhrQueue",
+    "type": "indexeddb",
+    "purpose": "unknown",
+    "retention": "unknown",
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5000,
+        "end": 5100
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 5000-5100)",
+    "correct_key": "",
+    "correct_type": "",
+    "correct_purpose": ""
+  }
+]

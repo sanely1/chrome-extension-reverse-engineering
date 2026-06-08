@@ -1,0 +1,7 @@
+claim_section,claim_name,claim_type,source_review_row,evidence_file,draft_start,draft_end,precise_start,precise_end,decision,reason
+observed_privacy_data,User Written Content,document text,User Written Content,extension/src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Websocket text delta streams are handled within the core bundle.
+observed_privacy_data,Authentication Session Tokens,credentials,Authentication Session Tokens,extension/src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Credential state and sync storage is processed inside core background bundle.
+observed_privacy_data,Client Telemetry and Performance,analytics metrics,Client Telemetry and Performance,extension/src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Telemetry transmission triggers and payload structures are handled inside background.
+risks,Cloud text transmission,tracking,Cloud text transmission,extension/src/js/Grammarly-bg.js,2,2,2,2,narrow_evidence_confirmed,Wss capi endpoint streaming is handled inside background.
+risks,Excessive Broad Host Permissions,excessive_permissions,Excessive Broad Host Permissions,extension/manifest.json,315,318,315,318,narrow_evidence_confirmed,Manifest declarations for broad web access.
+risks,Cross-domain Cookie Monitoring,insecure_storage,Cross-domain Cookie Monitoring,extension/manifest.json,322,330,322,330,narrow_evidence_confirmed,Cookies API declaration in manifest.

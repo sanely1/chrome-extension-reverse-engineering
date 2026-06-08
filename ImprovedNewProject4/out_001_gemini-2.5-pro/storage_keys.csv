@@ -1,0 +1,16 @@
+key,type,purpose,file,line_start,line_end
+authKey,local,Authentication key,extension/background.js,793,793
+authValue,local,Authentication value,extension/background.js,794,794
+machineKey,local,Unique user identifier,extension/background.js,213,213
+supportedSitesData,local,Cached supported websites data,extension/background.js,270,270
+isProductPageHeuristicsData,local,Cached heuristics data for product pages,extension/background.js,190,190
+abTestsCachedConfig,local,Cached A/B tests configuration,extension/background.js,434,434
+extensionCachedConfig,local,Cached extension configuration,extension/background.js,442,442
+abTestVariantRecords,local,Assigned A/B test variants,extension/background.js,493,493
+activated,local,Flag indicating if the extension is activated,extension/background.js,390,390
+userSettings,local,User settings,extension/background.js,56,56
+authKey,sync,Authentication key,extension/background.js,796,799
+authValue,sync,Authentication value,extension/background.js,796,799
+activated,local,User consent flag,extension/data-control.js,300,300
+machineKey,local,Unique user identifier,extension/data-control.js,127,127
+abTestsCachedConfig,local,A/B test configuration,extension/data-control.js,205,205

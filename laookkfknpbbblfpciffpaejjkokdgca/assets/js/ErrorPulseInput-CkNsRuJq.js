@@ -1,0 +1,1 @@
+class s{constructor(s){this.input=s}}export{s as E};

@@ -1,0 +1,42 @@
+{
+  "permissions": [
+    {
+      "permission": "contextMenus",
+      "justification": "Allows the extension to add items to the browser's context menu.",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 33,
+        "end": 33
+      }
+    },
+    {
+      "permission": "activeTab",
+      "justification": "Grants temporary access to the currently active tab when the user invokes the extension.",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 33,
+        "end": 33
+      }
+    },
+    {
+      "permission": "storage",
+      "justification": "Allows the extension to store and retrieve data locally.",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 33,
+        "end": 33
+      }
+    },
+    {
+      "permission": "tabs",
+      "justification": "Allows the extension to interact with the browser's tab system, including querying tab information.",
+      "evidence": {
+        "file": "extension/manifest.json",
+        "start": 33,
+        "end": 33
+      }
+    }
+  ],
+  "host_permissions": [],
+  "optional_permissions": []
+}

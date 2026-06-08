@@ -1,0 +1,2 @@
+key,type,purpose,file,line_start,line_end
+gdocs_peak_collabs_dismissed,localStorage,Store data related to key: gdocs_peak_collabs_dismissed,extension/src/js/Grammarly.js,2,2

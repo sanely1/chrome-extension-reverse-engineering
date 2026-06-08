@@ -1,0 +1,26 @@
+@startuml
+skinparam packageStyle rect
+skinparam shadowing true
+
+actor User
+participant "Web Page DOM" as DOM
+participant "Content Script
+(Grammarly.js)" as CS
+participant "Background SW
+(Grammarly-bg.js)" as BG
+participant "UI Panel
+(sidePanel.js)" as UI
+database "Chrome Storage" as Storage
+entity "Grammarly Servers" as Remote
+
+BG -> Remote: Fetch Configs
+CS -> DOM: Listen to Input / MutationObserver
+CS -> Remote: WS Revision delta check (capi.grammarly.com)
+Remote --> CS: Suggesters markups
+CS -> DOM: Render underline markups
+User -> UI: Rewrite prompt triggered
+UI -> BG: Request rewrite action (gateway.grammarly.com)
+Remote --> UI: AI refined values
+UI -> CS: Apply suggestions inputs
+CS -> DOM: Update textarea values
+@enduml

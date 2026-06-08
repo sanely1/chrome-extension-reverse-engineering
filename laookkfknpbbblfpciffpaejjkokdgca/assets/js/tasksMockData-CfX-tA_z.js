@@ -1,0 +1,1 @@
+import{d as t}from"./DataSyncService-BIQVYvDv.js";const o=t("tasksMockData",{state:()=>({listTitle:"",todos:[],providerIcon:""})});export{o as u};

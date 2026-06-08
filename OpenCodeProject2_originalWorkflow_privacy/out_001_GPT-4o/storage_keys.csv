@@ -1,0 +1,11 @@
+key,type,purpose,file,line_start,line_end,retention
+preferences,local,"Stores basic user editor settings, auto-correct toggles, and UI language preference",extension/src/js/Grammarly-bg.js,84983,84995,indefinite
+gnarInternalStorage,local,Caches Grammarly's proprietary tracking identifiers (Gnar IDs) and behavioral timestamps,extension/src/js/Grammarly-bg.js,84983,84995,indefinite
+gnar_nextPingTimestamp,local,Tracks scheduled time for sending next telemetry ping to https://gnar.grammarly.com,extension/src/js/Grammarly-bg.js,84983,84995,indefinite
+gnar_containerId,local,Contains container identifier for grouping user session events,extension/src/js/Grammarly-bg.js,84983,84995,indefinite
+authTokenInitialRefreshDone,local,Flag indicating if the initial OAuth token refresh and validation has succeeded on boot,extension/src/js/Grammarly-bg.js,84983,84995,indefinite
+gr-oauth-service-state,local,"Stores current OAuth 2.0 flow status, token types, and session duration",extension/src/js/Grammarly-bg.js,84983,84995,indefinite
+session_storage_logs_backup,local,Backs up error logs and stack traces if remote transmission fails on f-log endpoint,extension/src/js/Grammarly-bg.js,84983,84995,cleared on next successful sync
+experimentationGatesTreatments,local,Caches treatments and dynamic UI variations assigned to user from gates/treatments API,extension/src/js/Grammarly-bg.js,84983,84995,indefinite
+experimentationTreatments,local,Caches experimentation variant classifications to avoid re-fetching on page loads,extension/src/js/Grammarly-bg.js,84983,84995,indefinite
+loginReminderDoNotShowThisAgain,local,Flag to dismiss/mute persistent sign-in onboarding popup dialogs,extension/src/js/Grammarly-bg.js,84983,84995,indefinite

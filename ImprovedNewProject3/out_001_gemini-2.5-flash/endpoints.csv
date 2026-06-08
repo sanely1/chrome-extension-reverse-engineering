@@ -1,0 +1,5 @@
+url,method,file,line_start,line_end
+
+https://extension-v3-8.faircado.com,OTHER,extension/content.js,4,4
+https://faircado.com/redirect-handler,GET,extension/content.js,11877,11877
+https://faircado.de/redirect-handler,GET,extension/content.js,11852,11852

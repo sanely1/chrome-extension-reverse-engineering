@@ -1,0 +1,4 @@
+channel_name,direction,payload_keys,file,line_start,line_end
+"auth_token_sync","content->background","token","src/js/Grammarly-bg.js",44001,46000
+"apply_correction","background->content","text|delta","src/js/Grammarly.js",1,2000
+"open_sidepanel","ui->background","panel_id","src/js/Grammarly-sidePanel.js",4001,6000

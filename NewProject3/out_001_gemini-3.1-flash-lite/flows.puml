@@ -1,0 +1,18 @@
+@startuml
+actor User
+participant Page
+participant "Content Script (content.js)" as CS
+participant "Service Worker (background.js)" as SW
+database "chrome.storage" as Storage
+participant "Mixpanel API" as Remote
+
+User -> Page: Visits website
+Page -> CS: Execute content script
+CS -> SW: sendMessage(messageTypes)
+SW -> Storage: Read/Write (machineKey, authKey, etc.)
+Storage --> SW: Data
+SW -> Remote: POST /track (Mixpanel events)
+Remote --> SW: OK
+SW --> CS: Response
+CS -> Page: UI updates
+@enduml

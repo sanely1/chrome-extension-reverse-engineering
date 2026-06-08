@@ -1,0 +1,224 @@
+{
+  "extension_id": "kbfnbcaeplbcioakkpcpgfkobkghlhen",
+  "extension_name": "Grammarly: AI Writing Assistant and Grammar Checker App",
+  "chrome_webstore_privacy_url": "https://chromewebstore.google.com/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen/privacy",
+  "external_privacy_policy_url": "https://www.grammarly.com/privacy-policy",
+  "comparison_summary": {
+    "chrome_webstore_declared_category_count": 5,
+    "external_policy_category_count": 8,
+    "prompt3_underdeclared_count": 2,
+    "underdeclared_explained_by_external_count": 2,
+    "underdeclared_not_declared_in_either_count": 0,
+    "underdeclared_unclear_external_coverage_count": 0,
+    "shared_category_count": 5,
+    "chrome_webstore_only_category_count": 0,
+    "external_only_category_count": 3
+  },
+  "chrome_webstore_declared_categories": [
+    "personally_identifiable_information",
+    "personal_communications",
+    "location",
+    "user_activity",
+    "website_content"
+  ],
+  "external_policy_declared_categories": [
+    "personally_identifiable_information",
+    "financial_and_payment_information",
+    "authentication_information",
+    "personal_communications",
+    "location",
+    "web_history",
+    "user_activity",
+    "website_content"
+  ],
+  "prompt3_underdeclared_review": [
+    {
+      "observed_item": "Active Tab URL and Navigation Target",
+      "mapped_category": "web_history",
+      "prompt3_status": "underdeclared_in_chrome_webstore",
+      "external_policy_coverage": "chrome_webstore_underdeclared_but_external_explains",
+      "reason": "Prompt 3 found 'Active Tab URL and Navigation Target' underdeclared in the Chrome Web Store. However, the external privacy policy explicitly declares collection of the 'web_history' category, explaining this data usage.",
+      "severity": "medium",
+      "confidence": "high",
+      "evidence": {
+        "prompt3_underdeclared_evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 40001,
+            "end": 42000
+          }
+        ],
+        "external_policy_evidence": [
+          {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        ]
+      }
+    },
+    {
+      "observed_item": "Authorization Tokens and User ID Profile",
+      "mapped_category": "authentication_information",
+      "prompt3_status": "underdeclared_in_chrome_webstore",
+      "external_policy_coverage": "chrome_webstore_underdeclared_but_external_explains",
+      "reason": "Prompt 3 found 'Authorization Tokens and User ID Profile' underdeclared in the Chrome Web Store. However, the external privacy policy explicitly declares collection of the 'authentication_information' category, explaining this data usage.",
+      "severity": "medium",
+      "confidence": "high",
+      "evidence": {
+        "prompt3_underdeclared_evidence": [
+          {
+            "file": "src/js/Grammarly-bg.js",
+            "start": 44001,
+            "end": 46000
+          }
+        ],
+        "external_policy_evidence": [
+          {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        ]
+      }
+    }
+  ],
+  "policy_category_alignment": {
+    "shared_categories": [
+      {
+        "category": "personally_identifiable_information",
+        "reason": "Disclosed consistently across both the Chrome Web Store and the external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "personal_communications",
+        "reason": "Disclosed consistently across both the Chrome Web Store and the external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "location",
+        "reason": "Disclosed consistently across both the Chrome Web Store and the external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "user_activity",
+        "reason": "Disclosed consistently across both the Chrome Web Store and the external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "website_content",
+        "reason": "Disclosed consistently across both the Chrome Web Store and the external privacy policy.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      }
+    ],
+    "chrome_webstore_only_categories": [],
+    "external_only_categories": [
+      {
+        "category": "financial_and_payment_information",
+        "status": "external_only_disclosure",
+        "reason": "The developer's external privacy policy discloses collection of the 'financial_and_payment_information' category, but this is omitted from the Chrome Web Store privacy practices panel.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "authentication_information",
+        "status": "external_only_disclosure",
+        "reason": "The developer's external privacy policy discloses collection of the 'authentication_information' category, but this is omitted from the Chrome Web Store privacy practices panel.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      },
+      {
+        "category": "web_history",
+        "status": "external_only_disclosure",
+        "reason": "The developer's external privacy policy discloses collection of the 'web_history' category, but this is omitted from the Chrome Web Store privacy practices panel.",
+        "confidence": "high",
+        "evidence": {
+          "chrome_webstore": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "declared_data_categories"
+          },
+          "external_policy": {
+            "file": "privacy_workspace/declared_privacy.json",
+            "path": "external_privacy_policy.detected_data_categories"
+          }
+        }
+      }
+    ]
+  },
+  "overall_assessment": {
+    "chrome_webstore_underdeclaration_resolved_by_external_policy": true,
+    "has_categories_declared_only_externally": true,
+    "risk_level": "medium",
+    "confidence": "high",
+    "summary": "The comparison reveals that while Grammarly has two underdeclaration gaps on its public Chrome Web Store page ('web_history' and 'authentication_information'), both gaps are completely and transparently covered in the developer's external privacy policy. The external policy represents a highly comprehensive disclosure layer, successfully resolving all identified local extension behaviors."
+  },
+  "limitations": [
+    "This meta-comparison relies entirely on static document parsing and detected data category patterns."
+  ]
+}

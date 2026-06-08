@@ -1,0 +1,32 @@
+Scan Log for out_001_gemini-3.5-flash
+Extension ID: kbfnbcaeplbcioakkpcpgfkobkghlhen (Grammarly)
+Date: 2026-06-07
+
+Tools used:
+- node tools/census_extractor.js
+- node tools/census_promoter.js
+- node tools/adjudicate_census.js
+- node tools/reconcile_census.js
+- node tools/find_apis.js
+- node tools/create_beautify_map.js
+- node tools/generate_summary.js
+- node tools/message_review_linter.js
+- node tools/workflow_review_linter.js
+- node tools/validate_summary.js
+- python fetch_privacy.py
+- node tools/compare_privacy.js
+- node tools/compare_external_policy.js
+- node tools/compare_internal_external.js
+
+Counts of extracted artifacts:
+- Endpoints: 491
+- Messages: 172
+- Storage keys: 15
+- Workflows: 7
+- Risks: 3
+- Observed privacy data items: 3
+
+Validation status:
+- message_review_linter: OK
+- workflow_review_linter: OK
+- validate_summary schema validation: OK (fully schema-compliant)

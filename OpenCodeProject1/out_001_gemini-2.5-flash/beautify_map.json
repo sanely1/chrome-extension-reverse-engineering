@@ -1,0 +1,18 @@
+[
+  {
+    "original": "extension/save.js",
+    "beautified": "out_001_gemini-2.5-flash/save_beautified.js"
+  },
+  {
+    "original": "extension/popup.js",
+    "beautified": "out_001_gemini-2.5-flash/popup_beautified.js"
+  },
+  {
+    "original": "extension/navigation-events.js",
+    "beautified": "out_001_gemini-2.5-flash/navigation-events_beautified.js"
+  },
+  {
+    "original": "extension/data-control.js",
+    "beautified": "out_001_gemini-2.5-flash/data-control_beautified.js"
+  }
+]

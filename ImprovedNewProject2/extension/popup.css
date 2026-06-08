@@ -1,0 +1,116 @@
+@font-face {
+  font-family: 'PPRightGrotesk';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local('PPRightGrotesk'),
+    local('PPRightGrotesk'),
+    url('https://assets.faircado.com/fonts/PP Right Grotesk/PPRightGrotesk-Bold.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'PPRightGrotesk';
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local('PPRightGrotesk'),
+    local('PPRightGrotesk'),
+    url('https://assets.faircado.com/fonts/PP Right Grotesk/PPRightGrotesk-Light.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'PPRightGrotesk';
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local('PPRightGrotesk'),
+    local('PPRightGrotesk'),
+    url('https://assets.faircado.com/fonts/PP Right Grotesk/PPRightGrotesk-Medium.woff')
+      format('woff');
+}
+
+@font-face {
+  font-family: 'NaNHyenaNoon';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local('NaNHyenaNoon'),
+    local('NaNHyenaNoon'),
+    url('https://assets.faircado.com/fonts/NAN+Hyena/NaN-Hyena-Noon-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NaNHyenaNoon';
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local('NaNHyenaNoon'),
+    local('NaNHyenaNoon'),
+    url('https://assets.faircado.com/fonts/NAN+Hyena/NaN-Hyena-Noon-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NaNHyenaNoon';
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local('NaNHyenaNoon'),
+    local('NaNHyenaNoon'),
+    url('https://assets.faircado.com/fonts/NAN+Hyena/NaN-Hyena-Noon-Medium.woff2') format('woff2');
+}
+
+body {
+  background: #ffffff;
+  width: 328px;
+  min-height: 440px;
+  font-family: 'PPRightGrotesk', serif;
+  font-weight: normal;
+}
+
+.title {
+  /* Welcome Text */
+  /*font-family: 'PPRightGrotesk', serif;*/
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  /* identical to box height, or 104% */
+  text-align: center;
+
+  color: #000000;
+}
+
+.logo {
+  position: absolute;
+  bottom: 0;
+  width: 95%;
+}
+
+p {
+  /*font-family: 'PPRightGrotesk', serif;*/
+  font-style: normal;
+  font-weight: 200;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 40px;
+}
+.badge-wrapper {
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #a9f185;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 200;
+  border-radius: 8px;
+  border: 1px solid black;
+  color: black;
+  padding: 2px 4px 4px 10px;
+  margin: 3px;
+}

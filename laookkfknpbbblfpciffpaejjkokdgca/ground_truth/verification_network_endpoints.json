@@ -1,0 +1,350 @@
+[
+  {
+    "url": ".posthog.com",
+    "purpose": "PostHog analytics infrastructure",
+    "methods": [
+      "POST"
+    ],
+    "headers": [
+      "Content-Type"
+    ],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 4600,
+        "end": 4620
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 4600-4620)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "chrome-extension://<id>/site-blocker.html?hostname=...&sitename=...&metatitle=...&documenttitle=...",
+    "purpose": "Site blocker intervention UI",
+    "methods": [
+      "GET"
+    ],
+    "headers": [],
+    "evidence": [
+      {
+        "file": "content-scripts/siteBlocker.js",
+        "start": 18,
+        "end": 36
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in content-scripts/siteBlocker.js (lines 18-36)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "https://account.momentumdash.com/",
+    "purpose": "User account management",
+    "methods": [
+      "GET",
+      "POST"
+    ],
+    "headers": [],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5300,
+        "end": 5300
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 5300-5300)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "https://api.momentumdash.com/",
+    "purpose": "Core extension API",
+    "methods": [
+      "GET",
+      "POST",
+      "PATCH",
+      "DELETE"
+    ],
+    "headers": [
+      "Authorization",
+      "Content-Type"
+    ],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 161,
+        "end": 166
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 161-166)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "https://api.momentumdash.com/config",
+    "purpose": "Config fetch",
+    "methods": [
+      "GET"
+    ],
+    "headers": [],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 1,
+        "end": 2000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 1,
+        "end": 2000
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ~ Partial match in serviceWorker.js (lines 1-2000); Evidence 2: ~ Partial match in serviceWorker.js (lines 1-2000)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "https://api.momentumdash.com/user:migrateLegacy?canceled=true",
+    "purpose": "User migration",
+    "methods": [
+      "POST"
+    ],
+    "headers": [],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ~ Partial match in serviceWorker.js (lines 4001-5360)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "https://browser-http-intake.logs.datadoghq.com/v1/input/",
+    "purpose": "Datadog logging service",
+    "methods": [
+      "POST"
+    ],
+    "headers": [
+      "Content-Type"
+    ],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 175,
+        "end": 180
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro",
+      "GPT4.1"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 175-180)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "https://modash.blob.core.windows.net/",
+    "purpose": "Asset storage",
+    "methods": [
+      "GET"
+    ],
+    "headers": [],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4950,
+        "end": 4960
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 4950-4960); Evidence 4: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "https://momentumdash.com/uninstall",
+    "purpose": "Uninstall tracking",
+    "methods": [
+      "unknown"
+    ],
+    "headers": [],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "https://posthog.momentumdash.com/e/",
+    "purpose": "Analytics/telemetry",
+    "methods": [
+      "POST"
+    ],
+    "headers": [],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found (without protocol) in serviceWorker.js (lines 4001-5360)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "https://www.momentumdash.com/",
+    "purpose": "Web app",
+    "methods": [
+      "GET",
+      "POST"
+    ],
+    "headers": [],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 2001,
+        "end": 4000
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 5301,
+        "end": 5301
+      }
+    ],
+    "found_by_models": [
+      "GPT4.1",
+      "Claude-Sonnet-4"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 2001-4000); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360); Evidence 3: ✗ NOT found in serviceWorker.js (lines 5301-5301)",
+    "correct_url": "",
+    "correct_purpose": ""
+  },
+  {
+    "url": "posthog.momentumdash.com/e/",
+    "purpose": "PostHog analytics tracking",
+    "methods": [
+      "POST"
+    ],
+    "headers": [
+      "Content-Type"
+    ],
+    "evidence": [
+      {
+        "file": "serviceWorker.js",
+        "start": 4600,
+        "end": 4620
+      },
+      {
+        "file": "serviceWorker.js",
+        "start": 4001,
+        "end": 5360
+      }
+    ],
+    "found_by_models": [
+      "Claude-Sonnet-4",
+      "Gemini-2.5-Pro"
+    ],
+    "verified": true,
+    "verification_notes": "AUTO: Evidence 1: ✗ NOT found in serviceWorker.js (lines 4600-4620); Evidence 2: ✓ Found exact match in serviceWorker.js (lines 4001-5360)",
+    "correct_url": "",
+    "correct_purpose": ""
+  }
+]

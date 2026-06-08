@@ -1,0 +1,261 @@
+{
+  "metadata": {
+    "name": "Faircado - Second hand shopping",
+    "version": "3.8.12",
+    "manifest_version": 3,
+    "description": "We help you make the sustainable choice your go-to!",
+    "evidence": [{"file": "manifest.json", "start": 1, "end": 41}, {"file": "_locales/en/messages.json", "start": 1, "end": 8}]
+  },
+  "permissions": {
+    "api_permissions": ["contextMenus", "activeTab", "storage", "tabs"],
+    "host_permissions": [],
+    "optional_permissions": [],
+    "evidence": [{"file": "manifest.json", "start": 33, "end": 33}]
+  },
+  "components": {
+    "background": {
+      "files": ["background.js"],
+      "apis": ["chrome.storage.local", "chrome.storage.sync", "chrome.storage.session", "chrome.tabs.create", "chrome.tabs.sendMessage", "chrome.tabs.query", "chrome.runtime.sendMessage", "chrome.runtime.onMessage", "chrome.runtime.onInstalled", "chrome.runtime.onStartup", "chrome.runtime.setUninstallURL", "chrome.action.setIcon", "chrome.action.setPopup", "chrome.contextMenus.create"],
+      "listeners": ["chrome.tabs.onActivated", "chrome.tabs.onUpdated", "chrome.runtime.onMessage", "chrome.contextMenus.onClicked", "chrome.runtime.onInstalled", "chrome.runtime.onStartup", "chrome.action.onClicked"],
+      "evidence": [{"file": "background.js", "start": 1, "end": 903}]
+    },
+    "content_scripts": [
+      {
+        "files": ["content.js"],
+        "apis": ["chrome.runtime.sendMessage", "chrome.runtime.onMessage", "chrome.runtime.getURL"],
+        "listeners": ["chrome.runtime.onMessage", "window.message", "document.onsecuritypolicyviolation"],
+        "evidence": [{"file": "content.js", "start": 1, "end": 12412}]
+      }
+    ],
+    "injected_scripts": [
+       {
+        "files": ["navigation-events.js"],
+        "apis": [],
+        "listeners": ["popstate"],
+        "evidence": [{"file": "navigation-events.js", "start": 1, "end": 23}]
+      }
+    ],
+    "ui": [
+      {
+        "files": ["popup.js"],
+        "apis": [],
+        "listeners": [],
+        "evidence": [{"file": "popup.js", "start": 1, "end": 37}]
+      },
+      {
+        "files": ["data-control.js"],
+        "apis": ["chrome.runtime.sendMessage", "chrome.runtime.getURL", "chrome.tabs.create"],
+        "listeners": ["click"],
+        "evidence": [{"file": "data-control.js", "start": 1, "end": 303}]
+      }
+    ],
+    "web_accessible_resources": ["/save.html", "/public/icons/*", "/navigation-events.js"]
+  },
+  "network": {
+    "endpoints": [
+      {
+        "url": "https://catalog-service-api.faircado.com/api/v1/supported-website",
+        "purpose": "Check if a website is supported for product extraction",
+        "methods": ["POST"],
+        "headers": ["Content-Type", "X-Machine-Key"],
+        "evidence": [{"file": "background.js", "start": 241, "end": 263}]
+      },
+      {
+        "url": "https://cms-api.faircado.com/api/supported-websites/list",
+        "purpose": "Fetch the list of supported websites",
+        "methods": ["GET"],
+        "headers": [],
+        "evidence": [{"file": "background.js", "start": 267, "end": 331}]
+      },
+      {
+        "url": "https://api.mixpanel.com/track",
+        "purpose": "Analytics tracking",
+        "methods": ["POST"],
+        "headers": ["Content-Type"],
+        "evidence": [{"file": "background.js", "start": 378, "end": 398}]
+      },
+      {
+        "url": "https://api.mixpanel.com/engage#profile-batch-update",
+        "purpose": "Update Mixpanel user profile",
+        "methods": ["POST"],
+        "headers": ["Content-Type"],
+        "evidence": [{"file": "background.js", "start": 872, "end": 897}]
+      }
+    ]
+  },
+  "messaging": {
+    "channels": [
+      {
+        "name": "isSupportedWebsite",
+        "direction": "content->background",
+        "payload_schema": {"url": "string"},
+        "evidence": [{"file": "background.js", "start": 688, "end": 714}]
+      },
+      {
+        "name": "showExtension",
+        "direction": "background->content",
+        "payload_schema": {"manualExtensionOpen": "boolean", "machineKey": "string", "imageUrl": "string"},
+        "evidence": [{"file": "background.js", "start": 621, "end": 627}]
+      },
+      {
+        "name": "mixpanel",
+        "direction": "content->background",
+        "payload_schema": {"eventName": "string", "payload": "object"},
+        "evidence": [{"file": "background.js", "start": 662, "end": 671}]
+      }
+    ]
+  },
+  "storage": {
+    "keys": [
+      {
+        "key": "machineKey",
+        "type": "sync",
+        "purpose": "Persistent installation identifier",
+        "retention": "indefinite",
+        "evidence": [{"file": "background.js", "start": 44, "end": 44}, {"file": "background.js", "start": 213, "end": 238}]
+      },
+      {
+        "key": "authKey",
+        "type": "local",
+        "purpose": "Authentication key",
+        "retention": "indefinite",
+        "evidence": [{"file": "background.js", "start": 42, "end": 42}]
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "name": "Product Detection and Catalog Redirection",
+      "triggers": ["User visits a webpage", "URL changes"],
+      "steps": [
+        "Content script sends current URL to background.",
+        "Background checks if site is supported.",
+        "If supported, content script extracts product metadata (title, image).",
+        "If the 'extension_to_website' A/B test is enabled, a 'Find secondhand' box is injected.",
+        "User clicks the box, and the script redirects to faircado.com with a redirection ID."
+      ],
+      "apis": ["chrome.runtime.sendMessage", "chrome.runtime.getURL"],
+      "messages": ["isSupportedWebsite", "mixpanel"],
+      "endpoints": ["https://catalog-service-api.faircado.com/api/v1/supported-website"],
+      "storage_keys": ["machineKey", "supportedSitesData"],
+      "evidence": [{"file": "content.js", "start": 11294, "end": 11320}, {"file": "content.js", "start": 11894, "end": 11933}]
+    }
+  ],
+  "observed_privacy_data": {
+    "items": [
+      {
+        "data_name": "machineKey",
+        "data_description": "Unique installation ID used for tracking and API authentication",
+        "source": "generated via uuidv4() in code",
+        "operation": "generated, stored, transmitted",
+        "collection_trigger": "extension installation",
+        "storage": {
+          "stored": true,
+          "type": "chrome.storage.sync / localStorage",
+          "key": "machineKey",
+          "retention": "indefinite"
+        },
+        "transmission": {
+          "transmitted": true,
+          "recipient": "api.mixpanel.com, catalog-service-api.faircado.com",
+          "endpoint": "https://api.mixpanel.com/track",
+          "method": "POST",
+          "payload_fields": ["distinct_id", "X-Machine-Key"]
+        },
+        "local_processing": ["tracking", "API request signing"],
+        "user_control_or_consent": "not observed",
+        "purpose_observed": "analytics, feature functionality",
+        "confidence": "high",
+        "evidence": [{"file": "background.js", "start": 205, "end": 238}]
+      },
+      {
+        "data_name": "current_page_url",
+        "data_description": "URL of the page visited by the user",
+        "source": "window.location.href",
+        "operation": "read, transmitted",
+        "collection_trigger": "page load / navigation",
+        "storage": {
+          "stored": false,
+          "type": "unknown",
+          "key": "unknown",
+          "retention": "unknown"
+        },
+        "transmission": {
+          "transmitted": true,
+          "recipient": "catalog-service-api.faircado.com",
+          "endpoint": "https://catalog-service-api.faircado.com/api/v1/supported-website",
+          "method": "POST",
+          "payload_fields": ["url"]
+        },
+        "local_processing": ["supported site check"],
+        "user_control_or_consent": "unknown",
+        "purpose_observed": "feature functionality",
+        "confidence": "high",
+        "evidence": [{"file": "content.js", "start": 11706, "end": 11709}]
+      },
+       {
+        "data_name": "product_metadata",
+        "data_description": "Extracted product details (title, image, price, etc.)",
+        "source": "DOM (document.querySelector)",
+        "operation": "read, processed, transmitted",
+        "collection_trigger": "product page detection",
+        "storage": {
+          "stored": false,
+          "type": "unknown",
+          "key": "unknown",
+          "retention": "unknown"
+        },
+        "transmission": {
+          "transmitted": true,
+          "recipient": "extension-v3-8.faircado.com (via iframe)",
+          "endpoint": "postMessage",
+          "method": "postMessage",
+          "payload_fields": ["query", "image", "productUrl"]
+        },
+        "local_processing": ["metadata extraction", "image base64 conversion"],
+        "user_control_or_consent": "unknown",
+        "purpose_observed": "feature functionality",
+        "confidence": "high",
+        "evidence": [{"file": "content.js", "start": 11412, "end": 11455}]
+      }
+    ],
+    "evidence": [{"file": "background.js", "start": 1, "end": 903}, {"file": "content.js", "start": 1, "end": 12412}]
+  },
+  "privacy": {
+    "data_categories": ["browsing_history", "installation_id", "website_content", "user_credentials"],
+    "purposes": ["analytics", "feature_functionality"],
+    "minimization": "Collects URLs and product metadata for support checks and core features.",
+    "consent": "Privacy control page (data-control.html) exists for user interaction.",
+    "retention": "machineKey is stored indefinitely in sync storage.",
+    "third_parties": [
+      {
+        "name": "api.mixpanel.com",
+        "purpose": "Usage tracking and analytics",
+        "evidence": [{"file": "background.js", "start": 378, "end": 398}]
+      }
+    ],
+    "policy_compliance": "Uses persistent identifiers for tracking. Transmits browsing-related data (URLs) to backend.",
+    "evidence": [{"file": "background.js", "start": 1, "end": 903}, {"file": "content.js", "start": 1, "end": 12412}]
+  },
+  "risks": [
+    {
+      "type": "tracking",
+      "severity": "medium",
+      "justification": "Uses a persistent unique identifier (machineKey) to track user events via Mixpanel.",
+      "evidence": [{"file": "background.js", "start": 378, "end": 398}, {"file": "background.js", "start": 213, "end": 238}]
+    },
+    {
+      "type": "pii_exfiltration",
+      "severity": "low",
+      "justification": "Sends current page URLs to the background script and remote API for support verification.",
+      "evidence": [{"file": "content.js", "start": 11706, "end": 11709}]
+    }
+  ],
+  "code_signals": {
+    "chrome_api_calls": ["chrome.storage.local", "chrome.storage.sync", "chrome.tabs.sendMessage", "chrome.runtime.sendMessage", "chrome.contextMenus.create"],
+    "event_listeners": ["runtime.onMessage.addListener", "tabs.onUpdated.addListener", "window.addEventListener('message')"],
+    "dynamic_code": [],
+    "wasm_modules": [],
+    "third_party_libs": ["lodash-es", "htmlmetaparser"]
+  }
+}

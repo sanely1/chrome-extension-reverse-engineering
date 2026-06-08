@@ -1,0 +1,27 @@
+@startuml
+actor User
+participant "Active Web Page (DOM)" as Page
+participant "Injected Script (Canvas/Gmail/Overleaf)" as Injected
+participant "Content Script (check.js / Grammarly.js)" as Content
+participant "Inkwell Editor IFrame (index.html)" as Inkwell
+participant "UI Component (SidePanel / Popup)" as UI
+participant "Background SW (Grammarly-bg.js)" as Background
+database "Chrome Storage (local/sync/managed)" as Storage
+participant "Grammarly Cloud APIs (capi.grammarly.com)" as CAPI
+participant "Telemetry & Metrics (gnar/femetrics)" as Telemetry
+
+User -> Page: Interact / Type text
+Page -> Content: Capture user input / text changes
+Content -> Background: Send document state / text chunk (runtime.sendMessage)
+Content -> Injected: Inject early injector / canvas helper (script injection)
+Injected -> Page: Read canvas text / intercept events
+Page -> Inkwell: Injected editor iframe wrapper for card popups
+Inkwell -> Background: Connect via custom Port channel (runtime.connect)
+UI -> Background: Manage auth state / open side panel assistant
+Background -> Storage: Cache user settings / token / metrics
+Background -> CAPI: Establish WebSocket Connection (wss://capi.grammarly.com)
+Background -> CAPI: Send text revisions & receive grammar alerts (CAPI WebSocket)
+Background -> Telemetry: Upload telemetry and usage metrics (gnar.grammarly.com)
+Background -> UI: Propagate suggestions and UI cards
+UI -> User: Render corrections / suggestion cards / SidePanel assistance
+@enduml

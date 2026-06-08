@@ -1,0 +1,9 @@
+key,type,purpose,file,line_start,line_end
+isSidePanelOpen,local,Track if the assistant side panel is open,src/js/AAA-initAssistant.common.chunk.js,1,1
+cookie,cookies,Check authentication or user sessions,src/js/Grammarly-bg.js,2,2
+human_writing_report,indexeddb,Store writing diagnostics and report metrics,src/js/Grammarly-bg.js,2,2
+isBGInitialized,local,Track service worker initialization status,src/js/Grammarly-bg.js,2,2
+feMetricsAlarms,local,Manage telemetry and logging upload alarms,src/js/Grammarly-bg.js,2,2
+feMetricsData,local,Cache client performance metrics and event counts,src/js/Grammarly-bg.js,2,2
+gdocs_peak_collabs_dismissed,local,Track dismissal of high-collaboration notification in Google Docs,src/js/Grammarly-gDocs.js,2,2
+alwaysOnAssistantOnOpenData,local,Cache open-context data for the side panel assistant,src/js/Grammarly-sidePanel.js,2,2

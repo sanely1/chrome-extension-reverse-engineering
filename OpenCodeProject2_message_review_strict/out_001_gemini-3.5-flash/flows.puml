@@ -1,0 +1,48 @@
+@startuml
+skinparam handwritten false
+skinparam ParticipantPadding 10
+skinparam BoxPadding 10
+
+actor User
+box "Browser Web Page" #LightYellow
+  participant "Page DOM / Editor" as DOM
+  participant "Content Script (check.js / Grammarly.js)" as CS
+  participant "gDocs / Early Injector CS" as DocsCS
+end box
+
+box "Grammarly Extension Context" #LightBlue
+  participant "UI (Popup / SidePanel)" as UI
+  participant "Background Service Worker (sw.js)" as BG
+end box
+
+box "Remote Services" #LightPink
+  participant "Grammarly APIs (CAPI / Dox)" as CAPI
+  participant "Telemetry (gnar / in / log)" as Telemetry
+end box
+
+== 1. Onboarding & Injection ==
+User -> DOM : Navigates to active input area
+CS -> DOM : Observes text areas, document state (MutationObserver)
+DocsCS -> DOM : Early injects gDocs listeners (document_start)
+
+== 2. Communication & Session Handshake ==
+CS -> BG : chrome.runtime.sendMessage("handshake")
+BG -> CS : Establishes Port Connection (chrome.runtime.onConnect)
+CS -> UI : postMessage("closeSidePanel" / "pushAssistantFeed")
+
+== 3. Core Operational Loop ==
+DOM -> CS : Extract text and input mutations
+CS -> BG : sendMessages("submit_ot", deltas, doc_len)
+BG -> CAPI : Sends text stream (WebSocket - wss://capi.grammarly.com)
+CAPI -> BG : Returns suggestions and diagnostics
+BG -> CS : Relay corrections / SduiInlineCardRenderer
+CS -> DOM : Highlight text / Render suggestion cards
+
+== 4. User Interaction & Telemetry ==
+User -> CS : Accepts suggestion / clicks G Button
+CS -> BG : Sends action ("user_action" / "pushed_content:executeAction")
+BG -> Telemetry : Reports metrics (POST to https://gnar.grammarly.com / f-log)
+BG -> BG : Persist settings (chrome.storage.local / sync)
+BG -> BG : Manages session cookies (chrome.cookies)
+
+@enduml
