@@ -1,0 +1,1305 @@
+{
+  "source_url": "https://developer.chrome.com/docs/webstore/program-policies/policies",
+  "official_last_updated": "2025-05-22 UTC",
+  "snapshot_date": "2026-06-14",
+  "scope_note": "Structured, analysis-oriented representation of Chrome Web Store Program Policies. Requirements are paraphrased for machine use; use source_url for the canonical policy text.",
+  "clauses": [
+    {
+      "id": "CWS_SCOPE_1",
+      "area": "Scope",
+      "section": "Program Policies",
+      "requirement": "Developers must comply with Chrome Web Store Developer Program Policies and the Developer Agreement.",
+      "applies_to_signals": ["all_extension_behavior", "developer_compliance"],
+      "analysis_notes": "Use as general context; do not cite alone as a breach without a more specific clause."
+    },
+    {
+      "id": "CWS_SCOPE_2",
+      "area": "Scope",
+      "section": "Program Policies",
+      "requirement": "Policies apply to the entire product experience, including extension code, marketing materials, user-generated content, ads, and landing pages unless stated otherwise.",
+      "applies_to_signals": ["listing_metadata", "ads", "landing_pages", "external_content", "user_experience"],
+      "analysis_notes": "Useful when behavior occurs outside packaged source code, such as landing pages or ads."
+    },
+    {
+      "id": "CWS_BEST_PRACTICES_1",
+      "area": "Best Practices and Guidelines",
+      "section": "Research and understand policies",
+      "requirement": "Developers should review Chrome Web Store policies and ensure extension compliance.",
+      "applies_to_signals": ["developer_process"],
+      "analysis_notes": "Usually not directly testable from code."
+    },
+    {
+      "id": "CWS_BEST_PRACTICES_2",
+      "area": "Best Practices and Guidelines",
+      "section": "Extension value",
+      "requirement": "Extensions should provide useful or unique value to users.",
+      "applies_to_signals": ["minimum_functionality", "duplicate_extension", "utility"],
+      "analysis_notes": "Needs product/listing context; code alone rarely proves this."
+    },
+    {
+      "id": "CWS_BEST_PRACTICES_3",
+      "area": "Best Practices and Guidelines",
+      "section": "No cheating",
+      "requirement": "Developers must not scam the system, mislead users, circumvent enforcement, copy other developers' work, or manipulate ratings/reviews.",
+      "applies_to_signals": ["misleading_behavior", "review_manipulation", "enforcement_circumvention", "copied_product"],
+      "analysis_notes": "Requires evidence of manipulation or deceptive behavior."
+    },
+    {
+      "id": "CWS_BEST_PRACTICES_4",
+      "area": "Best Practices and Guidelines",
+      "section": "User data consent",
+      "requirement": "Developers must follow strict rules for collecting, using, and disclosing user data and must obtain consent for data collection or use.",
+      "applies_to_signals": ["observed_privacy_data", "consent", "data_collection", "data_sharing", "sensitive_user_data"],
+      "analysis_notes": "Map to specific privacy clauses before alleging a breach."
+    },
+    {
+      "id": "CWS_BEST_PRACTICES_5",
+      "area": "Best Practices and Guidelines",
+      "section": "Accurate metadata and dashboard information",
+      "requirement": "Extension metadata and developer dashboard information, including privacy certifications and item category, must be accurate and current.",
+      "applies_to_signals": ["declared_privacy", "listing_metadata", "privacy_fields", "category"],
+      "analysis_notes": "Use declared-vs-observed comparisons from prompt3-5."
+    },
+    {
+      "id": "CWS_BEST_PRACTICES_6",
+      "area": "Best Practices and Guidelines",
+      "section": "Testing",
+      "requirement": "Extensions should be tested for crashes, broken features, and bugs before submission.",
+      "applies_to_signals": ["broken_functionality", "crashes"],
+      "analysis_notes": "Usually outside static reverse engineering unless broken code paths are evident."
+    },
+    {
+      "id": "CWS_BEST_PRACTICES_7",
+      "area": "Best Practices and Guidelines",
+      "section": "Contact information",
+      "requirement": "Developer contact information should be correct so Chrome Web Store can reach the publisher.",
+      "applies_to_signals": ["developer_contact"],
+      "analysis_notes": "Requires store/developer account context."
+    },
+    {
+      "id": "CWS_BEST_PRACTICES_8",
+      "area": "Best Practices and Guidelines",
+      "section": "Single purpose field",
+      "requirement": "The single purpose field should describe the extension's primary functionality in detail.",
+      "applies_to_signals": ["single_purpose", "listing_metadata", "observed_functionality"],
+      "analysis_notes": "Compare observed workflows to listing/single-purpose text when available."
+    },
+    {
+      "id": "CWS_BEST_PRACTICES_9",
+      "area": "Best Practices and Guidelines",
+      "section": "Customer support",
+      "requirement": "Developers should provide meaningful customer support.",
+      "applies_to_signals": ["support"],
+      "analysis_notes": "Requires listing/support data."
+    },
+    {
+      "id": "CWS_BEST_PRACTICES_10",
+      "area": "Best Practices and Guidelines",
+      "section": "Policy updates",
+      "requirement": "Developers are responsible for keeping up with policy changes.",
+      "applies_to_signals": ["policy_versioning"],
+      "analysis_notes": "Use as context only."
+    },
+    {
+      "id": "CWS_MATURE_1",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Mature and Sexually Explicit Material",
+      "requirement": "Content with nudity, graphic sex acts, sexually explicit material, or traffic to commercial pornography is not allowed.",
+      "applies_to_signals": ["adult_content", "pornography"],
+      "analysis_notes": "Usually listing/content review, not code-only."
+    },
+    {
+      "id": "CWS_MATURE_2",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Mature and Sexually Explicit Material",
+      "requirement": "Content promoting incest, bestiality, necrophilia, or non-consensual sexual acts is not allowed.",
+      "applies_to_signals": ["adult_content", "illegal_sexual_content"],
+      "analysis_notes": "Usually listing/content review."
+    },
+    {
+      "id": "CWS_MATURE_3",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Child safety",
+      "requirement": "Child sexual abuse material is zero-tolerance and leads to reporting and account deletion.",
+      "applies_to_signals": ["child_safety", "csam"],
+      "analysis_notes": "Handle carefully; do not speculate."
+    },
+    {
+      "id": "CWS_MATURE_4",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Non-sexual nudity",
+      "requirement": "Non-sexual nudity may be allowed but may affect product visibility.",
+      "applies_to_signals": ["non_sexual_nudity", "content_rating"],
+      "analysis_notes": "Visibility concern, not automatically a breach."
+    },
+    {
+      "id": "CWS_MATURE_5",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Mature marking",
+      "requirement": "Products unsuitable for all ages should be marked mature in the Developer Dashboard.",
+      "applies_to_signals": ["mature_content", "developer_dashboard", "content_rating"],
+      "analysis_notes": "Requires dashboard/listing data."
+    },
+    {
+      "id": "CWS_MALICIOUS_1",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Malicious and Prohibited Products",
+      "requirement": "Extensions must not transmit viruses, worms, defects, Trojan horses, malware, or destructive products.",
+      "applies_to_signals": ["malware", "destructive_behavior", "payload_delivery", "remote_code"],
+      "analysis_notes": "Requires strong evidence of malicious payload or destructive behavior."
+    },
+    {
+      "id": "CWS_MALICIOUS_2",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Malicious and Prohibited Products",
+      "requirement": "Extensions must not harm or interfere with Google or third-party networks, servers, or infrastructure.",
+      "applies_to_signals": ["network_abuse", "ddos", "server_interference", "infrastructure_abuse"],
+      "analysis_notes": "Requires evidence of harmful traffic or interference."
+    },
+    {
+      "id": "CWS_MALICIOUS_3",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Spyware, malicious scripts, phishing",
+      "requirement": "Spyware, malicious scripts, and phishing scams are prohibited.",
+      "applies_to_signals": ["spyware", "malicious_scripts", "phishing", "credential_theft", "hidden_collection"],
+      "analysis_notes": "Useful for covert data capture, credential phishing, or harmful script injection."
+    },
+    {
+      "id": "CWS_MALICIOUS_4",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Unauthorized access",
+      "requirement": "Extensions must not facilitate unauthorized access to website content, such as bypassing paywalls or login restrictions.",
+      "applies_to_signals": ["paywall_bypass", "login_bypass", "unauthorized_access", "credential_abuse"],
+      "analysis_notes": "Requires code/workflow evidence."
+    },
+    {
+      "id": "CWS_MALICIOUS_5",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Copyrighted content access",
+      "requirement": "Extensions must not enable unauthorized access, download, or streaming of copyrighted content or media.",
+      "applies_to_signals": ["copyrighted_media", "unauthorized_download", "stream_ripping"],
+      "analysis_notes": "Usually content/workflow-specific."
+    },
+    {
+      "id": "CWS_MALICIOUS_6",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Cryptocurrency mining",
+      "requirement": "Cryptocurrency mining is not allowed.",
+      "applies_to_signals": ["cryptocurrency_mining", "mining_script", "wasm_mining"],
+      "analysis_notes": "Look for mining pools, WebAssembly miners, or CPU mining behavior."
+    },
+    {
+      "id": "CWS_HATE_1",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Hate Speech and Violent Behavior",
+      "requirement": "Products must not contain gratuitous violence or threaten, harass, or bully users.",
+      "applies_to_signals": ["harassment", "bullying", "violent_content"],
+      "analysis_notes": "Usually content/listing review."
+    },
+    {
+      "id": "CWS_HATE_2",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Hate Speech and Violent Behavior",
+      "requirement": "Products must not advocate against or incite hatred toward protected or marginalized groups.",
+      "applies_to_signals": ["hate_speech", "protected_class"],
+      "analysis_notes": "Usually content/listing review."
+    },
+    {
+      "id": "CWS_HATE_3",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Violent extremism",
+      "requirement": "Products must not recruit, fundraise, or promote violence on behalf of extremist groups.",
+      "applies_to_signals": ["violent_extremism", "fundraising", "recruitment"],
+      "analysis_notes": "Requires content evidence."
+    },
+    {
+      "id": "CWS_HATE_4",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Generally hateful content",
+      "requirement": "Generally hateful content may affect product visibility even if not covered by explicit hate-speech removal rules.",
+      "applies_to_signals": ["hateful_content", "visibility"],
+      "analysis_notes": "Visibility concern."
+    },
+    {
+      "id": "CWS_REGULATED_1",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Regulated Goods and Services",
+      "requirement": "Extensions must not engage in or promote unlawful or dangerous activities.",
+      "applies_to_signals": ["illegal_activity", "dangerous_activity", "regulated_goods"],
+      "analysis_notes": "Usually product/content-specific."
+    },
+    {
+      "id": "CWS_REGULATED_2",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Gambling",
+      "requirement": "Real-money gambling facilitation or promotion is not allowed; simulated gambling must clearly state no real money is involved.",
+      "applies_to_signals": ["gambling", "real_money", "lottery", "betting"],
+      "analysis_notes": "Requires product behavior/listing evidence."
+    },
+    {
+      "id": "CWS_REGULATED_3",
+      "area": "Fostering a Safe Ecosystem",
+      "section": "Regulated product sales",
+      "requirement": "Extensions must not facilitate sale of regulated goods or services such as pharmaceuticals, alcohol, tobacco, fireworks, weapons, gambling, or health/medical devices.",
+      "applies_to_signals": ["regulated_goods", "pharmaceuticals", "alcohol", "tobacco", "weapons", "medical_devices"],
+      "analysis_notes": "Requires commerce/product evidence."
+    },
+    {
+      "id": "CWS_PRIVACY_POLICY_1",
+      "area": "Protecting User Privacy",
+      "section": "Privacy Policy",
+      "requirement": "If a product handles user data, it must provide an accurate and up-to-date privacy policy.",
+      "applies_to_signals": ["observed_privacy_data", "user_data_collection", "privacy_policy_missing", "privacy_policy_stale"],
+      "analysis_notes": "Requires evidence that user data is handled and policy availability/status."
+    },
+    {
+      "id": "CWS_PRIVACY_POLICY_2A",
+      "area": "Protecting User Privacy",
+      "section": "Privacy Policy",
+      "requirement": "The privacy policy and in-product disclosures must disclose how user data is collected, used, and shared.",
+      "applies_to_signals": ["declared_vs_observed_mismatch", "data_collection", "data_use", "data_sharing", "observed_privacy_data"],
+      "analysis_notes": "Use observed_privacy_data plus external privacy policy comparison."
+    },
+    {
+      "id": "CWS_PRIVACY_POLICY_2B",
+      "area": "Protecting User Privacy",
+      "section": "Privacy Policy",
+      "requirement": "The privacy policy and in-product disclosures must disclose all parties that receive shared user data.",
+      "applies_to_signals": ["third_party_sharing", "analytics", "remote_backend", "external_recipient", "declared_vs_observed_mismatch"],
+      "analysis_notes": "Map network endpoints and recipients to policy disclosures."
+    },
+    {
+      "id": "CWS_PRIVACY_POLICY_3",
+      "area": "Protecting User Privacy",
+      "section": "Privacy Policy",
+      "requirement": "A privacy policy link must be provided in the Chrome Web Store Developer Dashboard field.",
+      "applies_to_signals": ["declared_privacy", "privacy_policy_url", "developer_dashboard"],
+      "analysis_notes": "Requires Chrome Web Store extraction; code alone cannot prove."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_1",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Chrome Web Store rules are minimum user data privacy requirements and products must also comply with applicable law.",
+      "applies_to_signals": ["user_data", "legal_compliance"],
+      "analysis_notes": "Use as context, not standalone breach evidence."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_2",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Use of user data must be limited to the practices disclosed.",
+      "applies_to_signals": ["declared_vs_observed_mismatch", "undisclosed_use", "privacy_policy_gap"],
+      "analysis_notes": "Requires declared/store/policy comparison."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_3",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Collection and use of web browsing activity is prohibited except when required for a prominently disclosed user-facing feature in the store page and UI.",
+      "applies_to_signals": ["current_url", "tab_url", "browsing_history", "navigation_events", "page_url", "referrer", "tracking"],
+      "analysis_notes": "High-value clause for extensions with broad host access or URL transmission."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_SCOPE",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Limited Use requirements apply to raw, aggregated, anonymized, de-identified, derived, scraped, and automatically gathered user data.",
+      "applies_to_signals": ["scraped_content", "derived_data", "aggregated_data", "anonymized_data", "telemetry"],
+      "analysis_notes": "Prevents dismissing derived telemetry as out of scope."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_1",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "User data use must be limited to providing or improving the product's single purpose.",
+      "applies_to_signals": ["single_purpose", "secondary_use", "analytics", "ads", "model_training", "data_reuse"],
+      "analysis_notes": "Compare data uses to product purpose and disclosures."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_2A",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Transfer of user data to third parties is allowed only when necessary to provide or improve the single purpose.",
+      "applies_to_signals": ["third_party_sharing", "analytics_provider", "external_backend", "data_transfer"],
+      "analysis_notes": "Needs necessity argument and disclosure context."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_2B",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Transfer of user data to third parties may be allowed to comply with applicable laws.",
+      "applies_to_signals": ["legal_compliance_transfer"],
+      "analysis_notes": "Usually not inferable from code."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_2C",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Transfer of user data may be allowed to protect against malware, spam, phishing, fraud, or abuse.",
+      "applies_to_signals": ["abuse_prevention", "fraud_detection", "security_telemetry"],
+      "analysis_notes": "Needs code and purpose evidence."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_2D",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Transfer of user data may be allowed as part of merger, acquisition, or asset sale after explicit prior user consent.",
+      "applies_to_signals": ["asset_sale_transfer", "explicit_consent"],
+      "analysis_notes": "Usually outside code analysis."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_3A",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Humans must not read user data unless the user gives explicit consent to read specific data.",
+      "applies_to_signals": ["human_review", "support_access", "user_content", "document_text", "explicit_consent"],
+      "analysis_notes": "Requires policy/backend/support process evidence; code may show data sent to servers."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_3B",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Human access may be allowed when data is aggregated and anonymized for internal operations under applicable privacy law.",
+      "applies_to_signals": ["aggregated_data", "anonymized_data", "internal_operations"],
+      "analysis_notes": "Requires policy/process evidence."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_3C",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Human access may be allowed when necessary for security purposes such as investigating abuse.",
+      "applies_to_signals": ["security_investigation", "abuse_prevention", "human_review"],
+      "analysis_notes": "Requires purpose/process evidence."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_3D",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Human access may be allowed to comply with applicable laws.",
+      "applies_to_signals": ["legal_compliance", "human_review"],
+      "analysis_notes": "Usually not inferable from code."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_4A",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Transferring, using, or selling user data for personalized advertising is prohibited.",
+      "applies_to_signals": ["personalized_ads", "ad_tracking", "advertising_id", "user_data_sale", "ads"],
+      "analysis_notes": "Needs ad/personalization behavior and data-transfer evidence."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_4B",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Transferring or selling user data to advertising platforms, data brokers, or information resellers is prohibited.",
+      "applies_to_signals": ["data_broker", "ad_platform", "reseller", "third_party_sharing", "data_sale"],
+      "analysis_notes": "Requires recipient identification."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_4_4C",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "Transferring, using, or selling user data for credit-worthiness or lending purposes is prohibited.",
+      "applies_to_signals": ["credit_worthiness", "lending", "financial_scoring", "data_sale"],
+      "analysis_notes": "Rare in extension source; requires strong evidence."
+    },
+    {
+      "id": "CWS_PRIVACY_LIMITED_USE_5",
+      "area": "Protecting User Privacy",
+      "section": "Limited Use",
+      "requirement": "A website belonging to the extension must affirm that Google API data use adheres to Chrome Web Store User Data Policy, including Limited Use.",
+      "applies_to_signals": ["google_api_data", "oauth2", "identity", "userinfo_email", "limited_use_statement"],
+      "analysis_notes": "Relevant when OAuth/Google APIs are present; requires website/policy verification."
+    },
+    {
+      "id": "CWS_PRIVACY_PERMISSIONS_1",
+      "area": "Protecting User Privacy",
+      "section": "Use of Permissions",
+      "requirement": "Extensions must request the narrowest permissions necessary; when multiple permissions could implement a feature, choose the least access. Do not future-proof with unused broad permissions.",
+      "applies_to_signals": ["excessive_permissions", "broad_host_permissions", "all_urls", "tabs", "cookies", "history", "webrequest", "optional_permissions"],
+      "analysis_notes": "Map manifest permissions to observed workflows and user-facing purpose."
+    },
+    {
+      "id": "CWS_PRIVACY_DISCLOSURE_1",
+      "area": "Protecting User Privacy",
+      "section": "Disclosure Requirements",
+      "requirement": "Developers must transparently disclose collection, use, and sharing of user data, including information provided by or collected about the user or their Chrome/product use.",
+      "applies_to_signals": ["observed_privacy_data", "data_collection", "data_use", "data_sharing", "browser_activity"],
+      "analysis_notes": "Needs declared privacy and external policy comparison."
+    },
+    {
+      "id": "CWS_PRIVACY_DISCLOSURE_2A",
+      "area": "Protecting User Privacy",
+      "section": "Disclosure Requirements",
+      "requirement": "If user data handling is not closely related to prominently described functionality, the product must prominently disclose what data is collected and how it is used before installation.",
+      "applies_to_signals": ["non_core_data_collection", "prominent_disclosure", "pre_install_disclosure", "listing_metadata"],
+      "analysis_notes": "Compare observed behavior to store listing/UI purpose."
+    },
+    {
+      "id": "CWS_PRIVACY_DISCLOSURE_2B",
+      "area": "Protecting User Privacy",
+      "section": "Disclosure Requirements",
+      "requirement": "If non-core user data is handled, the product must obtain affirmative and informed user consent before installation.",
+      "applies_to_signals": ["consent", "affirmative_consent", "non_core_data_collection", "sensitive_data"],
+      "analysis_notes": "Requires UI/store consent evidence; code alone often insufficient."
+    },
+    {
+      "id": "CWS_PRIVACY_HANDLING_1",
+      "area": "Protecting User Privacy",
+      "section": "Handling Requirements",
+      "requirement": "Products associated with exploitable security vulnerabilities may be removed and require remediation.",
+      "applies_to_signals": ["security_vulnerability", "xss", "injection", "auth_leak", "unsafe_message_handling", "remote_code"],
+      "analysis_notes": "Use for concrete vulnerability findings, not generic risk."
+    },
+    {
+      "id": "CWS_PRIVACY_HANDLING_2",
+      "area": "Protecting User Privacy",
+      "section": "Handling Requirements",
+      "requirement": "Products collecting user data must handle it securely, including transmission using modern cryptography.",
+      "applies_to_signals": ["insecure_transport", "http_endpoint", "user_data_transmission", "weak_crypto", "sensitive_data"],
+      "analysis_notes": "Map user data transfers to HTTPS/crypto evidence."
+    },
+    {
+      "id": "CWS_PRIVACY_HANDLING_3",
+      "area": "Protecting User Privacy",
+      "section": "Handling Requirements",
+      "requirement": "Financial or payment information must not be publicly disclosed.",
+      "applies_to_signals": ["financial_data", "payment_data", "public_disclosure"],
+      "analysis_notes": "Requires concrete financial/payment data exposure."
+    },
+    {
+      "id": "CWS_PRIVACY_HANDLING_4",
+      "area": "Protecting User Privacy",
+      "section": "Handling Requirements",
+      "requirement": "Authentication information must be kept secure and must not be publicly disclosed.",
+      "applies_to_signals": ["auth_token", "session_cookie", "credentials", "auth_storage", "token_leak", "public_disclosure"],
+      "analysis_notes": "High-value clause for auth tokens, cookies, and credential handling."
+    },
+    {
+      "id": "CWS_MARKETING_IMPERSONATION_1",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Impersonation and Intellectual Property",
+      "requirement": "Products must not impersonate or falsely claim authorization, endorsement, or production by another company or organization.",
+      "applies_to_signals": ["impersonation", "brand_misrepresentation", "listing_metadata"],
+      "analysis_notes": "Requires listing/UI evidence."
+    },
+    {
+      "id": "CWS_MARKETING_IMPERSONATION_2",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Impersonation and Intellectual Property",
+      "requirement": "Products and user experience must not mimic operating system or browser functionality or warnings.",
+      "applies_to_signals": ["fake_warning", "browser_ui_impersonation", "system_ui_impersonation", "notification_ui"],
+      "analysis_notes": "Relevant to overlays, notifications, fake security UI."
+    },
+    {
+      "id": "CWS_MARKETING_IMPERSONATION_3",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Impersonation and Intellectual Property",
+      "requirement": "Developers must not divert users or link to sites that mimic or pass themselves off as the Chrome Web Store.",
+      "applies_to_signals": ["chrome_web_store_mimic", "redirect", "phishing"],
+      "analysis_notes": "Requires URL/UI evidence."
+    },
+    {
+      "id": "CWS_MARKETING_IMPERSONATION_4",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Impersonation and Intellectual Property",
+      "requirement": "Metadata must not misrepresent extension or developer status or performance.",
+      "applies_to_signals": ["misleading_metadata", "editor_choice_claim", "ranking_claim"],
+      "analysis_notes": "Requires listing metadata."
+    },
+    {
+      "id": "CWS_MARKETING_IMPERSONATION_5",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Impersonation and Intellectual Property",
+      "requirement": "Products must not infringe intellectual property rights.",
+      "applies_to_signals": ["copyright_infringement", "trademark", "copied_assets"],
+      "analysis_notes": "Requires rights/content evidence."
+    },
+    {
+      "id": "CWS_MARKETING_IMPERSONATION_6",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Impersonation and Intellectual Property",
+      "requirement": "Potential intellectual property infringement may affect product visibility.",
+      "applies_to_signals": ["potential_ip_issue", "visibility"],
+      "analysis_notes": "Visibility concern."
+    },
+    {
+      "id": "CWS_INSTALL_1",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Deceptive Installation Tactics",
+      "requirement": "Extensions must be marketed responsibly; promised functionality must be clear and user interaction outcomes must match reasonable expectations.",
+      "applies_to_signals": ["deceptive_installation", "misleading_flow", "unexpected_behavior", "listing_vs_behavior_mismatch"],
+      "analysis_notes": "Compare listing/UI to observed behavior."
+    },
+    {
+      "id": "CWS_INSTALL_1A",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Deceptive Installation Tactics",
+      "requirement": "Advertisements or marketing before installation must not be confusing or deceptive and must make product features clear.",
+      "applies_to_signals": ["deceptive_ads", "marketing_materials", "pre_install_flow"],
+      "analysis_notes": "Needs marketing data."
+    },
+    {
+      "id": "CWS_INSTALL_1B",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Deceptive Installation Tactics",
+      "requirement": "Interactive elements before installation must not mislead users; calls to action must state that an extension will be installed.",
+      "applies_to_signals": ["misleading_cta", "installation_flow", "pre_install_consent"],
+      "analysis_notes": "Needs installation flow evidence."
+    },
+    {
+      "id": "CWS_INSTALL_1C",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Deceptive Installation Tactics",
+      "requirement": "Chrome Web Store product listing windows must not be adjusted to hide or withhold extension metadata.",
+      "applies_to_signals": ["listing_window_manipulation", "metadata_hiding"],
+      "analysis_notes": "Usually external installation flow."
+    },
+    {
+      "id": "CWS_INSTALL_1D",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Deceptive Installation Tactics",
+      "requirement": "Installation flows must not bundle other extensions or offers.",
+      "applies_to_signals": ["bundled_offer", "bundled_extension"],
+      "analysis_notes": "Requires installation flow evidence."
+    },
+    {
+      "id": "CWS_INSTALL_1E",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Deceptive Installation Tactics",
+      "requirement": "Users must not be required to take unrelated actions to access advertised functionality.",
+      "applies_to_signals": ["unrelated_user_action", "feature_gate", "deceptive_flow"],
+      "analysis_notes": "Requires workflow/UI evidence."
+    },
+    {
+      "id": "CWS_PAYMENTS_1",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Accepting Payment From Users",
+      "requirement": "Sensitive personal information collected for sales, including payment data, must be securely collected, stored, and transmitted under applicable rules.",
+      "applies_to_signals": ["payment_data", "sensitive_personal_info", "secure_storage", "secure_transmission"],
+      "analysis_notes": "Requires payment data behavior."
+    },
+    {
+      "id": "CWS_PAYMENTS_2",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Accepting Payment From Users",
+      "requirement": "Products or services sold through the extension must be clearly and honestly described, including terms, refunds, and returns.",
+      "applies_to_signals": ["paid_feature", "terms_of_sale", "refund_policy", "misleading_sales"],
+      "analysis_notes": "Requires listing/UI evidence."
+    },
+    {
+      "id": "CWS_PAYMENTS_3",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Accepting Payment From Users",
+      "requirement": "If payment is required for basic functionality, that must be clear before installation.",
+      "applies_to_signals": ["paid_basic_functionality", "paywall", "listing_disclosure"],
+      "analysis_notes": "Requires store/listing evidence."
+    },
+    {
+      "id": "CWS_PAYMENTS_4",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Accepting Payment From Users",
+      "requirement": "The seller must be clearly identified as the developer, not Google.",
+      "applies_to_signals": ["seller_identity", "payment_flow"],
+      "analysis_notes": "Requires payment UI evidence."
+    },
+    {
+      "id": "CWS_PAYMENTS_5",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Accepting Payment From Users",
+      "requirement": "Payment processing must not involve prohibited transactions or prohibited goods or services.",
+      "applies_to_signals": ["prohibited_payment", "illegal_transaction", "regulated_goods"],
+      "analysis_notes": "Requires commerce evidence."
+    },
+    {
+      "id": "CWS_MISLEADING_1",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Misleading or Unexpected Behavior",
+      "requirement": "Products must not deceive or mislead users through content, title, description, or screenshots.",
+      "applies_to_signals": ["misleading_listing", "deceptive_content", "unexpected_behavior"],
+      "analysis_notes": "Compare listing and observed behavior."
+    },
+    {
+      "id": "CWS_MISLEADING_2",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Misleading or Unexpected Behavior",
+      "requirement": "Changes to device settings must be made with user knowledge and consent and must be easily reversible.",
+      "applies_to_signals": ["settings_change", "browser_settings", "search_settings", "new_tab", "consent", "reversibility"],
+      "analysis_notes": "Map to settings APIs and UI consent."
+    },
+    {
+      "id": "CWS_MISLEADING_3",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Misleading or Unexpected Behavior",
+      "requirement": "Products must not misrepresent functionality or include non-obvious functionality unrelated to the primary purpose.",
+      "applies_to_signals": ["non_obvious_functionality", "single_purpose", "listing_vs_behavior_mismatch", "hidden_behavior"],
+      "analysis_notes": "Important for hidden tracking, affiliate, ads, or extra workflows."
+    },
+    {
+      "id": "CWS_MISLEADING_3A",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Misleading or Unexpected Behavior",
+      "requirement": "Products must not claim impossible functionality.",
+      "applies_to_signals": ["impossible_claim", "misleading_feature_claim"],
+      "analysis_notes": "Requires listing claim evidence."
+    },
+    {
+      "id": "CWS_MISLEADING_3B",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Misleading or Unexpected Behavior",
+      "requirement": "Privacy, security, or anti-virus extensions must provide discernible monitoring or protection.",
+      "applies_to_signals": ["security_extension", "privacy_extension", "minimum_functionality", "discernible_protection"],
+      "analysis_notes": "Requires product category/listing and code behavior."
+    },
+    {
+      "id": "CWS_ADS_1",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "Ads are part of the product for policy review and must comply with content policies.",
+      "applies_to_signals": ["ads", "ad_injection", "monetization"],
+      "analysis_notes": "Use as context for ad workflows."
+    },
+    {
+      "id": "CWS_ADS_2",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "Ads inconsistent with the product content rating violate developer terms.",
+      "applies_to_signals": ["ads", "content_rating"],
+      "analysis_notes": "Requires ad/content-rating evidence."
+    },
+    {
+      "id": "CWS_ADS_3",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "AdSense may not be used to serve ads in products.",
+      "applies_to_signals": ["adsense", "ads"],
+      "analysis_notes": "Search for AdSense domains/scripts."
+    },
+    {
+      "id": "CWS_ADS_4",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "Ads must be presented in context or clearly state which product they are bundled with.",
+      "applies_to_signals": ["ads", "bundled_ads", "ad_context"],
+      "analysis_notes": "Requires UI behavior evidence."
+    },
+    {
+      "id": "CWS_ADS_5",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "Ads must be easily removable through settings or uninstalling the product.",
+      "applies_to_signals": ["ads", "settings", "uninstall", "removability"],
+      "analysis_notes": "Requires UI/settings evidence."
+    },
+    {
+      "id": "CWS_ADS_6",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "Ads must not simulate or impersonate system notifications or warnings.",
+      "applies_to_signals": ["ads", "fake_notification", "system_warning_impersonation"],
+      "analysis_notes": "Relevant to notification/UI overlays."
+    },
+    {
+      "id": "CWS_ADS_7",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "Users must not be forced to click ads or submit personal information for advertising to fully use the product.",
+      "applies_to_signals": ["forced_ad_click", "personal_info_for_ads", "ads"],
+      "analysis_notes": "Requires UI/workflow evidence."
+    },
+    {
+      "id": "CWS_ADS_8A",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "Ads shown alongside third-party websites must be clearly disclosed to the user.",
+      "applies_to_signals": ["ad_injection", "third_party_site_ads", "disclosure"],
+      "analysis_notes": "Important for content-script ad injection."
+    },
+    {
+      "id": "CWS_ADS_8B",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "Ads shown alongside third-party websites must clearly attribute the ad source.",
+      "applies_to_signals": ["ad_injection", "ad_attribution"],
+      "analysis_notes": "Requires UI/ad evidence."
+    },
+    {
+      "id": "CWS_ADS_8C",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "Ads must not interfere with native ads or functionality of the third-party website.",
+      "applies_to_signals": ["ad_injection", "website_interference", "dom_modification"],
+      "analysis_notes": "Relevant to DOM injection workflows."
+    },
+    {
+      "id": "CWS_ADS_8D",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Ads",
+      "requirement": "Ads must not mimic or impersonate native ads or content on third-party websites.",
+      "applies_to_signals": ["ad_injection", "native_ad_impersonation", "misleading_ui"],
+      "analysis_notes": "Requires UI/DOM evidence."
+    },
+    {
+      "id": "CWS_AFFILIATE_1",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Affiliate Ads",
+      "requirement": "Affiliate programs must be prominently described in the Chrome Web Store page, user interface, and before installation.",
+      "applies_to_signals": ["affiliate", "affiliate_links", "affiliate_cookies", "listing_disclosure", "ui_disclosure"],
+      "analysis_notes": "High-value clause for shopping/coupon extensions."
+    },
+    {
+      "id": "CWS_AFFILIATE_2",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Affiliate Ads",
+      "requirement": "Affiliate links, codes, or cookies may be included only with direct and transparent user benefit related to core functionality; injecting affiliate links without user action and benefit is not permitted.",
+      "applies_to_signals": ["affiliate_injection", "affiliate_cookie", "coupon", "cashback", "user_action", "user_benefit"],
+      "analysis_notes": "Map URL/cookie modifications to user action and benefit."
+    },
+    {
+      "id": "CWS_AFFILIATE_2A",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Affiliate Ads",
+      "requirement": "Affiliate links must not be inserted when no discount, cashback, or donation is provided.",
+      "applies_to_signals": ["affiliate_link", "discount", "cashback", "donation"],
+      "analysis_notes": "Requires product behavior and benefit evidence."
+    },
+    {
+      "id": "CWS_AFFILIATE_2B",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Affiliate Ads",
+      "requirement": "Extensions must not continuously inject affiliate links in the background without related user action.",
+      "applies_to_signals": ["affiliate_injection", "background_injection", "no_user_action"],
+      "analysis_notes": "High-value clause for background shopping modifications."
+    },
+    {
+      "id": "CWS_AFFILIATE_3",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Affiliate Ads",
+      "requirement": "Related user action is required before each affiliate code, link, or cookie is included.",
+      "applies_to_signals": ["affiliate_code", "affiliate_cookie", "user_action", "url_rewrite"],
+      "analysis_notes": "Check trigger and user interaction."
+    },
+    {
+      "id": "CWS_AFFILIATE_3A",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Affiliate Ads",
+      "requirement": "Updating shopping-related cookies without user knowledge while browsing shopping sites is a common violation.",
+      "applies_to_signals": ["shopping_cookie", "cookie_update", "affiliate_cookie", "user_knowledge"],
+      "analysis_notes": "Relevant to cookies permission and shopping domains."
+    },
+    {
+      "id": "CWS_AFFILIATE_3B",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Affiliate Ads",
+      "requirement": "Appending or replacing affiliate codes in URLs without explicit user knowledge and related action is a common violation.",
+      "applies_to_signals": ["url_rewrite", "affiliate_code", "redirect", "explicit_user_knowledge"],
+      "analysis_notes": "Map navigation/redirect code to user action."
+    },
+    {
+      "id": "CWS_AFFILIATE_3C",
+      "area": "Ensuring Responsible Marketing and Monetization",
+      "section": "Affiliate Ads",
+      "requirement": "Applying or replacing affiliate promo codes without explicit user knowledge and related action is a common violation.",
+      "applies_to_signals": ["promo_code", "coupon_apply", "affiliate", "explicit_user_knowledge"],
+      "analysis_notes": "Relevant to coupon autofill/apply workflows."
+    },
+    {
+      "id": "CWS_FEATURED_1",
+      "area": "Building Quality Products",
+      "section": "Feature Products",
+      "requirement": "Certain products may be restricted from featuring even without explicit policy violation, including VPNs, video downloaders, anti-virus tools, bots, cryptocurrency, non-production builds, prohibited products, gambling content, and products from questionable developer reputations.",
+      "applies_to_signals": ["visibility", "featured_eligibility", "vpn", "video_downloader", "antivirus", "bot", "cryptocurrency", "non_production", "gambling"],
+      "analysis_notes": "Visibility/feature concern, not necessarily breach."
+    },
+    {
+      "id": "CWS_SPAM_1",
+      "area": "Building Quality Products",
+      "section": "Spam and Abuse",
+      "requirement": "Developers and affiliates must not submit multiple extensions with duplicate experiences or functionality.",
+      "applies_to_signals": ["duplicate_extension", "spam", "duplicate_functionality"],
+      "analysis_notes": "Requires portfolio/store data."
+    },
+    {
+      "id": "CWS_SPAM_2",
+      "area": "Building Quality Products",
+      "section": "Spam and Abuse",
+      "requirement": "Developers must not manipulate placement, ratings, reviews, or install counts through illegitimate means.",
+      "applies_to_signals": ["review_manipulation", "rating_manipulation", "incentivized_downloads"],
+      "analysis_notes": "Requires behavior/listing/account evidence."
+    },
+    {
+      "id": "CWS_SPAM_3",
+      "area": "Building Quality Products",
+      "section": "Spam and Abuse",
+      "requirement": "Extensions must not abuse notifications by sending spam, ads, promotions, phishing attempts, or unwanted messages that harm browsing experience.",
+      "applies_to_signals": ["notifications", "notification_spam", "ads", "phishing", "unwanted_messages"],
+      "analysis_notes": "Map notifications API usage to purpose/triggers."
+    },
+    {
+      "id": "CWS_SPAM_4",
+      "area": "Building Quality Products",
+      "section": "Spam and Abuse",
+      "requirement": "Extensions must not send messages on behalf of the user without allowing the user to confirm content and recipients.",
+      "applies_to_signals": ["send_on_behalf_of_user", "email", "social_message", "auto_send", "user_confirmation"],
+      "analysis_notes": "Relevant to automation/messaging products."
+    },
+    {
+      "id": "CWS_SPAM_5",
+      "area": "Building Quality Products",
+      "section": "Spam and Abuse",
+      "requirement": "Extensions must comply with Google's Webmaster Quality Guidelines.",
+      "applies_to_signals": ["webmaster_quality", "seo_spam"],
+      "analysis_notes": "Requires web/SEO behavior evidence."
+    },
+    {
+      "id": "CWS_QUALITY_1",
+      "area": "Building Quality Products",
+      "section": "Quality Guidelines",
+      "requirement": "An extension must have a single narrow purpose and must not require users to accept bundled unrelated functionality.",
+      "applies_to_signals": ["single_purpose", "unrelated_functionality", "bundled_features", "workflow_scope"],
+      "analysis_notes": "Compare observed workflows to primary purpose/listing."
+    },
+    {
+      "id": "CWS_QUALITY_1A",
+      "area": "Building Quality Products",
+      "section": "Quality Guidelines",
+      "requirement": "Combining product ratings/reviews functionality with ad injection is a common single-purpose violation example.",
+      "applies_to_signals": ["ratings_reviews", "ad_injection", "single_purpose"],
+      "analysis_notes": "Example-specific; use when behavior matches."
+    },
+    {
+      "id": "CWS_QUALITY_1B",
+      "area": "Building Quality Products",
+      "section": "Quality Guidelines",
+      "requirement": "Toolbars with broad arrays of functionality or entry points are better as separate extensions.",
+      "applies_to_signals": ["toolbar", "broad_functionality", "multiple_services"],
+      "analysis_notes": "Requires UI/feature evidence."
+    },
+    {
+      "id": "CWS_QUALITY_1C",
+      "area": "Building Quality Products",
+      "section": "Quality Guidelines",
+      "requirement": "Combining email notifier functionality with a news aggregator is a common unrelated-functionality example.",
+      "applies_to_signals": ["email_notifier", "news_aggregator", "single_purpose"],
+      "analysis_notes": "Example-specific."
+    },
+    {
+      "id": "CWS_QUALITY_1D",
+      "area": "Building Quality Products",
+      "section": "Quality Guidelines",
+      "requirement": "New Tab Page extensions that alter search experience and do not respect existing search settings are a common violation example.",
+      "applies_to_signals": ["new_tab", "search_settings", "browser_settings", "settings_change"],
+      "analysis_notes": "Map to chrome_settings_overrides, search changes, or new tab behavior."
+    },
+    {
+      "id": "CWS_QUALITY_2",
+      "area": "Building Quality Products",
+      "section": "Quality Guidelines",
+      "requirement": "Extensions should enhance the browsing task while causing minimal distractions, especially when using persistent UI.",
+      "applies_to_signals": ["persistent_ui", "side_panel", "overlay", "distraction", "user_experience"],
+      "analysis_notes": "Requires UX evidence."
+    },
+    {
+      "id": "CWS_QUALITY_2A",
+      "area": "Building Quality Products",
+      "section": "Quality Guidelines",
+      "requirement": "Side panel extensions that hijack browsing or search experience are common quality violations.",
+      "applies_to_signals": ["side_panel", "browsing_hijack", "search_hijack"],
+      "analysis_notes": "Map side panel behavior to user control."
+    },
+    {
+      "id": "CWS_QUALITY_2B",
+      "area": "Building Quality Products",
+      "section": "Quality Guidelines",
+      "requirement": "Extensions whose primary purpose is serving ads are common quality violations.",
+      "applies_to_signals": ["ads", "primary_ad_purpose", "monetization"],
+      "analysis_notes": "Requires primary purpose/listing comparison."
+    },
+    {
+      "id": "CWS_LISTING_1",
+      "area": "Building Quality Products",
+      "section": "Listing Requirements",
+      "requirement": "Products with blank description fields or missing icons/screenshots will be rejected.",
+      "applies_to_signals": ["listing_metadata", "description", "icon", "screenshots"],
+      "analysis_notes": "Requires store listing."
+    },
+    {
+      "id": "CWS_LISTING_2",
+      "area": "Building Quality Products",
+      "section": "Listing Requirements",
+      "requirement": "Listing information must be current, accurate, comprehensive, properly formatted, descriptive, and appropriate.",
+      "applies_to_signals": ["listing_metadata", "metadata_accuracy", "description", "category"],
+      "analysis_notes": "Compare listing to observed behavior."
+    },
+    {
+      "id": "CWS_LISTING_3",
+      "area": "Building Quality Products",
+      "section": "Listing Requirements",
+      "requirement": "Privacy fields must be accurate and current; contradictions with privacy policy or extension behavior may lead to removal.",
+      "applies_to_signals": ["declared_privacy", "privacy_fields", "declared_vs_observed_mismatch", "privacy_policy_mismatch"],
+      "analysis_notes": "Core clause for prompt3-5 comparison outputs."
+    },
+    {
+      "id": "CWS_LISTING_4",
+      "area": "Building Quality Products",
+      "section": "Listing Requirements",
+      "requirement": "Keyword spam, including irrelevant/excessive keywords or unnatural repetition, is not allowed.",
+      "applies_to_signals": ["keyword_spam", "listing_metadata", "description"],
+      "analysis_notes": "Requires listing description."
+    },
+    {
+      "id": "CWS_LISTING_4A",
+      "area": "Building Quality Products",
+      "section": "Listing Requirements",
+      "requirement": "Lists of sites, brands, or keywords without substantial added value are keyword-spam examples.",
+      "applies_to_signals": ["keyword_spam", "brand_lists", "site_lists"],
+      "analysis_notes": "Requires listing description."
+    },
+    {
+      "id": "CWS_LISTING_4B",
+      "area": "Building Quality Products",
+      "section": "Listing Requirements",
+      "requirement": "Lists of regional locations are keyword-spam examples.",
+      "applies_to_signals": ["keyword_spam", "regional_lists"],
+      "analysis_notes": "Requires listing description."
+    },
+    {
+      "id": "CWS_LISTING_4C",
+      "area": "Building Quality Products",
+      "section": "Listing Requirements",
+      "requirement": "Unnatural repetition of the same keyword more than five times is a keyword-spam example.",
+      "applies_to_signals": ["keyword_spam", "keyword_repetition"],
+      "analysis_notes": "Requires listing description."
+    },
+    {
+      "id": "CWS_LISTING_5",
+      "area": "Building Quality Products",
+      "section": "Listing Requirements",
+      "requirement": "Unattributed or anonymous user testimonials in product descriptions are not allowed.",
+      "applies_to_signals": ["testimonials", "listing_metadata"],
+      "analysis_notes": "Requires listing description."
+    },
+    {
+      "id": "CWS_MIN_FUNCTIONALITY_1",
+      "area": "Building Quality Products",
+      "section": "Minimum Functionality",
+      "requirement": "Extensions must not have the sole purpose of installing or launching another app, theme, webpage, or extension.",
+      "applies_to_signals": ["launcher_only", "redirect_only", "minimum_functionality"],
+      "analysis_notes": "Map workflows to actual extension functionality."
+    },
+    {
+      "id": "CWS_MIN_FUNCTIONALITY_2",
+      "area": "Building Quality Products",
+      "section": "Minimum Functionality",
+      "requirement": "Extensions with broken functionality, dead sites, or non-functioning features are not allowed.",
+      "applies_to_signals": ["broken_functionality", "dead_site", "failed_requests"],
+      "analysis_notes": "Requires runtime/network evidence."
+    },
+    {
+      "id": "CWS_MIN_FUNCTIONALITY_3",
+      "area": "Building Quality Products",
+      "section": "Minimum Functionality",
+      "requirement": "Extensions must provide basic functionality and utility that adds value to the Chrome Web Store catalog.",
+      "applies_to_signals": ["minimum_functionality", "utility", "template_extension"],
+      "analysis_notes": "Needs product/functionality context."
+    },
+    {
+      "id": "CWS_MIN_FUNCTIONALITY_3A",
+      "area": "Building Quality Products",
+      "section": "Minimum Functionality",
+      "requirement": "Extensions with no functionality or utility are common minimum-functionality violations.",
+      "applies_to_signals": ["no_functionality", "minimum_functionality"],
+      "analysis_notes": "Use only when code/workflows show no useful function."
+    },
+    {
+      "id": "CWS_MIN_FUNCTIONALITY_3B",
+      "area": "Building Quality Products",
+      "section": "Minimum Functionality",
+      "requirement": "Extensions whose functionality is not directly provided by the extension, such as link-only file converters, are common violations.",
+      "applies_to_signals": ["link_only", "external_service_only", "minimum_functionality"],
+      "analysis_notes": "Map workflows and UI links."
+    },
+    {
+      "id": "CWS_MIN_FUNCTIONALITY_3C",
+      "area": "Building Quality Products",
+      "section": "Minimum Functionality",
+      "requirement": "Clickbait template extensions with negligible utility are common minimum-functionality violations.",
+      "applies_to_signals": ["template_extension", "clickbait", "negligible_utility"],
+      "analysis_notes": "Requires product family/context."
+    },
+    {
+      "id": "CWS_CHROME_APPS_1A",
+      "area": "Building Quality Products",
+      "section": "Chrome Apps",
+      "requirement": "Packaged apps should use platform capabilities and not merely wrap an existing website or launch a webpage.",
+      "applies_to_signals": ["chrome_app", "webview_wrapper", "launcher_only"],
+      "analysis_notes": "Applies only to Chrome Apps, not normal extensions."
+    },
+    {
+      "id": "CWS_CHROME_APPS_1B",
+      "area": "Building Quality Products",
+      "section": "Chrome Apps",
+      "requirement": "Packaged apps should detect offline state and clearly message it to users.",
+      "applies_to_signals": ["chrome_app", "offline_state"],
+      "analysis_notes": "Applies only to Chrome Apps."
+    },
+    {
+      "id": "CWS_CHROME_APPS_1C",
+      "area": "Building Quality Products",
+      "section": "Chrome Apps",
+      "requirement": "Packaged apps should recover automatically from loss of internet connectivity.",
+      "applies_to_signals": ["chrome_app", "offline_recovery"],
+      "analysis_notes": "Applies only to Chrome Apps."
+    },
+    {
+      "id": "CWS_CHROME_APPS_2A",
+      "area": "Building Quality Products",
+      "section": "Chrome Apps",
+      "requirement": "Packaged and hosted apps should not require a local executable other than Chrome runtime.",
+      "applies_to_signals": ["chrome_app", "native_executable", "native_messaging"],
+      "analysis_notes": "Applies only to Chrome Apps; native messaging in extensions needs separate policy context."
+    },
+    {
+      "id": "CWS_CHROME_APPS_2B",
+      "area": "Building Quality Products",
+      "section": "Chrome Apps",
+      "requirement": "Packaged and hosted apps should not provide a WebView of a website not owned or administered by the developer.",
+      "applies_to_signals": ["chrome_app", "webview", "third_party_site"],
+      "analysis_notes": "Applies only to Chrome Apps."
+    },
+    {
+      "id": "CWS_CHROME_APPS_2C",
+      "area": "Building Quality Products",
+      "section": "Chrome Apps",
+      "requirement": "Packaged and hosted apps should not download or execute scripts dynamically outside a sandboxed environment.",
+      "applies_to_signals": ["chrome_app", "remote_code", "dynamic_script", "sandbox"],
+      "analysis_notes": "Applies to Chrome Apps; MV3 has separate remote-logic clauses."
+    },
+    {
+      "id": "CWS_CHROME_APPS_2D",
+      "area": "Building Quality Products",
+      "section": "Chrome Apps",
+      "requirement": "Packaged and hosted apps should not misuse notifications for spam, ads, promotions, phishing, or unwanted messages.",
+      "applies_to_signals": ["chrome_app", "notifications", "notification_spam", "phishing"],
+      "analysis_notes": "Applies only to Chrome Apps; similar extension spam clause exists."
+    },
+    {
+      "id": "CWS_TECH_READABILITY_1",
+      "area": "Technical Requirements",
+      "section": "Code Readability Requirements",
+      "requirement": "Developers must not obfuscate code or conceal extension functionality; minification is allowed.",
+      "applies_to_signals": ["obfuscation", "concealed_functionality", "minification", "string_tables", "control_flow_flattening"],
+      "analysis_notes": "Differentiate allowed minification from functionality concealment."
+    },
+    {
+      "id": "CWS_TECH_READABILITY_1A",
+      "area": "Technical Requirements",
+      "section": "Code Readability Requirements",
+      "requirement": "Allowed minification includes removing whitespace, newlines, comments, and block delimiters.",
+      "applies_to_signals": ["minification", "one_line_bundle"],
+      "analysis_notes": "Do not treat minification alone as obfuscation."
+    },
+    {
+      "id": "CWS_TECH_READABILITY_1B",
+      "area": "Technical Requirements",
+      "section": "Code Readability Requirements",
+      "requirement": "Allowed minification includes shortening variable and function names.",
+      "applies_to_signals": ["minification", "short_names"],
+      "analysis_notes": "Do not treat short names alone as obfuscation."
+    },
+    {
+      "id": "CWS_TECH_READABILITY_1C",
+      "area": "Technical Requirements",
+      "section": "Code Readability Requirements",
+      "requirement": "Allowed minification includes collapsing files together.",
+      "applies_to_signals": ["bundling", "minification", "one_line_bundle"],
+      "analysis_notes": "Bundling alone is not a breach."
+    },
+    {
+      "id": "CWS_TECH_API_USE_1",
+      "area": "Technical Requirements",
+      "section": "API Use",
+      "requirement": "Extensions must use existing Chrome APIs for their designated use case when such APIs exist; alternate methods may violate policy.",
+      "applies_to_signals": ["api_misuse", "new_tab_override", "settings_change", "workaround_api"],
+      "analysis_notes": "Requires specific API/use-case comparison."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_LOGIC_1",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Manifest V3 extension functionality must be easily discernible from submitted code; external resources must not contain logic unless exempt.",
+      "applies_to_signals": ["remote_code", "remote_config", "dynamic_logic", "mv3", "external_resource"],
+      "analysis_notes": "Core clause for remote logic/config analysis."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_LOGIC_1A",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Including script tags that point to resources outside the extension package is a common MV3 violation.",
+      "applies_to_signals": ["remote_script", "script_injection", "external_script_src", "mv3"],
+      "analysis_notes": "Map CSP, HTML, DOM script creation, and web_accessible resources."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_LOGIC_1B",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Using eval or similar mechanisms to execute strings fetched from remote sources is a common MV3 violation.",
+      "applies_to_signals": ["eval", "new_function", "remote_string_execution", "remote_code", "mv3"],
+      "analysis_notes": "Requires remote source plus execution sink."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_LOGIC_1C",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Building an interpreter to run complex commands fetched from remote sources can violate MV3 remote logic rules.",
+      "applies_to_signals": ["remote_commands", "interpreter", "rules_engine", "dynamic_logic", "mv3"],
+      "analysis_notes": "Remote config can be allowed if it does not contain executable logic."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_LOGIC_2",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Remote execution is allowed only through documented APIs that explicitly permit it and only for the documented purpose.",
+      "applies_to_signals": ["debugger_api", "user_scripts_api", "remote_execution", "mv3"],
+      "analysis_notes": "Check whether remote logic uses permitted APIs and purpose."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_LOGIC_2A",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Debugger API is a permitted API for specific remote-execution cases when used within documented purpose.",
+      "applies_to_signals": ["chrome.debugger", "remote_execution"],
+      "analysis_notes": "Do not treat debugger use as automatically allowed; purpose matters."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_LOGIC_2B",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "User Scripts API is a permitted API for specific remote-execution cases when used within documented purpose.",
+      "applies_to_signals": ["userScripts", "remote_execution"],
+      "analysis_notes": "Check API and purpose."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_LOGIC_2C",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Remote code in isolated contexts such as iframes or sandboxed pages may be exempt from remote-code restrictions, but functionality must remain determinable and user-data policies still apply.",
+      "applies_to_signals": ["iframe", "sandbox", "remote_content", "limited_use", "privacy_policy"],
+      "analysis_notes": "Do not ignore privacy implications of sandboxed/iframe remote content."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_COMM_3A",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Syncing user account data with a remote server is an allowed remote communication purpose.",
+      "applies_to_signals": ["account_sync", "remote_server", "auth"],
+      "analysis_notes": "Allowed purpose, still subject to privacy/security policies."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_COMM_3B",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Fetching remote configuration for A/B testing or feature enablement is allowed when functionality logic remains inside the extension package.",
+      "applies_to_signals": ["remote_config", "ab_testing", "feature_flags", "treatments"],
+      "analysis_notes": "Important mitigation for remote_config risks; distinguish data config from logic."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_COMM_3C",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Fetching remote resources that are not used to evaluate logic, such as images, is allowed.",
+      "applies_to_signals": ["remote_images", "remote_assets", "resource_fetch"],
+      "analysis_notes": "Allowed purpose unless privacy/security issue exists."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_COMM_3D",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "Server-side operations with data, such as private-key encryption operations, may be allowed.",
+      "applies_to_signals": ["server_side_operation", "encryption", "remote_backend"],
+      "analysis_notes": "Allowed purpose, still subject to data handling and disclosure."
+    },
+    {
+      "id": "CWS_MV3_REMOTE_LOGIC_4",
+      "area": "Technical Requirements",
+      "section": "Additional Requirements for Manifest V3",
+      "requirement": "If Chrome Web Store reviewers cannot determine full extension functionality, the submission may be rejected or removed.",
+      "applies_to_signals": ["obfuscation", "remote_logic", "undeterminable_functionality", "dynamic_behavior"],
+      "analysis_notes": "Use for strong uncertainty around concealed or remote-driven behavior."
+    },
+    {
+      "id": "CWS_2SV_1",
+      "area": "Technical Requirements",
+      "section": "2-Step Verification",
+      "requirement": "Developer accounts must use 2-Step Verification before publishing or updating extensions.",
+      "applies_to_signals": ["developer_account_security"],
+      "analysis_notes": "Requires developer account context."
+    },
+    {
+      "id": "CWS_ENFORCEMENT_1",
+      "area": "Enforcement",
+      "section": "Enforcement Circumvention",
+      "requirement": "Attempting to circumvent limitations or enforcement can terminate developer accounts and related accounts.",
+      "applies_to_signals": ["enforcement_circumvention", "evasion"],
+      "analysis_notes": "Requires concrete evasion evidence."
+    },
+    {
+      "id": "CWS_ENFORCEMENT_2A",
+      "area": "Enforcement",
+      "section": "Notification and Appeals",
+      "requirement": "Removed products receive email notification with further instructions when applicable.",
+      "applies_to_signals": ["enforcement_process"],
+      "analysis_notes": "Context only."
+    },
+    {
+      "id": "CWS_ENFORCEMENT_2B",
+      "area": "Enforcement",
+      "section": "Notification and Appeals",
+      "requirement": "Publisher accounts should be able to receive external emails and avoid spam filtering for timely communications.",
+      "applies_to_signals": ["developer_contact", "publisher_account"],
+      "analysis_notes": "Requires account context."
+    },
+    {
+      "id": "CWS_ENFORCEMENT_2C",
+      "area": "Enforcement",
+      "section": "Notification and Appeals",
+      "requirement": "Removals are permanent unless a revision fixes the issue; enforcement is global by default unless territory-restricted.",
+      "applies_to_signals": ["enforcement_process"],
+      "analysis_notes": "Context only."
+    },
+    {
+      "id": "CWS_ENFORCEMENT_2D",
+      "area": "Enforcement",
+      "section": "Notification and Appeals",
+      "requirement": "Developers may appeal a violation decision once; no further appeals are accepted for the same violation after decision.",
+      "applies_to_signals": ["appeals"],
+      "analysis_notes": "Context only."
+    },
+    {
+      "id": "CWS_ENFORCEMENT_2E",
+      "area": "Enforcement",
+      "section": "Notification and Appeals",
+      "requirement": "Frivolous appeals or misuse of appeals may result in further action.",
+      "applies_to_signals": ["appeal_abuse"],
+      "analysis_notes": "Context only."
+    },
+    {
+      "id": "CWS_ENFORCEMENT_REPEAT_1",
+      "area": "Enforcement",
+      "section": "Repeat Abuse",
+      "requirement": "Serious or repeated violations can suspend developer accounts, related accounts, Chrome Web Store access, and in extreme cases related Google services.",
+      "applies_to_signals": ["repeat_abuse", "serious_violation"],
+      "analysis_notes": "Requires enforcement history."
+    },
+    {
+      "id": "CWS_ENFORCEMENT_REPEAT_2",
+      "area": "Enforcement",
+      "section": "Repeat Abuse",
+      "requirement": "Repeated intellectual property infringement can result in account termination.",
+      "applies_to_signals": ["repeat_ip_infringement", "copyright"],
+      "analysis_notes": "Requires enforcement/history evidence."
+    }
+  ]
+}
+
