@@ -164,10 +164,12 @@ For large bundled extensions, a small workflow list is acceptable only when `wor
 
 - Do not stop after Step 7 when the user supplied a Chrome Web Store extension ID and the privacy-suite inputs are available.
 - Step 8 must read and follow `prompt2.md`, run `fetch_privacy.py <extension_id>`, and produce `privacy_workspace/declared_privacy.json` when extraction succeeds.
+- If Step 8 retrieves an external privacy policy with non-empty text, run `node tools/extract_external_policy_claims.js ./privacy_workspace` before Prompt 4/5 comparisons and produce `privacy_workspace/external_policy_claims.json`.
+- If `external_policy_claims.json` exists, create `privacy_workspace/external_policy_claims_review.json` by LLM adjudication before Prompt 4/5 comparisons. Run `node tools/external_policy_claim_review_linter.js ./privacy_workspace`.
 - If `fetch_privacy.py` fails, do not invent Chrome Web Store declarations; document the blocker and stop downstream privacy-suite comparisons.
 - Step 9 must read and follow `prompt3.md` and produce `privacy_workspace/privacy_comparison.json` from `declared_privacy.json` and `privacy_workspace/extension_summary.json`.
-- Step 10 must read and follow `prompt4.md` and create `privacy_workspace/external_privacy_comparison.json` only when an external privacy policy exists.
-- Step 11 must read and follow `prompt5.md` and create `privacy_workspace/internal_external_privacy_comparison.json` only when Step 10 produced the external-policy comparison.
+- Step 10 must read and follow `prompt4.md` and create `privacy_workspace/external_privacy_comparison.json` only when an external privacy policy exists. When `external_policy_claims_review.json` exists, it is the primary source for external-policy categories and claim evidence.
+- Step 11 must read and follow `prompt5.md` and create `privacy_workspace/internal_external_privacy_comparison.json` only when Step 10 produced the external-policy comparison. When `external_policy_claims_review.json` exists, it is the primary source for external-policy categories and claim evidence.
 - Prompt3 and Prompt4 must use `observed_privacy_data.items` as the primary observed-behavior source when present, with legacy fields only as fallback.
 - Prompt3-5 are comparison-only stages; they must not re-scan source files or rewrite the main evidence basis.
 - If no extension ID is supplied, the main reverse-engineering run can still pass, but Step 8-11 must be skipped or blocked with a clear note in `scan_log.txt`.
@@ -208,11 +210,22 @@ For large bundled extensions, a small workflow list is acceptable only when `wor
 - A policy finding must include observed behavior, source finding references, source evidence, breach argument, confidence, and missing information.
 - Do not turn every technical risk into a confirmed policy breach. A risk can produce `possible_breach`, `compliance_concern`, or `not_enough_evidence` when disclosure, consent, store listing, or external policy evidence is missing.
 - Use `confirmed_breach` only when both behavior evidence and disclosure/declaration/policy evidence prove a concrete conflict.
+- A direct mismatch between declared no-data/no-category/no-collection claims and confirmed observed privacy data is a concrete disclosure conflict. It should be reported as `confirmed_breach` when both sides are evidenced.
 - If `declared_privacy.json`, `privacy_comparison.json`, external privacy policy data, or store listing data is unavailable, the report must explicitly say what cannot be determined.
-- Avoid absolute compliance language such as "fully compliant", "fully conforms", or "this is compliant" unless the report has code evidence and disclosure/declaration/policy evidence for every relevant clause. Prefer "available evidence did not show a client-side violation" or "not enough evidence to determine breach".
+- Avoid absolute compliance/downplaying language such as "fully compliant", "fully conforms", "this is compliant", "not a breach", or "supports compliance" unless the report has code evidence and disclosure/declaration/policy evidence for every relevant clause and there is no contradictory observed privacy data.
 - Add a short top-level `policy_compliance` object to `extension_summary.json` pointing to `policy_compliance_report.json`; do not overwrite `privacy.policy_compliance`.
 - Run `node tools/policy_compliance_linter.js OUT_DIR` after writing `policy_compliance_report.json` and updating `extension_summary.json`.
 - A policy-compliance linter failure is a quality-gate failure unless a real missing-input blocker is documented in `scan_log.txt`.
 
+## Gate 15: External Policy Claims vs Google Policy
+
+- If `privacy_workspace/external_policy_claims.json` exists, run `node tools/compare_external_policy_claims_to_google_policy.js ./privacy_workspace docs/policies/chrome_webstore_program_policies.json`.
+- The expected output is `privacy_workspace/external_policy_google_policy_comparison.json`.
+- Prefer `privacy_workspace/external_policy_claims_review.json.final_claims[]` over draft `external_policy_claims.json.claims[]`.
+- Every review row must cite a real `claim_id` from `external_policy_claims_review.json.final_claims[]` when the review file exists.
+- Every `policy_clause_ids[]` entry must exist in `docs/policies/chrome_webstore_program_policies.json`.
+- This step compares policy text against Google policy clauses; it must not assert that the extension performs a behavior unless observed evidence in `extension_summary.json`, Prompt 3, Prompt 4, Prompt 5, or `policy_compliance_report.json` supports that separately.
+- Use cautious statuses: `confirmed_policy_conflict`, `possible_policy_conflict`, `compliance_concern`, `not_enough_evidence`, or `no_conflict`.
+- Do not force a fixed number of findings. A small or empty finding set is acceptable when the claim reviews explain why claims are benign, local-only, security-supporting, or not policy-relevant.
 
 

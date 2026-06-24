@@ -67,8 +67,10 @@ Behavior requirements:
 - After Step 7 produces `extension_summary.json` and copies it to `privacy_workspace/extension_summary.json`, continue into the appended privacy suite when the user supplied a Chrome Web Store extension ID.
 - For Step 8, read and follow `prompt2.md`, then run `fetch_privacy.py <extension_id>` to create `privacy_workspace/declared_privacy.json`.
 - For Step 9, read and follow `prompt3.md` to create `privacy_workspace/privacy_comparison.json`.
-- For Step 10, read and follow `prompt4.md` to create `privacy_workspace/external_privacy_comparison.json` only if an external privacy policy exists.
-- For Step 11, read and follow `prompt5.md` to create `privacy_workspace/internal_external_privacy_comparison.json` only if the external-policy comparison exists.
+- If Step 8 retrieves an external privacy policy with non-empty text, run `node tools/extract_external_policy_claims.js ./privacy_workspace` before Step 10 and create `privacy_workspace/external_policy_claims.json`.
+- After `external_policy_claims.json` exists, create `privacy_workspace/external_policy_claims_review.json` by LLM adjudication. Confirm, correct, merge, reject, or mark uncertain every draft claim, then run `node tools/external_policy_claim_review_linter.js ./privacy_workspace`.
+- For Step 10, read and follow `prompt4.md` to create `privacy_workspace/external_privacy_comparison.json` only if an external privacy policy exists. If `external_policy_claims_review.json` exists, use `final_claims[]` as the primary external-policy source and use raw `external_privacy_policy.privacy_text` only as fallback.
+- For Step 11, read and follow `prompt5.md` to create `privacy_workspace/internal_external_privacy_comparison.json` only if the external-policy comparison exists. If `external_policy_claims_review.json` exists, use `final_claims[]` as the primary external-policy source and use raw `external_privacy_policy.privacy_text` only as fallback.
 - Do not stop after reverse engineering when the privacy-suite inputs are available.
 - If no extension ID is supplied, record the Step 8-11 skip in `scan_log.txt` and keep the main reverse-engineering output valid.
 - If `fetch_privacy.py` fails, do not invent declared privacy data; document the failure and stop downstream privacy-suite steps.
@@ -80,9 +82,12 @@ Behavior requirements:
 - For Step 13, create `OUT_DIR/policy_compliance_report.json` from the critical mechanisms, `extension_summary.json`, policy clauses, and privacy-suite outputs when available.
 - Policy findings must use statuses from the workflow: `confirmed_breach`, `likely_breach`, `possible_breach`, `compliance_concern`, `not_enough_evidence`, or `not_applicable`.
 - Do not turn every technical risk into a confirmed policy breach. If store listing text, consent UI, dashboard privacy fields, declared privacy data, or external policy text is unavailable, record the missing input and use a weaker evidence-supported status.
+- If Chrome Web Store declarations or the external privacy policy claim no data collection/no relevant categories, and observed privacy analysis found concrete privacy-relevant data flows, classify the disclosure mismatch as `confirmed_breach` when both sides are evidenced.
 - Each policy finding must include `source_finding_refs` so the policy conclusion can be traced back to the original privacy/risk/workflow/endpoint/message/storage/permission findings, not only to mechanism IDs.
-- Do not use absolute compliance language such as "fully compliant", "fully conforms", or "this is compliant" unless disclosure/declaration/policy evidence and code evidence together prove it. Prefer cautious wording when inputs are incomplete.
+- Do not use absolute compliance/downplaying language such as "fully compliant", "fully conforms", "this is compliant", "not a breach", or "supports compliance" when observed privacy data contradicts declared no-data/no-category claims.
 - Add the short top-level `policy_compliance` object to `extension_summary.json` pointing to `policy_compliance_report.json`; do not overwrite `privacy.policy_compliance`.
+- After Step 13, if `privacy_workspace/external_policy_claims_review.json` or `privacy_workspace/external_policy_claims.json` exists, run `node tools/compare_external_policy_claims_to_google_policy.js ./privacy_workspace docs/policies/chrome_webstore_program_policies.json` and create `privacy_workspace/external_policy_google_policy_comparison.json`.
+- The external-policy Google-policy comparison must cite external claim IDs and Chrome Web Store policy clause IDs. It must not claim observed extension behavior unless the main reverse-engineering outputs independently support that behavior.
 - During Step 14, run `node tools/policy_compliance_linter.js OUT_DIR` and fix unknown clause IDs, invalid statuses, missing critical mechanisms, or unsupported confirmed breach claims before declaring completion.
 
 Working style:

@@ -7,6 +7,8 @@ This workspace step compares two privacy disclosure layers for the same Chrome e
 1. **Internal privacy disclosure**: the Chrome Web Store privacy declaration extracted by Prompt 2 and compared with observed behavior by Prompt 3.
 2. **External privacy policy**: the developer's external privacy policy page extracted by Prompt 2, if available.
 
+When available, use `privacy_workspace/external_policy_claims_review.json` as the reviewed claim-level representation of the external privacy policy. It preserves specific claim IDs, claim text, excerpts, and category mappings that are easier to audit than raw policy text alone. Use `privacy_workspace/external_policy_claims.json` only as a draft fallback.
+
 The goal is to answer two questions:
 
 1. For behaviors that Prompt 3 found as **underdeclared in the Chrome Web Store**, are those same behaviors explained in the developer's **external privacy policy**?
@@ -83,6 +85,8 @@ For Chrome Web Store declarations, use:
 
 For external privacy policy declarations, use:
 
+- `external_policy_claims_review.json.final_claims[].data_categories`, `claim_type`, `claim_text`, and `evidence` when `privacy_workspace/external_policy_claims_review.json` exists
+- `external_policy_claims.json.claims[].data_categories`, `claim_type`, `claim_text`, and `evidence` only as draft fallback
 - `declared_privacy.json.external_privacy_policy.detected_data_categories`
 - `declared_privacy.json.external_privacy_policy.privacy_text`
 
@@ -153,6 +157,32 @@ It should contain Chrome Web Store privacy data and may contain external privacy
   }
 }
 ```
+
+### Optional: privacy_workspace/external_policy_claims_review.json
+
+When this file exists, it is the preferred external-policy source.
+
+Relevant fields:
+
+```json
+{
+  "external_privacy_policy_url": "...",
+  "detected_data_categories": [],
+  "developer_statements": [],
+  "final_claims": [
+    {
+      "claim_id": "EPC-001",
+      "claim_type": "data_collection",
+      "data_categories": [],
+      "claim_text": "...",
+      "normalized_meaning": "...",
+      "evidence": {}
+    }
+  ]
+}
+```
+
+Use final claim IDs and excerpts from this file when explaining whether the external policy covers a Chrome-Web-Store-underdeclared behavior or whether the external policy declares categories not present in Chrome Web Store.
 
 ### 2. privacy_workspace/privacy_comparison.json
 
@@ -375,6 +405,8 @@ not_declared_in_either_policy
 ```text
 unclear_external_coverage
 ```
+
+If `external_policy_claims_review.json.final_claims[]` contains a `no_collection_claim` or equivalent no-data wording and Prompt 3 reports underdeclared observed privacy behavior, do not classify the external policy as merely unclear. Classify the item as not declared in either policy and explain that the external no-collection claim directly contradicts the observed privacy behavior.
 
 Important:
 
@@ -654,7 +686,17 @@ Do not invent categories.
 
 ### Step 3: Extract External Policy Categories
 
-Extract external policy categories from:
+First check whether `privacy_workspace/external_policy_claims_review.json` exists.
+
+If it exists, extract external policy categories from:
+
+```json
+external_policy_claims_review.json.final_claims[].data_categories
+```
+
+Also preserve `claim_id`, `claim_type`, `claim_text`, and `evidence` for any output item that relies on a claim.
+
+If the reviewed claims file is missing or incomplete, use draft `external_policy_claims.json.claims[]` only as fallback. If both claim files are missing or incomplete, extract external policy categories from:
 
 ```json
 declared_privacy.json.external_privacy_policy.detected_data_categories
@@ -734,6 +776,7 @@ Use `high` when:
 - Prompt 3 underdeclared findings are not declared in either Chrome Web Store or external policy
 - sensitive categories such as authentication information, personal communications, financial/payment information, location, or website content are not declared in either policy
 - there are multiple important external-only categories that suggest the Chrome Web Store disclosure is substantially incomplete
+- an external no-collection/no-data claim contradicts observed privacy behavior from Prompt 3
 
 ---
 
@@ -802,7 +845,8 @@ Before finalizing:
 - [ ] No source files were analyzed
 - [ ] `fetch_privacy.py` was not executed
 - [ ] Chrome Web Store categories came only from `declared_privacy.json`
-- [ ] External policy categories came only from `declared_privacy.json.external_privacy_policy`
+- [ ] External policy categories came from `external_policy_claims_review.json` when available, otherwise from draft `external_policy_claims.json` or `declared_privacy.json.external_privacy_policy`
+- [ ] External-policy evidence preserves final claim IDs/excerpts when `external_policy_claims_review.json` exists
 - [ ] Prompt 3 underdeclared findings came only from `privacy_comparison.json.underdeclared`
 - [ ] External-only categories are reported even if not observed in code
 - [ ] Output file was created only if external policy exists

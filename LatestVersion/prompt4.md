@@ -11,6 +11,11 @@ This step uses two existing JSON files:
 1. **`privacy_workspace/declared_privacy.json`** - Privacy extraction output that may contain an `external_privacy_policy` object
 2. **`privacy_workspace/extension_summary.json`** - What the code analysis found about the extension's actual behavior
 
+When available, this step also uses:
+
+3. **`privacy_workspace/external_policy_claims_review.json`** - LLM-reviewed claim-level extraction from the external privacy policy text
+4. **`privacy_workspace/external_policy_claims.json`** - Deterministic draft claim candidates, fallback only
+
 This step does **not** re-analyze source code. It only compares the external privacy policy data inside the already-generated declared privacy JSON with the structured observed behavior JSON.
 
 Important: If no external privacy policy was found or retrieved, this step must stop gracefully and must **not** create a new comparison output file.
@@ -34,6 +39,7 @@ Begin Chrome extension external privacy policy comparison. Read privacy_workspac
 - Every comparison finding must be grounded in the input JSON files
 - For observed behavior, cite evidence from `privacy_workspace/extension_summary.json` whenever available
 - For external policy declarations, cite fields from `privacy_workspace/declared_privacy.json.external_privacy_policy`
+- If `privacy_workspace/external_policy_claims_review.json` exists, use `final_claims[]` as the primary source for external policy categories, explicit claims, excerpts, and claim IDs
 - Do NOT invent code evidence
 - Do NOT infer behavior that is not supported by `privacy_workspace/extension_summary.json`
 - Do NOT infer external policy declarations that are not supported by `external_privacy_policy.privacy_text` or `external_privacy_policy.detected_data_categories`
@@ -90,6 +96,11 @@ The following files must exist in the current workspace:
 
 1. `privacy_workspace/declared_privacy.json`
 2. `privacy_workspace/extension_summary.json`
+
+Optional but preferred when present:
+
+3. `privacy_workspace/external_policy_claims_review.json`
+4. `privacy_workspace/external_policy_claims.json`
 
 ### privacy_workspace/declared_privacy.json
 
@@ -201,8 +212,12 @@ If no external privacy policy is available, do not create any output file.
 
 External policy categories may come from:
 
+- `external_policy_claims_review.json.final_claims[].data_categories` and claim excerpts when `external_policy_claims_review.json` exists
+- `external_policy_claims.json.claims[].data_categories` only as draft fallback
 - `external_privacy_policy.detected_data_categories`
 - direct wording inside `external_privacy_policy.privacy_text`
+
+Prefer reviewed `external_policy_claims_review.json.final_claims[]` over raw text because it preserves LLM-adjudicated claim IDs, claim types, excerpts, and text offsets. Use draft `external_policy_claims.json` or raw `privacy_text` only as fallback when the review file is missing, incomplete, or blocked.
 
 The detected categories may include:
 
@@ -358,6 +373,8 @@ Example:
 
 Use `underdeclared_external` when observed behavior appears in the code analysis but is not explained in the external privacy policy.
 
+If the external policy contains a `no_collection_claim` or equivalent wording such as "we do not collect any data", and observed privacy behavior exists, treat the item as a direct contradiction. Mark it clearly in the reason, use high confidence when the observed evidence is strong, and do not soften it as merely vague wording.
+
 Example:
 
 ```json
@@ -505,6 +522,20 @@ If the external privacy policy is missing, not retrieved, or has empty text:
 
 **Purpose**: Identify what the external privacy policy claims to handle.
 
+First check whether `privacy_workspace/external_policy_claims_review.json` exists.
+
+If it exists, extract:
+- `final_claims[].claim_id`
+- `final_claims[].claim_type`
+- `final_claims[].data_categories`
+- `final_claims[].claim_text`
+- `final_claims[].normalized_meaning`
+- `final_claims[].evidence`
+- `detected_data_categories`
+- `developer_statements`
+
+Use these claim-level fields as the primary external policy representation.
+
 From `privacy_workspace/declared_privacy.json.external_privacy_policy`, extract:
 - `url`
 - `final_url`
@@ -515,7 +546,7 @@ From `privacy_workspace/declared_privacy.json.external_privacy_policy`, extract:
 
 Use `detected_data_categories` as the base list of external declared categories.
 
-If `privacy_text` clearly mentions additional categories not captured in `detected_data_categories`, you may add them, but you must provide a reason and mark confidence appropriately.
+If `external_policy_claims_review.json` exists, treat its final claim categories and excerpts as the base list of external declared categories. If raw `privacy_text` clearly mentions additional categories not captured in the review file or `detected_data_categories`, you may add them, but you must provide a reason and mark confidence appropriately.
 
 Do not modify category names unless mapping them into the standard category list.
 
@@ -661,6 +692,7 @@ Use `high` when:
 - personal communications, authentication data, location, or website content are collected but not explained
 - evidence suggests external transfer of data not explained by the external policy
 - developer statements appear contradicted by code evidence
+- external policy claims no data collection while `observed_privacy_data.items` contains concrete privacy-relevant data flows
 
 ---
 
@@ -813,6 +845,7 @@ Do not include markdown in the JSON file.
 - [ ] `external_privacy_policy.privacy_text` is non-empty
 - [ ] No source files were directly analyzed
 - [ ] External declared categories were derived from `privacy_workspace/declared_privacy.json.external_privacy_policy`
+- [ ] If `privacy_workspace/external_policy_claims_review.json` exists, it was used as the primary source for external categories, claim IDs, excerpts, and developer statements
 - [ ] Observed behavior was derived only from `privacy_workspace/extension_summary.json`
 - [ ] If `observed_privacy_data.items` exists, it was inspected as the primary detailed observed-behavior source
 - [ ] If `observed_privacy_data.items` is absent, older fields (`privacy`, `network`, `storage`, `workflows`, `risks`, `code_signals`) were used as fallback sources

@@ -35,10 +35,13 @@ This project analyzes Chrome extensions, primarily Manifest V3, to produce struc
 - When a Chrome Web Store extension ID is supplied, continue after reverse engineering into the appended privacy suite: read and follow `prompt2.md`, `prompt3.md`, `prompt4.md`, and `prompt5.md` during their corresponding steps.
 - If no extension ID is supplied, keep the main reverse-engineering output valid and record the privacy-suite skip in `scan_log.txt`.
 - Do not invent declared privacy data if `fetch_privacy.py` fails, and do not create external-policy comparison outputs when no external policy exists.
+- If an external privacy policy is retrieved with text, run `node tools/extract_external_policy_claims.js ./privacy_workspace` to create draft claims, then create `privacy_workspace/external_policy_claims_review.json` by LLM adjudication and run `node tools/external_policy_claim_review_linter.js ./privacy_workspace`. Prompt 4/5 should use reviewed `final_claims[]` as the primary external-policy source.
 - Treat prompt3-5 as comparison-only stages; do not re-scan source files there.
 - After the appended privacy suite is handled, continue into Chrome Web Store policy analysis. Create `OUT_DIR/census/critical_mechanisms.csv`, create `OUT_DIR/policy_compliance_report.json`, add the short top-level `policy_compliance` object to `extension_summary.json`, and run `node tools/policy_compliance_linter.js OUT_DIR`.
 - Policy analysis must cite specific clause IDs from `docs/policies/chrome_webstore_program_policies.json`. Do not claim a confirmed policy breach unless source behavior and disclosure/declaration/policy evidence prove the conflict.
+- If Chrome Web Store declarations or an external privacy policy claim no data collection/no relevant categories, and `observed_privacy_data.items` or Prompt 3/4 comparisons show concrete privacy-relevant data flows, treat that as a disclosure/listing accuracy breach rather than a soft concern. Use `confirmed_breach` when the observed flow and contradictory disclosure are both evidenced.
 - Critical mechanisms must include `derived_from_findings` references back to original privacy/risk/workflow/endpoint/message/storage/permission findings. Policy findings must include `source_finding_refs`; mechanism IDs alone are not enough.
+- If reviewed or draft external policy claims exist, run `node tools/compare_external_policy_claims_to_google_policy.js ./privacy_workspace docs/policies/chrome_webstore_program_policies.json` after regular policy compliance analysis. This output compares external policy claims to Google policy clauses and must not assert observed extension behavior without independent code-analysis support.
 
 ## MV3 Priorities
 

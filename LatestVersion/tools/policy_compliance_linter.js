@@ -134,7 +134,7 @@ if (exists(mechanismsPath)) {
     if (["critical_mechanism", "supporting_mechanism"].includes(decision) && !derived) {
       failures.push(`critical_mechanisms.csv row ${row.mechanism_id || "(unknown)"} is ${decision} but has empty derived_from_findings.`);
     }
-    if (derived && !/(observed_privacy_data|risk|workflow|endpoint|message|storage|permission|semantic_architecture|privacy_comparison|external_policy_comparison|manifest):/i.test(derived)) {
+    if (derived && !/(observed_privacy_data|risk|workflow|endpoint|message|storage|permission|semantic_architecture|privacy_comparison|external_policy_comparison|external_policy_claim|manifest):/i.test(derived)) {
       warnings.push(`critical_mechanisms.csv row ${row.mechanism_id || "(unknown)"} has derived_from_findings without a recognized source prefix.`);
     }
   }
@@ -170,7 +170,7 @@ if (report) {
       if (!refs.length && status !== "not_applicable") {
         failures.push(`policy_compliance_report.json findings[${index}] has no source_finding_refs.`);
       }
-      if (refs.some((ref) => !/(observed_privacy_data|risk|workflow|endpoint|message|storage|permission|semantic_architecture|privacy_comparison|external_policy_comparison|manifest):/i.test(String(ref)))) {
+      if (refs.some((ref) => !/(observed_privacy_data|risk|workflow|endpoint|message|storage|permission|semantic_architecture|privacy_comparison|external_policy_comparison|external_policy_claim|manifest):/i.test(String(ref)))) {
         warnings.push(`policy_compliance_report.json findings[${index}] contains source_finding_refs without recognized source prefixes.`);
       }
       const evidence = Array.isArray(finding.evidence) ? finding.evidence : [];
@@ -179,11 +179,15 @@ if (report) {
       }
       const argument = String(finding.breach_argument || "");
       const hasAbsoluteComplianceClaim = /\b(fully compliant|fully conforms|this is compliant|is compliant|100%\s+consistent|no\s+violation)\b/i.test(argument);
+      const hasDownplayingBreachLanguage = /\b(not\s+a\s+breach|supports\s+compliance|support\s+compliance|available\s+evidence\s+supports\s+compliance|discovered\s+permissions\s+are\s+reasonable)\b/i.test(argument);
       const hasFullSupport =
         Boolean(finding.disclosure_evidence) &&
         (Boolean(finding.declared_privacy_evidence) || Boolean(finding.external_policy_evidence));
       if (hasAbsoluteComplianceClaim && !hasFullSupport) {
         failures.push(`policy_compliance_report.json findings[${index}] uses absolute compliance language without disclosure plus declaration/policy evidence.`);
+      }
+      if (hasDownplayingBreachLanguage) {
+        failures.push(`policy_compliance_report.json findings[${index}] uses downplaying breach language. Use evidence-supported statuses and explain mitigations without saying "not a breach" or "supports compliance".`);
       }
       if (status === "confirmed_breach") {
         const hasDisclosureEvidence = Boolean(finding.disclosure_evidence || finding.declared_privacy_evidence || finding.external_policy_evidence);

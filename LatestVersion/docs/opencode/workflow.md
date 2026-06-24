@@ -1184,6 +1184,113 @@ privacy_workspace/declared_privacy.json
 - If the script fails or the file is not created, stop the privacy-suite steps, document the failure, and keep the Step 0-7 reverse-engineering outputs valid.
 - Do not fabricate Chrome Web Store declarations, privacy labels, developer disclosures, or external policy URLs.
 
+## Step 8A: External Privacy Policy Claim Extraction
+
+**Purpose**: Convert retrieved external privacy policy text into draft claim candidates that later receive LLM adjudication.
+
+This step is additive to Prompt 2. It must not replace `declared_privacy.json` or the full Prompt 4/5 comparisons.
+
+Inputs:
+
+- `privacy_workspace/declared_privacy.json`
+- `tools/extract_external_policy_claims.js`
+
+Execution rules:
+
+- Run this only after Step 8 succeeds.
+- If no external privacy policy exists, is not retrieved, or has no usable `privacy_text`, skip gracefully and record the skip in `scan_log.txt`.
+- Run:
+
+```text
+node tools/extract_external_policy_claims.js ./privacy_workspace
+```
+
+- Expected conditional output:
+
+```text
+privacy_workspace/external_policy_claims.json
+```
+
+Rules:
+
+- Do not open the external URL again in this step.
+- Do not invent claims. Claims must come from `declared_privacy.json.external_privacy_policy.privacy_text`, `detected_data_categories`, or `developer_statements`.
+- Treat `external_policy_claims.json` as a deterministic draft candidate file, not final truth. The LLM must review it in Step 8B before Prompt 4/5 and policy comparisons rely on it.
+- Keep each claim traceable to an excerpt, text location, claim type, category, and confidence when available.
+
+## Step 8B: LLM External Privacy Policy Claim Review
+
+**Purpose**: Let the LLM adjudicate the draft external policy claims so complex wording is not decided by regex alone.
+
+Inputs:
+
+- `privacy_workspace/external_policy_claims.json`
+- `privacy_workspace/declared_privacy.json.external_privacy_policy.privacy_text`
+
+Create:
+
+```text
+privacy_workspace/external_policy_claims_review.json
+```
+
+Required shape:
+
+```json
+{
+  "extension_id": "string or unknown",
+  "external_privacy_policy_url": "string or unknown",
+  "review_summary": {
+    "draft_claim_count": 0,
+    "reviewed_claim_count": 0,
+    "final_claim_count": 0,
+    "confirmed_count": 0,
+    "corrected_count": 0,
+    "merged_count": 0,
+    "rejected_count": 0,
+    "uncertain_count": 0
+  },
+  "reviewed_claims": [],
+  "final_claims": []
+}
+```
+
+Each `reviewed_claims[]` row must include:
+
+- `draft_claim_id`
+- `decision`: `confirmed_claim`, `corrected_claim`, `merged_claim`, `rejected_claim`, or `uncertain_claim`
+- `review_reason`
+- `final_claim_refs`
+- `evidence`
+
+Each `final_claims[]` row must include:
+
+- `claim_id`
+- `source_draft_claim_ids`
+- `claim_type`
+- `data_categories`
+- `purposes`
+- `recipients`
+- `claim_text`
+- `normalized_meaning`
+- `evidence`
+- `confidence`
+- `review_source`: `external_policy_claims_review`
+
+Review rules:
+
+- Read the relevant external policy excerpt for every draft claim.
+- Confirm true claims, correct wrong claim types/categories, merge duplicates, reject false positives, and mark ambiguous claims uncertain.
+- Negative statements such as "we do not collect data" must not be converted into positive `data_collection` claims.
+- A narrow negative statement, such as not storing bug reporter identity, must not be treated as a broad no-data claim.
+- Do not add claims that are not supported by policy text excerpts.
+- After writing the review file, run:
+
+```text
+node tools/external_policy_claim_review_linter.js ./privacy_workspace
+```
+
+If the linter fails, fix the review before Step 10.
+
 ## Step 9: Chrome Web Store Declared-vs-Observed Comparison (Prompt 3)
 
 **Purpose**: Compare Chrome Web Store declared privacy data against observed privacy behavior from the extension summary.
@@ -1228,6 +1335,8 @@ Mandatory reference:
 Inputs:
 
 - External privacy policy data from Step 8 / `declared_privacy.json`, if available.
+- `privacy_workspace/external_policy_claims_review.json`, if Step 8B created it.
+- `privacy_workspace/external_policy_claims.json`, draft fallback only if Step 8B is blocked.
 - `privacy_workspace/extension_summary.json`
 
 Observed behavior source priority:
@@ -1246,6 +1355,9 @@ Rules:
 
 - If no external privacy policy exists or can be retrieved, stop this step gracefully.
 - Do not create `external_privacy_comparison.json` when there is no external policy input.
+- When `external_policy_claims_review.json` exists, use its `final_claims[]` as the primary external-policy representation.
+- Fall back to `external_policy_claims.json.claims[]` only when review is blocked and the blocker is documented.
+- Fall back to `declared_privacy.json.external_privacy_policy.detected_data_categories`, `developer_statements`, and `privacy_text` only when both claims files are unavailable or incomplete.
 - Record the skip reason in `scan_log.txt`.
 - Do not fabricate policy text, policy URLs, or policy claims.
 
@@ -1261,6 +1373,8 @@ Mandatory reference:
 Inputs:
 
 - `privacy_workspace/declared_privacy.json`
+- `privacy_workspace/external_policy_claims_review.json`, if Step 8B created it
+- `privacy_workspace/external_policy_claims.json`, draft fallback only if Step 8B is blocked
 - `privacy_workspace/privacy_comparison.json`
 - `privacy_workspace/external_privacy_comparison.json`, only when created by Step 10
 
@@ -1274,6 +1388,8 @@ Rules:
 
 - If no external privacy policy exists, skip this step gracefully.
 - If Step 10 did not create `external_privacy_comparison.json`, do not create this output.
+- When `external_policy_claims_review.json` exists, use its `final_claims[]` as the primary source for external policy categories, explicit claims, and claim evidence.
+- Use draft `external_policy_claims.json` only as a documented fallback.
 - Do not re-scan source code in this comparison step.
 - Do not invent missing internal declarations or external policy statements.
 - Record completion or skip reason in `scan_log.txt`.
@@ -1344,7 +1460,7 @@ Rules:
 observed_privacy_data:Edited Document Text;risk:pii_exfiltration;workflow:Realtime Text Checking;endpoint:wss://capi.grammarly.com;storage:AuthToken
 ```
 
-- Valid source prefixes include `observed_privacy_data`, `risk`, `workflow`, `endpoint`, `message`, `storage`, `permission`, `semantic_architecture`, `privacy_comparison`, `external_policy_comparison`, and `manifest`.
+- Valid source prefixes include `observed_privacy_data`, `risk`, `workflow`, `endpoint`, `message`, `storage`, `permission`, `semantic_architecture`, `privacy_comparison`, `external_policy_comparison`, `external_policy_claim`, and `manifest`.
 - Every `critical_mechanism` and `supporting_mechanism` row must have at least one meaningful `derived_from_findings` reference. If the row cannot be traced to a source finding, mark it `uncertain_needs_followup` or reject/merge it.
 - Do not invent policy clauses. Every `policy_clause_ids` value must exist in the structured policy JSON.
 - A risk can map to several critical mechanisms, and one mechanism can support several policy findings. Keep merges explicit.
@@ -1419,6 +1535,7 @@ Allowed statuses:
 Status rules:
 
 - Use `confirmed_breach` only when source behavior and disclosure/declaration/policy evidence together prove a concrete policy conflict.
+- Use `confirmed_breach` for direct disclosure conflicts: Chrome Web Store declarations or an external policy claim no data/no category/no collection, while observed source analysis shows concrete privacy-relevant data flows for that category.
 - Use `likely_breach` when the code and available disclosure evidence strongly indicate a conflict but one non-critical input is incomplete.
 - Use `possible_breach` when the code shows behavior that could conflict with a policy clause, but store listing, consent, declared privacy, or external policy evidence is incomplete.
 - Use `compliance_concern` when the behavior is policy-relevant but not enough to argue a breach.
@@ -1430,6 +1547,7 @@ Argument rules:
 - Do not treat every technical risk as a policy breach.
 - Do not rely on mechanism IDs alone. `source_finding_refs` must point back to the original privacy items, risks, workflows, endpoints, messages, storage keys, permissions, semantic rows, or privacy-suite comparison findings used for the policy argument.
 - Do not write "fully compliant" unless all relevant disclosure, consent, listing, external privacy policy, and code evidence are available and consistent.
+- Do not downplay a direct disclosure mismatch with wording such as "not a breach" or "supports compliance" when observed privacy data contradicts declared no-data/no-category claims.
 - Prefer `"unknown"` or `not_enough_evidence` when dashboard fields, store listing text, consent UI, or external policy text are unavailable.
 - Cite specific policy clause IDs and explain why the observed behavior matches or does not match the clause.
 - Include missing information explicitly, for example: store listing text unavailable, privacy policy unavailable, no consent UI evidence, or backend purpose unknown.
@@ -1450,6 +1568,43 @@ After creating `policy_compliance_report.json`, update `OUT_DIR/extension_summar
 ```
 
 The top-level summary is additive. It must not overwrite `privacy.policy_compliance`, `observed_privacy_data`, `risks`, or privacy-suite outputs.
+
+## Step 13A: External Privacy Policy Claims vs Chrome Web Store Policy
+
+**Purpose**: Check whether the developer's own external privacy policy claims describe uses or transfers that are policy-relevant under Chrome Web Store Program Policies.
+
+This step compares external policy text to Google policy clauses. It does not prove the extension performs those behaviors; observed source-code behavior remains covered by Steps 0-7 and Step 13.
+
+Inputs:
+
+- `privacy_workspace/external_policy_claims_review.json`, preferred when Step 8B created it
+- `privacy_workspace/external_policy_claims.json`, draft fallback only if review is blocked
+- `docs/policies/chrome_webstore_program_policies.json`
+- `tools/compare_external_policy_claims_to_google_policy.js`
+
+Execution rules:
+
+- If neither reviewed nor draft external policy claims exist, skip gracefully and record the skip in `scan_log.txt`.
+- If draft claims exist but `external_policy_claims_review.json` is missing, run `node tools/external_policy_claim_review_linter.js ./privacy_workspace`; if it fails, create or fix the review before using draft claims.
+- Run:
+
+```text
+node tools/compare_external_policy_claims_to_google_policy.js ./privacy_workspace docs/policies/chrome_webstore_program_policies.json
+```
+
+- Expected conditional output:
+
+```text
+privacy_workspace/external_policy_google_policy_comparison.json
+```
+
+Rules:
+
+- Every finding must cite one or more `claim_id` values from `external_policy_claims_review.json.final_claims[]` when available.
+- Every finding must cite one or more clause IDs that exist in `docs/policies/chrome_webstore_program_policies.json`.
+- Use cautious statuses such as `possible_policy_conflict`, `compliance_concern`, `not_enough_evidence`, or `no_conflict`.
+- Do not call an external policy claim a confirmed extension behavior unless the observed source-code analysis independently supports it.
+- Do not convert every external policy claim into a policy problem. Security handling, local processing, or no-collection claims may be `no_conflict` unless contradicted elsewhere.
 
 ## Step 14: Final Validation
 
@@ -1496,6 +1651,8 @@ Before declaring the run complete, confirm:
 - if no extension ID or external policy was available, privacy-suite skips are recorded in `scan_log.txt`
 - Step 12 critical mechanism mapping exists or the absence of policy-relevant mechanisms is documented
 - Step 13 policy compliance report exists and uses concrete Chrome Web Store policy clause IDs
+- if an external privacy policy was retrieved, Step 8A claim extraction completed or the skip/blocker is documented
+- if `external_policy_claims.json` exists, Step 13A external-policy-vs-Google-policy comparison completed or the blocker is documented
 - Step 14 policy compliance validation passed or has a documented blocker
 
 ## Fallback Rules

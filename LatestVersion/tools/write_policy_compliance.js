@@ -108,7 +108,7 @@ async function main() {
     summary: {
       critical_mechanisms_count: 5,
       findings_count: 4,
-      confirmed_breaches_count: 0,
+      confirmed_breaches_count: 1,
       likely_breaches_count: 0,
       possible_breaches_count: 0,
       not_enough_evidence_count: 0
@@ -126,7 +126,7 @@ async function main() {
           { file: "extension/manifest.json", start: 142, end: 142 },
           { file: "extension/manifest.json", start: 149, end: 150 }
         ],
-        breach_argument: "Under CWS_PRIVACY_PERMISSIONS_1, developers must request only the narrowest possible permissions necessary. Requesting <all_urls> is technically broad, but is justified here for a general video downloader that needs to sniff media segments and run content scripts on any video website. Discovered permissions are reasonable.",
+        breach_argument: "Under CWS_PRIVACY_PERMISSIONS_1, developers must request only the narrowest possible permissions necessary. The <all_urls> permission is a broad policy-relevant surface because it enables media detection across arbitrary sites. The scan treats this as a compliance concern requiring justification and user-facing disclosure; this finding is not used to prove the disclosure breach by itself.",
         confidence: "high",
         missing_info: "",
         disclosure_evidence: "manifest.json host_permissions",
@@ -144,7 +144,7 @@ async function main() {
         evidence: [
           { file: "extension/injected/youtube.js", start: 110, end: 115 }
         ],
-        breach_argument: "Under CWS_PRIVACY_LIMITED_USE_3, collection and use of browsing activity is restricted. The extension captures watched media stream links, which maps to browsing history. However, this is used for a prominently disclosed user-facing feature (video downloads UI list), is kept completely locally, and is not uploaded to any third party. Thus, this is a compliance concern but not a breach.",
+        breach_argument: "Under CWS_PRIVACY_LIMITED_USE_3, collection and use of browsing activity is restricted. The extension captures watched media stream links, which map to browsing activity/web history. This behavior is policy-relevant even when used for a core download feature and even when locally processed. The stronger breach argument is the separate disclosure mismatch finding: the developer declarations do not disclose the observed category.",
         confidence: "high",
         missing_info: "",
         disclosure_evidence: "manifest.json permissions description",
@@ -153,21 +153,21 @@ async function main() {
       },
       {
         finding_id: "F003",
-        status: "compliance_concern",
-        policy_clause_ids: ["CWS_LISTING_3"],
+        status: "confirmed_breach",
+        policy_clause_ids: ["CWS_LISTING_3", "CWS_PRIVACY_POLICY_2A", "CWS_PRIVACY_DISCLOSURE_1"],
         policy_area: "Listing Accuracy - Privacy Practice Disclosures",
         mechanism_ids: ["M001", "M002", "M003"],
-        source_finding_refs: ["privacy_comparison:captured_media_urls", "privacy_comparison:watched_video_titles"],
-        observed_behavior: "The CWS privacy practices dashboard lists no categories (empty) under declared privacy categories.",
+        source_finding_refs: ["privacy_comparison:captured_media_urls", "privacy_comparison:watched_video_titles", "privacy_comparison:activation_licensing_tokens", "external_policy_claim:no_collection_claim"],
+        observed_behavior: "The CWS privacy practices dashboard lists no categories and the external privacy policy says no data is collected, while observed privacy analysis found captured media URLs, watched video titles, and activation/licensing tokens.",
         evidence: [
           { file: "extension/manifest.json", start: 142, end: 150 }
         ],
-        breach_argument: "Under CWS_LISTING_3, product declarations must be accurate. The developer declared zero categories on CWS, but captures video URLs and titles locally in memory to operate downloading. Since everything stays completely local and no data is harvested or sent to external servers, this is a minor compliance concern rather than a confirmed breach.",
+        breach_argument: "Under CWS_LISTING_3 and the privacy disclosure requirements, product declarations must be accurate. The available disclosures say no categories/no data collection, but the observed analysis found concrete privacy-relevant data flows: media URLs, watched titles, and activation/licensing tokens. This is a direct disclosure conflict, so the report treats it as a confirmed breach of disclosure/listing accuracy based on the available artifacts.",
         confidence: "high",
         missing_info: "",
         disclosure_evidence: "CWS Privacy practices dashboard",
         declared_privacy_evidence: "privacy_workspace/declared_privacy.json:declared_data_categories",
-        external_policy_evidence: "privacy_workspace/declared_privacy.json:external_privacy_policy"
+        external_policy_evidence: "privacy_workspace/external_policy_claims.json:no_collection_claim"
       },
       {
         finding_id: "F004",
@@ -180,7 +180,7 @@ async function main() {
         evidence: [
           { file: "extension/service/main.js", start: 1, end: 10 }
         ],
-        breach_argument: "Under CWS_MV3_REMOTE_LOGIC_1, extensions must not load or execute dynamic remote code that alters behavior. Video DownloadHelper executes YouTube player deciphering scripts dynamically, which are technically remote configurations. However, it mitigates this by running the scripts strictly inside a sandboxed WebAssembly virtual machine context (QuickJS-emscripten), denying the scripts any access to browser APIs or extension capabilities. Available evidence supports compliance.",
+        breach_argument: "Under CWS_MV3_REMOTE_LOGIC_1, extensions must not load or execute dynamic remote code that alters behavior. The scan found dynamic YouTube decipher execution inside a QuickJS WebAssembly sandbox. That sandbox is a mitigating detail, but the behavior remains policy-relevant and should be reviewed as remote-logic-like execution rather than described as compliant by default.",
         confidence: "high",
         missing_info: "",
         disclosure_evidence: "manifest.json content_security_policy",
