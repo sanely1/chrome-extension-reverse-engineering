@@ -100,7 +100,7 @@ function endpointScore(row) {
   if (/manifest_csp_report_uri/i.test(row.source_hint || row.context || '')) score += 4;
   if (/manifest_csp/i.test(row.source_hint || '') && !/report_uri/.test(row.source_hint || '')) score += 1;
   if (hasRuntimeNetworkEvidence(row)) score += 4;
-  if (/\b(api|auth|oauth|token|userinfo|gateway|telemetry|metric|metrics|event|events|log|crash|batch|import|config|dynamicconfig|gate|gates|treatment|graphql|rpc|sync|beacon|privacy|subscription|account|cookie|session|dox|capi|gnar|femetrics|sentry|mixpanel|iterable|segment|amplitude|data)\b/i.test(text)) score += 2;
+  if (/\b(api|auth|oauth|token|userinfo|gateway|telemetry|metric|metrics|event|events|log|crash|batch|import|config|dynamicconfig|gate|gates|treatment|graphql|rpc|sync|beacon|privacy|subscription|account|cookie|session|document|text|editor|assistant|realtime|transport|sentry|mixpanel|iterable|segment|amplitude|data)\b/i.test(text)) score += 2;
   if (row.method && !/unknown/i.test(row.method)) score += 1;
   return score;
 }

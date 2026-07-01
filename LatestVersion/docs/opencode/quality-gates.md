@@ -1,4 +1,4 @@
-# Quality Gates
+﻿# Quality Gates
 
 Use these gates before declaring a run complete.
 
@@ -144,7 +144,7 @@ For large bundled extensions, a small workflow list is acceptable only when `wor
 - Privacy/risk analysis must use the reviewed signal set. Do not base final privacy/risk only on `privacy.data_categories`, only on declared store privacy labels, or only on a short narrative workflow summary.
 - Do not use fixed numeric minimums to force extra privacy items or risks. A small final set is acceptable only when the candidate reviews and audit explain why other semantic signals were rejected, merged, or uncertain.
 - Use `mitigated_low_risk` instead of `rejected_candidate` when the behavior is real and privacy/security-relevant but mitigated, optional, user-triggered, encrypted, local-only, or not proven harmful. These rows should remain visible in final `risks` with low severity.
-- Unsupported policy/compliance claims such as “fully compliant” are forbidden unless directly evidenced. Use `"unknown"` when compliance cannot be determined from code.
+- Unsupported policy/compliance claims such as â€œfully compliantâ€ are forbidden unless directly evidenced. Use `"unknown"` when compliance cannot be determined from code.
 - Final privacy/risk evidence ranges wider than 80 lines are a failure unless `privacy_risk_evidence_review.csv` justifies them and `census/privacy_risk_audit.md` explains why narrower evidence was not possible.
 - Final privacy/risk evidence must not cite huge minified original JavaScript as bare `1-1`, `1-2`, or `2-2`. Beautify the evidence-bearing file and cite the beautified line range in final JSON.
 - The anchor, matched snippet, offset, or context in `privacy_risk_evidence_review.csv` must be traceable to the original source file. If the final evidence cites a beautified file, the review row must preserve the original file/range and the original anchor.
@@ -156,7 +156,7 @@ For large bundled extensions, a small workflow list is acceptable only when `wor
 
 ## Gate 9: Original Workflow Parity
 
-- The migrated OpenCode workflow must preserve the original prompt's main stages: beautification, inventory, parsing/chunking, intermediate tables, components/flows, core workflows, privacy/security/compliance, final JSON, and validation.
+- The OpenCode workflow must preserve the core analysis stages: beautification, inventory, parsing/chunking, intermediate tables, components/flows, core workflows, privacy/security/compliance, final JSON, and validation.
 - Do not shorten a stage so much that required extraction details disappear.
 - Privacy additions are allowed only as additive requirements inside the existing scan and synthesis path.
 
@@ -216,16 +216,5 @@ For large bundled extensions, a small workflow list is acceptable only when `wor
 - Add a short top-level `policy_compliance` object to `extension_summary.json` pointing to `policy_compliance_report.json`; do not overwrite `privacy.policy_compliance`.
 - Run `node tools/policy_compliance_linter.js OUT_DIR` after writing `policy_compliance_report.json` and updating `extension_summary.json`.
 - A policy-compliance linter failure is a quality-gate failure unless a real missing-input blocker is documented in `scan_log.txt`.
-
-## Gate 15: External Policy Claims vs Google Policy
-
-- If `privacy_workspace/external_policy_claims.json` exists, run `node tools/compare_external_policy_claims_to_google_policy.js ./privacy_workspace docs/policies/chrome_webstore_program_policies.json`.
-- The expected output is `privacy_workspace/external_policy_google_policy_comparison.json`.
-- Prefer `privacy_workspace/external_policy_claims_review.json.final_claims[]` over draft `external_policy_claims.json.claims[]`.
-- Every review row must cite a real `claim_id` from `external_policy_claims_review.json.final_claims[]` when the review file exists.
-- Every `policy_clause_ids[]` entry must exist in `docs/policies/chrome_webstore_program_policies.json`.
-- This step compares policy text against Google policy clauses; it must not assert that the extension performs a behavior unless observed evidence in `extension_summary.json`, Prompt 3, Prompt 4, Prompt 5, or `policy_compliance_report.json` supports that separately.
-- Use cautious statuses: `confirmed_policy_conflict`, `possible_policy_conflict`, `compliance_concern`, `not_enough_evidence`, or `no_conflict`.
-- Do not force a fixed number of findings. A small or empty finding set is acceptable when the claim reviews explain why claims are benign, local-only, security-supporting, or not policy-relevant.
 
 

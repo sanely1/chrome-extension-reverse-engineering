@@ -86,8 +86,7 @@ Behavior requirements:
 - Each policy finding must include `source_finding_refs` so the policy conclusion can be traced back to the original privacy/risk/workflow/endpoint/message/storage/permission findings, not only to mechanism IDs.
 - Do not use absolute compliance/downplaying language such as "fully compliant", "fully conforms", "this is compliant", "not a breach", or "supports compliance" when observed privacy data contradicts declared no-data/no-category claims.
 - Add the short top-level `policy_compliance` object to `extension_summary.json` pointing to `policy_compliance_report.json`; do not overwrite `privacy.policy_compliance`.
-- After Step 13, if `privacy_workspace/external_policy_claims_review.json` or `privacy_workspace/external_policy_claims.json` exists, run `node tools/compare_external_policy_claims_to_google_policy.js ./privacy_workspace docs/policies/chrome_webstore_program_policies.json` and create `privacy_workspace/external_policy_google_policy_comparison.json`.
-- The external-policy Google-policy comparison must cite external claim IDs and Chrome Web Store policy clause IDs. It must not claim observed extension behavior unless the main reverse-engineering outputs independently support that behavior.
+- Do not run a separate external-privacy-policy-vs-Google-policy comparison. Reviewed external policy claims remain inputs for Prompt 4 and Prompt 5 privacy disclosure comparisons only.
 - During Step 14, run `node tools/policy_compliance_linter.js OUT_DIR` and fix unknown clause IDs, invalid statuses, missing critical mechanisms, or unsupported confirmed breach claims before declaring completion.
 
 Working style:

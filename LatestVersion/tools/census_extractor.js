@@ -406,7 +406,7 @@ function looksLikeRoute(s) {
   if (/^\/\//.test(s)) return false;
   if (/\.(png|jpg|jpeg|gif|svg|css|js|mjs|html|woff2?|ttf|map)$/i.test(s)) return false;
   if (/^\/(div|span|body|html|head|button|input|svg|path)(\b|[.#\[])/i.test(s)) return false;
-  return /(api|v\d+|oauth|auth|login|user|profile|track|event|metric|log|batch|import|config|sync|graphql|rpc|message|coupon|cart|checkout|telemetry|crash|collect|beacon|token|userinfo|session|document|dox|gateway|gate|gates|treatment|trial|signin|signup|subscribe|plans|special-offers|upgrade|defs|dictionary)/i.test(s);
+  return /(api|v\d+|oauth|auth|login|user|profile|track|event|metric|log|batch|import|config|sync|graphql|rpc|message|coupon|cart|checkout|telemetry|crash|collect|beacon|token|userinfo|session|document|text|editor|gateway|gate|gates|treatment|trial|signin|signup|subscribe|plans|special-offers|upgrade|defs|dictionary)/i.test(s);
 }
 
 function detectMethod(context) {
@@ -429,10 +429,10 @@ function routeDomainHints(route, domains) {
     if (/auth|oauth|token|userinfo|login|session|revoke/.test(r)) return /auth|account|login|identity|user/.test(x);
     if (/gates?\/|\/gates?|gate/.test(r)) return /gate/.test(x);
     if (/treatment|experiment|variant/.test(r)) return /treatment|experiment|config|flag/.test(x);
-    if (/\/api\/defs|dictionary|definition/.test(r)) return /^capi\.|\.capi\.|dictionary|defs/.test(x);
-    if (/log|metric|track|telemetry|event|beacon|crash|collect|batch|import/.test(r)) return /metric|log|track|telemetry|analytics|mixpanel|iterable|segment|amplitude|sentry|datadog|stats|femetrics|gnar/.test(x);
+    if (/\/api\/defs|dictionary|definition/.test(r)) return /api|dictionary|defs|definition/.test(x);
+    if (/log|metric|track|telemetry|event|beacon|crash|collect|batch|import/.test(r)) return /metric|log|track|telemetry|analytics|mixpanel|iterable|segment|amplitude|sentry|datadog|stats|observability|monitoring/.test(x);
     if (/config|feature|flag|dynamic|page_config/.test(r)) return /config|cms|feature|experiment|cdn|assets/.test(x);
-    if (/document|dox|grammar|check|suggest|rewrite|ai|gateway|graphql/.test(r)) return /api|gateway|capi|dox|ai|graphql|grammarly/.test(x);
+    if (/document|text|editor|draft|check|suggest|rewrite|assist|ai|gateway|graphql|completion|model|inference|nlp/.test(r)) return /api|gateway|graphql|ai|ml|model|inference|nlp|text|editor|assistant|service|backend/.test(x);
     return false;
   });
   return filtered.slice(0, 12);

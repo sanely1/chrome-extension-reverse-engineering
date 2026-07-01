@@ -1,6 +1,6 @@
-# Analysis Workflow
+﻿# Analysis Workflow
 
-This workflow intentionally preserves the original prompt's seven-step structure. The privacy data-flow section is additive: it must not replace or weaken the original behavior analysis, workflow extraction, privacy summary, security/risk analysis, or validation steps.
+This workflow follows the core seven-step reverse-engineering structure. The privacy data-flow section is additive: it must not replace or weaken the core behavior analysis, workflow extraction, privacy summary, security/risk analysis, or validation steps.
 
 ## Run Setup
 
@@ -25,7 +25,7 @@ This workflow intentionally preserves the original prompt's seven-step structure
 
 ## Step 0: Setup For Selective Beautification
 
-**Purpose**: Preserve the original prompt's early beautification intent without wasting time on every bundled asset.
+**Purpose**: Preserve early selective beautification without wasting time on every bundled asset.
 
 Do not beautify every `.js` / `.mjs` file in the extension. Large extensions often contain hundreds of lazy chunks and asset files. Broad beautification is slow and can hide the real evidence workflow.
 
@@ -164,7 +164,7 @@ Immediately after this succeeds, run selective runtime beautification:
 node tools/create_beautify_map.js OUT_DIR ./extension
 ```
 
-This is the early beautification step preserved from the original prompt, but scoped to runtime-relevant files instead of every JavaScript asset.
+This is the early beautification step in the core analysis pipeline, scoped to runtime-relevant files instead of every JavaScript asset.
 
 `source_file_inventory.csv` is the scope decision: it records which JavaScript files are considered runtime-relevant and why. `source_chunks.csv` is the full automated source coverage queue. It is not, by itself, proof that the LLM manually read every line.
 
@@ -1567,44 +1567,7 @@ After creating `policy_compliance_report.json`, update `OUT_DIR/extension_summar
 }
 ```
 
-The top-level summary is additive. It must not overwrite `privacy.policy_compliance`, `observed_privacy_data`, `risks`, or privacy-suite outputs.
-
-## Step 13A: External Privacy Policy Claims vs Chrome Web Store Policy
-
-**Purpose**: Check whether the developer's own external privacy policy claims describe uses or transfers that are policy-relevant under Chrome Web Store Program Policies.
-
-This step compares external policy text to Google policy clauses. It does not prove the extension performs those behaviors; observed source-code behavior remains covered by Steps 0-7 and Step 13.
-
-Inputs:
-
-- `privacy_workspace/external_policy_claims_review.json`, preferred when Step 8B created it
-- `privacy_workspace/external_policy_claims.json`, draft fallback only if review is blocked
-- `docs/policies/chrome_webstore_program_policies.json`
-- `tools/compare_external_policy_claims_to_google_policy.js`
-
-Execution rules:
-
-- If neither reviewed nor draft external policy claims exist, skip gracefully and record the skip in `scan_log.txt`.
-- If draft claims exist but `external_policy_claims_review.json` is missing, run `node tools/external_policy_claim_review_linter.js ./privacy_workspace`; if it fails, create or fix the review before using draft claims.
-- Run:
-
-```text
-node tools/compare_external_policy_claims_to_google_policy.js ./privacy_workspace docs/policies/chrome_webstore_program_policies.json
-```
-
-- Expected conditional output:
-
-```text
-privacy_workspace/external_policy_google_policy_comparison.json
-```
-
-Rules:
-
-- Every finding must cite one or more `claim_id` values from `external_policy_claims_review.json.final_claims[]` when available.
-- Every finding must cite one or more clause IDs that exist in `docs/policies/chrome_webstore_program_policies.json`.
-- Use cautious statuses such as `possible_policy_conflict`, `compliance_concern`, `not_enough_evidence`, or `no_conflict`.
-- Do not call an external policy claim a confirmed extension behavior unless the observed source-code analysis independently supports it.
-- Do not convert every external policy claim into a policy problem. Security handling, local processing, or no-collection claims may be `no_conflict` unless contradicted elsewhere.
+The top-level summary is additive. It must not overwrite `privacy.policy_compliance`, `observed_privacy_data`, `risks`, or privacy-suite outputs. Do not run a separate external-privacy-policy-vs-Google-policy comparison; external policy claims are used only for Prompt 4 and Prompt 5 privacy disclosure comparisons.
 
 ## Step 14: Final Validation
 
@@ -1652,7 +1615,6 @@ Before declaring the run complete, confirm:
 - Step 12 critical mechanism mapping exists or the absence of policy-relevant mechanisms is documented
 - Step 13 policy compliance report exists and uses concrete Chrome Web Store policy clause IDs
 - if an external privacy policy was retrieved, Step 8A claim extraction completed or the skip/blocker is documented
-- if `external_policy_claims.json` exists, Step 13A external-policy-vs-Google-policy comparison completed or the blocker is documented
 - Step 14 policy compliance validation passed or has a documented blocker
 
 ## Fallback Rules

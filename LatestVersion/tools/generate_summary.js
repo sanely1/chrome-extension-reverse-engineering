@@ -113,9 +113,9 @@ function decisionIs(row, allowed) {
 
 function inferEndpointPurpose(url) {
   const u = String(url || "").toLowerCase();
-  if (/wss?:\/\/|\/fpws|capi/.test(u)) return "Realtime service communication or document analysis transport";
+  if (/wss?:\/\/|websocket|\/ws\b|\/socket\b|\/realtime\b|\/stream\b|\/transport\b/.test(u)) return "Realtime service communication or document analysis transport";
   if (/auth|oauth|login|account|subscription/.test(u)) return "Authentication, account, or subscription service";
-  if (/log|metric|telemetry|femetrics|gnar|sentry|beacon/.test(u)) return "Telemetry, analytics, logging, or diagnostics";
+  if (/log|metric|telemetry|analytics|sentry|beacon|observability|monitoring/.test(u)) return "Telemetry, analytics, logging, or diagnostics";
   if (/config|treatment|gate|feature|policy/.test(u)) return "Remote configuration, treatment, or feature-gating";
   if (/asset|cdn|font|image|static|bundle|cloudfront|applet/.test(u)) return "Static asset or UI bundle loading";
   if (/skill|assistant|rewrite|ai/.test(u)) return "Assistant or writing feature service";

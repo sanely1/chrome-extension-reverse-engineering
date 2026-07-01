@@ -144,8 +144,6 @@ const signalPatterns = [
       /\btrack(ing)?\b/i,
       /\blog(Event|ger)?\b/i,
       /\bbeacon\b/i,
-      /\bfemetrics\b/i,
-      /\bgnar\b/i,
       /\bsentry\b/i,
       /\bmixpanel\b/i,
     ],

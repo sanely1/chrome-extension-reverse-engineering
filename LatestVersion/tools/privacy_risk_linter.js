@@ -274,7 +274,7 @@ if (/\b(fully compliant|compliant with|is compliant|gdpr compliant|ccpa complian
 }
 
 const hasTelemetry =
-  /(analytics|telemetry|metrics|metric|track|tracking|log|logger|sentry|femetrics|gnar|beacon)/i.test(
+  /(analytics|telemetry|metrics|metric|track|tracking|log|logger|sentry|beacon|observability|monitoring)/i.test(
     allEndpointText + allMessageText + allStorageText + allWorkflowText
   );
 if (hasTelemetry && !/tracking|telemetry|analytics|metric|log|behavior/i.test(allPrivacyText + allRiskText)) {

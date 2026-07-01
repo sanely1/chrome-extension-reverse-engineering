@@ -41,7 +41,7 @@ This project analyzes Chrome extensions, primarily Manifest V3, to produce struc
 - Policy analysis must cite specific clause IDs from `docs/policies/chrome_webstore_program_policies.json`. Do not claim a confirmed policy breach unless source behavior and disclosure/declaration/policy evidence prove the conflict.
 - If Chrome Web Store declarations or an external privacy policy claim no data collection/no relevant categories, and `observed_privacy_data.items` or Prompt 3/4 comparisons show concrete privacy-relevant data flows, treat that as a disclosure/listing accuracy breach rather than a soft concern. Use `confirmed_breach` when the observed flow and contradictory disclosure are both evidenced.
 - Critical mechanisms must include `derived_from_findings` references back to original privacy/risk/workflow/endpoint/message/storage/permission findings. Policy findings must include `source_finding_refs`; mechanism IDs alone are not enough.
-- If reviewed or draft external policy claims exist, run `node tools/compare_external_policy_claims_to_google_policy.js ./privacy_workspace docs/policies/chrome_webstore_program_policies.json` after regular policy compliance analysis. This output compares external policy claims to Google policy clauses and must not assert observed extension behavior without independent code-analysis support.
+- Do not run a separate external-privacy-policy-vs-Google-policy comparison. Reviewed external policy claims are used for Prompt 4 and Prompt 5 privacy disclosure comparisons, while the regular policy compliance step remains based on observed findings, disclosure/declaration evidence, and Chrome Web Store policy clauses.
 
 ## MV3 Priorities
 

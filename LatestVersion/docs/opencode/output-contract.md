@@ -204,7 +204,6 @@ Conditional on an external privacy policy being available:
 39. `privacy_workspace/internal_external_privacy_comparison.json`
 40. `privacy_workspace/external_policy_claims.json`
 41. `privacy_workspace/external_policy_claims_review.json`
-42. `privacy_workspace/external_policy_google_policy_comparison.json`
 
 Privacy-suite rules:
 
@@ -217,7 +216,7 @@ Privacy-suite rules:
 - Prompt4 and Prompt5 must use `external_policy_claims_review.json.final_claims[]` as the primary external-policy representation when it exists, falling back to raw `external_privacy_policy.privacy_text` only when reviewed claims are unavailable or incomplete.
 - Prompt3 and Prompt4 comparisons must use `observed_privacy_data.items` as the primary observed-behavior source when present, with older summary fields only as fallback.
 - Prompt3-5 are comparison steps; they must not re-scan source files or weaken the source-evidence requirements of the main reverse-engineering output.
-- `external_policy_google_policy_comparison.json` is conditional on reviewed or draft external policy claims. It must prefer `external_policy_claims_review.json.final_claims[]`, compare external policy claims to Chrome Web Store policy clauses, and must not claim that the extension performs a behavior unless observed-code evidence elsewhere supports it.
+- Do not create a separate external-privacy-policy-vs-Google-policy comparison output. External policy claims are used for external-vs-observed and internal-vs-external privacy comparisons only.
 
 ## Evidence Contract
 

@@ -72,7 +72,7 @@ const CATEGORY_RULES = [
   },
   {
     name: 'telemetry/analytics/errors',
-    signal: /\b(telemetry|analytics|metric|metrics|event|track|tracking|log|logger|gnar|sentry|femetrics|diagnostic|error|crash|beacon|alarm)\b/i,
+    signal: /\b(telemetry|analytics|metric|metrics|event|track|tracking|log|logger|sentry|diagnostic|error|crash|beacon|alarm|observability|monitoring)\b/i,
     workflow: /\b(telemetry|analytics|metric|event|track|log|logger|diagnostic|error|crash|beacon|alarm)\b/i
   },
   {
